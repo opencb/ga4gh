@@ -1,3 +1,5 @@
+![Image](http://www.opencb.org/sites/opencb.org/files/OPENCB_logo_300.png)   ![Image](http://genomicsandhealth.org/files/logo_ga.png)
+
 # OpenCB implementation of GA4GH Schemas
 
 This OpenCB repository implements the Avro schemas from GA4GH. These are available at http://ga4gh.org/#/schemas. This Java library will be versioned with as the Avro schema used.
