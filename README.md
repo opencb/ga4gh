@@ -27,7 +27,7 @@ Currently Java 7 code is generated using the following [Maven](http://maven.apac
             </plugin>
   
 ### How to use it
-You can use this repository in two different ways. First, OpenCB libraries are deployed to [Maven Central Repository](http://search.maven.org/) as you can see at http://search.maven.org/#search%7Cga%7C1%7Copencb. So you only need to add this dependency to your _pom.xml_:
+You will need Java 7+ to run this library. You can use this repository in two different ways. First, OpenCB libraries are deployed to [Maven Central Repository](http://search.maven.org/) as you can see at http://search.maven.org/#search%7Cga%7C1%7Copencb. So you only need to add this dependency to your _pom.xml_:
 
             <dependency>
                 <groupId>org.opencb</groupId>
