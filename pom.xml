@@ -11,6 +11,7 @@
 
     <name>GA4GH project</name>
     <description>This repository implements GA4GH schemas</description>
+    <url>https://github.com/opencb/ga4gh</url>
 
     <properties>
         <compileSource>1.7</compileSource>
@@ -142,7 +143,7 @@
                 <configuration>
                     <serverId>ossrh</serverId>
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <skipLocalStaging>true</skipLocalStaging>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
         </plugins>
