@@ -14,8 +14,7 @@
     <url>https://github.com/opencb/ga4gh</url>
 
     <properties>
-        <compileSource>1.7</compileSource>
-        <biodata.version>0.3.0</biodata.version>
+        <compileSource>1.8</compileSource>
     </properties>
 
     <scm>
