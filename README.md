@@ -1,11 +1,11 @@
 # OpenCB implementation of GA4GH Schemas
 
-This OpenCB repository implements the Avro schemas from GA4GH. These are available at http://ga4gh.org/#/schemas. This Java library will be versioned with as the Avro schema used.
+This OpenCB repository implements the Avro schemas from GA4GH. These are available at http://ga4gh.org/#/schemas. This Java library will be versioned as the Avro schema version used.
 
 ### Code generation
 This version implements GA4GH version **0.5.1**. Avro Schemas are stored in _src/main/resources_ in _avro_ folder at https://github.com/opencb/ga4gh/tree/master/src/main/resources/avro
 
-Currently Java 7 code is generated using the following [Maven](http://maven.apache.org/) plugin:
+Currently Java code is generated using the following [Maven](http://maven.apache.org/) plugin:
 
             <plugin>
                 <groupId>org.apache.avro</groupId>
@@ -27,7 +27,7 @@ Currently Java 7 code is generated using the following [Maven](http://maven.apac
             </plugin>
   
 ### How to use it
-You will need Java 7+ to run this library. You can use this repository in two different ways. First, OpenCB libraries are deployed to [Maven Central Repository](http://search.maven.org/) as you can see at http://search.maven.org/#search%7Cga%7C1%7Copencb. So you only need to add this dependency to your _pom.xml_:
+You can use this repository in two different ways. First, all OpenCB libraries are deployed to [Maven Central Repository](http://search.maven.org/) as you can see at http://search.maven.org/#search%7Cga%7C1%7Copencb. So you only need to add this dependency to your _pom.xml_:
 
             <dependency>
                 <groupId>org.opencb</groupId>
@@ -41,6 +41,7 @@ Second, you can clone this project using Git and use maven to build and install 
             git clone https://github.com/opencb/ga4gh.git
             mvn clean install
 
+Notice that Java 8 is used and deployed in Maven Central Repository.
 
 ![Image](http://www.opencb.org/sites/opencb.org/files/OPENCB_logo_300.png)   ![Image](http://genomicsandhealth.org/files/logo_ga.png)
 
