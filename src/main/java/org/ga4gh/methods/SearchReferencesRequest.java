@@ -9,32 +9,32 @@ package org.ga4gh.methods;
 as JSON. */
 @org.apache.avro.specific.AvroGenerated
 public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchReferencesRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /references/search`\\nas JSON.\",\"fields\":[{\"name\":\"referenceSetId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"If present, return only references which belong to this reference set.\",\"default\":null},{\"name\":\"md5checksums\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"If nonempty, return references which match any of the given `md5checksums`.\\n  See `Reference::md5checksum` for details.\",\"default\":[]},{\"name\":\"parentReferenceIds\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"If nonempty, return references that are joined onto references with one of the\\n  specified IDs.\",\"default\":[]},{\"name\":\"accessions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"If nonempty, return references for which the accession\\n  matches this string. Best to give a version number e.g. `GCF_000001405.26`.\\n  If only the main accession number is given then all records with\\n  that main accession will be returned, whichever version.\\n  Note that different versions will have different sequences.\",\"default\":[]},{\"name\":\"referenceNames\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"If nonempty, return references that have one of the specified names. The name\\n  specified must match the reference's name exactly, and is case sensitive.\",\"default\":[]},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchReferencesRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /references/search`\\nas JSON.\",\"fields\":[{\"name\":\"referenceSetId\",\"type\":[\"null\",\"string\"],\"doc\":\"If present, return only references which belong to this reference set.\",\"default\":null},{\"name\":\"md5checksums\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"If nonempty, return references which match any of the given `md5checksums`.\\n  See `Reference::md5checksum` for details.\",\"default\":[]},{\"name\":\"parentReferenceIds\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"If nonempty, return references that are joined onto references with one of the\\n  specified IDs.\",\"default\":[]},{\"name\":\"accessions\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"If nonempty, return references for which the accession\\n  matches this string. Best to give a version number e.g. `GCF_000001405.26`.\\n  If only the main accession number is given then all records with\\n  that main accession will be returned, whichever version.\\n  Note that different versions will have different sequences.\",\"default\":[]},{\"name\":\"referenceNames\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"If nonempty, return references that have one of the specified names. The name\\n  specified must match the reference's name exactly, and is case sensitive.\",\"default\":[]},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",\"string\"],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** If present, return only references which belong to this reference set. */
-   private java.lang.String referenceSetId;
+   private java.lang.CharSequence referenceSetId;
   /** If nonempty, return references which match any of the given `md5checksums`.
   See `Reference::md5checksum` for details. */
-   private java.util.List<java.lang.String> md5checksums;
+   private java.util.List<java.lang.CharSequence> md5checksums;
   /** If nonempty, return references that are joined onto references with one of the
   specified IDs. */
-   private java.util.List<java.lang.String> parentReferenceIds;
+   private java.util.List<java.lang.CharSequence> parentReferenceIds;
   /** If nonempty, return references for which the accession
   matches this string. Best to give a version number e.g. `GCF_000001405.26`.
   If only the main accession number is given then all records with
   that main accession will be returned, whichever version.
   Note that different versions will have different sequences. */
-   private java.util.List<java.lang.String> accessions;
+   private java.util.List<java.lang.CharSequence> accessions;
   /** If nonempty, return references that have one of the specified names. The name
   specified must match the reference's name exactly, and is case sensitive. */
-   private java.util.List<java.lang.String> referenceNames;
+   private java.util.List<java.lang.CharSequence> referenceNames;
   /** Specifies the maximum number of results to return in a single page.
   If unspecified, a system default will be used. */
    private java.lang.Integer pageSize;
   /** The continuation token, which is used to page through large result sets.
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response. */
-   private java.lang.String pageToken;
+   private java.lang.CharSequence pageToken;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -46,7 +46,7 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
   /**
    * All-args constructor.
    */
-  public SearchReferencesRequest(java.lang.String referenceSetId, java.util.List<java.lang.String> md5checksums, java.util.List<java.lang.String> parentReferenceIds, java.util.List<java.lang.String> accessions, java.util.List<java.lang.String> referenceNames, java.lang.Integer pageSize, java.lang.String pageToken) {
+  public SearchReferencesRequest(java.lang.CharSequence referenceSetId, java.util.List<java.lang.CharSequence> md5checksums, java.util.List<java.lang.CharSequence> parentReferenceIds, java.util.List<java.lang.CharSequence> accessions, java.util.List<java.lang.CharSequence> referenceNames, java.lang.Integer pageSize, java.lang.CharSequence pageToken) {
     this.referenceSetId = referenceSetId;
     this.md5checksums = md5checksums;
     this.parentReferenceIds = parentReferenceIds;
@@ -74,13 +74,13 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: referenceSetId = (java.lang.String)value$; break;
-    case 1: md5checksums = (java.util.List<java.lang.String>)value$; break;
-    case 2: parentReferenceIds = (java.util.List<java.lang.String>)value$; break;
-    case 3: accessions = (java.util.List<java.lang.String>)value$; break;
-    case 4: referenceNames = (java.util.List<java.lang.String>)value$; break;
+    case 0: referenceSetId = (java.lang.CharSequence)value$; break;
+    case 1: md5checksums = (java.util.List<java.lang.CharSequence>)value$; break;
+    case 2: parentReferenceIds = (java.util.List<java.lang.CharSequence>)value$; break;
+    case 3: accessions = (java.util.List<java.lang.CharSequence>)value$; break;
+    case 4: referenceNames = (java.util.List<java.lang.CharSequence>)value$; break;
     case 5: pageSize = (java.lang.Integer)value$; break;
-    case 6: pageToken = (java.lang.String)value$; break;
+    case 6: pageToken = (java.lang.CharSequence)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -88,7 +88,7 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
   /**
    * Gets the value of the 'referenceSetId' field.
    * If present, return only references which belong to this reference set.   */
-  public java.lang.String getReferenceSetId() {
+  public java.lang.CharSequence getReferenceSetId() {
     return referenceSetId;
   }
 
@@ -96,7 +96,7 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
    * Sets the value of the 'referenceSetId' field.
    * If present, return only references which belong to this reference set.   * @param value the value to set.
    */
-  public void setReferenceSetId(java.lang.String value) {
+  public void setReferenceSetId(java.lang.CharSequence value) {
     this.referenceSetId = value;
   }
 
@@ -104,7 +104,7 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
    * Gets the value of the 'md5checksums' field.
    * If nonempty, return references which match any of the given `md5checksums`.
   See `Reference::md5checksum` for details.   */
-  public java.util.List<java.lang.String> getMd5checksums() {
+  public java.util.List<java.lang.CharSequence> getMd5checksums() {
     return md5checksums;
   }
 
@@ -113,7 +113,7 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
    * If nonempty, return references which match any of the given `md5checksums`.
   See `Reference::md5checksum` for details.   * @param value the value to set.
    */
-  public void setMd5checksums(java.util.List<java.lang.String> value) {
+  public void setMd5checksums(java.util.List<java.lang.CharSequence> value) {
     this.md5checksums = value;
   }
 
@@ -121,7 +121,7 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
    * Gets the value of the 'parentReferenceIds' field.
    * If nonempty, return references that are joined onto references with one of the
   specified IDs.   */
-  public java.util.List<java.lang.String> getParentReferenceIds() {
+  public java.util.List<java.lang.CharSequence> getParentReferenceIds() {
     return parentReferenceIds;
   }
 
@@ -130,7 +130,7 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
    * If nonempty, return references that are joined onto references with one of the
   specified IDs.   * @param value the value to set.
    */
-  public void setParentReferenceIds(java.util.List<java.lang.String> value) {
+  public void setParentReferenceIds(java.util.List<java.lang.CharSequence> value) {
     this.parentReferenceIds = value;
   }
 
@@ -141,7 +141,7 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
   If only the main accession number is given then all records with
   that main accession will be returned, whichever version.
   Note that different versions will have different sequences.   */
-  public java.util.List<java.lang.String> getAccessions() {
+  public java.util.List<java.lang.CharSequence> getAccessions() {
     return accessions;
   }
 
@@ -153,7 +153,7 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
   that main accession will be returned, whichever version.
   Note that different versions will have different sequences.   * @param value the value to set.
    */
-  public void setAccessions(java.util.List<java.lang.String> value) {
+  public void setAccessions(java.util.List<java.lang.CharSequence> value) {
     this.accessions = value;
   }
 
@@ -161,7 +161,7 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
    * Gets the value of the 'referenceNames' field.
    * If nonempty, return references that have one of the specified names. The name
   specified must match the reference's name exactly, and is case sensitive.   */
-  public java.util.List<java.lang.String> getReferenceNames() {
+  public java.util.List<java.lang.CharSequence> getReferenceNames() {
     return referenceNames;
   }
 
@@ -170,7 +170,7 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
    * If nonempty, return references that have one of the specified names. The name
   specified must match the reference's name exactly, and is case sensitive.   * @param value the value to set.
    */
-  public void setReferenceNames(java.util.List<java.lang.String> value) {
+  public void setReferenceNames(java.util.List<java.lang.CharSequence> value) {
     this.referenceNames = value;
   }
 
@@ -196,7 +196,7 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
    * The continuation token, which is used to page through large result sets.
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response.   */
-  public java.lang.String getPageToken() {
+  public java.lang.CharSequence getPageToken() {
     return pageToken;
   }
 
@@ -206,7 +206,7 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response.   * @param value the value to set.
    */
-  public void setPageToken(java.lang.String value) {
+  public void setPageToken(java.lang.CharSequence value) {
     this.pageToken = value;
   }
 
@@ -231,13 +231,13 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<SearchReferencesRequest>
     implements org.apache.avro.data.RecordBuilder<SearchReferencesRequest> {
 
-    private java.lang.String referenceSetId;
-    private java.util.List<java.lang.String> md5checksums;
-    private java.util.List<java.lang.String> parentReferenceIds;
-    private java.util.List<java.lang.String> accessions;
-    private java.util.List<java.lang.String> referenceNames;
+    private java.lang.CharSequence referenceSetId;
+    private java.util.List<java.lang.CharSequence> md5checksums;
+    private java.util.List<java.lang.CharSequence> parentReferenceIds;
+    private java.util.List<java.lang.CharSequence> accessions;
+    private java.util.List<java.lang.CharSequence> referenceNames;
     private java.lang.Integer pageSize;
-    private java.lang.String pageToken;
+    private java.lang.CharSequence pageToken;
 
     /** Creates a new Builder */
     private Builder() {
@@ -311,12 +311,12 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
     }
 
     /** Gets the value of the 'referenceSetId' field */
-    public java.lang.String getReferenceSetId() {
+    public java.lang.CharSequence getReferenceSetId() {
       return referenceSetId;
     }
     
     /** Sets the value of the 'referenceSetId' field */
-    public org.ga4gh.methods.SearchReferencesRequest.Builder setReferenceSetId(java.lang.String value) {
+    public org.ga4gh.methods.SearchReferencesRequest.Builder setReferenceSetId(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.referenceSetId = value;
       fieldSetFlags()[0] = true;
@@ -336,12 +336,12 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
     }
 
     /** Gets the value of the 'md5checksums' field */
-    public java.util.List<java.lang.String> getMd5checksums() {
+    public java.util.List<java.lang.CharSequence> getMd5checksums() {
       return md5checksums;
     }
     
     /** Sets the value of the 'md5checksums' field */
-    public org.ga4gh.methods.SearchReferencesRequest.Builder setMd5checksums(java.util.List<java.lang.String> value) {
+    public org.ga4gh.methods.SearchReferencesRequest.Builder setMd5checksums(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[1], value);
       this.md5checksums = value;
       fieldSetFlags()[1] = true;
@@ -361,12 +361,12 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
     }
 
     /** Gets the value of the 'parentReferenceIds' field */
-    public java.util.List<java.lang.String> getParentReferenceIds() {
+    public java.util.List<java.lang.CharSequence> getParentReferenceIds() {
       return parentReferenceIds;
     }
     
     /** Sets the value of the 'parentReferenceIds' field */
-    public org.ga4gh.methods.SearchReferencesRequest.Builder setParentReferenceIds(java.util.List<java.lang.String> value) {
+    public org.ga4gh.methods.SearchReferencesRequest.Builder setParentReferenceIds(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[2], value);
       this.parentReferenceIds = value;
       fieldSetFlags()[2] = true;
@@ -386,12 +386,12 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
     }
 
     /** Gets the value of the 'accessions' field */
-    public java.util.List<java.lang.String> getAccessions() {
+    public java.util.List<java.lang.CharSequence> getAccessions() {
       return accessions;
     }
     
     /** Sets the value of the 'accessions' field */
-    public org.ga4gh.methods.SearchReferencesRequest.Builder setAccessions(java.util.List<java.lang.String> value) {
+    public org.ga4gh.methods.SearchReferencesRequest.Builder setAccessions(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[3], value);
       this.accessions = value;
       fieldSetFlags()[3] = true;
@@ -411,12 +411,12 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
     }
 
     /** Gets the value of the 'referenceNames' field */
-    public java.util.List<java.lang.String> getReferenceNames() {
+    public java.util.List<java.lang.CharSequence> getReferenceNames() {
       return referenceNames;
     }
     
     /** Sets the value of the 'referenceNames' field */
-    public org.ga4gh.methods.SearchReferencesRequest.Builder setReferenceNames(java.util.List<java.lang.String> value) {
+    public org.ga4gh.methods.SearchReferencesRequest.Builder setReferenceNames(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[4], value);
       this.referenceNames = value;
       fieldSetFlags()[4] = true;
@@ -461,12 +461,12 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
     }
 
     /** Gets the value of the 'pageToken' field */
-    public java.lang.String getPageToken() {
+    public java.lang.CharSequence getPageToken() {
       return pageToken;
     }
     
     /** Sets the value of the 'pageToken' field */
-    public org.ga4gh.methods.SearchReferencesRequest.Builder setPageToken(java.lang.String value) {
+    public org.ga4gh.methods.SearchReferencesRequest.Builder setPageToken(java.lang.CharSequence value) {
       validate(fields()[6], value);
       this.pageToken = value;
       fieldSetFlags()[6] = true;
@@ -489,13 +489,13 @@ public class SearchReferencesRequest extends org.apache.avro.specific.SpecificRe
     public SearchReferencesRequest build() {
       try {
         SearchReferencesRequest record = new SearchReferencesRequest();
-        record.referenceSetId = fieldSetFlags()[0] ? this.referenceSetId : (java.lang.String) defaultValue(fields()[0]);
-        record.md5checksums = fieldSetFlags()[1] ? this.md5checksums : (java.util.List<java.lang.String>) defaultValue(fields()[1]);
-        record.parentReferenceIds = fieldSetFlags()[2] ? this.parentReferenceIds : (java.util.List<java.lang.String>) defaultValue(fields()[2]);
-        record.accessions = fieldSetFlags()[3] ? this.accessions : (java.util.List<java.lang.String>) defaultValue(fields()[3]);
-        record.referenceNames = fieldSetFlags()[4] ? this.referenceNames : (java.util.List<java.lang.String>) defaultValue(fields()[4]);
+        record.referenceSetId = fieldSetFlags()[0] ? this.referenceSetId : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.md5checksums = fieldSetFlags()[1] ? this.md5checksums : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[1]);
+        record.parentReferenceIds = fieldSetFlags()[2] ? this.parentReferenceIds : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[2]);
+        record.accessions = fieldSetFlags()[3] ? this.accessions : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[3]);
+        record.referenceNames = fieldSetFlags()[4] ? this.referenceNames : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[4]);
         record.pageSize = fieldSetFlags()[5] ? this.pageSize : (java.lang.Integer) defaultValue(fields()[5]);
-        record.pageToken = fieldSetFlags()[6] ? this.pageToken : (java.lang.String) defaultValue(fields()[6]);
+        record.pageToken = fieldSetFlags()[6] ? this.pageToken : (java.lang.CharSequence) defaultValue(fields()[6]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

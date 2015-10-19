@@ -8,21 +8,21 @@ package org.ga4gh.beacon;
 /** A request for information about a specific site */
 @org.apache.avro.specific.AvroGenerated
 public class QueryResource extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"QueryResource\",\"namespace\":\"org.ga4gh.beacon\",\"doc\":\"A request for information about a specific site\",\"fields\":[{\"name\":\"allele\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Allele string. Use I<seq> for insertions and Dn for deletions, \\n      where <seq> is the nucleotide sequence inserted after position \\n      and n is a number of nucleotides deleted from the reference \\n      starting at position.\"},{\"name\":\"chromosome\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The chromosome of the request\"},{\"name\":\"position\",\"type\":\"long\",\"doc\":\"0-based allele locus\"},{\"name\":\"reference\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The version of the reference\"},{\"name\":\"dataset\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The name of the targeted population\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"QueryResource\",\"namespace\":\"org.ga4gh.beacon\",\"doc\":\"A request for information about a specific site\",\"fields\":[{\"name\":\"allele\",\"type\":\"string\",\"doc\":\"Allele string. Use I<seq> for insertions and Dn for deletions, \\n      where <seq> is the nucleotide sequence inserted after position \\n      and n is a number of nucleotides deleted from the reference \\n      starting at position.\"},{\"name\":\"chromosome\",\"type\":\"string\",\"doc\":\"The chromosome of the request\"},{\"name\":\"position\",\"type\":\"long\",\"doc\":\"0-based allele locus\"},{\"name\":\"reference\",\"type\":\"string\",\"doc\":\"The version of the reference\"},{\"name\":\"dataset\",\"type\":[\"null\",\"string\"],\"doc\":\"The name of the targeted population\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** Allele string. Use I<seq> for insertions and Dn for deletions, 
       where <seq> is the nucleotide sequence inserted after position 
       and n is a number of nucleotides deleted from the reference 
       starting at position. */
-   private java.lang.String allele;
+   private java.lang.CharSequence allele;
   /** The chromosome of the request */
-   private java.lang.String chromosome;
+   private java.lang.CharSequence chromosome;
   /** 0-based allele locus */
    private long position;
   /** The version of the reference */
-   private java.lang.String reference;
+   private java.lang.CharSequence reference;
   /** The name of the targeted population */
-   private java.lang.String dataset;
+   private java.lang.CharSequence dataset;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -34,7 +34,7 @@ public class QueryResource extends org.apache.avro.specific.SpecificRecordBase i
   /**
    * All-args constructor.
    */
-  public QueryResource(java.lang.String allele, java.lang.String chromosome, java.lang.Long position, java.lang.String reference, java.lang.String dataset) {
+  public QueryResource(java.lang.CharSequence allele, java.lang.CharSequence chromosome, java.lang.Long position, java.lang.CharSequence reference, java.lang.CharSequence dataset) {
     this.allele = allele;
     this.chromosome = chromosome;
     this.position = position;
@@ -58,11 +58,11 @@ public class QueryResource extends org.apache.avro.specific.SpecificRecordBase i
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: allele = (java.lang.String)value$; break;
-    case 1: chromosome = (java.lang.String)value$; break;
+    case 0: allele = (java.lang.CharSequence)value$; break;
+    case 1: chromosome = (java.lang.CharSequence)value$; break;
     case 2: position = (java.lang.Long)value$; break;
-    case 3: reference = (java.lang.String)value$; break;
-    case 4: dataset = (java.lang.String)value$; break;
+    case 3: reference = (java.lang.CharSequence)value$; break;
+    case 4: dataset = (java.lang.CharSequence)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -73,7 +73,7 @@ public class QueryResource extends org.apache.avro.specific.SpecificRecordBase i
       where <seq> is the nucleotide sequence inserted after position 
       and n is a number of nucleotides deleted from the reference 
       starting at position.   */
-  public java.lang.String getAllele() {
+  public java.lang.CharSequence getAllele() {
     return allele;
   }
 
@@ -84,14 +84,14 @@ public class QueryResource extends org.apache.avro.specific.SpecificRecordBase i
       and n is a number of nucleotides deleted from the reference 
       starting at position.   * @param value the value to set.
    */
-  public void setAllele(java.lang.String value) {
+  public void setAllele(java.lang.CharSequence value) {
     this.allele = value;
   }
 
   /**
    * Gets the value of the 'chromosome' field.
    * The chromosome of the request   */
-  public java.lang.String getChromosome() {
+  public java.lang.CharSequence getChromosome() {
     return chromosome;
   }
 
@@ -99,7 +99,7 @@ public class QueryResource extends org.apache.avro.specific.SpecificRecordBase i
    * Sets the value of the 'chromosome' field.
    * The chromosome of the request   * @param value the value to set.
    */
-  public void setChromosome(java.lang.String value) {
+  public void setChromosome(java.lang.CharSequence value) {
     this.chromosome = value;
   }
 
@@ -121,7 +121,7 @@ public class QueryResource extends org.apache.avro.specific.SpecificRecordBase i
   /**
    * Gets the value of the 'reference' field.
    * The version of the reference   */
-  public java.lang.String getReference() {
+  public java.lang.CharSequence getReference() {
     return reference;
   }
 
@@ -129,14 +129,14 @@ public class QueryResource extends org.apache.avro.specific.SpecificRecordBase i
    * Sets the value of the 'reference' field.
    * The version of the reference   * @param value the value to set.
    */
-  public void setReference(java.lang.String value) {
+  public void setReference(java.lang.CharSequence value) {
     this.reference = value;
   }
 
   /**
    * Gets the value of the 'dataset' field.
    * The name of the targeted population   */
-  public java.lang.String getDataset() {
+  public java.lang.CharSequence getDataset() {
     return dataset;
   }
 
@@ -144,7 +144,7 @@ public class QueryResource extends org.apache.avro.specific.SpecificRecordBase i
    * Sets the value of the 'dataset' field.
    * The name of the targeted population   * @param value the value to set.
    */
-  public void setDataset(java.lang.String value) {
+  public void setDataset(java.lang.CharSequence value) {
     this.dataset = value;
   }
 
@@ -169,11 +169,11 @@ public class QueryResource extends org.apache.avro.specific.SpecificRecordBase i
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<QueryResource>
     implements org.apache.avro.data.RecordBuilder<QueryResource> {
 
-    private java.lang.String allele;
-    private java.lang.String chromosome;
+    private java.lang.CharSequence allele;
+    private java.lang.CharSequence chromosome;
     private long position;
-    private java.lang.String reference;
-    private java.lang.String dataset;
+    private java.lang.CharSequence reference;
+    private java.lang.CharSequence dataset;
 
     /** Creates a new Builder */
     private Builder() {
@@ -231,12 +231,12 @@ public class QueryResource extends org.apache.avro.specific.SpecificRecordBase i
     }
 
     /** Gets the value of the 'allele' field */
-    public java.lang.String getAllele() {
+    public java.lang.CharSequence getAllele() {
       return allele;
     }
     
     /** Sets the value of the 'allele' field */
-    public org.ga4gh.beacon.QueryResource.Builder setAllele(java.lang.String value) {
+    public org.ga4gh.beacon.QueryResource.Builder setAllele(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.allele = value;
       fieldSetFlags()[0] = true;
@@ -256,12 +256,12 @@ public class QueryResource extends org.apache.avro.specific.SpecificRecordBase i
     }
 
     /** Gets the value of the 'chromosome' field */
-    public java.lang.String getChromosome() {
+    public java.lang.CharSequence getChromosome() {
       return chromosome;
     }
     
     /** Sets the value of the 'chromosome' field */
-    public org.ga4gh.beacon.QueryResource.Builder setChromosome(java.lang.String value) {
+    public org.ga4gh.beacon.QueryResource.Builder setChromosome(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.chromosome = value;
       fieldSetFlags()[1] = true;
@@ -305,12 +305,12 @@ public class QueryResource extends org.apache.avro.specific.SpecificRecordBase i
     }
 
     /** Gets the value of the 'reference' field */
-    public java.lang.String getReference() {
+    public java.lang.CharSequence getReference() {
       return reference;
     }
     
     /** Sets the value of the 'reference' field */
-    public org.ga4gh.beacon.QueryResource.Builder setReference(java.lang.String value) {
+    public org.ga4gh.beacon.QueryResource.Builder setReference(java.lang.CharSequence value) {
       validate(fields()[3], value);
       this.reference = value;
       fieldSetFlags()[3] = true;
@@ -330,12 +330,12 @@ public class QueryResource extends org.apache.avro.specific.SpecificRecordBase i
     }
 
     /** Gets the value of the 'dataset' field */
-    public java.lang.String getDataset() {
+    public java.lang.CharSequence getDataset() {
       return dataset;
     }
     
     /** Sets the value of the 'dataset' field */
-    public org.ga4gh.beacon.QueryResource.Builder setDataset(java.lang.String value) {
+    public org.ga4gh.beacon.QueryResource.Builder setDataset(java.lang.CharSequence value) {
       validate(fields()[4], value);
       this.dataset = value;
       fieldSetFlags()[4] = true;
@@ -358,11 +358,11 @@ public class QueryResource extends org.apache.avro.specific.SpecificRecordBase i
     public QueryResource build() {
       try {
         QueryResource record = new QueryResource();
-        record.allele = fieldSetFlags()[0] ? this.allele : (java.lang.String) defaultValue(fields()[0]);
-        record.chromosome = fieldSetFlags()[1] ? this.chromosome : (java.lang.String) defaultValue(fields()[1]);
+        record.allele = fieldSetFlags()[0] ? this.allele : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.chromosome = fieldSetFlags()[1] ? this.chromosome : (java.lang.CharSequence) defaultValue(fields()[1]);
         record.position = fieldSetFlags()[2] ? this.position : (java.lang.Long) defaultValue(fields()[2]);
-        record.reference = fieldSetFlags()[3] ? this.reference : (java.lang.String) defaultValue(fields()[3]);
-        record.dataset = fieldSetFlags()[4] ? this.dataset : (java.lang.String) defaultValue(fields()[4]);
+        record.reference = fieldSetFlags()[3] ? this.reference : (java.lang.CharSequence) defaultValue(fields()[3]);
+        record.dataset = fieldSetFlags()[4] ? this.dataset : (java.lang.CharSequence) defaultValue(fields()[4]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

@@ -9,18 +9,18 @@ package org.ga4gh.methods;
 JSON. */
 @org.apache.avro.specific.AvroGenerated
 public class SearchVariantSetSequencesRequest extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchVariantSetSequencesRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /variantsets/{id}/sequences/search` as\\nJSON.\",\"fields\":[{\"name\":\"parentIds\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"If nonempty, return `Segment`s describing novel sequences in the `VariantSet`\\n  that are joined onto sequences with one of the specified IDs.\",\"default\":[]},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchVariantSetSequencesRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /variantsets/{id}/sequences/search` as\\nJSON.\",\"fields\":[{\"name\":\"parentIds\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"If nonempty, return `Segment`s describing novel sequences in the `VariantSet`\\n  that are joined onto sequences with one of the specified IDs.\",\"default\":[]},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",\"string\"],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** If nonempty, return `Segment`s describing novel sequences in the `VariantSet`
   that are joined onto sequences with one of the specified IDs. */
-   private java.util.List<java.lang.String> parentIds;
+   private java.util.List<java.lang.CharSequence> parentIds;
   /** Specifies the maximum number of results to return in a single page.
   If unspecified, a system default will be used. */
    private java.lang.Integer pageSize;
   /** The continuation token, which is used to page through large result sets.
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response. */
-   private java.lang.String pageToken;
+   private java.lang.CharSequence pageToken;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -32,7 +32,7 @@ public class SearchVariantSetSequencesRequest extends org.apache.avro.specific.S
   /**
    * All-args constructor.
    */
-  public SearchVariantSetSequencesRequest(java.util.List<java.lang.String> parentIds, java.lang.Integer pageSize, java.lang.String pageToken) {
+  public SearchVariantSetSequencesRequest(java.util.List<java.lang.CharSequence> parentIds, java.lang.Integer pageSize, java.lang.CharSequence pageToken) {
     this.parentIds = parentIds;
     this.pageSize = pageSize;
     this.pageToken = pageToken;
@@ -52,9 +52,9 @@ public class SearchVariantSetSequencesRequest extends org.apache.avro.specific.S
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: parentIds = (java.util.List<java.lang.String>)value$; break;
+    case 0: parentIds = (java.util.List<java.lang.CharSequence>)value$; break;
     case 1: pageSize = (java.lang.Integer)value$; break;
-    case 2: pageToken = (java.lang.String)value$; break;
+    case 2: pageToken = (java.lang.CharSequence)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -63,7 +63,7 @@ public class SearchVariantSetSequencesRequest extends org.apache.avro.specific.S
    * Gets the value of the 'parentIds' field.
    * If nonempty, return `Segment`s describing novel sequences in the `VariantSet`
   that are joined onto sequences with one of the specified IDs.   */
-  public java.util.List<java.lang.String> getParentIds() {
+  public java.util.List<java.lang.CharSequence> getParentIds() {
     return parentIds;
   }
 
@@ -72,7 +72,7 @@ public class SearchVariantSetSequencesRequest extends org.apache.avro.specific.S
    * If nonempty, return `Segment`s describing novel sequences in the `VariantSet`
   that are joined onto sequences with one of the specified IDs.   * @param value the value to set.
    */
-  public void setParentIds(java.util.List<java.lang.String> value) {
+  public void setParentIds(java.util.List<java.lang.CharSequence> value) {
     this.parentIds = value;
   }
 
@@ -98,7 +98,7 @@ public class SearchVariantSetSequencesRequest extends org.apache.avro.specific.S
    * The continuation token, which is used to page through large result sets.
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response.   */
-  public java.lang.String getPageToken() {
+  public java.lang.CharSequence getPageToken() {
     return pageToken;
   }
 
@@ -108,7 +108,7 @@ public class SearchVariantSetSequencesRequest extends org.apache.avro.specific.S
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response.   * @param value the value to set.
    */
-  public void setPageToken(java.lang.String value) {
+  public void setPageToken(java.lang.CharSequence value) {
     this.pageToken = value;
   }
 
@@ -133,9 +133,9 @@ public class SearchVariantSetSequencesRequest extends org.apache.avro.specific.S
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<SearchVariantSetSequencesRequest>
     implements org.apache.avro.data.RecordBuilder<SearchVariantSetSequencesRequest> {
 
-    private java.util.List<java.lang.String> parentIds;
+    private java.util.List<java.lang.CharSequence> parentIds;
     private java.lang.Integer pageSize;
-    private java.lang.String pageToken;
+    private java.lang.CharSequence pageToken;
 
     /** Creates a new Builder */
     private Builder() {
@@ -177,12 +177,12 @@ public class SearchVariantSetSequencesRequest extends org.apache.avro.specific.S
     }
 
     /** Gets the value of the 'parentIds' field */
-    public java.util.List<java.lang.String> getParentIds() {
+    public java.util.List<java.lang.CharSequence> getParentIds() {
       return parentIds;
     }
     
     /** Sets the value of the 'parentIds' field */
-    public org.ga4gh.methods.SearchVariantSetSequencesRequest.Builder setParentIds(java.util.List<java.lang.String> value) {
+    public org.ga4gh.methods.SearchVariantSetSequencesRequest.Builder setParentIds(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[0], value);
       this.parentIds = value;
       fieldSetFlags()[0] = true;
@@ -227,12 +227,12 @@ public class SearchVariantSetSequencesRequest extends org.apache.avro.specific.S
     }
 
     /** Gets the value of the 'pageToken' field */
-    public java.lang.String getPageToken() {
+    public java.lang.CharSequence getPageToken() {
       return pageToken;
     }
     
     /** Sets the value of the 'pageToken' field */
-    public org.ga4gh.methods.SearchVariantSetSequencesRequest.Builder setPageToken(java.lang.String value) {
+    public org.ga4gh.methods.SearchVariantSetSequencesRequest.Builder setPageToken(java.lang.CharSequence value) {
       validate(fields()[2], value);
       this.pageToken = value;
       fieldSetFlags()[2] = true;
@@ -255,9 +255,9 @@ public class SearchVariantSetSequencesRequest extends org.apache.avro.specific.S
     public SearchVariantSetSequencesRequest build() {
       try {
         SearchVariantSetSequencesRequest record = new SearchVariantSetSequencesRequest();
-        record.parentIds = fieldSetFlags()[0] ? this.parentIds : (java.util.List<java.lang.String>) defaultValue(fields()[0]);
+        record.parentIds = fieldSetFlags()[0] ? this.parentIds : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[0]);
         record.pageSize = fieldSetFlags()[1] ? this.pageSize : (java.lang.Integer) defaultValue(fields()[1]);
-        record.pageToken = fieldSetFlags()[2] ? this.pageToken : (java.lang.String) defaultValue(fields()[2]);
+        record.pageToken = fieldSetFlags()[2] ? this.pageToken : (java.lang.CharSequence) defaultValue(fields()[2]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

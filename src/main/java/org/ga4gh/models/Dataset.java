@@ -7,12 +7,12 @@ package org.ga4gh.models;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Dataset extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Dataset\",\"namespace\":\"org.ga4gh.models\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The dataset ID.\"},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The dataset description.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Dataset\",\"namespace\":\"org.ga4gh.models\",\"fields\":[{\"name\":\"id\",\"type\":\"string\",\"doc\":\"The dataset ID.\"},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"The dataset description.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The dataset ID. */
-   private java.lang.String id;
+   private java.lang.CharSequence id;
   /** The dataset description. */
-   private java.lang.String description;
+   private java.lang.CharSequence description;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -24,7 +24,7 @@ public class Dataset extends org.apache.avro.specific.SpecificRecordBase impleme
   /**
    * All-args constructor.
    */
-  public Dataset(java.lang.String id, java.lang.String description) {
+  public Dataset(java.lang.CharSequence id, java.lang.CharSequence description) {
     this.id = id;
     this.description = description;
   }
@@ -42,8 +42,8 @@ public class Dataset extends org.apache.avro.specific.SpecificRecordBase impleme
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: id = (java.lang.String)value$; break;
-    case 1: description = (java.lang.String)value$; break;
+    case 0: id = (java.lang.CharSequence)value$; break;
+    case 1: description = (java.lang.CharSequence)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -51,7 +51,7 @@ public class Dataset extends org.apache.avro.specific.SpecificRecordBase impleme
   /**
    * Gets the value of the 'id' field.
    * The dataset ID.   */
-  public java.lang.String getId() {
+  public java.lang.CharSequence getId() {
     return id;
   }
 
@@ -59,14 +59,14 @@ public class Dataset extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'id' field.
    * The dataset ID.   * @param value the value to set.
    */
-  public void setId(java.lang.String value) {
+  public void setId(java.lang.CharSequence value) {
     this.id = value;
   }
 
   /**
    * Gets the value of the 'description' field.
    * The dataset description.   */
-  public java.lang.String getDescription() {
+  public java.lang.CharSequence getDescription() {
     return description;
   }
 
@@ -74,7 +74,7 @@ public class Dataset extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'description' field.
    * The dataset description.   * @param value the value to set.
    */
-  public void setDescription(java.lang.String value) {
+  public void setDescription(java.lang.CharSequence value) {
     this.description = value;
   }
 
@@ -99,8 +99,8 @@ public class Dataset extends org.apache.avro.specific.SpecificRecordBase impleme
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Dataset>
     implements org.apache.avro.data.RecordBuilder<Dataset> {
 
-    private java.lang.String id;
-    private java.lang.String description;
+    private java.lang.CharSequence id;
+    private java.lang.CharSequence description;
 
     /** Creates a new Builder */
     private Builder() {
@@ -134,12 +134,12 @@ public class Dataset extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'id' field */
-    public java.lang.String getId() {
+    public java.lang.CharSequence getId() {
       return id;
     }
     
     /** Sets the value of the 'id' field */
-    public org.ga4gh.models.Dataset.Builder setId(java.lang.String value) {
+    public org.ga4gh.models.Dataset.Builder setId(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -159,12 +159,12 @@ public class Dataset extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'description' field */
-    public java.lang.String getDescription() {
+    public java.lang.CharSequence getDescription() {
       return description;
     }
     
     /** Sets the value of the 'description' field */
-    public org.ga4gh.models.Dataset.Builder setDescription(java.lang.String value) {
+    public org.ga4gh.models.Dataset.Builder setDescription(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.description = value;
       fieldSetFlags()[1] = true;
@@ -187,8 +187,8 @@ public class Dataset extends org.apache.avro.specific.SpecificRecordBase impleme
     public Dataset build() {
       try {
         Dataset record = new Dataset();
-        record.id = fieldSetFlags()[0] ? this.id : (java.lang.String) defaultValue(fields()[0]);
-        record.description = fieldSetFlags()[1] ? this.description : (java.lang.String) defaultValue(fields()[1]);
+        record.id = fieldSetFlags()[0] ? this.id : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.description = fieldSetFlags()[1] ? this.description : (java.lang.CharSequence) defaultValue(fields()[1]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

@@ -9,23 +9,23 @@ package org.ga4gh.models;
 It belongs to a `VariantSet`. This is equivalent to one column in VCF. */
 @org.apache.avro.specific.AvroGenerated
 public class CallSet extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CallSet\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"A `CallSet` is a collection of variant calls for a particular sample.\\nIt belongs to a `VariantSet`. This is equivalent to one column in VCF.\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The call set ID.\"},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The call set name.\",\"default\":null},{\"name\":\"sampleId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The sample this call set's data was generated from.\"},{\"name\":\"variantSetIds\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"The IDs of the variant sets this call set has calls in.\",\"default\":[]},{\"name\":\"created\",\"type\":[\"null\",\"long\"],\"doc\":\"The date this call set was created in milliseconds from the epoch.\",\"default\":null},{\"name\":\"updated\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this call set was last updated in\\n  milliseconds from the epoch.\",\"default\":null},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"avro.java.string\":\"String\"},\"doc\":\"A map of additional call set information.\",\"default\":{}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CallSet\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"A `CallSet` is a collection of variant calls for a particular sample.\\nIt belongs to a `VariantSet`. This is equivalent to one column in VCF.\",\"fields\":[{\"name\":\"id\",\"type\":\"string\",\"doc\":\"The call set ID.\"},{\"name\":\"name\",\"type\":[\"null\",\"string\"],\"doc\":\"The call set name.\",\"default\":null},{\"name\":\"sampleId\",\"type\":[\"null\",\"string\"],\"doc\":\"The sample this call set's data was generated from.\"},{\"name\":\"variantSetIds\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"The IDs of the variant sets this call set has calls in.\",\"default\":[]},{\"name\":\"created\",\"type\":[\"null\",\"long\"],\"doc\":\"The date this call set was created in milliseconds from the epoch.\",\"default\":null},{\"name\":\"updated\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this call set was last updated in\\n  milliseconds from the epoch.\",\"default\":null},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":\"string\"}},\"doc\":\"A map of additional call set information.\",\"default\":{}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The call set ID. */
-   private java.lang.String id;
+   private java.lang.CharSequence id;
   /** The call set name. */
-   private java.lang.String name;
+   private java.lang.CharSequence name;
   /** The sample this call set's data was generated from. */
-   private java.lang.String sampleId;
+   private java.lang.CharSequence sampleId;
   /** The IDs of the variant sets this call set has calls in. */
-   private java.util.List<java.lang.String> variantSetIds;
+   private java.util.List<java.lang.CharSequence> variantSetIds;
   /** The date this call set was created in milliseconds from the epoch. */
    private java.lang.Long created;
   /** The time at which this call set was last updated in
   milliseconds from the epoch. */
    private java.lang.Long updated;
   /** A map of additional call set information. */
-   private java.util.Map<java.lang.String,java.util.List<java.lang.String>> info;
+   private java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -37,7 +37,7 @@ public class CallSet extends org.apache.avro.specific.SpecificRecordBase impleme
   /**
    * All-args constructor.
    */
-  public CallSet(java.lang.String id, java.lang.String name, java.lang.String sampleId, java.util.List<java.lang.String> variantSetIds, java.lang.Long created, java.lang.Long updated, java.util.Map<java.lang.String,java.util.List<java.lang.String>> info) {
+  public CallSet(java.lang.CharSequence id, java.lang.CharSequence name, java.lang.CharSequence sampleId, java.util.List<java.lang.CharSequence> variantSetIds, java.lang.Long created, java.lang.Long updated, java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info) {
     this.id = id;
     this.name = name;
     this.sampleId = sampleId;
@@ -65,13 +65,13 @@ public class CallSet extends org.apache.avro.specific.SpecificRecordBase impleme
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: id = (java.lang.String)value$; break;
-    case 1: name = (java.lang.String)value$; break;
-    case 2: sampleId = (java.lang.String)value$; break;
-    case 3: variantSetIds = (java.util.List<java.lang.String>)value$; break;
+    case 0: id = (java.lang.CharSequence)value$; break;
+    case 1: name = (java.lang.CharSequence)value$; break;
+    case 2: sampleId = (java.lang.CharSequence)value$; break;
+    case 3: variantSetIds = (java.util.List<java.lang.CharSequence>)value$; break;
     case 4: created = (java.lang.Long)value$; break;
     case 5: updated = (java.lang.Long)value$; break;
-    case 6: info = (java.util.Map<java.lang.String,java.util.List<java.lang.String>>)value$; break;
+    case 6: info = (java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -79,7 +79,7 @@ public class CallSet extends org.apache.avro.specific.SpecificRecordBase impleme
   /**
    * Gets the value of the 'id' field.
    * The call set ID.   */
-  public java.lang.String getId() {
+  public java.lang.CharSequence getId() {
     return id;
   }
 
@@ -87,14 +87,14 @@ public class CallSet extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'id' field.
    * The call set ID.   * @param value the value to set.
    */
-  public void setId(java.lang.String value) {
+  public void setId(java.lang.CharSequence value) {
     this.id = value;
   }
 
   /**
    * Gets the value of the 'name' field.
    * The call set name.   */
-  public java.lang.String getName() {
+  public java.lang.CharSequence getName() {
     return name;
   }
 
@@ -102,14 +102,14 @@ public class CallSet extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'name' field.
    * The call set name.   * @param value the value to set.
    */
-  public void setName(java.lang.String value) {
+  public void setName(java.lang.CharSequence value) {
     this.name = value;
   }
 
   /**
    * Gets the value of the 'sampleId' field.
    * The sample this call set's data was generated from.   */
-  public java.lang.String getSampleId() {
+  public java.lang.CharSequence getSampleId() {
     return sampleId;
   }
 
@@ -117,14 +117,14 @@ public class CallSet extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'sampleId' field.
    * The sample this call set's data was generated from.   * @param value the value to set.
    */
-  public void setSampleId(java.lang.String value) {
+  public void setSampleId(java.lang.CharSequence value) {
     this.sampleId = value;
   }
 
   /**
    * Gets the value of the 'variantSetIds' field.
    * The IDs of the variant sets this call set has calls in.   */
-  public java.util.List<java.lang.String> getVariantSetIds() {
+  public java.util.List<java.lang.CharSequence> getVariantSetIds() {
     return variantSetIds;
   }
 
@@ -132,7 +132,7 @@ public class CallSet extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'variantSetIds' field.
    * The IDs of the variant sets this call set has calls in.   * @param value the value to set.
    */
-  public void setVariantSetIds(java.util.List<java.lang.String> value) {
+  public void setVariantSetIds(java.util.List<java.lang.CharSequence> value) {
     this.variantSetIds = value;
   }
 
@@ -171,7 +171,7 @@ public class CallSet extends org.apache.avro.specific.SpecificRecordBase impleme
   /**
    * Gets the value of the 'info' field.
    * A map of additional call set information.   */
-  public java.util.Map<java.lang.String,java.util.List<java.lang.String>> getInfo() {
+  public java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> getInfo() {
     return info;
   }
 
@@ -179,7 +179,7 @@ public class CallSet extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'info' field.
    * A map of additional call set information.   * @param value the value to set.
    */
-  public void setInfo(java.util.Map<java.lang.String,java.util.List<java.lang.String>> value) {
+  public void setInfo(java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> value) {
     this.info = value;
   }
 
@@ -204,13 +204,13 @@ public class CallSet extends org.apache.avro.specific.SpecificRecordBase impleme
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<CallSet>
     implements org.apache.avro.data.RecordBuilder<CallSet> {
 
-    private java.lang.String id;
-    private java.lang.String name;
-    private java.lang.String sampleId;
-    private java.util.List<java.lang.String> variantSetIds;
+    private java.lang.CharSequence id;
+    private java.lang.CharSequence name;
+    private java.lang.CharSequence sampleId;
+    private java.util.List<java.lang.CharSequence> variantSetIds;
     private java.lang.Long created;
     private java.lang.Long updated;
-    private java.util.Map<java.lang.String,java.util.List<java.lang.String>> info;
+    private java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info;
 
     /** Creates a new Builder */
     private Builder() {
@@ -284,12 +284,12 @@ public class CallSet extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'id' field */
-    public java.lang.String getId() {
+    public java.lang.CharSequence getId() {
       return id;
     }
     
     /** Sets the value of the 'id' field */
-    public org.ga4gh.models.CallSet.Builder setId(java.lang.String value) {
+    public org.ga4gh.models.CallSet.Builder setId(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -309,12 +309,12 @@ public class CallSet extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'name' field */
-    public java.lang.String getName() {
+    public java.lang.CharSequence getName() {
       return name;
     }
     
     /** Sets the value of the 'name' field */
-    public org.ga4gh.models.CallSet.Builder setName(java.lang.String value) {
+    public org.ga4gh.models.CallSet.Builder setName(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.name = value;
       fieldSetFlags()[1] = true;
@@ -334,12 +334,12 @@ public class CallSet extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'sampleId' field */
-    public java.lang.String getSampleId() {
+    public java.lang.CharSequence getSampleId() {
       return sampleId;
     }
     
     /** Sets the value of the 'sampleId' field */
-    public org.ga4gh.models.CallSet.Builder setSampleId(java.lang.String value) {
+    public org.ga4gh.models.CallSet.Builder setSampleId(java.lang.CharSequence value) {
       validate(fields()[2], value);
       this.sampleId = value;
       fieldSetFlags()[2] = true;
@@ -359,12 +359,12 @@ public class CallSet extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'variantSetIds' field */
-    public java.util.List<java.lang.String> getVariantSetIds() {
+    public java.util.List<java.lang.CharSequence> getVariantSetIds() {
       return variantSetIds;
     }
     
     /** Sets the value of the 'variantSetIds' field */
-    public org.ga4gh.models.CallSet.Builder setVariantSetIds(java.util.List<java.lang.String> value) {
+    public org.ga4gh.models.CallSet.Builder setVariantSetIds(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[3], value);
       this.variantSetIds = value;
       fieldSetFlags()[3] = true;
@@ -434,12 +434,12 @@ public class CallSet extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'info' field */
-    public java.util.Map<java.lang.String,java.util.List<java.lang.String>> getInfo() {
+    public java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> getInfo() {
       return info;
     }
     
     /** Sets the value of the 'info' field */
-    public org.ga4gh.models.CallSet.Builder setInfo(java.util.Map<java.lang.String,java.util.List<java.lang.String>> value) {
+    public org.ga4gh.models.CallSet.Builder setInfo(java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> value) {
       validate(fields()[6], value);
       this.info = value;
       fieldSetFlags()[6] = true;
@@ -462,13 +462,13 @@ public class CallSet extends org.apache.avro.specific.SpecificRecordBase impleme
     public CallSet build() {
       try {
         CallSet record = new CallSet();
-        record.id = fieldSetFlags()[0] ? this.id : (java.lang.String) defaultValue(fields()[0]);
-        record.name = fieldSetFlags()[1] ? this.name : (java.lang.String) defaultValue(fields()[1]);
-        record.sampleId = fieldSetFlags()[2] ? this.sampleId : (java.lang.String) defaultValue(fields()[2]);
-        record.variantSetIds = fieldSetFlags()[3] ? this.variantSetIds : (java.util.List<java.lang.String>) defaultValue(fields()[3]);
+        record.id = fieldSetFlags()[0] ? this.id : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.name = fieldSetFlags()[1] ? this.name : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.sampleId = fieldSetFlags()[2] ? this.sampleId : (java.lang.CharSequence) defaultValue(fields()[2]);
+        record.variantSetIds = fieldSetFlags()[3] ? this.variantSetIds : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[3]);
         record.created = fieldSetFlags()[4] ? this.created : (java.lang.Long) defaultValue(fields()[4]);
         record.updated = fieldSetFlags()[5] ? this.updated : (java.lang.Long) defaultValue(fields()[5]);
-        record.info = fieldSetFlags()[6] ? this.info : (java.util.Map<java.lang.String,java.util.List<java.lang.String>>) defaultValue(fields()[6]);
+        record.info = fieldSetFlags()[6] ? this.info : (java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>>) defaultValue(fields()[6]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

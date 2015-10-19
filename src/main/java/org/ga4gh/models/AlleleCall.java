@@ -16,12 +16,12 @@ server supports "graph" mode, it must provide `Variant`-associated `AlleleCall`s
 for any `Variant` with a `Call` in the `CallSet`. */
 @org.apache.avro.specific.AvroGenerated
 public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AlleleCall\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"An `AlleleCall` represents the determination of the copy number of a particular\\n`Allele`, possibly within a certain `Variant`.\\n\\nIt may include associated information such as quality and phasing.\\n\\nThe `Allele` copy numbers described by an `AlleleCall` must be consistent with\\nthose implied by the `genotype`s of any `Call`s in the same `CallSet`. If a\\nserver supports \\\"graph\\\" mode, it must provide `Variant`-associated `AlleleCall`s\\nfor any `Variant` with a `Call` in the `CallSet`.\",\"fields\":[{\"name\":\"callSetId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The ID of the call set this `AlleleCall` belongs to.\"},{\"name\":\"alleleId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The ID of the `Allele` that this `AlleleCall` is calling the copy number of.\"},{\"name\":\"variantId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The ID of the `Variant` that this `AlleleCall` belongs to.\\n\\n  The specified `Variant` must have this `AlleleCall`'s `Allele` as an option.\\n\\n  Only one `AlleleCall` may be associated with a particular `Variant`-`Allele`\\n  combination in a particular `CallSet`. So, one `AlleleCall` for this `Allele`\\n  may have a null `variantId`, and one additional `AlleleCall` can use this\\n  `Allele` for each `Variant` the `Allele` appears in.\"},{\"name\":\"totalCopies\",\"type\":\"double\",\"doc\":\"Gives the called copy number of the `Allele`. If `variantId` is null, this\\n  gives the total copy number of the `Allele`, including copies associated with\\n  `Variant`s. Otherwise, it is the copy number of this `Allele` in the specified\\n  `Variant`, and must agree with the `genotype` of the `Call` for that\\n  `Variant`, if any.\"},{\"name\":\"phaseset\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"Defines the phasing of the copies of this `Allele`. Each entry is associated\\n  with an instance of this `AlleleCall`'s `Allele`. Allele instances that are\\n  associated with the same `phaseset` string occur on the same molecule of DNA.\\n\\n  The number of entries should not exceed `totalCopies`.\"},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"avro.java.string\":\"String\"},\"doc\":\"A map of additional allele call information.\",\"default\":{}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AlleleCall\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"An `AlleleCall` represents the determination of the copy number of a particular\\n`Allele`, possibly within a certain `Variant`.\\n\\nIt may include associated information such as quality and phasing.\\n\\nThe `Allele` copy numbers described by an `AlleleCall` must be consistent with\\nthose implied by the `genotype`s of any `Call`s in the same `CallSet`. If a\\nserver supports \\\"graph\\\" mode, it must provide `Variant`-associated `AlleleCall`s\\nfor any `Variant` with a `Call` in the `CallSet`.\",\"fields\":[{\"name\":\"callSetId\",\"type\":\"string\",\"doc\":\"The ID of the call set this `AlleleCall` belongs to.\"},{\"name\":\"alleleId\",\"type\":\"string\",\"doc\":\"The ID of the `Allele` that this `AlleleCall` is calling the copy number of.\"},{\"name\":\"variantId\",\"type\":[\"null\",\"string\"],\"doc\":\"The ID of the `Variant` that this `AlleleCall` belongs to.\\n\\n  The specified `Variant` must have this `AlleleCall`'s `Allele` as an option.\\n\\n  Only one `AlleleCall` may be associated with a particular `Variant`-`Allele`\\n  combination in a particular `CallSet`. So, one `AlleleCall` for this `Allele`\\n  may have a null `variantId`, and one additional `AlleleCall` can use this\\n  `Allele` for each `Variant` the `Allele` appears in.\"},{\"name\":\"totalCopies\",\"type\":\"double\",\"doc\":\"Gives the called copy number of the `Allele`. If `variantId` is null, this\\n  gives the total copy number of the `Allele`, including copies associated with\\n  `Variant`s. Otherwise, it is the copy number of this `Allele` in the specified\\n  `Variant`, and must agree with the `genotype` of the `Call` for that\\n  `Variant`, if any.\"},{\"name\":\"phaseset\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"Defines the phasing of the copies of this `Allele`. Each entry is associated\\n  with an instance of this `AlleleCall`'s `Allele`. Allele instances that are\\n  associated with the same `phaseset` string occur on the same molecule of DNA.\\n\\n  The number of entries should not exceed `totalCopies`.\"},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":\"string\"}},\"doc\":\"A map of additional allele call information.\",\"default\":{}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The ID of the call set this `AlleleCall` belongs to. */
-   private java.lang.String callSetId;
+   private java.lang.CharSequence callSetId;
   /** The ID of the `Allele` that this `AlleleCall` is calling the copy number of. */
-   private java.lang.String alleleId;
+   private java.lang.CharSequence alleleId;
   /** The ID of the `Variant` that this `AlleleCall` belongs to.
 
   The specified `Variant` must have this `AlleleCall`'s `Allele` as an option.
@@ -30,7 +30,7 @@ public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase impl
   combination in a particular `CallSet`. So, one `AlleleCall` for this `Allele`
   may have a null `variantId`, and one additional `AlleleCall` can use this
   `Allele` for each `Variant` the `Allele` appears in. */
-   private java.lang.String variantId;
+   private java.lang.CharSequence variantId;
   /** Gives the called copy number of the `Allele`. If `variantId` is null, this
   gives the total copy number of the `Allele`, including copies associated with
   `Variant`s. Otherwise, it is the copy number of this `Allele` in the specified
@@ -42,9 +42,9 @@ public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase impl
   associated with the same `phaseset` string occur on the same molecule of DNA.
 
   The number of entries should not exceed `totalCopies`. */
-   private java.util.List<java.lang.String> phaseset;
+   private java.util.List<java.lang.CharSequence> phaseset;
   /** A map of additional allele call information. */
-   private java.util.Map<java.lang.String,java.util.List<java.lang.String>> info;
+   private java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -56,7 +56,7 @@ public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase impl
   /**
    * All-args constructor.
    */
-  public AlleleCall(java.lang.String callSetId, java.lang.String alleleId, java.lang.String variantId, java.lang.Double totalCopies, java.util.List<java.lang.String> phaseset, java.util.Map<java.lang.String,java.util.List<java.lang.String>> info) {
+  public AlleleCall(java.lang.CharSequence callSetId, java.lang.CharSequence alleleId, java.lang.CharSequence variantId, java.lang.Double totalCopies, java.util.List<java.lang.CharSequence> phaseset, java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info) {
     this.callSetId = callSetId;
     this.alleleId = alleleId;
     this.variantId = variantId;
@@ -82,12 +82,12 @@ public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase impl
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: callSetId = (java.lang.String)value$; break;
-    case 1: alleleId = (java.lang.String)value$; break;
-    case 2: variantId = (java.lang.String)value$; break;
+    case 0: callSetId = (java.lang.CharSequence)value$; break;
+    case 1: alleleId = (java.lang.CharSequence)value$; break;
+    case 2: variantId = (java.lang.CharSequence)value$; break;
     case 3: totalCopies = (java.lang.Double)value$; break;
-    case 4: phaseset = (java.util.List<java.lang.String>)value$; break;
-    case 5: info = (java.util.Map<java.lang.String,java.util.List<java.lang.String>>)value$; break;
+    case 4: phaseset = (java.util.List<java.lang.CharSequence>)value$; break;
+    case 5: info = (java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -95,7 +95,7 @@ public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase impl
   /**
    * Gets the value of the 'callSetId' field.
    * The ID of the call set this `AlleleCall` belongs to.   */
-  public java.lang.String getCallSetId() {
+  public java.lang.CharSequence getCallSetId() {
     return callSetId;
   }
 
@@ -103,14 +103,14 @@ public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'callSetId' field.
    * The ID of the call set this `AlleleCall` belongs to.   * @param value the value to set.
    */
-  public void setCallSetId(java.lang.String value) {
+  public void setCallSetId(java.lang.CharSequence value) {
     this.callSetId = value;
   }
 
   /**
    * Gets the value of the 'alleleId' field.
    * The ID of the `Allele` that this `AlleleCall` is calling the copy number of.   */
-  public java.lang.String getAlleleId() {
+  public java.lang.CharSequence getAlleleId() {
     return alleleId;
   }
 
@@ -118,7 +118,7 @@ public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'alleleId' field.
    * The ID of the `Allele` that this `AlleleCall` is calling the copy number of.   * @param value the value to set.
    */
-  public void setAlleleId(java.lang.String value) {
+  public void setAlleleId(java.lang.CharSequence value) {
     this.alleleId = value;
   }
 
@@ -132,7 +132,7 @@ public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase impl
   combination in a particular `CallSet`. So, one `AlleleCall` for this `Allele`
   may have a null `variantId`, and one additional `AlleleCall` can use this
   `Allele` for each `Variant` the `Allele` appears in.   */
-  public java.lang.String getVariantId() {
+  public java.lang.CharSequence getVariantId() {
     return variantId;
   }
 
@@ -147,7 +147,7 @@ public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase impl
   may have a null `variantId`, and one additional `AlleleCall` can use this
   `Allele` for each `Variant` the `Allele` appears in.   * @param value the value to set.
    */
-  public void setVariantId(java.lang.String value) {
+  public void setVariantId(java.lang.CharSequence value) {
     this.variantId = value;
   }
 
@@ -181,7 +181,7 @@ public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase impl
   associated with the same `phaseset` string occur on the same molecule of DNA.
 
   The number of entries should not exceed `totalCopies`.   */
-  public java.util.List<java.lang.String> getPhaseset() {
+  public java.util.List<java.lang.CharSequence> getPhaseset() {
     return phaseset;
   }
 
@@ -193,14 +193,14 @@ public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase impl
 
   The number of entries should not exceed `totalCopies`.   * @param value the value to set.
    */
-  public void setPhaseset(java.util.List<java.lang.String> value) {
+  public void setPhaseset(java.util.List<java.lang.CharSequence> value) {
     this.phaseset = value;
   }
 
   /**
    * Gets the value of the 'info' field.
    * A map of additional allele call information.   */
-  public java.util.Map<java.lang.String,java.util.List<java.lang.String>> getInfo() {
+  public java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> getInfo() {
     return info;
   }
 
@@ -208,7 +208,7 @@ public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'info' field.
    * A map of additional allele call information.   * @param value the value to set.
    */
-  public void setInfo(java.util.Map<java.lang.String,java.util.List<java.lang.String>> value) {
+  public void setInfo(java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> value) {
     this.info = value;
   }
 
@@ -233,12 +233,12 @@ public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase impl
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<AlleleCall>
     implements org.apache.avro.data.RecordBuilder<AlleleCall> {
 
-    private java.lang.String callSetId;
-    private java.lang.String alleleId;
-    private java.lang.String variantId;
+    private java.lang.CharSequence callSetId;
+    private java.lang.CharSequence alleleId;
+    private java.lang.CharSequence variantId;
     private double totalCopies;
-    private java.util.List<java.lang.String> phaseset;
-    private java.util.Map<java.lang.String,java.util.List<java.lang.String>> info;
+    private java.util.List<java.lang.CharSequence> phaseset;
+    private java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info;
 
     /** Creates a new Builder */
     private Builder() {
@@ -304,12 +304,12 @@ public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase impl
     }
 
     /** Gets the value of the 'callSetId' field */
-    public java.lang.String getCallSetId() {
+    public java.lang.CharSequence getCallSetId() {
       return callSetId;
     }
     
     /** Sets the value of the 'callSetId' field */
-    public org.ga4gh.models.AlleleCall.Builder setCallSetId(java.lang.String value) {
+    public org.ga4gh.models.AlleleCall.Builder setCallSetId(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.callSetId = value;
       fieldSetFlags()[0] = true;
@@ -329,12 +329,12 @@ public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase impl
     }
 
     /** Gets the value of the 'alleleId' field */
-    public java.lang.String getAlleleId() {
+    public java.lang.CharSequence getAlleleId() {
       return alleleId;
     }
     
     /** Sets the value of the 'alleleId' field */
-    public org.ga4gh.models.AlleleCall.Builder setAlleleId(java.lang.String value) {
+    public org.ga4gh.models.AlleleCall.Builder setAlleleId(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.alleleId = value;
       fieldSetFlags()[1] = true;
@@ -354,12 +354,12 @@ public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase impl
     }
 
     /** Gets the value of the 'variantId' field */
-    public java.lang.String getVariantId() {
+    public java.lang.CharSequence getVariantId() {
       return variantId;
     }
     
     /** Sets the value of the 'variantId' field */
-    public org.ga4gh.models.AlleleCall.Builder setVariantId(java.lang.String value) {
+    public org.ga4gh.models.AlleleCall.Builder setVariantId(java.lang.CharSequence value) {
       validate(fields()[2], value);
       this.variantId = value;
       fieldSetFlags()[2] = true;
@@ -403,12 +403,12 @@ public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase impl
     }
 
     /** Gets the value of the 'phaseset' field */
-    public java.util.List<java.lang.String> getPhaseset() {
+    public java.util.List<java.lang.CharSequence> getPhaseset() {
       return phaseset;
     }
     
     /** Sets the value of the 'phaseset' field */
-    public org.ga4gh.models.AlleleCall.Builder setPhaseset(java.util.List<java.lang.String> value) {
+    public org.ga4gh.models.AlleleCall.Builder setPhaseset(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[4], value);
       this.phaseset = value;
       fieldSetFlags()[4] = true;
@@ -428,12 +428,12 @@ public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase impl
     }
 
     /** Gets the value of the 'info' field */
-    public java.util.Map<java.lang.String,java.util.List<java.lang.String>> getInfo() {
+    public java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> getInfo() {
       return info;
     }
     
     /** Sets the value of the 'info' field */
-    public org.ga4gh.models.AlleleCall.Builder setInfo(java.util.Map<java.lang.String,java.util.List<java.lang.String>> value) {
+    public org.ga4gh.models.AlleleCall.Builder setInfo(java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> value) {
       validate(fields()[5], value);
       this.info = value;
       fieldSetFlags()[5] = true;
@@ -456,12 +456,12 @@ public class AlleleCall extends org.apache.avro.specific.SpecificRecordBase impl
     public AlleleCall build() {
       try {
         AlleleCall record = new AlleleCall();
-        record.callSetId = fieldSetFlags()[0] ? this.callSetId : (java.lang.String) defaultValue(fields()[0]);
-        record.alleleId = fieldSetFlags()[1] ? this.alleleId : (java.lang.String) defaultValue(fields()[1]);
-        record.variantId = fieldSetFlags()[2] ? this.variantId : (java.lang.String) defaultValue(fields()[2]);
+        record.callSetId = fieldSetFlags()[0] ? this.callSetId : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.alleleId = fieldSetFlags()[1] ? this.alleleId : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.variantId = fieldSetFlags()[2] ? this.variantId : (java.lang.CharSequence) defaultValue(fields()[2]);
         record.totalCopies = fieldSetFlags()[3] ? this.totalCopies : (java.lang.Double) defaultValue(fields()[3]);
-        record.phaseset = fieldSetFlags()[4] ? this.phaseset : (java.util.List<java.lang.String>) defaultValue(fields()[4]);
-        record.info = fieldSetFlags()[5] ? this.info : (java.util.Map<java.lang.String,java.util.List<java.lang.String>>) defaultValue(fields()[5]);
+        record.phaseset = fieldSetFlags()[4] ? this.phaseset : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[4]);
+        record.info = fieldSetFlags()[5] ? this.info : (java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>>) defaultValue(fields()[5]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

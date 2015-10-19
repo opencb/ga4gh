@@ -8,26 +8,26 @@ package org.ga4gh.beacon;
 /** BeaconInformationResource */
 @org.apache.avro.specific.AvroGenerated
 public class BeaconInformationResource extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"BeaconInformationResource\",\"namespace\":\"org.ga4gh.beacon\",\"doc\":\"BeaconInformationResource\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"(Unique) beacon ID. Recommended pattern: [organization]-[beacon] (no special characters).\"},{\"name\":\"organization\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Name of the owning organization.\"},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Beacon description.\"},{\"name\":\"datasets\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"DataSetResource\",\"doc\":\"DataSetResource\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Dataset name\"},{\"name\":\"reference\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Reference genome\"},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Dataset description\",\"default\":null},{\"name\":\"size\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"DataSizeResource\",\"doc\":\"DataSetSizeResource\",\"fields\":[{\"name\":\"variants\",\"type\":\"int\",\"doc\":\"Total number of variant positions in the data set\"},{\"name\":\"samples\",\"type\":\"int\",\"doc\":\"Total number of samples in the data set\"}]}],\"doc\":\"Dimensions of the data set. Should be provided if the beacon reports allele frequencies.\",\"default\":null},{\"name\":\"multiple\",\"type\":\"boolean\",\"doc\":\"True if this dataset contains data from 2 or more other datasets.\"},{\"name\":\"datasets\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"List of names of each of the datasets that comprises this aggregated dataset. Should be provided if ‘multiple’ is true.\",\"default\":[]},{\"name\":\"data_use\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"DataUseResource\",\"doc\":\"DataUseResource\",\"fields\":[{\"name\":\"category\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Data Use category.\"},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Description of Data Use category.\",\"default\":null},{\"name\":\"requirements\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"DataUseRequirementResource\",\"doc\":\"DataUseRequirementResource\",\"fields\":[{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Data Use requirement\"},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Description of Data Use requirement.\",\"default\":null}]}},\"doc\":\"Data Use requirements.\",\"default\":[]}]}},\"doc\":\"Data use limitations, specified as a set of DataUseResource.\",\"default\":[]}]}},\"doc\":\"Datasets served by the beacon.\",\"default\":[]},{\"name\":\"api\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Beacon API version supported.\"},{\"name\":\"homepage\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"URL to the homepage for this beacon.\",\"default\":null},{\"name\":\"email\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"An email address for contact.\",\"default\":null},{\"name\":\"auth\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Auth type. Expected value - OAUTH2. Defaults to NONE.\",\"default\":null},{\"name\":\"queries\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Examples of interesting queries, e.g. a few queries demonstrating different types of responses.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"BeaconInformationResource\",\"namespace\":\"org.ga4gh.beacon\",\"doc\":\"BeaconInformationResource\",\"fields\":[{\"name\":\"id\",\"type\":\"string\",\"doc\":\"(Unique) beacon ID. Recommended pattern: [organization]-[beacon] (no special characters).\"},{\"name\":\"organization\",\"type\":\"string\",\"doc\":\"Name of the owning organization.\"},{\"name\":\"description\",\"type\":\"string\",\"doc\":\"Beacon description.\"},{\"name\":\"datasets\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"DataSetResource\",\"doc\":\"DataSetResource\",\"fields\":[{\"name\":\"id\",\"type\":\"string\",\"doc\":\"Dataset name\"},{\"name\":\"reference\",\"type\":\"string\",\"doc\":\"Reference genome\"},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"Dataset description\",\"default\":null},{\"name\":\"size\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"DataSizeResource\",\"doc\":\"DataSetSizeResource\",\"fields\":[{\"name\":\"variants\",\"type\":\"int\",\"doc\":\"Total number of variant positions in the data set\"},{\"name\":\"samples\",\"type\":\"int\",\"doc\":\"Total number of samples in the data set\"}]}],\"doc\":\"Dimensions of the data set. Should be provided if the beacon reports allele frequencies.\",\"default\":null},{\"name\":\"multiple\",\"type\":\"boolean\",\"doc\":\"True if this dataset contains data from 2 or more other datasets.\"},{\"name\":\"datasets\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"List of names of each of the datasets that comprises this aggregated dataset. Should be provided if ‘multiple’ is true.\",\"default\":[]},{\"name\":\"data_use\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"DataUseResource\",\"doc\":\"DataUseResource\",\"fields\":[{\"name\":\"category\",\"type\":\"string\",\"doc\":\"Data Use category.\"},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"Description of Data Use category.\",\"default\":null},{\"name\":\"requirements\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"DataUseRequirementResource\",\"doc\":\"DataUseRequirementResource\",\"fields\":[{\"name\":\"name\",\"type\":\"string\",\"doc\":\"Data Use requirement\"},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"Description of Data Use requirement.\",\"default\":null}]}},\"doc\":\"Data Use requirements.\",\"default\":[]}]}},\"doc\":\"Data use limitations, specified as a set of DataUseResource.\",\"default\":[]}]}},\"doc\":\"Datasets served by the beacon.\",\"default\":[]},{\"name\":\"api\",\"type\":\"string\",\"doc\":\"Beacon API version supported.\"},{\"name\":\"homepage\",\"type\":[\"null\",\"string\"],\"doc\":\"URL to the homepage for this beacon.\",\"default\":null},{\"name\":\"email\",\"type\":[\"null\",\"string\"],\"doc\":\"An email address for contact.\",\"default\":null},{\"name\":\"auth\",\"type\":[\"null\",\"string\"],\"doc\":\"Auth type. Expected value - OAUTH2. Defaults to NONE.\",\"default\":null},{\"name\":\"queries\",\"type\":[\"null\",\"string\"],\"doc\":\"Examples of interesting queries, e.g. a few queries demonstrating different types of responses.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** (Unique) beacon ID. Recommended pattern: [organization]-[beacon] (no special characters). */
-   private java.lang.String id;
+   private java.lang.CharSequence id;
   /** Name of the owning organization. */
-   private java.lang.String organization;
+   private java.lang.CharSequence organization;
   /** Beacon description. */
-   private java.lang.String description;
+   private java.lang.CharSequence description;
   /** Datasets served by the beacon. */
    private java.util.List<org.ga4gh.beacon.DataSetResource> datasets;
   /** Beacon API version supported. */
-   private java.lang.String api;
+   private java.lang.CharSequence api;
   /** URL to the homepage for this beacon. */
-   private java.lang.String homepage;
+   private java.lang.CharSequence homepage;
   /** An email address for contact. */
-   private java.lang.String email;
+   private java.lang.CharSequence email;
   /** Auth type. Expected value - OAUTH2. Defaults to NONE. */
-   private java.lang.String auth;
+   private java.lang.CharSequence auth;
   /** Examples of interesting queries, e.g. a few queries demonstrating different types of responses. */
-   private java.lang.String queries;
+   private java.lang.CharSequence queries;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -39,7 +39,7 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
   /**
    * All-args constructor.
    */
-  public BeaconInformationResource(java.lang.String id, java.lang.String organization, java.lang.String description, java.util.List<org.ga4gh.beacon.DataSetResource> datasets, java.lang.String api, java.lang.String homepage, java.lang.String email, java.lang.String auth, java.lang.String queries) {
+  public BeaconInformationResource(java.lang.CharSequence id, java.lang.CharSequence organization, java.lang.CharSequence description, java.util.List<org.ga4gh.beacon.DataSetResource> datasets, java.lang.CharSequence api, java.lang.CharSequence homepage, java.lang.CharSequence email, java.lang.CharSequence auth, java.lang.CharSequence queries) {
     this.id = id;
     this.organization = organization;
     this.description = description;
@@ -71,15 +71,15 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: id = (java.lang.String)value$; break;
-    case 1: organization = (java.lang.String)value$; break;
-    case 2: description = (java.lang.String)value$; break;
+    case 0: id = (java.lang.CharSequence)value$; break;
+    case 1: organization = (java.lang.CharSequence)value$; break;
+    case 2: description = (java.lang.CharSequence)value$; break;
     case 3: datasets = (java.util.List<org.ga4gh.beacon.DataSetResource>)value$; break;
-    case 4: api = (java.lang.String)value$; break;
-    case 5: homepage = (java.lang.String)value$; break;
-    case 6: email = (java.lang.String)value$; break;
-    case 7: auth = (java.lang.String)value$; break;
-    case 8: queries = (java.lang.String)value$; break;
+    case 4: api = (java.lang.CharSequence)value$; break;
+    case 5: homepage = (java.lang.CharSequence)value$; break;
+    case 6: email = (java.lang.CharSequence)value$; break;
+    case 7: auth = (java.lang.CharSequence)value$; break;
+    case 8: queries = (java.lang.CharSequence)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -87,7 +87,7 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
   /**
    * Gets the value of the 'id' field.
    * (Unique) beacon ID. Recommended pattern: [organization]-[beacon] (no special characters).   */
-  public java.lang.String getId() {
+  public java.lang.CharSequence getId() {
     return id;
   }
 
@@ -95,14 +95,14 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
    * Sets the value of the 'id' field.
    * (Unique) beacon ID. Recommended pattern: [organization]-[beacon] (no special characters).   * @param value the value to set.
    */
-  public void setId(java.lang.String value) {
+  public void setId(java.lang.CharSequence value) {
     this.id = value;
   }
 
   /**
    * Gets the value of the 'organization' field.
    * Name of the owning organization.   */
-  public java.lang.String getOrganization() {
+  public java.lang.CharSequence getOrganization() {
     return organization;
   }
 
@@ -110,14 +110,14 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
    * Sets the value of the 'organization' field.
    * Name of the owning organization.   * @param value the value to set.
    */
-  public void setOrganization(java.lang.String value) {
+  public void setOrganization(java.lang.CharSequence value) {
     this.organization = value;
   }
 
   /**
    * Gets the value of the 'description' field.
    * Beacon description.   */
-  public java.lang.String getDescription() {
+  public java.lang.CharSequence getDescription() {
     return description;
   }
 
@@ -125,7 +125,7 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
    * Sets the value of the 'description' field.
    * Beacon description.   * @param value the value to set.
    */
-  public void setDescription(java.lang.String value) {
+  public void setDescription(java.lang.CharSequence value) {
     this.description = value;
   }
 
@@ -147,7 +147,7 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
   /**
    * Gets the value of the 'api' field.
    * Beacon API version supported.   */
-  public java.lang.String getApi() {
+  public java.lang.CharSequence getApi() {
     return api;
   }
 
@@ -155,14 +155,14 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
    * Sets the value of the 'api' field.
    * Beacon API version supported.   * @param value the value to set.
    */
-  public void setApi(java.lang.String value) {
+  public void setApi(java.lang.CharSequence value) {
     this.api = value;
   }
 
   /**
    * Gets the value of the 'homepage' field.
    * URL to the homepage for this beacon.   */
-  public java.lang.String getHomepage() {
+  public java.lang.CharSequence getHomepage() {
     return homepage;
   }
 
@@ -170,14 +170,14 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
    * Sets the value of the 'homepage' field.
    * URL to the homepage for this beacon.   * @param value the value to set.
    */
-  public void setHomepage(java.lang.String value) {
+  public void setHomepage(java.lang.CharSequence value) {
     this.homepage = value;
   }
 
   /**
    * Gets the value of the 'email' field.
    * An email address for contact.   */
-  public java.lang.String getEmail() {
+  public java.lang.CharSequence getEmail() {
     return email;
   }
 
@@ -185,14 +185,14 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
    * Sets the value of the 'email' field.
    * An email address for contact.   * @param value the value to set.
    */
-  public void setEmail(java.lang.String value) {
+  public void setEmail(java.lang.CharSequence value) {
     this.email = value;
   }
 
   /**
    * Gets the value of the 'auth' field.
    * Auth type. Expected value - OAUTH2. Defaults to NONE.   */
-  public java.lang.String getAuth() {
+  public java.lang.CharSequence getAuth() {
     return auth;
   }
 
@@ -200,14 +200,14 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
    * Sets the value of the 'auth' field.
    * Auth type. Expected value - OAUTH2. Defaults to NONE.   * @param value the value to set.
    */
-  public void setAuth(java.lang.String value) {
+  public void setAuth(java.lang.CharSequence value) {
     this.auth = value;
   }
 
   /**
    * Gets the value of the 'queries' field.
    * Examples of interesting queries, e.g. a few queries demonstrating different types of responses.   */
-  public java.lang.String getQueries() {
+  public java.lang.CharSequence getQueries() {
     return queries;
   }
 
@@ -215,7 +215,7 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
    * Sets the value of the 'queries' field.
    * Examples of interesting queries, e.g. a few queries demonstrating different types of responses.   * @param value the value to set.
    */
-  public void setQueries(java.lang.String value) {
+  public void setQueries(java.lang.CharSequence value) {
     this.queries = value;
   }
 
@@ -240,15 +240,15 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<BeaconInformationResource>
     implements org.apache.avro.data.RecordBuilder<BeaconInformationResource> {
 
-    private java.lang.String id;
-    private java.lang.String organization;
-    private java.lang.String description;
+    private java.lang.CharSequence id;
+    private java.lang.CharSequence organization;
+    private java.lang.CharSequence description;
     private java.util.List<org.ga4gh.beacon.DataSetResource> datasets;
-    private java.lang.String api;
-    private java.lang.String homepage;
-    private java.lang.String email;
-    private java.lang.String auth;
-    private java.lang.String queries;
+    private java.lang.CharSequence api;
+    private java.lang.CharSequence homepage;
+    private java.lang.CharSequence email;
+    private java.lang.CharSequence auth;
+    private java.lang.CharSequence queries;
 
     /** Creates a new Builder */
     private Builder() {
@@ -338,12 +338,12 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
     }
 
     /** Gets the value of the 'id' field */
-    public java.lang.String getId() {
+    public java.lang.CharSequence getId() {
       return id;
     }
     
     /** Sets the value of the 'id' field */
-    public org.ga4gh.beacon.BeaconInformationResource.Builder setId(java.lang.String value) {
+    public org.ga4gh.beacon.BeaconInformationResource.Builder setId(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -363,12 +363,12 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
     }
 
     /** Gets the value of the 'organization' field */
-    public java.lang.String getOrganization() {
+    public java.lang.CharSequence getOrganization() {
       return organization;
     }
     
     /** Sets the value of the 'organization' field */
-    public org.ga4gh.beacon.BeaconInformationResource.Builder setOrganization(java.lang.String value) {
+    public org.ga4gh.beacon.BeaconInformationResource.Builder setOrganization(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.organization = value;
       fieldSetFlags()[1] = true;
@@ -388,12 +388,12 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
     }
 
     /** Gets the value of the 'description' field */
-    public java.lang.String getDescription() {
+    public java.lang.CharSequence getDescription() {
       return description;
     }
     
     /** Sets the value of the 'description' field */
-    public org.ga4gh.beacon.BeaconInformationResource.Builder setDescription(java.lang.String value) {
+    public org.ga4gh.beacon.BeaconInformationResource.Builder setDescription(java.lang.CharSequence value) {
       validate(fields()[2], value);
       this.description = value;
       fieldSetFlags()[2] = true;
@@ -438,12 +438,12 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
     }
 
     /** Gets the value of the 'api' field */
-    public java.lang.String getApi() {
+    public java.lang.CharSequence getApi() {
       return api;
     }
     
     /** Sets the value of the 'api' field */
-    public org.ga4gh.beacon.BeaconInformationResource.Builder setApi(java.lang.String value) {
+    public org.ga4gh.beacon.BeaconInformationResource.Builder setApi(java.lang.CharSequence value) {
       validate(fields()[4], value);
       this.api = value;
       fieldSetFlags()[4] = true;
@@ -463,12 +463,12 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
     }
 
     /** Gets the value of the 'homepage' field */
-    public java.lang.String getHomepage() {
+    public java.lang.CharSequence getHomepage() {
       return homepage;
     }
     
     /** Sets the value of the 'homepage' field */
-    public org.ga4gh.beacon.BeaconInformationResource.Builder setHomepage(java.lang.String value) {
+    public org.ga4gh.beacon.BeaconInformationResource.Builder setHomepage(java.lang.CharSequence value) {
       validate(fields()[5], value);
       this.homepage = value;
       fieldSetFlags()[5] = true;
@@ -488,12 +488,12 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
     }
 
     /** Gets the value of the 'email' field */
-    public java.lang.String getEmail() {
+    public java.lang.CharSequence getEmail() {
       return email;
     }
     
     /** Sets the value of the 'email' field */
-    public org.ga4gh.beacon.BeaconInformationResource.Builder setEmail(java.lang.String value) {
+    public org.ga4gh.beacon.BeaconInformationResource.Builder setEmail(java.lang.CharSequence value) {
       validate(fields()[6], value);
       this.email = value;
       fieldSetFlags()[6] = true;
@@ -513,12 +513,12 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
     }
 
     /** Gets the value of the 'auth' field */
-    public java.lang.String getAuth() {
+    public java.lang.CharSequence getAuth() {
       return auth;
     }
     
     /** Sets the value of the 'auth' field */
-    public org.ga4gh.beacon.BeaconInformationResource.Builder setAuth(java.lang.String value) {
+    public org.ga4gh.beacon.BeaconInformationResource.Builder setAuth(java.lang.CharSequence value) {
       validate(fields()[7], value);
       this.auth = value;
       fieldSetFlags()[7] = true;
@@ -538,12 +538,12 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
     }
 
     /** Gets the value of the 'queries' field */
-    public java.lang.String getQueries() {
+    public java.lang.CharSequence getQueries() {
       return queries;
     }
     
     /** Sets the value of the 'queries' field */
-    public org.ga4gh.beacon.BeaconInformationResource.Builder setQueries(java.lang.String value) {
+    public org.ga4gh.beacon.BeaconInformationResource.Builder setQueries(java.lang.CharSequence value) {
       validate(fields()[8], value);
       this.queries = value;
       fieldSetFlags()[8] = true;
@@ -566,15 +566,15 @@ public class BeaconInformationResource extends org.apache.avro.specific.Specific
     public BeaconInformationResource build() {
       try {
         BeaconInformationResource record = new BeaconInformationResource();
-        record.id = fieldSetFlags()[0] ? this.id : (java.lang.String) defaultValue(fields()[0]);
-        record.organization = fieldSetFlags()[1] ? this.organization : (java.lang.String) defaultValue(fields()[1]);
-        record.description = fieldSetFlags()[2] ? this.description : (java.lang.String) defaultValue(fields()[2]);
+        record.id = fieldSetFlags()[0] ? this.id : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.organization = fieldSetFlags()[1] ? this.organization : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.description = fieldSetFlags()[2] ? this.description : (java.lang.CharSequence) defaultValue(fields()[2]);
         record.datasets = fieldSetFlags()[3] ? this.datasets : (java.util.List<org.ga4gh.beacon.DataSetResource>) defaultValue(fields()[3]);
-        record.api = fieldSetFlags()[4] ? this.api : (java.lang.String) defaultValue(fields()[4]);
-        record.homepage = fieldSetFlags()[5] ? this.homepage : (java.lang.String) defaultValue(fields()[5]);
-        record.email = fieldSetFlags()[6] ? this.email : (java.lang.String) defaultValue(fields()[6]);
-        record.auth = fieldSetFlags()[7] ? this.auth : (java.lang.String) defaultValue(fields()[7]);
-        record.queries = fieldSetFlags()[8] ? this.queries : (java.lang.String) defaultValue(fields()[8]);
+        record.api = fieldSetFlags()[4] ? this.api : (java.lang.CharSequence) defaultValue(fields()[4]);
+        record.homepage = fieldSetFlags()[5] ? this.homepage : (java.lang.CharSequence) defaultValue(fields()[5]);
+        record.email = fieldSetFlags()[6] ? this.email : (java.lang.CharSequence) defaultValue(fields()[6]);
+        record.auth = fieldSetFlags()[7] ? this.auth : (java.lang.CharSequence) defaultValue(fields()[7]);
+        record.queries = fieldSetFlags()[8] ? this.queries : (java.lang.CharSequence) defaultValue(fields()[8]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

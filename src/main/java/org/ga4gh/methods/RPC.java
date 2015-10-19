@@ -8,7 +8,7 @@ package org.ga4gh.methods;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public interface RPC {
-  public static final org.apache.avro.Protocol PROTOCOL = org.apache.avro.Protocol.parse("{\"protocol\":\"RPC\",\"namespace\":\"org.ga4gh.methods\",\"types\":[{\"type\":\"error\",\"name\":\"GAException\",\"doc\":\"A general exception type.\",\"fields\":[{\"name\":\"message\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The error message\"},{\"name\":\"errorCode\",\"type\":\"int\",\"doc\":\"The numerical error code\",\"default\":-1}]}],\"messages\":{}}");
+  public static final org.apache.avro.Protocol PROTOCOL = org.apache.avro.Protocol.parse("{\"protocol\":\"RPC\",\"namespace\":\"org.ga4gh.methods\",\"types\":[{\"type\":\"error\",\"name\":\"GAException\",\"doc\":\"A general exception type.\",\"fields\":[{\"name\":\"message\",\"type\":\"string\",\"doc\":\"The error message\"},{\"name\":\"errorCode\",\"type\":\"int\",\"doc\":\"The numerical error code\",\"default\":-1}]}],\"messages\":{}}");
 
   @SuppressWarnings("all")
   public interface Callback extends RPC {

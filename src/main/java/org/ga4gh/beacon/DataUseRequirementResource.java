@@ -8,12 +8,12 @@ package org.ga4gh.beacon;
 /** DataUseRequirementResource */
 @org.apache.avro.specific.AvroGenerated
 public class DataUseRequirementResource extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"DataUseRequirementResource\",\"namespace\":\"org.ga4gh.beacon\",\"doc\":\"DataUseRequirementResource\",\"fields\":[{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Data Use requirement\"},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Description of Data Use requirement.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"DataUseRequirementResource\",\"namespace\":\"org.ga4gh.beacon\",\"doc\":\"DataUseRequirementResource\",\"fields\":[{\"name\":\"name\",\"type\":\"string\",\"doc\":\"Data Use requirement\"},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"Description of Data Use requirement.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** Data Use requirement */
-   private java.lang.String name;
+   private java.lang.CharSequence name;
   /** Description of Data Use requirement. */
-   private java.lang.String description;
+   private java.lang.CharSequence description;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -25,7 +25,7 @@ public class DataUseRequirementResource extends org.apache.avro.specific.Specifi
   /**
    * All-args constructor.
    */
-  public DataUseRequirementResource(java.lang.String name, java.lang.String description) {
+  public DataUseRequirementResource(java.lang.CharSequence name, java.lang.CharSequence description) {
     this.name = name;
     this.description = description;
   }
@@ -43,8 +43,8 @@ public class DataUseRequirementResource extends org.apache.avro.specific.Specifi
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: name = (java.lang.String)value$; break;
-    case 1: description = (java.lang.String)value$; break;
+    case 0: name = (java.lang.CharSequence)value$; break;
+    case 1: description = (java.lang.CharSequence)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -52,7 +52,7 @@ public class DataUseRequirementResource extends org.apache.avro.specific.Specifi
   /**
    * Gets the value of the 'name' field.
    * Data Use requirement   */
-  public java.lang.String getName() {
+  public java.lang.CharSequence getName() {
     return name;
   }
 
@@ -60,14 +60,14 @@ public class DataUseRequirementResource extends org.apache.avro.specific.Specifi
    * Sets the value of the 'name' field.
    * Data Use requirement   * @param value the value to set.
    */
-  public void setName(java.lang.String value) {
+  public void setName(java.lang.CharSequence value) {
     this.name = value;
   }
 
   /**
    * Gets the value of the 'description' field.
    * Description of Data Use requirement.   */
-  public java.lang.String getDescription() {
+  public java.lang.CharSequence getDescription() {
     return description;
   }
 
@@ -75,7 +75,7 @@ public class DataUseRequirementResource extends org.apache.avro.specific.Specifi
    * Sets the value of the 'description' field.
    * Description of Data Use requirement.   * @param value the value to set.
    */
-  public void setDescription(java.lang.String value) {
+  public void setDescription(java.lang.CharSequence value) {
     this.description = value;
   }
 
@@ -100,8 +100,8 @@ public class DataUseRequirementResource extends org.apache.avro.specific.Specifi
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<DataUseRequirementResource>
     implements org.apache.avro.data.RecordBuilder<DataUseRequirementResource> {
 
-    private java.lang.String name;
-    private java.lang.String description;
+    private java.lang.CharSequence name;
+    private java.lang.CharSequence description;
 
     /** Creates a new Builder */
     private Builder() {
@@ -135,12 +135,12 @@ public class DataUseRequirementResource extends org.apache.avro.specific.Specifi
     }
 
     /** Gets the value of the 'name' field */
-    public java.lang.String getName() {
+    public java.lang.CharSequence getName() {
       return name;
     }
     
     /** Sets the value of the 'name' field */
-    public org.ga4gh.beacon.DataUseRequirementResource.Builder setName(java.lang.String value) {
+    public org.ga4gh.beacon.DataUseRequirementResource.Builder setName(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.name = value;
       fieldSetFlags()[0] = true;
@@ -160,12 +160,12 @@ public class DataUseRequirementResource extends org.apache.avro.specific.Specifi
     }
 
     /** Gets the value of the 'description' field */
-    public java.lang.String getDescription() {
+    public java.lang.CharSequence getDescription() {
       return description;
     }
     
     /** Sets the value of the 'description' field */
-    public org.ga4gh.beacon.DataUseRequirementResource.Builder setDescription(java.lang.String value) {
+    public org.ga4gh.beacon.DataUseRequirementResource.Builder setDescription(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.description = value;
       fieldSetFlags()[1] = true;
@@ -188,8 +188,8 @@ public class DataUseRequirementResource extends org.apache.avro.specific.Specifi
     public DataUseRequirementResource build() {
       try {
         DataUseRequirementResource record = new DataUseRequirementResource();
-        record.name = fieldSetFlags()[0] ? this.name : (java.lang.String) defaultValue(fields()[0]);
-        record.description = fieldSetFlags()[1] ? this.description : (java.lang.String) defaultValue(fields()[1]);
+        record.name = fieldSetFlags()[0] ? this.name : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.description = fieldSetFlags()[1] ? this.description : (java.lang.CharSequence) defaultValue(fields()[1]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

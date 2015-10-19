@@ -8,24 +8,24 @@ package org.ga4gh.methods;
 /** This request maps to the body of `POST /allelecalls/search` as JSON. */
 @org.apache.avro.specific.AvroGenerated
 public class SearchAlleleCallsRequest extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchAlleleCallsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /allelecalls/search` as JSON.\",\"fields\":[{\"name\":\"callSetIds\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"If nonempty, only return the `AlleleCall`s in these `CallSet`s.\",\"default\":[]},{\"name\":\"variantSetIds\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"If nonempty, return only `AlleleCall`s in these `VariantSet`s.\",\"default\":[]},{\"name\":\"alleleIds\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"If nonempty, return only `AlleleCall`s associated with one of these `Allele`s.\",\"default\":[]},{\"name\":\"variantIds\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"If nonempty, return only `AlleleCall`s associated with one of these\\n  `Variant`s.\",\"default\":[]},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchAlleleCallsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /allelecalls/search` as JSON.\",\"fields\":[{\"name\":\"callSetIds\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"If nonempty, only return the `AlleleCall`s in these `CallSet`s.\",\"default\":[]},{\"name\":\"variantSetIds\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"If nonempty, return only `AlleleCall`s in these `VariantSet`s.\",\"default\":[]},{\"name\":\"alleleIds\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"If nonempty, return only `AlleleCall`s associated with one of these `Allele`s.\",\"default\":[]},{\"name\":\"variantIds\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"If nonempty, return only `AlleleCall`s associated with one of these\\n  `Variant`s.\",\"default\":[]},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",\"string\"],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** If nonempty, only return the `AlleleCall`s in these `CallSet`s. */
-   private java.util.List<java.lang.String> callSetIds;
+   private java.util.List<java.lang.CharSequence> callSetIds;
   /** If nonempty, return only `AlleleCall`s in these `VariantSet`s. */
-   private java.util.List<java.lang.String> variantSetIds;
+   private java.util.List<java.lang.CharSequence> variantSetIds;
   /** If nonempty, return only `AlleleCall`s associated with one of these `Allele`s. */
-   private java.util.List<java.lang.String> alleleIds;
+   private java.util.List<java.lang.CharSequence> alleleIds;
   /** If nonempty, return only `AlleleCall`s associated with one of these
   `Variant`s. */
-   private java.util.List<java.lang.String> variantIds;
+   private java.util.List<java.lang.CharSequence> variantIds;
   /** Specifies the maximum number of results to return in a single page.
   If unspecified, a system default will be used. */
    private java.lang.Integer pageSize;
   /** The continuation token, which is used to page through large result sets.
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response. */
-   private java.lang.String pageToken;
+   private java.lang.CharSequence pageToken;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -37,7 +37,7 @@ public class SearchAlleleCallsRequest extends org.apache.avro.specific.SpecificR
   /**
    * All-args constructor.
    */
-  public SearchAlleleCallsRequest(java.util.List<java.lang.String> callSetIds, java.util.List<java.lang.String> variantSetIds, java.util.List<java.lang.String> alleleIds, java.util.List<java.lang.String> variantIds, java.lang.Integer pageSize, java.lang.String pageToken) {
+  public SearchAlleleCallsRequest(java.util.List<java.lang.CharSequence> callSetIds, java.util.List<java.lang.CharSequence> variantSetIds, java.util.List<java.lang.CharSequence> alleleIds, java.util.List<java.lang.CharSequence> variantIds, java.lang.Integer pageSize, java.lang.CharSequence pageToken) {
     this.callSetIds = callSetIds;
     this.variantSetIds = variantSetIds;
     this.alleleIds = alleleIds;
@@ -63,12 +63,12 @@ public class SearchAlleleCallsRequest extends org.apache.avro.specific.SpecificR
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: callSetIds = (java.util.List<java.lang.String>)value$; break;
-    case 1: variantSetIds = (java.util.List<java.lang.String>)value$; break;
-    case 2: alleleIds = (java.util.List<java.lang.String>)value$; break;
-    case 3: variantIds = (java.util.List<java.lang.String>)value$; break;
+    case 0: callSetIds = (java.util.List<java.lang.CharSequence>)value$; break;
+    case 1: variantSetIds = (java.util.List<java.lang.CharSequence>)value$; break;
+    case 2: alleleIds = (java.util.List<java.lang.CharSequence>)value$; break;
+    case 3: variantIds = (java.util.List<java.lang.CharSequence>)value$; break;
     case 4: pageSize = (java.lang.Integer)value$; break;
-    case 5: pageToken = (java.lang.String)value$; break;
+    case 5: pageToken = (java.lang.CharSequence)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -76,7 +76,7 @@ public class SearchAlleleCallsRequest extends org.apache.avro.specific.SpecificR
   /**
    * Gets the value of the 'callSetIds' field.
    * If nonempty, only return the `AlleleCall`s in these `CallSet`s.   */
-  public java.util.List<java.lang.String> getCallSetIds() {
+  public java.util.List<java.lang.CharSequence> getCallSetIds() {
     return callSetIds;
   }
 
@@ -84,14 +84,14 @@ public class SearchAlleleCallsRequest extends org.apache.avro.specific.SpecificR
    * Sets the value of the 'callSetIds' field.
    * If nonempty, only return the `AlleleCall`s in these `CallSet`s.   * @param value the value to set.
    */
-  public void setCallSetIds(java.util.List<java.lang.String> value) {
+  public void setCallSetIds(java.util.List<java.lang.CharSequence> value) {
     this.callSetIds = value;
   }
 
   /**
    * Gets the value of the 'variantSetIds' field.
    * If nonempty, return only `AlleleCall`s in these `VariantSet`s.   */
-  public java.util.List<java.lang.String> getVariantSetIds() {
+  public java.util.List<java.lang.CharSequence> getVariantSetIds() {
     return variantSetIds;
   }
 
@@ -99,14 +99,14 @@ public class SearchAlleleCallsRequest extends org.apache.avro.specific.SpecificR
    * Sets the value of the 'variantSetIds' field.
    * If nonempty, return only `AlleleCall`s in these `VariantSet`s.   * @param value the value to set.
    */
-  public void setVariantSetIds(java.util.List<java.lang.String> value) {
+  public void setVariantSetIds(java.util.List<java.lang.CharSequence> value) {
     this.variantSetIds = value;
   }
 
   /**
    * Gets the value of the 'alleleIds' field.
    * If nonempty, return only `AlleleCall`s associated with one of these `Allele`s.   */
-  public java.util.List<java.lang.String> getAlleleIds() {
+  public java.util.List<java.lang.CharSequence> getAlleleIds() {
     return alleleIds;
   }
 
@@ -114,7 +114,7 @@ public class SearchAlleleCallsRequest extends org.apache.avro.specific.SpecificR
    * Sets the value of the 'alleleIds' field.
    * If nonempty, return only `AlleleCall`s associated with one of these `Allele`s.   * @param value the value to set.
    */
-  public void setAlleleIds(java.util.List<java.lang.String> value) {
+  public void setAlleleIds(java.util.List<java.lang.CharSequence> value) {
     this.alleleIds = value;
   }
 
@@ -122,7 +122,7 @@ public class SearchAlleleCallsRequest extends org.apache.avro.specific.SpecificR
    * Gets the value of the 'variantIds' field.
    * If nonempty, return only `AlleleCall`s associated with one of these
   `Variant`s.   */
-  public java.util.List<java.lang.String> getVariantIds() {
+  public java.util.List<java.lang.CharSequence> getVariantIds() {
     return variantIds;
   }
 
@@ -131,7 +131,7 @@ public class SearchAlleleCallsRequest extends org.apache.avro.specific.SpecificR
    * If nonempty, return only `AlleleCall`s associated with one of these
   `Variant`s.   * @param value the value to set.
    */
-  public void setVariantIds(java.util.List<java.lang.String> value) {
+  public void setVariantIds(java.util.List<java.lang.CharSequence> value) {
     this.variantIds = value;
   }
 
@@ -157,7 +157,7 @@ public class SearchAlleleCallsRequest extends org.apache.avro.specific.SpecificR
    * The continuation token, which is used to page through large result sets.
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response.   */
-  public java.lang.String getPageToken() {
+  public java.lang.CharSequence getPageToken() {
     return pageToken;
   }
 
@@ -167,7 +167,7 @@ public class SearchAlleleCallsRequest extends org.apache.avro.specific.SpecificR
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response.   * @param value the value to set.
    */
-  public void setPageToken(java.lang.String value) {
+  public void setPageToken(java.lang.CharSequence value) {
     this.pageToken = value;
   }
 
@@ -192,12 +192,12 @@ public class SearchAlleleCallsRequest extends org.apache.avro.specific.SpecificR
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<SearchAlleleCallsRequest>
     implements org.apache.avro.data.RecordBuilder<SearchAlleleCallsRequest> {
 
-    private java.util.List<java.lang.String> callSetIds;
-    private java.util.List<java.lang.String> variantSetIds;
-    private java.util.List<java.lang.String> alleleIds;
-    private java.util.List<java.lang.String> variantIds;
+    private java.util.List<java.lang.CharSequence> callSetIds;
+    private java.util.List<java.lang.CharSequence> variantSetIds;
+    private java.util.List<java.lang.CharSequence> alleleIds;
+    private java.util.List<java.lang.CharSequence> variantIds;
     private java.lang.Integer pageSize;
-    private java.lang.String pageToken;
+    private java.lang.CharSequence pageToken;
 
     /** Creates a new Builder */
     private Builder() {
@@ -263,12 +263,12 @@ public class SearchAlleleCallsRequest extends org.apache.avro.specific.SpecificR
     }
 
     /** Gets the value of the 'callSetIds' field */
-    public java.util.List<java.lang.String> getCallSetIds() {
+    public java.util.List<java.lang.CharSequence> getCallSetIds() {
       return callSetIds;
     }
     
     /** Sets the value of the 'callSetIds' field */
-    public org.ga4gh.methods.SearchAlleleCallsRequest.Builder setCallSetIds(java.util.List<java.lang.String> value) {
+    public org.ga4gh.methods.SearchAlleleCallsRequest.Builder setCallSetIds(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[0], value);
       this.callSetIds = value;
       fieldSetFlags()[0] = true;
@@ -288,12 +288,12 @@ public class SearchAlleleCallsRequest extends org.apache.avro.specific.SpecificR
     }
 
     /** Gets the value of the 'variantSetIds' field */
-    public java.util.List<java.lang.String> getVariantSetIds() {
+    public java.util.List<java.lang.CharSequence> getVariantSetIds() {
       return variantSetIds;
     }
     
     /** Sets the value of the 'variantSetIds' field */
-    public org.ga4gh.methods.SearchAlleleCallsRequest.Builder setVariantSetIds(java.util.List<java.lang.String> value) {
+    public org.ga4gh.methods.SearchAlleleCallsRequest.Builder setVariantSetIds(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[1], value);
       this.variantSetIds = value;
       fieldSetFlags()[1] = true;
@@ -313,12 +313,12 @@ public class SearchAlleleCallsRequest extends org.apache.avro.specific.SpecificR
     }
 
     /** Gets the value of the 'alleleIds' field */
-    public java.util.List<java.lang.String> getAlleleIds() {
+    public java.util.List<java.lang.CharSequence> getAlleleIds() {
       return alleleIds;
     }
     
     /** Sets the value of the 'alleleIds' field */
-    public org.ga4gh.methods.SearchAlleleCallsRequest.Builder setAlleleIds(java.util.List<java.lang.String> value) {
+    public org.ga4gh.methods.SearchAlleleCallsRequest.Builder setAlleleIds(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[2], value);
       this.alleleIds = value;
       fieldSetFlags()[2] = true;
@@ -338,12 +338,12 @@ public class SearchAlleleCallsRequest extends org.apache.avro.specific.SpecificR
     }
 
     /** Gets the value of the 'variantIds' field */
-    public java.util.List<java.lang.String> getVariantIds() {
+    public java.util.List<java.lang.CharSequence> getVariantIds() {
       return variantIds;
     }
     
     /** Sets the value of the 'variantIds' field */
-    public org.ga4gh.methods.SearchAlleleCallsRequest.Builder setVariantIds(java.util.List<java.lang.String> value) {
+    public org.ga4gh.methods.SearchAlleleCallsRequest.Builder setVariantIds(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[3], value);
       this.variantIds = value;
       fieldSetFlags()[3] = true;
@@ -388,12 +388,12 @@ public class SearchAlleleCallsRequest extends org.apache.avro.specific.SpecificR
     }
 
     /** Gets the value of the 'pageToken' field */
-    public java.lang.String getPageToken() {
+    public java.lang.CharSequence getPageToken() {
       return pageToken;
     }
     
     /** Sets the value of the 'pageToken' field */
-    public org.ga4gh.methods.SearchAlleleCallsRequest.Builder setPageToken(java.lang.String value) {
+    public org.ga4gh.methods.SearchAlleleCallsRequest.Builder setPageToken(java.lang.CharSequence value) {
       validate(fields()[5], value);
       this.pageToken = value;
       fieldSetFlags()[5] = true;
@@ -416,12 +416,12 @@ public class SearchAlleleCallsRequest extends org.apache.avro.specific.SpecificR
     public SearchAlleleCallsRequest build() {
       try {
         SearchAlleleCallsRequest record = new SearchAlleleCallsRequest();
-        record.callSetIds = fieldSetFlags()[0] ? this.callSetIds : (java.util.List<java.lang.String>) defaultValue(fields()[0]);
-        record.variantSetIds = fieldSetFlags()[1] ? this.variantSetIds : (java.util.List<java.lang.String>) defaultValue(fields()[1]);
-        record.alleleIds = fieldSetFlags()[2] ? this.alleleIds : (java.util.List<java.lang.String>) defaultValue(fields()[2]);
-        record.variantIds = fieldSetFlags()[3] ? this.variantIds : (java.util.List<java.lang.String>) defaultValue(fields()[3]);
+        record.callSetIds = fieldSetFlags()[0] ? this.callSetIds : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[0]);
+        record.variantSetIds = fieldSetFlags()[1] ? this.variantSetIds : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[1]);
+        record.alleleIds = fieldSetFlags()[2] ? this.alleleIds : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[2]);
+        record.variantIds = fieldSetFlags()[3] ? this.variantIds : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[3]);
         record.pageSize = fieldSetFlags()[4] ? this.pageSize : (java.lang.Integer) defaultValue(fields()[4]);
-        record.pageToken = fieldSetFlags()[5] ? this.pageToken : (java.lang.String) defaultValue(fields()[5]);
+        record.pageToken = fieldSetFlags()[5] ? this.pageToken : (java.lang.CharSequence) defaultValue(fields()[5]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

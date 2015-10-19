@@ -8,14 +8,14 @@ package org.ga4gh.models;
 /** Represents a group of individuals. (e.g. a trio) */
 @org.apache.avro.specific.AvroGenerated
 public class IndividualGroup extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"IndividualGroup\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"Represents a group of individuals. (e.g. a trio)\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The individual group UUID. This is globally unique.\"},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The name of the individual group.\",\"default\":null},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"A description of the individual group.\",\"default\":null},{\"name\":\"created\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this individual group was created in milliseconds from\\n  the epoch.\",\"default\":null},{\"name\":\"updated\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this individual group was last updated in milliseconds\\n  from the epoch.\",\"default\":null},{\"name\":\"type\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The type of individual group.\",\"default\":null},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"avro.java.string\":\"String\"},\"doc\":\"A map of additional individual group information.\",\"default\":{}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"IndividualGroup\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"Represents a group of individuals. (e.g. a trio)\",\"fields\":[{\"name\":\"id\",\"type\":\"string\",\"doc\":\"The individual group UUID. This is globally unique.\"},{\"name\":\"name\",\"type\":[\"null\",\"string\"],\"doc\":\"The name of the individual group.\",\"default\":null},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"A description of the individual group.\",\"default\":null},{\"name\":\"created\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this individual group was created in milliseconds from\\n  the epoch.\",\"default\":null},{\"name\":\"updated\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this individual group was last updated in milliseconds\\n  from the epoch.\",\"default\":null},{\"name\":\"type\",\"type\":[\"null\",\"string\"],\"doc\":\"The type of individual group.\",\"default\":null},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":\"string\"}},\"doc\":\"A map of additional individual group information.\",\"default\":{}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The individual group UUID. This is globally unique. */
-   private java.lang.String id;
+   private java.lang.CharSequence id;
   /** The name of the individual group. */
-   private java.lang.String name;
+   private java.lang.CharSequence name;
   /** A description of the individual group. */
-   private java.lang.String description;
+   private java.lang.CharSequence description;
   /** The time at which this individual group was created in milliseconds from
   the epoch. */
    private java.lang.Long created;
@@ -23,9 +23,9 @@ public class IndividualGroup extends org.apache.avro.specific.SpecificRecordBase
   from the epoch. */
    private java.lang.Long updated;
   /** The type of individual group. */
-   private java.lang.String type;
+   private java.lang.CharSequence type;
   /** A map of additional individual group information. */
-   private java.util.Map<java.lang.String,java.util.List<java.lang.String>> info;
+   private java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -37,7 +37,7 @@ public class IndividualGroup extends org.apache.avro.specific.SpecificRecordBase
   /**
    * All-args constructor.
    */
-  public IndividualGroup(java.lang.String id, java.lang.String name, java.lang.String description, java.lang.Long created, java.lang.Long updated, java.lang.String type, java.util.Map<java.lang.String,java.util.List<java.lang.String>> info) {
+  public IndividualGroup(java.lang.CharSequence id, java.lang.CharSequence name, java.lang.CharSequence description, java.lang.Long created, java.lang.Long updated, java.lang.CharSequence type, java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info) {
     this.id = id;
     this.name = name;
     this.description = description;
@@ -65,13 +65,13 @@ public class IndividualGroup extends org.apache.avro.specific.SpecificRecordBase
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: id = (java.lang.String)value$; break;
-    case 1: name = (java.lang.String)value$; break;
-    case 2: description = (java.lang.String)value$; break;
+    case 0: id = (java.lang.CharSequence)value$; break;
+    case 1: name = (java.lang.CharSequence)value$; break;
+    case 2: description = (java.lang.CharSequence)value$; break;
     case 3: created = (java.lang.Long)value$; break;
     case 4: updated = (java.lang.Long)value$; break;
-    case 5: type = (java.lang.String)value$; break;
-    case 6: info = (java.util.Map<java.lang.String,java.util.List<java.lang.String>>)value$; break;
+    case 5: type = (java.lang.CharSequence)value$; break;
+    case 6: info = (java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -79,7 +79,7 @@ public class IndividualGroup extends org.apache.avro.specific.SpecificRecordBase
   /**
    * Gets the value of the 'id' field.
    * The individual group UUID. This is globally unique.   */
-  public java.lang.String getId() {
+  public java.lang.CharSequence getId() {
     return id;
   }
 
@@ -87,14 +87,14 @@ public class IndividualGroup extends org.apache.avro.specific.SpecificRecordBase
    * Sets the value of the 'id' field.
    * The individual group UUID. This is globally unique.   * @param value the value to set.
    */
-  public void setId(java.lang.String value) {
+  public void setId(java.lang.CharSequence value) {
     this.id = value;
   }
 
   /**
    * Gets the value of the 'name' field.
    * The name of the individual group.   */
-  public java.lang.String getName() {
+  public java.lang.CharSequence getName() {
     return name;
   }
 
@@ -102,14 +102,14 @@ public class IndividualGroup extends org.apache.avro.specific.SpecificRecordBase
    * Sets the value of the 'name' field.
    * The name of the individual group.   * @param value the value to set.
    */
-  public void setName(java.lang.String value) {
+  public void setName(java.lang.CharSequence value) {
     this.name = value;
   }
 
   /**
    * Gets the value of the 'description' field.
    * A description of the individual group.   */
-  public java.lang.String getDescription() {
+  public java.lang.CharSequence getDescription() {
     return description;
   }
 
@@ -117,7 +117,7 @@ public class IndividualGroup extends org.apache.avro.specific.SpecificRecordBase
    * Sets the value of the 'description' field.
    * A description of the individual group.   * @param value the value to set.
    */
-  public void setDescription(java.lang.String value) {
+  public void setDescription(java.lang.CharSequence value) {
     this.description = value;
   }
 
@@ -158,7 +158,7 @@ public class IndividualGroup extends org.apache.avro.specific.SpecificRecordBase
   /**
    * Gets the value of the 'type' field.
    * The type of individual group.   */
-  public java.lang.String getType() {
+  public java.lang.CharSequence getType() {
     return type;
   }
 
@@ -166,14 +166,14 @@ public class IndividualGroup extends org.apache.avro.specific.SpecificRecordBase
    * Sets the value of the 'type' field.
    * The type of individual group.   * @param value the value to set.
    */
-  public void setType(java.lang.String value) {
+  public void setType(java.lang.CharSequence value) {
     this.type = value;
   }
 
   /**
    * Gets the value of the 'info' field.
    * A map of additional individual group information.   */
-  public java.util.Map<java.lang.String,java.util.List<java.lang.String>> getInfo() {
+  public java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> getInfo() {
     return info;
   }
 
@@ -181,7 +181,7 @@ public class IndividualGroup extends org.apache.avro.specific.SpecificRecordBase
    * Sets the value of the 'info' field.
    * A map of additional individual group information.   * @param value the value to set.
    */
-  public void setInfo(java.util.Map<java.lang.String,java.util.List<java.lang.String>> value) {
+  public void setInfo(java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> value) {
     this.info = value;
   }
 
@@ -206,13 +206,13 @@ public class IndividualGroup extends org.apache.avro.specific.SpecificRecordBase
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<IndividualGroup>
     implements org.apache.avro.data.RecordBuilder<IndividualGroup> {
 
-    private java.lang.String id;
-    private java.lang.String name;
-    private java.lang.String description;
+    private java.lang.CharSequence id;
+    private java.lang.CharSequence name;
+    private java.lang.CharSequence description;
     private java.lang.Long created;
     private java.lang.Long updated;
-    private java.lang.String type;
-    private java.util.Map<java.lang.String,java.util.List<java.lang.String>> info;
+    private java.lang.CharSequence type;
+    private java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info;
 
     /** Creates a new Builder */
     private Builder() {
@@ -286,12 +286,12 @@ public class IndividualGroup extends org.apache.avro.specific.SpecificRecordBase
     }
 
     /** Gets the value of the 'id' field */
-    public java.lang.String getId() {
+    public java.lang.CharSequence getId() {
       return id;
     }
     
     /** Sets the value of the 'id' field */
-    public org.ga4gh.models.IndividualGroup.Builder setId(java.lang.String value) {
+    public org.ga4gh.models.IndividualGroup.Builder setId(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -311,12 +311,12 @@ public class IndividualGroup extends org.apache.avro.specific.SpecificRecordBase
     }
 
     /** Gets the value of the 'name' field */
-    public java.lang.String getName() {
+    public java.lang.CharSequence getName() {
       return name;
     }
     
     /** Sets the value of the 'name' field */
-    public org.ga4gh.models.IndividualGroup.Builder setName(java.lang.String value) {
+    public org.ga4gh.models.IndividualGroup.Builder setName(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.name = value;
       fieldSetFlags()[1] = true;
@@ -336,12 +336,12 @@ public class IndividualGroup extends org.apache.avro.specific.SpecificRecordBase
     }
 
     /** Gets the value of the 'description' field */
-    public java.lang.String getDescription() {
+    public java.lang.CharSequence getDescription() {
       return description;
     }
     
     /** Sets the value of the 'description' field */
-    public org.ga4gh.models.IndividualGroup.Builder setDescription(java.lang.String value) {
+    public org.ga4gh.models.IndividualGroup.Builder setDescription(java.lang.CharSequence value) {
       validate(fields()[2], value);
       this.description = value;
       fieldSetFlags()[2] = true;
@@ -411,12 +411,12 @@ public class IndividualGroup extends org.apache.avro.specific.SpecificRecordBase
     }
 
     /** Gets the value of the 'type' field */
-    public java.lang.String getType() {
+    public java.lang.CharSequence getType() {
       return type;
     }
     
     /** Sets the value of the 'type' field */
-    public org.ga4gh.models.IndividualGroup.Builder setType(java.lang.String value) {
+    public org.ga4gh.models.IndividualGroup.Builder setType(java.lang.CharSequence value) {
       validate(fields()[5], value);
       this.type = value;
       fieldSetFlags()[5] = true;
@@ -436,12 +436,12 @@ public class IndividualGroup extends org.apache.avro.specific.SpecificRecordBase
     }
 
     /** Gets the value of the 'info' field */
-    public java.util.Map<java.lang.String,java.util.List<java.lang.String>> getInfo() {
+    public java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> getInfo() {
       return info;
     }
     
     /** Sets the value of the 'info' field */
-    public org.ga4gh.models.IndividualGroup.Builder setInfo(java.util.Map<java.lang.String,java.util.List<java.lang.String>> value) {
+    public org.ga4gh.models.IndividualGroup.Builder setInfo(java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> value) {
       validate(fields()[6], value);
       this.info = value;
       fieldSetFlags()[6] = true;
@@ -464,13 +464,13 @@ public class IndividualGroup extends org.apache.avro.specific.SpecificRecordBase
     public IndividualGroup build() {
       try {
         IndividualGroup record = new IndividualGroup();
-        record.id = fieldSetFlags()[0] ? this.id : (java.lang.String) defaultValue(fields()[0]);
-        record.name = fieldSetFlags()[1] ? this.name : (java.lang.String) defaultValue(fields()[1]);
-        record.description = fieldSetFlags()[2] ? this.description : (java.lang.String) defaultValue(fields()[2]);
+        record.id = fieldSetFlags()[0] ? this.id : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.name = fieldSetFlags()[1] ? this.name : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.description = fieldSetFlags()[2] ? this.description : (java.lang.CharSequence) defaultValue(fields()[2]);
         record.created = fieldSetFlags()[3] ? this.created : (java.lang.Long) defaultValue(fields()[3]);
         record.updated = fieldSetFlags()[4] ? this.updated : (java.lang.Long) defaultValue(fields()[4]);
-        record.type = fieldSetFlags()[5] ? this.type : (java.lang.String) defaultValue(fields()[5]);
-        record.info = fieldSetFlags()[6] ? this.info : (java.util.Map<java.lang.String,java.util.List<java.lang.String>>) defaultValue(fields()[6]);
+        record.type = fieldSetFlags()[5] ? this.type : (java.lang.CharSequence) defaultValue(fields()[5]);
+        record.info = fieldSetFlags()[6] ? this.info : (java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>>) defaultValue(fields()[6]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

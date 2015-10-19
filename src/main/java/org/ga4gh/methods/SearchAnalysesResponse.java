@@ -8,14 +8,14 @@ package org.ga4gh.methods;
 /** This is the response from `POST /analyses/search` expressed as JSON. */
 @org.apache.avro.specific.AvroGenerated
 public class SearchAnalysesResponse extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchAnalysesResponse\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This is the response from `POST /analyses/search` expressed as JSON.\",\"fields\":[{\"name\":\"analyses\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Analysis\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"An analysis contains an interpretation of one or several experiments.\\n(e.g. SNVs, copy number variations, methylation status) together with\\ninformation about the methodology used.\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The analysis UUID. This is globally unique.\"},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The name of the analysis.\",\"default\":null},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"A description of the analysis.\",\"default\":null},{\"name\":\"created\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this analysis was created in milliseconds from the epoch.\",\"default\":null},{\"name\":\"updated\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this analysis was last updated in milliseconds\\n  from the epoch.\",\"default\":null},{\"name\":\"type\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The type of analysis.\",\"default\":null},{\"name\":\"software\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"The software run to generate this analysis.\",\"default\":null},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"avro.java.string\":\"String\"},\"doc\":\"A map of additional analysis information.\",\"default\":{}}]}},\"doc\":\"The list of matching analyses.\",\"default\":[]},{\"name\":\"nextPageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  Provide this value in a subsequent request to return the next page of\\n  results. This field will be empty if there aren't any additional results.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchAnalysesResponse\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This is the response from `POST /analyses/search` expressed as JSON.\",\"fields\":[{\"name\":\"analyses\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Analysis\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"An analysis contains an interpretation of one or several experiments.\\n(e.g. SNVs, copy number variations, methylation status) together with\\ninformation about the methodology used.\",\"fields\":[{\"name\":\"id\",\"type\":\"string\",\"doc\":\"The analysis UUID. This is globally unique.\"},{\"name\":\"name\",\"type\":[\"null\",\"string\"],\"doc\":\"The name of the analysis.\",\"default\":null},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"A description of the analysis.\",\"default\":null},{\"name\":\"created\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this analysis was created in milliseconds from the epoch.\",\"default\":null},{\"name\":\"updated\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this analysis was last updated in milliseconds\\n  from the epoch.\",\"default\":null},{\"name\":\"type\",\"type\":[\"null\",\"string\"],\"doc\":\"The type of analysis.\",\"default\":null},{\"name\":\"software\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"The software run to generate this analysis.\",\"default\":null},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":\"string\"}},\"doc\":\"A map of additional analysis information.\",\"default\":{}}]}},\"doc\":\"The list of matching analyses.\",\"default\":[]},{\"name\":\"nextPageToken\",\"type\":[\"null\",\"string\"],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  Provide this value in a subsequent request to return the next page of\\n  results. This field will be empty if there aren't any additional results.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The list of matching analyses. */
    private java.util.List<org.ga4gh.models.Analysis> analyses;
   /** The continuation token, which is used to page through large result sets.
   Provide this value in a subsequent request to return the next page of
   results. This field will be empty if there aren't any additional results. */
-   private java.lang.String nextPageToken;
+   private java.lang.CharSequence nextPageToken;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -27,7 +27,7 @@ public class SearchAnalysesResponse extends org.apache.avro.specific.SpecificRec
   /**
    * All-args constructor.
    */
-  public SearchAnalysesResponse(java.util.List<org.ga4gh.models.Analysis> analyses, java.lang.String nextPageToken) {
+  public SearchAnalysesResponse(java.util.List<org.ga4gh.models.Analysis> analyses, java.lang.CharSequence nextPageToken) {
     this.analyses = analyses;
     this.nextPageToken = nextPageToken;
   }
@@ -46,7 +46,7 @@ public class SearchAnalysesResponse extends org.apache.avro.specific.SpecificRec
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: analyses = (java.util.List<org.ga4gh.models.Analysis>)value$; break;
-    case 1: nextPageToken = (java.lang.String)value$; break;
+    case 1: nextPageToken = (java.lang.CharSequence)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -71,7 +71,7 @@ public class SearchAnalysesResponse extends org.apache.avro.specific.SpecificRec
    * The continuation token, which is used to page through large result sets.
   Provide this value in a subsequent request to return the next page of
   results. This field will be empty if there aren't any additional results.   */
-  public java.lang.String getNextPageToken() {
+  public java.lang.CharSequence getNextPageToken() {
     return nextPageToken;
   }
 
@@ -81,7 +81,7 @@ public class SearchAnalysesResponse extends org.apache.avro.specific.SpecificRec
   Provide this value in a subsequent request to return the next page of
   results. This field will be empty if there aren't any additional results.   * @param value the value to set.
    */
-  public void setNextPageToken(java.lang.String value) {
+  public void setNextPageToken(java.lang.CharSequence value) {
     this.nextPageToken = value;
   }
 
@@ -107,7 +107,7 @@ public class SearchAnalysesResponse extends org.apache.avro.specific.SpecificRec
     implements org.apache.avro.data.RecordBuilder<SearchAnalysesResponse> {
 
     private java.util.List<org.ga4gh.models.Analysis> analyses;
-    private java.lang.String nextPageToken;
+    private java.lang.CharSequence nextPageToken;
 
     /** Creates a new Builder */
     private Builder() {
@@ -166,12 +166,12 @@ public class SearchAnalysesResponse extends org.apache.avro.specific.SpecificRec
     }
 
     /** Gets the value of the 'nextPageToken' field */
-    public java.lang.String getNextPageToken() {
+    public java.lang.CharSequence getNextPageToken() {
       return nextPageToken;
     }
     
     /** Sets the value of the 'nextPageToken' field */
-    public org.ga4gh.methods.SearchAnalysesResponse.Builder setNextPageToken(java.lang.String value) {
+    public org.ga4gh.methods.SearchAnalysesResponse.Builder setNextPageToken(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.nextPageToken = value;
       fieldSetFlags()[1] = true;
@@ -195,7 +195,7 @@ public class SearchAnalysesResponse extends org.apache.avro.specific.SpecificRec
       try {
         SearchAnalysesResponse record = new SearchAnalysesResponse();
         record.analyses = fieldSetFlags()[0] ? this.analyses : (java.util.List<org.ga4gh.models.Analysis>) defaultValue(fields()[0]);
-        record.nextPageToken = fieldSetFlags()[1] ? this.nextPageToken : (java.lang.String) defaultValue(fields()[1]);
+        record.nextPageToken = fieldSetFlags()[1] ? this.nextPageToken : (java.lang.CharSequence) defaultValue(fields()[1]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

@@ -9,16 +9,16 @@ package org.ga4gh.models;
 'polydactyly' from HPO) */
 @org.apache.avro.specific.AvroGenerated
 public class OntologyTerm extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"OntologyTerm\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"An ontology term describing an attribute. (e.g. the phenotype attribute\\n'polydactyly' from HPO)\",\"fields\":[{\"name\":\"ontologySource\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The source of the onotology term.\\n  (e.g. `Ontology for Biomedical Investigation`)\"},{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The ID defined by the external onotology source.\\n  (e.g. `http://purl.obolibrary.org/obo/OBI_0001271`)\"},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The name of the onotology term. (e.g. `RNA-seq assay`)\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"OntologyTerm\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"An ontology term describing an attribute. (e.g. the phenotype attribute\\n'polydactyly' from HPO)\",\"fields\":[{\"name\":\"ontologySource\",\"type\":\"string\",\"doc\":\"The source of the onotology term.\\n  (e.g. `Ontology for Biomedical Investigation`)\"},{\"name\":\"id\",\"type\":\"string\",\"doc\":\"The ID defined by the external onotology source.\\n  (e.g. `http://purl.obolibrary.org/obo/OBI_0001271`)\"},{\"name\":\"name\",\"type\":[\"null\",\"string\"],\"doc\":\"The name of the onotology term. (e.g. `RNA-seq assay`)\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The source of the onotology term.
   (e.g. `Ontology for Biomedical Investigation`) */
-   private java.lang.String ontologySource;
+   private java.lang.CharSequence ontologySource;
   /** The ID defined by the external onotology source.
   (e.g. `http://purl.obolibrary.org/obo/OBI_0001271`) */
-   private java.lang.String id;
+   private java.lang.CharSequence id;
   /** The name of the onotology term. (e.g. `RNA-seq assay`) */
-   private java.lang.String name;
+   private java.lang.CharSequence name;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -30,7 +30,7 @@ public class OntologyTerm extends org.apache.avro.specific.SpecificRecordBase im
   /**
    * All-args constructor.
    */
-  public OntologyTerm(java.lang.String ontologySource, java.lang.String id, java.lang.String name) {
+  public OntologyTerm(java.lang.CharSequence ontologySource, java.lang.CharSequence id, java.lang.CharSequence name) {
     this.ontologySource = ontologySource;
     this.id = id;
     this.name = name;
@@ -50,9 +50,9 @@ public class OntologyTerm extends org.apache.avro.specific.SpecificRecordBase im
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: ontologySource = (java.lang.String)value$; break;
-    case 1: id = (java.lang.String)value$; break;
-    case 2: name = (java.lang.String)value$; break;
+    case 0: ontologySource = (java.lang.CharSequence)value$; break;
+    case 1: id = (java.lang.CharSequence)value$; break;
+    case 2: name = (java.lang.CharSequence)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -61,7 +61,7 @@ public class OntologyTerm extends org.apache.avro.specific.SpecificRecordBase im
    * Gets the value of the 'ontologySource' field.
    * The source of the onotology term.
   (e.g. `Ontology for Biomedical Investigation`)   */
-  public java.lang.String getOntologySource() {
+  public java.lang.CharSequence getOntologySource() {
     return ontologySource;
   }
 
@@ -70,7 +70,7 @@ public class OntologyTerm extends org.apache.avro.specific.SpecificRecordBase im
    * The source of the onotology term.
   (e.g. `Ontology for Biomedical Investigation`)   * @param value the value to set.
    */
-  public void setOntologySource(java.lang.String value) {
+  public void setOntologySource(java.lang.CharSequence value) {
     this.ontologySource = value;
   }
 
@@ -78,7 +78,7 @@ public class OntologyTerm extends org.apache.avro.specific.SpecificRecordBase im
    * Gets the value of the 'id' field.
    * The ID defined by the external onotology source.
   (e.g. `http://purl.obolibrary.org/obo/OBI_0001271`)   */
-  public java.lang.String getId() {
+  public java.lang.CharSequence getId() {
     return id;
   }
 
@@ -87,14 +87,14 @@ public class OntologyTerm extends org.apache.avro.specific.SpecificRecordBase im
    * The ID defined by the external onotology source.
   (e.g. `http://purl.obolibrary.org/obo/OBI_0001271`)   * @param value the value to set.
    */
-  public void setId(java.lang.String value) {
+  public void setId(java.lang.CharSequence value) {
     this.id = value;
   }
 
   /**
    * Gets the value of the 'name' field.
    * The name of the onotology term. (e.g. `RNA-seq assay`)   */
-  public java.lang.String getName() {
+  public java.lang.CharSequence getName() {
     return name;
   }
 
@@ -102,7 +102,7 @@ public class OntologyTerm extends org.apache.avro.specific.SpecificRecordBase im
    * Sets the value of the 'name' field.
    * The name of the onotology term. (e.g. `RNA-seq assay`)   * @param value the value to set.
    */
-  public void setName(java.lang.String value) {
+  public void setName(java.lang.CharSequence value) {
     this.name = value;
   }
 
@@ -127,9 +127,9 @@ public class OntologyTerm extends org.apache.avro.specific.SpecificRecordBase im
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<OntologyTerm>
     implements org.apache.avro.data.RecordBuilder<OntologyTerm> {
 
-    private java.lang.String ontologySource;
-    private java.lang.String id;
-    private java.lang.String name;
+    private java.lang.CharSequence ontologySource;
+    private java.lang.CharSequence id;
+    private java.lang.CharSequence name;
 
     /** Creates a new Builder */
     private Builder() {
@@ -171,12 +171,12 @@ public class OntologyTerm extends org.apache.avro.specific.SpecificRecordBase im
     }
 
     /** Gets the value of the 'ontologySource' field */
-    public java.lang.String getOntologySource() {
+    public java.lang.CharSequence getOntologySource() {
       return ontologySource;
     }
     
     /** Sets the value of the 'ontologySource' field */
-    public org.ga4gh.models.OntologyTerm.Builder setOntologySource(java.lang.String value) {
+    public org.ga4gh.models.OntologyTerm.Builder setOntologySource(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.ontologySource = value;
       fieldSetFlags()[0] = true;
@@ -196,12 +196,12 @@ public class OntologyTerm extends org.apache.avro.specific.SpecificRecordBase im
     }
 
     /** Gets the value of the 'id' field */
-    public java.lang.String getId() {
+    public java.lang.CharSequence getId() {
       return id;
     }
     
     /** Sets the value of the 'id' field */
-    public org.ga4gh.models.OntologyTerm.Builder setId(java.lang.String value) {
+    public org.ga4gh.models.OntologyTerm.Builder setId(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.id = value;
       fieldSetFlags()[1] = true;
@@ -221,12 +221,12 @@ public class OntologyTerm extends org.apache.avro.specific.SpecificRecordBase im
     }
 
     /** Gets the value of the 'name' field */
-    public java.lang.String getName() {
+    public java.lang.CharSequence getName() {
       return name;
     }
     
     /** Sets the value of the 'name' field */
-    public org.ga4gh.models.OntologyTerm.Builder setName(java.lang.String value) {
+    public org.ga4gh.models.OntologyTerm.Builder setName(java.lang.CharSequence value) {
       validate(fields()[2], value);
       this.name = value;
       fieldSetFlags()[2] = true;
@@ -249,9 +249,9 @@ public class OntologyTerm extends org.apache.avro.specific.SpecificRecordBase im
     public OntologyTerm build() {
       try {
         OntologyTerm record = new OntologyTerm();
-        record.ontologySource = fieldSetFlags()[0] ? this.ontologySource : (java.lang.String) defaultValue(fields()[0]);
-        record.id = fieldSetFlags()[1] ? this.id : (java.lang.String) defaultValue(fields()[1]);
-        record.name = fieldSetFlags()[2] ? this.name : (java.lang.String) defaultValue(fields()[2]);
+        record.ontologySource = fieldSetFlags()[0] ? this.ontologySource : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.id = fieldSetFlags()[1] ? this.id : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.name = fieldSetFlags()[2] ? this.name : (java.lang.CharSequence) defaultValue(fields()[2]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

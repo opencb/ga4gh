@@ -8,18 +8,18 @@ package org.ga4gh.methods;
 /** The response from `GET /references/{id}/bases` expressed as JSON. */
 @org.apache.avro.specific.AvroGenerated
 public class ListReferenceBasesResponse extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ListReferenceBasesResponse\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"The response from `GET /references/{id}/bases` expressed as JSON.\",\"fields\":[{\"name\":\"offset\",\"type\":\"long\",\"doc\":\"The offset position (0-based) of the given `sequence` from the start of this\\n  `Reference`. This value will differ for each page in a paginated request.\",\"default\":0},{\"name\":\"sequence\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"A substring of the bases that make up this reference. Bases are represented\\n  as IUPAC-IUB codes; this string matches the regexp `[ACGTMRWSYKVHDBN]*`.\"},{\"name\":\"nextPageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  Provide this value in a subsequent request to return the next page of\\n  results. This field will be empty if there aren't any additional results.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ListReferenceBasesResponse\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"The response from `GET /references/{id}/bases` expressed as JSON.\",\"fields\":[{\"name\":\"offset\",\"type\":\"long\",\"doc\":\"The offset position (0-based) of the given `sequence` from the start of this\\n  `Reference`. This value will differ for each page in a paginated request.\",\"default\":0},{\"name\":\"sequence\",\"type\":\"string\",\"doc\":\"A substring of the bases that make up this reference. Bases are represented\\n  as IUPAC-IUB codes; this string matches the regexp `[ACGTMRWSYKVHDBN]*`.\"},{\"name\":\"nextPageToken\",\"type\":[\"null\",\"string\"],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  Provide this value in a subsequent request to return the next page of\\n  results. This field will be empty if there aren't any additional results.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The offset position (0-based) of the given `sequence` from the start of this
   `Reference`. This value will differ for each page in a paginated request. */
    private long offset;
   /** A substring of the bases that make up this reference. Bases are represented
   as IUPAC-IUB codes; this string matches the regexp `[ACGTMRWSYKVHDBN]*`. */
-   private java.lang.String sequence;
+   private java.lang.CharSequence sequence;
   /** The continuation token, which is used to page through large result sets.
   Provide this value in a subsequent request to return the next page of
   results. This field will be empty if there aren't any additional results. */
-   private java.lang.String nextPageToken;
+   private java.lang.CharSequence nextPageToken;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -31,7 +31,7 @@ public class ListReferenceBasesResponse extends org.apache.avro.specific.Specifi
   /**
    * All-args constructor.
    */
-  public ListReferenceBasesResponse(java.lang.Long offset, java.lang.String sequence, java.lang.String nextPageToken) {
+  public ListReferenceBasesResponse(java.lang.Long offset, java.lang.CharSequence sequence, java.lang.CharSequence nextPageToken) {
     this.offset = offset;
     this.sequence = sequence;
     this.nextPageToken = nextPageToken;
@@ -52,8 +52,8 @@ public class ListReferenceBasesResponse extends org.apache.avro.specific.Specifi
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: offset = (java.lang.Long)value$; break;
-    case 1: sequence = (java.lang.String)value$; break;
-    case 2: nextPageToken = (java.lang.String)value$; break;
+    case 1: sequence = (java.lang.CharSequence)value$; break;
+    case 2: nextPageToken = (java.lang.CharSequence)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -79,7 +79,7 @@ public class ListReferenceBasesResponse extends org.apache.avro.specific.Specifi
    * Gets the value of the 'sequence' field.
    * A substring of the bases that make up this reference. Bases are represented
   as IUPAC-IUB codes; this string matches the regexp `[ACGTMRWSYKVHDBN]*`.   */
-  public java.lang.String getSequence() {
+  public java.lang.CharSequence getSequence() {
     return sequence;
   }
 
@@ -88,7 +88,7 @@ public class ListReferenceBasesResponse extends org.apache.avro.specific.Specifi
    * A substring of the bases that make up this reference. Bases are represented
   as IUPAC-IUB codes; this string matches the regexp `[ACGTMRWSYKVHDBN]*`.   * @param value the value to set.
    */
-  public void setSequence(java.lang.String value) {
+  public void setSequence(java.lang.CharSequence value) {
     this.sequence = value;
   }
 
@@ -97,7 +97,7 @@ public class ListReferenceBasesResponse extends org.apache.avro.specific.Specifi
    * The continuation token, which is used to page through large result sets.
   Provide this value in a subsequent request to return the next page of
   results. This field will be empty if there aren't any additional results.   */
-  public java.lang.String getNextPageToken() {
+  public java.lang.CharSequence getNextPageToken() {
     return nextPageToken;
   }
 
@@ -107,7 +107,7 @@ public class ListReferenceBasesResponse extends org.apache.avro.specific.Specifi
   Provide this value in a subsequent request to return the next page of
   results. This field will be empty if there aren't any additional results.   * @param value the value to set.
    */
-  public void setNextPageToken(java.lang.String value) {
+  public void setNextPageToken(java.lang.CharSequence value) {
     this.nextPageToken = value;
   }
 
@@ -133,8 +133,8 @@ public class ListReferenceBasesResponse extends org.apache.avro.specific.Specifi
     implements org.apache.avro.data.RecordBuilder<ListReferenceBasesResponse> {
 
     private long offset;
-    private java.lang.String sequence;
-    private java.lang.String nextPageToken;
+    private java.lang.CharSequence sequence;
+    private java.lang.CharSequence nextPageToken;
 
     /** Creates a new Builder */
     private Builder() {
@@ -200,12 +200,12 @@ public class ListReferenceBasesResponse extends org.apache.avro.specific.Specifi
     }
 
     /** Gets the value of the 'sequence' field */
-    public java.lang.String getSequence() {
+    public java.lang.CharSequence getSequence() {
       return sequence;
     }
     
     /** Sets the value of the 'sequence' field */
-    public org.ga4gh.methods.ListReferenceBasesResponse.Builder setSequence(java.lang.String value) {
+    public org.ga4gh.methods.ListReferenceBasesResponse.Builder setSequence(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.sequence = value;
       fieldSetFlags()[1] = true;
@@ -225,12 +225,12 @@ public class ListReferenceBasesResponse extends org.apache.avro.specific.Specifi
     }
 
     /** Gets the value of the 'nextPageToken' field */
-    public java.lang.String getNextPageToken() {
+    public java.lang.CharSequence getNextPageToken() {
       return nextPageToken;
     }
     
     /** Sets the value of the 'nextPageToken' field */
-    public org.ga4gh.methods.ListReferenceBasesResponse.Builder setNextPageToken(java.lang.String value) {
+    public org.ga4gh.methods.ListReferenceBasesResponse.Builder setNextPageToken(java.lang.CharSequence value) {
       validate(fields()[2], value);
       this.nextPageToken = value;
       fieldSetFlags()[2] = true;
@@ -254,8 +254,8 @@ public class ListReferenceBasesResponse extends org.apache.avro.specific.Specifi
       try {
         ListReferenceBasesResponse record = new ListReferenceBasesResponse();
         record.offset = fieldSetFlags()[0] ? this.offset : (java.lang.Long) defaultValue(fields()[0]);
-        record.sequence = fieldSetFlags()[1] ? this.sequence : (java.lang.String) defaultValue(fields()[1]);
-        record.nextPageToken = fieldSetFlags()[2] ? this.nextPageToken : (java.lang.String) defaultValue(fields()[2]);
+        record.sequence = fieldSetFlags()[1] ? this.sequence : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.nextPageToken = fieldSetFlags()[2] ? this.nextPageToken : (java.lang.CharSequence) defaultValue(fields()[2]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

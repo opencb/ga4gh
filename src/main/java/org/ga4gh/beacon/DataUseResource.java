@@ -8,12 +8,12 @@ package org.ga4gh.beacon;
 /** DataUseResource */
 @org.apache.avro.specific.AvroGenerated
 public class DataUseResource extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"DataUseResource\",\"namespace\":\"org.ga4gh.beacon\",\"doc\":\"DataUseResource\",\"fields\":[{\"name\":\"category\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Data Use category.\"},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Description of Data Use category.\",\"default\":null},{\"name\":\"requirements\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"DataUseRequirementResource\",\"doc\":\"DataUseRequirementResource\",\"fields\":[{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Data Use requirement\"},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Description of Data Use requirement.\",\"default\":null}]}},\"doc\":\"Data Use requirements.\",\"default\":[]}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"DataUseResource\",\"namespace\":\"org.ga4gh.beacon\",\"doc\":\"DataUseResource\",\"fields\":[{\"name\":\"category\",\"type\":\"string\",\"doc\":\"Data Use category.\"},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"Description of Data Use category.\",\"default\":null},{\"name\":\"requirements\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"DataUseRequirementResource\",\"doc\":\"DataUseRequirementResource\",\"fields\":[{\"name\":\"name\",\"type\":\"string\",\"doc\":\"Data Use requirement\"},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"Description of Data Use requirement.\",\"default\":null}]}},\"doc\":\"Data Use requirements.\",\"default\":[]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** Data Use category. */
-   private java.lang.String category;
+   private java.lang.CharSequence category;
   /** Description of Data Use category. */
-   private java.lang.String description;
+   private java.lang.CharSequence description;
   /** Data Use requirements. */
    private java.util.List<org.ga4gh.beacon.DataUseRequirementResource> requirements;
 
@@ -27,7 +27,7 @@ public class DataUseResource extends org.apache.avro.specific.SpecificRecordBase
   /**
    * All-args constructor.
    */
-  public DataUseResource(java.lang.String category, java.lang.String description, java.util.List<org.ga4gh.beacon.DataUseRequirementResource> requirements) {
+  public DataUseResource(java.lang.CharSequence category, java.lang.CharSequence description, java.util.List<org.ga4gh.beacon.DataUseRequirementResource> requirements) {
     this.category = category;
     this.description = description;
     this.requirements = requirements;
@@ -47,8 +47,8 @@ public class DataUseResource extends org.apache.avro.specific.SpecificRecordBase
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: category = (java.lang.String)value$; break;
-    case 1: description = (java.lang.String)value$; break;
+    case 0: category = (java.lang.CharSequence)value$; break;
+    case 1: description = (java.lang.CharSequence)value$; break;
     case 2: requirements = (java.util.List<org.ga4gh.beacon.DataUseRequirementResource>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
@@ -57,7 +57,7 @@ public class DataUseResource extends org.apache.avro.specific.SpecificRecordBase
   /**
    * Gets the value of the 'category' field.
    * Data Use category.   */
-  public java.lang.String getCategory() {
+  public java.lang.CharSequence getCategory() {
     return category;
   }
 
@@ -65,14 +65,14 @@ public class DataUseResource extends org.apache.avro.specific.SpecificRecordBase
    * Sets the value of the 'category' field.
    * Data Use category.   * @param value the value to set.
    */
-  public void setCategory(java.lang.String value) {
+  public void setCategory(java.lang.CharSequence value) {
     this.category = value;
   }
 
   /**
    * Gets the value of the 'description' field.
    * Description of Data Use category.   */
-  public java.lang.String getDescription() {
+  public java.lang.CharSequence getDescription() {
     return description;
   }
 
@@ -80,7 +80,7 @@ public class DataUseResource extends org.apache.avro.specific.SpecificRecordBase
    * Sets the value of the 'description' field.
    * Description of Data Use category.   * @param value the value to set.
    */
-  public void setDescription(java.lang.String value) {
+  public void setDescription(java.lang.CharSequence value) {
     this.description = value;
   }
 
@@ -120,8 +120,8 @@ public class DataUseResource extends org.apache.avro.specific.SpecificRecordBase
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<DataUseResource>
     implements org.apache.avro.data.RecordBuilder<DataUseResource> {
 
-    private java.lang.String category;
-    private java.lang.String description;
+    private java.lang.CharSequence category;
+    private java.lang.CharSequence description;
     private java.util.List<org.ga4gh.beacon.DataUseRequirementResource> requirements;
 
     /** Creates a new Builder */
@@ -164,12 +164,12 @@ public class DataUseResource extends org.apache.avro.specific.SpecificRecordBase
     }
 
     /** Gets the value of the 'category' field */
-    public java.lang.String getCategory() {
+    public java.lang.CharSequence getCategory() {
       return category;
     }
     
     /** Sets the value of the 'category' field */
-    public org.ga4gh.beacon.DataUseResource.Builder setCategory(java.lang.String value) {
+    public org.ga4gh.beacon.DataUseResource.Builder setCategory(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.category = value;
       fieldSetFlags()[0] = true;
@@ -189,12 +189,12 @@ public class DataUseResource extends org.apache.avro.specific.SpecificRecordBase
     }
 
     /** Gets the value of the 'description' field */
-    public java.lang.String getDescription() {
+    public java.lang.CharSequence getDescription() {
       return description;
     }
     
     /** Sets the value of the 'description' field */
-    public org.ga4gh.beacon.DataUseResource.Builder setDescription(java.lang.String value) {
+    public org.ga4gh.beacon.DataUseResource.Builder setDescription(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.description = value;
       fieldSetFlags()[1] = true;
@@ -242,8 +242,8 @@ public class DataUseResource extends org.apache.avro.specific.SpecificRecordBase
     public DataUseResource build() {
       try {
         DataUseResource record = new DataUseResource();
-        record.category = fieldSetFlags()[0] ? this.category : (java.lang.String) defaultValue(fields()[0]);
-        record.description = fieldSetFlags()[1] ? this.description : (java.lang.String) defaultValue(fields()[1]);
+        record.category = fieldSetFlags()[0] ? this.category : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.description = fieldSetFlags()[1] ? this.description : (java.lang.CharSequence) defaultValue(fields()[1]);
         record.requirements = fieldSetFlags()[2] ? this.requirements : (java.util.List<org.ga4gh.beacon.DataUseRequirementResource>) defaultValue(fields()[2]);
         return record;
       } catch (Exception e) {

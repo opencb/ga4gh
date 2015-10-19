@@ -7,18 +7,18 @@ package org.ga4gh.models;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ReadGroup\",\"namespace\":\"org.ga4gh.models\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The read group ID.\"},{\"name\":\"datasetId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The ID of the dataset this read group belongs to.\",\"default\":null},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The read group name.\",\"default\":null},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The read group description.\",\"default\":null},{\"name\":\"sampleId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The sample this read group's data was generated from.\"},{\"name\":\"experiment\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Experiment\",\"fields\":[{\"name\":\"libraryId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The library used as part of this experiment.\",\"default\":null},{\"name\":\"platformUnit\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The platform unit used as part of this experiment.\",\"default\":null},{\"name\":\"sequencingCenter\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The sequencing center used as part of this experiment.\"},{\"name\":\"instrumentModel\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The instrument model used as part of this experiment.\\n  This maps to sequencing technology in BAM.\"}]}],\"doc\":\"The experiment used to generate this read group.\"},{\"name\":\"predictedInsertSize\",\"type\":[\"null\",\"int\"],\"doc\":\"The predicted insert size of this read group.\",\"default\":null},{\"name\":\"created\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this read group was created in milliseconds from the epoch.\",\"default\":null},{\"name\":\"updated\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this read group was last updated in milliseconds\\n  from the epoch.\",\"default\":null},{\"name\":\"stats\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"ReadStats\",\"fields\":[{\"name\":\"alignedReadCount\",\"type\":[\"null\",\"long\"],\"doc\":\"The number of aligned reads.\",\"default\":null},{\"name\":\"unalignedReadCount\",\"type\":[\"null\",\"long\"],\"doc\":\"The number of unaligned reads.\",\"default\":null},{\"name\":\"baseCount\",\"type\":[\"null\",\"long\"],\"doc\":\"The total number of bases.\\n  This is equivalent to the sum of `alignedSequence.length` for all reads.\",\"default\":null}]}],\"doc\":\"Statistical data on reads in this read group.\",\"default\":null},{\"name\":\"programs\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Program\",\"fields\":[{\"name\":\"commandLine\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The command line used to run this program.\",\"default\":null},{\"name\":\"id\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The user specified ID of the program.\",\"default\":null},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The name of the program.\",\"default\":null},{\"name\":\"prevProgramId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The ID of the program run before this one.\",\"default\":null},{\"name\":\"version\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The version of the program run.\",\"default\":null}]}},\"doc\":\"The programs used to generate this read group.\",\"default\":[]},{\"name\":\"referenceSetId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The reference set the reads in this read group are aligned to.\\n  Required if there are any read alignments.\",\"default\":null},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"avro.java.string\":\"String\"},\"doc\":\"A map of additional read group information.\",\"default\":{}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ReadGroup\",\"namespace\":\"org.ga4gh.models\",\"fields\":[{\"name\":\"id\",\"type\":\"string\",\"doc\":\"The read group ID.\"},{\"name\":\"datasetId\",\"type\":[\"null\",\"string\"],\"doc\":\"The ID of the dataset this read group belongs to.\",\"default\":null},{\"name\":\"name\",\"type\":[\"null\",\"string\"],\"doc\":\"The read group name.\",\"default\":null},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"The read group description.\",\"default\":null},{\"name\":\"sampleId\",\"type\":[\"null\",\"string\"],\"doc\":\"The sample this read group's data was generated from.\"},{\"name\":\"experiment\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Experiment\",\"fields\":[{\"name\":\"libraryId\",\"type\":[\"null\",\"string\"],\"doc\":\"The library used as part of this experiment.\",\"default\":null},{\"name\":\"platformUnit\",\"type\":[\"null\",\"string\"],\"doc\":\"The platform unit used as part of this experiment.\",\"default\":null},{\"name\":\"sequencingCenter\",\"type\":[\"null\",\"string\"],\"doc\":\"The sequencing center used as part of this experiment.\"},{\"name\":\"instrumentModel\",\"type\":[\"null\",\"string\"],\"doc\":\"The instrument model used as part of this experiment.\\n  This maps to sequencing technology in BAM.\"}]}],\"doc\":\"The experiment used to generate this read group.\"},{\"name\":\"predictedInsertSize\",\"type\":[\"null\",\"int\"],\"doc\":\"The predicted insert size of this read group.\",\"default\":null},{\"name\":\"created\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this read group was created in milliseconds from the epoch.\",\"default\":null},{\"name\":\"updated\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this read group was last updated in milliseconds\\n  from the epoch.\",\"default\":null},{\"name\":\"stats\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"ReadStats\",\"fields\":[{\"name\":\"alignedReadCount\",\"type\":[\"null\",\"long\"],\"doc\":\"The number of aligned reads.\",\"default\":null},{\"name\":\"unalignedReadCount\",\"type\":[\"null\",\"long\"],\"doc\":\"The number of unaligned reads.\",\"default\":null},{\"name\":\"baseCount\",\"type\":[\"null\",\"long\"],\"doc\":\"The total number of bases.\\n  This is equivalent to the sum of `alignedSequence.length` for all reads.\",\"default\":null}]}],\"doc\":\"Statistical data on reads in this read group.\",\"default\":null},{\"name\":\"programs\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Program\",\"fields\":[{\"name\":\"commandLine\",\"type\":[\"null\",\"string\"],\"doc\":\"The command line used to run this program.\",\"default\":null},{\"name\":\"id\",\"type\":[\"null\",\"string\"],\"doc\":\"The user specified ID of the program.\",\"default\":null},{\"name\":\"name\",\"type\":[\"null\",\"string\"],\"doc\":\"The name of the program.\",\"default\":null},{\"name\":\"prevProgramId\",\"type\":[\"null\",\"string\"],\"doc\":\"The ID of the program run before this one.\",\"default\":null},{\"name\":\"version\",\"type\":[\"null\",\"string\"],\"doc\":\"The version of the program run.\",\"default\":null}]}},\"doc\":\"The programs used to generate this read group.\",\"default\":[]},{\"name\":\"referenceSetId\",\"type\":[\"null\",\"string\"],\"doc\":\"The reference set the reads in this read group are aligned to.\\n  Required if there are any read alignments.\",\"default\":null},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":\"string\"}},\"doc\":\"A map of additional read group information.\",\"default\":{}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The read group ID. */
-   private java.lang.String id;
+   private java.lang.CharSequence id;
   /** The ID of the dataset this read group belongs to. */
-   private java.lang.String datasetId;
+   private java.lang.CharSequence datasetId;
   /** The read group name. */
-   private java.lang.String name;
+   private java.lang.CharSequence name;
   /** The read group description. */
-   private java.lang.String description;
+   private java.lang.CharSequence description;
   /** The sample this read group's data was generated from. */
-   private java.lang.String sampleId;
+   private java.lang.CharSequence sampleId;
   /** The experiment used to generate this read group. */
    private org.ga4gh.models.Experiment experiment;
   /** The predicted insert size of this read group. */
@@ -34,9 +34,9 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
    private java.util.List<org.ga4gh.models.Program> programs;
   /** The reference set the reads in this read group are aligned to.
   Required if there are any read alignments. */
-   private java.lang.String referenceSetId;
+   private java.lang.CharSequence referenceSetId;
   /** A map of additional read group information. */
-   private java.util.Map<java.lang.String,java.util.List<java.lang.String>> info;
+   private java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -48,7 +48,7 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
   /**
    * All-args constructor.
    */
-  public ReadGroup(java.lang.String id, java.lang.String datasetId, java.lang.String name, java.lang.String description, java.lang.String sampleId, org.ga4gh.models.Experiment experiment, java.lang.Integer predictedInsertSize, java.lang.Long created, java.lang.Long updated, org.ga4gh.models.ReadStats stats, java.util.List<org.ga4gh.models.Program> programs, java.lang.String referenceSetId, java.util.Map<java.lang.String,java.util.List<java.lang.String>> info) {
+  public ReadGroup(java.lang.CharSequence id, java.lang.CharSequence datasetId, java.lang.CharSequence name, java.lang.CharSequence description, java.lang.CharSequence sampleId, org.ga4gh.models.Experiment experiment, java.lang.Integer predictedInsertSize, java.lang.Long created, java.lang.Long updated, org.ga4gh.models.ReadStats stats, java.util.List<org.ga4gh.models.Program> programs, java.lang.CharSequence referenceSetId, java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info) {
     this.id = id;
     this.datasetId = datasetId;
     this.name = name;
@@ -88,19 +88,19 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: id = (java.lang.String)value$; break;
-    case 1: datasetId = (java.lang.String)value$; break;
-    case 2: name = (java.lang.String)value$; break;
-    case 3: description = (java.lang.String)value$; break;
-    case 4: sampleId = (java.lang.String)value$; break;
+    case 0: id = (java.lang.CharSequence)value$; break;
+    case 1: datasetId = (java.lang.CharSequence)value$; break;
+    case 2: name = (java.lang.CharSequence)value$; break;
+    case 3: description = (java.lang.CharSequence)value$; break;
+    case 4: sampleId = (java.lang.CharSequence)value$; break;
     case 5: experiment = (org.ga4gh.models.Experiment)value$; break;
     case 6: predictedInsertSize = (java.lang.Integer)value$; break;
     case 7: created = (java.lang.Long)value$; break;
     case 8: updated = (java.lang.Long)value$; break;
     case 9: stats = (org.ga4gh.models.ReadStats)value$; break;
     case 10: programs = (java.util.List<org.ga4gh.models.Program>)value$; break;
-    case 11: referenceSetId = (java.lang.String)value$; break;
-    case 12: info = (java.util.Map<java.lang.String,java.util.List<java.lang.String>>)value$; break;
+    case 11: referenceSetId = (java.lang.CharSequence)value$; break;
+    case 12: info = (java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -108,7 +108,7 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
   /**
    * Gets the value of the 'id' field.
    * The read group ID.   */
-  public java.lang.String getId() {
+  public java.lang.CharSequence getId() {
     return id;
   }
 
@@ -116,14 +116,14 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'id' field.
    * The read group ID.   * @param value the value to set.
    */
-  public void setId(java.lang.String value) {
+  public void setId(java.lang.CharSequence value) {
     this.id = value;
   }
 
   /**
    * Gets the value of the 'datasetId' field.
    * The ID of the dataset this read group belongs to.   */
-  public java.lang.String getDatasetId() {
+  public java.lang.CharSequence getDatasetId() {
     return datasetId;
   }
 
@@ -131,14 +131,14 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'datasetId' field.
    * The ID of the dataset this read group belongs to.   * @param value the value to set.
    */
-  public void setDatasetId(java.lang.String value) {
+  public void setDatasetId(java.lang.CharSequence value) {
     this.datasetId = value;
   }
 
   /**
    * Gets the value of the 'name' field.
    * The read group name.   */
-  public java.lang.String getName() {
+  public java.lang.CharSequence getName() {
     return name;
   }
 
@@ -146,14 +146,14 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'name' field.
    * The read group name.   * @param value the value to set.
    */
-  public void setName(java.lang.String value) {
+  public void setName(java.lang.CharSequence value) {
     this.name = value;
   }
 
   /**
    * Gets the value of the 'description' field.
    * The read group description.   */
-  public java.lang.String getDescription() {
+  public java.lang.CharSequence getDescription() {
     return description;
   }
 
@@ -161,14 +161,14 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'description' field.
    * The read group description.   * @param value the value to set.
    */
-  public void setDescription(java.lang.String value) {
+  public void setDescription(java.lang.CharSequence value) {
     this.description = value;
   }
 
   /**
    * Gets the value of the 'sampleId' field.
    * The sample this read group's data was generated from.   */
-  public java.lang.String getSampleId() {
+  public java.lang.CharSequence getSampleId() {
     return sampleId;
   }
 
@@ -176,7 +176,7 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'sampleId' field.
    * The sample this read group's data was generated from.   * @param value the value to set.
    */
-  public void setSampleId(java.lang.String value) {
+  public void setSampleId(java.lang.CharSequence value) {
     this.sampleId = value;
   }
 
@@ -276,7 +276,7 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
    * Gets the value of the 'referenceSetId' field.
    * The reference set the reads in this read group are aligned to.
   Required if there are any read alignments.   */
-  public java.lang.String getReferenceSetId() {
+  public java.lang.CharSequence getReferenceSetId() {
     return referenceSetId;
   }
 
@@ -285,14 +285,14 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
    * The reference set the reads in this read group are aligned to.
   Required if there are any read alignments.   * @param value the value to set.
    */
-  public void setReferenceSetId(java.lang.String value) {
+  public void setReferenceSetId(java.lang.CharSequence value) {
     this.referenceSetId = value;
   }
 
   /**
    * Gets the value of the 'info' field.
    * A map of additional read group information.   */
-  public java.util.Map<java.lang.String,java.util.List<java.lang.String>> getInfo() {
+  public java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> getInfo() {
     return info;
   }
 
@@ -300,7 +300,7 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'info' field.
    * A map of additional read group information.   * @param value the value to set.
    */
-  public void setInfo(java.util.Map<java.lang.String,java.util.List<java.lang.String>> value) {
+  public void setInfo(java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> value) {
     this.info = value;
   }
 
@@ -325,19 +325,19 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<ReadGroup>
     implements org.apache.avro.data.RecordBuilder<ReadGroup> {
 
-    private java.lang.String id;
-    private java.lang.String datasetId;
-    private java.lang.String name;
-    private java.lang.String description;
-    private java.lang.String sampleId;
+    private java.lang.CharSequence id;
+    private java.lang.CharSequence datasetId;
+    private java.lang.CharSequence name;
+    private java.lang.CharSequence description;
+    private java.lang.CharSequence sampleId;
     private org.ga4gh.models.Experiment experiment;
     private java.lang.Integer predictedInsertSize;
     private java.lang.Long created;
     private java.lang.Long updated;
     private org.ga4gh.models.ReadStats stats;
     private java.util.List<org.ga4gh.models.Program> programs;
-    private java.lang.String referenceSetId;
-    private java.util.Map<java.lang.String,java.util.List<java.lang.String>> info;
+    private java.lang.CharSequence referenceSetId;
+    private java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info;
 
     /** Creates a new Builder */
     private Builder() {
@@ -459,12 +459,12 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /** Gets the value of the 'id' field */
-    public java.lang.String getId() {
+    public java.lang.CharSequence getId() {
       return id;
     }
     
     /** Sets the value of the 'id' field */
-    public org.ga4gh.models.ReadGroup.Builder setId(java.lang.String value) {
+    public org.ga4gh.models.ReadGroup.Builder setId(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -484,12 +484,12 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /** Gets the value of the 'datasetId' field */
-    public java.lang.String getDatasetId() {
+    public java.lang.CharSequence getDatasetId() {
       return datasetId;
     }
     
     /** Sets the value of the 'datasetId' field */
-    public org.ga4gh.models.ReadGroup.Builder setDatasetId(java.lang.String value) {
+    public org.ga4gh.models.ReadGroup.Builder setDatasetId(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.datasetId = value;
       fieldSetFlags()[1] = true;
@@ -509,12 +509,12 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /** Gets the value of the 'name' field */
-    public java.lang.String getName() {
+    public java.lang.CharSequence getName() {
       return name;
     }
     
     /** Sets the value of the 'name' field */
-    public org.ga4gh.models.ReadGroup.Builder setName(java.lang.String value) {
+    public org.ga4gh.models.ReadGroup.Builder setName(java.lang.CharSequence value) {
       validate(fields()[2], value);
       this.name = value;
       fieldSetFlags()[2] = true;
@@ -534,12 +534,12 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /** Gets the value of the 'description' field */
-    public java.lang.String getDescription() {
+    public java.lang.CharSequence getDescription() {
       return description;
     }
     
     /** Sets the value of the 'description' field */
-    public org.ga4gh.models.ReadGroup.Builder setDescription(java.lang.String value) {
+    public org.ga4gh.models.ReadGroup.Builder setDescription(java.lang.CharSequence value) {
       validate(fields()[3], value);
       this.description = value;
       fieldSetFlags()[3] = true;
@@ -559,12 +559,12 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /** Gets the value of the 'sampleId' field */
-    public java.lang.String getSampleId() {
+    public java.lang.CharSequence getSampleId() {
       return sampleId;
     }
     
     /** Sets the value of the 'sampleId' field */
-    public org.ga4gh.models.ReadGroup.Builder setSampleId(java.lang.String value) {
+    public org.ga4gh.models.ReadGroup.Builder setSampleId(java.lang.CharSequence value) {
       validate(fields()[4], value);
       this.sampleId = value;
       fieldSetFlags()[4] = true;
@@ -734,12 +734,12 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /** Gets the value of the 'referenceSetId' field */
-    public java.lang.String getReferenceSetId() {
+    public java.lang.CharSequence getReferenceSetId() {
       return referenceSetId;
     }
     
     /** Sets the value of the 'referenceSetId' field */
-    public org.ga4gh.models.ReadGroup.Builder setReferenceSetId(java.lang.String value) {
+    public org.ga4gh.models.ReadGroup.Builder setReferenceSetId(java.lang.CharSequence value) {
       validate(fields()[11], value);
       this.referenceSetId = value;
       fieldSetFlags()[11] = true;
@@ -759,12 +759,12 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /** Gets the value of the 'info' field */
-    public java.util.Map<java.lang.String,java.util.List<java.lang.String>> getInfo() {
+    public java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> getInfo() {
       return info;
     }
     
     /** Sets the value of the 'info' field */
-    public org.ga4gh.models.ReadGroup.Builder setInfo(java.util.Map<java.lang.String,java.util.List<java.lang.String>> value) {
+    public org.ga4gh.models.ReadGroup.Builder setInfo(java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> value) {
       validate(fields()[12], value);
       this.info = value;
       fieldSetFlags()[12] = true;
@@ -787,19 +787,19 @@ public class ReadGroup extends org.apache.avro.specific.SpecificRecordBase imple
     public ReadGroup build() {
       try {
         ReadGroup record = new ReadGroup();
-        record.id = fieldSetFlags()[0] ? this.id : (java.lang.String) defaultValue(fields()[0]);
-        record.datasetId = fieldSetFlags()[1] ? this.datasetId : (java.lang.String) defaultValue(fields()[1]);
-        record.name = fieldSetFlags()[2] ? this.name : (java.lang.String) defaultValue(fields()[2]);
-        record.description = fieldSetFlags()[3] ? this.description : (java.lang.String) defaultValue(fields()[3]);
-        record.sampleId = fieldSetFlags()[4] ? this.sampleId : (java.lang.String) defaultValue(fields()[4]);
+        record.id = fieldSetFlags()[0] ? this.id : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.datasetId = fieldSetFlags()[1] ? this.datasetId : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.name = fieldSetFlags()[2] ? this.name : (java.lang.CharSequence) defaultValue(fields()[2]);
+        record.description = fieldSetFlags()[3] ? this.description : (java.lang.CharSequence) defaultValue(fields()[3]);
+        record.sampleId = fieldSetFlags()[4] ? this.sampleId : (java.lang.CharSequence) defaultValue(fields()[4]);
         record.experiment = fieldSetFlags()[5] ? this.experiment : (org.ga4gh.models.Experiment) defaultValue(fields()[5]);
         record.predictedInsertSize = fieldSetFlags()[6] ? this.predictedInsertSize : (java.lang.Integer) defaultValue(fields()[6]);
         record.created = fieldSetFlags()[7] ? this.created : (java.lang.Long) defaultValue(fields()[7]);
         record.updated = fieldSetFlags()[8] ? this.updated : (java.lang.Long) defaultValue(fields()[8]);
         record.stats = fieldSetFlags()[9] ? this.stats : (org.ga4gh.models.ReadStats) defaultValue(fields()[9]);
         record.programs = fieldSetFlags()[10] ? this.programs : (java.util.List<org.ga4gh.models.Program>) defaultValue(fields()[10]);
-        record.referenceSetId = fieldSetFlags()[11] ? this.referenceSetId : (java.lang.String) defaultValue(fields()[11]);
-        record.info = fieldSetFlags()[12] ? this.info : (java.util.Map<java.lang.String,java.util.List<java.lang.String>>) defaultValue(fields()[12]);
+        record.referenceSetId = fieldSetFlags()[11] ? this.referenceSetId : (java.lang.CharSequence) defaultValue(fields()[11]);
+        record.info = fieldSetFlags()[12] ? this.info : (java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>>) defaultValue(fields()[12]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
