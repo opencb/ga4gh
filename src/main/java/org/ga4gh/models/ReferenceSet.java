@@ -10,21 +10,21 @@ reference assembly, such as `GRCh38`. A `ReferenceSet` defines a common
 coordinate space for comparing reference-aligned experimental data. */
 @org.apache.avro.specific.AvroGenerated
 public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ReferenceSet\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"A `ReferenceSet` is a set of `Reference`s which typically comprise a\\nreference assembly, such as `GRCh38`. A `ReferenceSet` defines a common\\ncoordinate space for comparing reference-aligned experimental data.\",\"fields\":[{\"name\":\"id\",\"type\":\"string\",\"doc\":\"The reference set ID. Unique in the repository.\"},{\"name\":\"referenceIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}],\"doc\":\"The IDs of the `Reference` objects that are part of this set.\\n\\n  This field should be left null if the set contains a very large number of\\n  `Reference`s. The `Reference`s in the set may also be obtained through a\\n  `searchReferences()` API call.\",\"default\":null},{\"name\":\"md5checksum\",\"type\":\"string\",\"doc\":\"Order-independent MD5 checksum which identifies this `ReferenceSet`. The\\n  checksum is computed by sorting all `reference.md5checksum` (for all\\n  `reference` in this set) in ascending lexicographic order, concatenating,\\n  and taking the MD5 of that value.\"},{\"name\":\"ncbiTaxonId\",\"type\":[\"null\",\"int\"],\"doc\":\"ID from http://www.ncbi.nlm.nih.gov/taxonomy (e.g. 9606->human) indicating\\n  the species which this assembly is intended to model. Note that contained\\n  `Reference`s may specify a different `ncbiTaxonId`, as assemblies may\\n  contain reference sequences which do not belong to the modeled species, e.g.\\n  EBV in a human reference genome.\",\"default\":null},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"Optional free text description of this reference set.\",\"default\":null},{\"name\":\"assemblyId\",\"type\":[\"null\",\"string\"],\"doc\":\"Public id of this reference set, such as `GRCh37`.\",\"default\":null},{\"name\":\"sourceURI\",\"type\":[\"null\",\"string\"],\"doc\":\"Specifies a FASTA format file/string.\",\"default\":null},{\"name\":\"sourceAccessions\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally\\n  with a version number, e.g. `NC_000001.11`.\"},{\"name\":\"isDerived\",\"type\":\"boolean\",\"doc\":\"A reference set may be derived from a source if it contains\\n  additional sequences, or some of the sequences within it are derived\\n  (see the definition of `isDerived` in `Reference`).\",\"default\":false}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ReferenceSet\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"A `ReferenceSet` is a set of `Reference`s which typically comprise a\\nreference assembly, such as `GRCh38`. A `ReferenceSet` defines a common\\ncoordinate space for comparing reference-aligned experimental data.\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The reference set ID. Unique in the repository.\"},{\"name\":\"referenceIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}],\"doc\":\"The IDs of the `Reference` objects that are part of this set.\\n\\n  This field should be left null if the set contains a very large number of\\n  `Reference`s. The `Reference`s in the set may also be obtained through a\\n  `searchReferences()` API call.\",\"default\":null},{\"name\":\"md5checksum\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Order-independent MD5 checksum which identifies this `ReferenceSet`. The\\n  checksum is computed by sorting all `reference.md5checksum` (for all\\n  `reference` in this set) in ascending lexicographic order, concatenating,\\n  and taking the MD5 of that value.\"},{\"name\":\"ncbiTaxonId\",\"type\":[\"null\",\"int\"],\"doc\":\"ID from http://www.ncbi.nlm.nih.gov/taxonomy (e.g. 9606->human) indicating\\n  the species which this assembly is intended to model. Note that contained\\n  `Reference`s may specify a different `ncbiTaxonId`, as assemblies may\\n  contain reference sequences which do not belong to the modeled species, e.g.\\n  EBV in a human reference genome.\",\"default\":null},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Optional free text description of this reference set.\",\"default\":null},{\"name\":\"assemblyId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Public id of this reference set, such as `GRCh37`.\",\"default\":null},{\"name\":\"sourceURI\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Specifies a FASTA format file/string.\",\"default\":null},{\"name\":\"sourceAccessions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally\\n  with a version number, e.g. `NC_000001.11`.\"},{\"name\":\"isDerived\",\"type\":\"boolean\",\"doc\":\"A reference set may be derived from a source if it contains\\n  additional sequences, or some of the sequences within it are derived\\n  (see the definition of `isDerived` in `Reference`).\",\"default\":false}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The reference set ID. Unique in the repository. */
-   private java.lang.CharSequence id;
+   private java.lang.String id;
   /** The IDs of the `Reference` objects that are part of this set.
 
   This field should be left null if the set contains a very large number of
   `Reference`s. The `Reference`s in the set may also be obtained through a
   `searchReferences()` API call. */
-   private java.util.List<java.lang.CharSequence> referenceIds;
+   private java.util.List<java.lang.String> referenceIds;
   /** Order-independent MD5 checksum which identifies this `ReferenceSet`. The
   checksum is computed by sorting all `reference.md5checksum` (for all
   `reference` in this set) in ascending lexicographic order, concatenating,
   and taking the MD5 of that value. */
-   private java.lang.CharSequence md5checksum;
+   private java.lang.String md5checksum;
   /** ID from http://www.ncbi.nlm.nih.gov/taxonomy (e.g. 9606->human) indicating
   the species which this assembly is intended to model. Note that contained
   `Reference`s may specify a different `ncbiTaxonId`, as assemblies may
@@ -32,14 +32,14 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
   EBV in a human reference genome. */
    private java.lang.Integer ncbiTaxonId;
   /** Optional free text description of this reference set. */
-   private java.lang.CharSequence description;
+   private java.lang.String description;
   /** Public id of this reference set, such as `GRCh37`. */
-   private java.lang.CharSequence assemblyId;
+   private java.lang.String assemblyId;
   /** Specifies a FASTA format file/string. */
-   private java.lang.CharSequence sourceURI;
+   private java.lang.String sourceURI;
   /** All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally
   with a version number, e.g. `NC_000001.11`. */
-   private java.util.List<java.lang.CharSequence> sourceAccessions;
+   private java.util.List<java.lang.String> sourceAccessions;
   /** A reference set may be derived from a source if it contains
   additional sequences, or some of the sequences within it are derived
   (see the definition of `isDerived` in `Reference`). */
@@ -55,7 +55,7 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
   /**
    * All-args constructor.
    */
-  public ReferenceSet(java.lang.CharSequence id, java.util.List<java.lang.CharSequence> referenceIds, java.lang.CharSequence md5checksum, java.lang.Integer ncbiTaxonId, java.lang.CharSequence description, java.lang.CharSequence assemblyId, java.lang.CharSequence sourceURI, java.util.List<java.lang.CharSequence> sourceAccessions, java.lang.Boolean isDerived) {
+  public ReferenceSet(java.lang.String id, java.util.List<java.lang.String> referenceIds, java.lang.String md5checksum, java.lang.Integer ncbiTaxonId, java.lang.String description, java.lang.String assemblyId, java.lang.String sourceURI, java.util.List<java.lang.String> sourceAccessions, java.lang.Boolean isDerived) {
     this.id = id;
     this.referenceIds = referenceIds;
     this.md5checksum = md5checksum;
@@ -87,14 +87,14 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: id = (java.lang.CharSequence)value$; break;
-    case 1: referenceIds = (java.util.List<java.lang.CharSequence>)value$; break;
-    case 2: md5checksum = (java.lang.CharSequence)value$; break;
+    case 0: id = (java.lang.String)value$; break;
+    case 1: referenceIds = (java.util.List<java.lang.String>)value$; break;
+    case 2: md5checksum = (java.lang.String)value$; break;
     case 3: ncbiTaxonId = (java.lang.Integer)value$; break;
-    case 4: description = (java.lang.CharSequence)value$; break;
-    case 5: assemblyId = (java.lang.CharSequence)value$; break;
-    case 6: sourceURI = (java.lang.CharSequence)value$; break;
-    case 7: sourceAccessions = (java.util.List<java.lang.CharSequence>)value$; break;
+    case 4: description = (java.lang.String)value$; break;
+    case 5: assemblyId = (java.lang.String)value$; break;
+    case 6: sourceURI = (java.lang.String)value$; break;
+    case 7: sourceAccessions = (java.util.List<java.lang.String>)value$; break;
     case 8: isDerived = (java.lang.Boolean)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
@@ -103,7 +103,7 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
   /**
    * Gets the value of the 'id' field.
    * The reference set ID. Unique in the repository.   */
-  public java.lang.CharSequence getId() {
+  public java.lang.String getId() {
     return id;
   }
 
@@ -111,7 +111,7 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
    * Sets the value of the 'id' field.
    * The reference set ID. Unique in the repository.   * @param value the value to set.
    */
-  public void setId(java.lang.CharSequence value) {
+  public void setId(java.lang.String value) {
     this.id = value;
   }
 
@@ -122,7 +122,7 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
   This field should be left null if the set contains a very large number of
   `Reference`s. The `Reference`s in the set may also be obtained through a
   `searchReferences()` API call.   */
-  public java.util.List<java.lang.CharSequence> getReferenceIds() {
+  public java.util.List<java.lang.String> getReferenceIds() {
     return referenceIds;
   }
 
@@ -134,7 +134,7 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
   `Reference`s. The `Reference`s in the set may also be obtained through a
   `searchReferences()` API call.   * @param value the value to set.
    */
-  public void setReferenceIds(java.util.List<java.lang.CharSequence> value) {
+  public void setReferenceIds(java.util.List<java.lang.String> value) {
     this.referenceIds = value;
   }
 
@@ -144,7 +144,7 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
   checksum is computed by sorting all `reference.md5checksum` (for all
   `reference` in this set) in ascending lexicographic order, concatenating,
   and taking the MD5 of that value.   */
-  public java.lang.CharSequence getMd5checksum() {
+  public java.lang.String getMd5checksum() {
     return md5checksum;
   }
 
@@ -155,7 +155,7 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
   `reference` in this set) in ascending lexicographic order, concatenating,
   and taking the MD5 of that value.   * @param value the value to set.
    */
-  public void setMd5checksum(java.lang.CharSequence value) {
+  public void setMd5checksum(java.lang.String value) {
     this.md5checksum = value;
   }
 
@@ -185,7 +185,7 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
   /**
    * Gets the value of the 'description' field.
    * Optional free text description of this reference set.   */
-  public java.lang.CharSequence getDescription() {
+  public java.lang.String getDescription() {
     return description;
   }
 
@@ -193,14 +193,14 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
    * Sets the value of the 'description' field.
    * Optional free text description of this reference set.   * @param value the value to set.
    */
-  public void setDescription(java.lang.CharSequence value) {
+  public void setDescription(java.lang.String value) {
     this.description = value;
   }
 
   /**
    * Gets the value of the 'assemblyId' field.
    * Public id of this reference set, such as `GRCh37`.   */
-  public java.lang.CharSequence getAssemblyId() {
+  public java.lang.String getAssemblyId() {
     return assemblyId;
   }
 
@@ -208,14 +208,14 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
    * Sets the value of the 'assemblyId' field.
    * Public id of this reference set, such as `GRCh37`.   * @param value the value to set.
    */
-  public void setAssemblyId(java.lang.CharSequence value) {
+  public void setAssemblyId(java.lang.String value) {
     this.assemblyId = value;
   }
 
   /**
    * Gets the value of the 'sourceURI' field.
    * Specifies a FASTA format file/string.   */
-  public java.lang.CharSequence getSourceURI() {
+  public java.lang.String getSourceURI() {
     return sourceURI;
   }
 
@@ -223,7 +223,7 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
    * Sets the value of the 'sourceURI' field.
    * Specifies a FASTA format file/string.   * @param value the value to set.
    */
-  public void setSourceURI(java.lang.CharSequence value) {
+  public void setSourceURI(java.lang.String value) {
     this.sourceURI = value;
   }
 
@@ -231,7 +231,7 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
    * Gets the value of the 'sourceAccessions' field.
    * All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally
   with a version number, e.g. `NC_000001.11`.   */
-  public java.util.List<java.lang.CharSequence> getSourceAccessions() {
+  public java.util.List<java.lang.String> getSourceAccessions() {
     return sourceAccessions;
   }
 
@@ -240,7 +240,7 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
    * All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally
   with a version number, e.g. `NC_000001.11`.   * @param value the value to set.
    */
-  public void setSourceAccessions(java.util.List<java.lang.CharSequence> value) {
+  public void setSourceAccessions(java.util.List<java.lang.String> value) {
     this.sourceAccessions = value;
   }
 
@@ -284,14 +284,14 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<ReferenceSet>
     implements org.apache.avro.data.RecordBuilder<ReferenceSet> {
 
-    private java.lang.CharSequence id;
-    private java.util.List<java.lang.CharSequence> referenceIds;
-    private java.lang.CharSequence md5checksum;
+    private java.lang.String id;
+    private java.util.List<java.lang.String> referenceIds;
+    private java.lang.String md5checksum;
     private java.lang.Integer ncbiTaxonId;
-    private java.lang.CharSequence description;
-    private java.lang.CharSequence assemblyId;
-    private java.lang.CharSequence sourceURI;
-    private java.util.List<java.lang.CharSequence> sourceAccessions;
+    private java.lang.String description;
+    private java.lang.String assemblyId;
+    private java.lang.String sourceURI;
+    private java.util.List<java.lang.String> sourceAccessions;
     private boolean isDerived;
 
     /** Creates a new Builder */
@@ -382,12 +382,12 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
     }
 
     /** Gets the value of the 'id' field */
-    public java.lang.CharSequence getId() {
+    public java.lang.String getId() {
       return id;
     }
     
     /** Sets the value of the 'id' field */
-    public org.ga4gh.models.ReferenceSet.Builder setId(java.lang.CharSequence value) {
+    public org.ga4gh.models.ReferenceSet.Builder setId(java.lang.String value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -407,12 +407,12 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
     }
 
     /** Gets the value of the 'referenceIds' field */
-    public java.util.List<java.lang.CharSequence> getReferenceIds() {
+    public java.util.List<java.lang.String> getReferenceIds() {
       return referenceIds;
     }
     
     /** Sets the value of the 'referenceIds' field */
-    public org.ga4gh.models.ReferenceSet.Builder setReferenceIds(java.util.List<java.lang.CharSequence> value) {
+    public org.ga4gh.models.ReferenceSet.Builder setReferenceIds(java.util.List<java.lang.String> value) {
       validate(fields()[1], value);
       this.referenceIds = value;
       fieldSetFlags()[1] = true;
@@ -432,12 +432,12 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
     }
 
     /** Gets the value of the 'md5checksum' field */
-    public java.lang.CharSequence getMd5checksum() {
+    public java.lang.String getMd5checksum() {
       return md5checksum;
     }
     
     /** Sets the value of the 'md5checksum' field */
-    public org.ga4gh.models.ReferenceSet.Builder setMd5checksum(java.lang.CharSequence value) {
+    public org.ga4gh.models.ReferenceSet.Builder setMd5checksum(java.lang.String value) {
       validate(fields()[2], value);
       this.md5checksum = value;
       fieldSetFlags()[2] = true;
@@ -482,12 +482,12 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
     }
 
     /** Gets the value of the 'description' field */
-    public java.lang.CharSequence getDescription() {
+    public java.lang.String getDescription() {
       return description;
     }
     
     /** Sets the value of the 'description' field */
-    public org.ga4gh.models.ReferenceSet.Builder setDescription(java.lang.CharSequence value) {
+    public org.ga4gh.models.ReferenceSet.Builder setDescription(java.lang.String value) {
       validate(fields()[4], value);
       this.description = value;
       fieldSetFlags()[4] = true;
@@ -507,12 +507,12 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
     }
 
     /** Gets the value of the 'assemblyId' field */
-    public java.lang.CharSequence getAssemblyId() {
+    public java.lang.String getAssemblyId() {
       return assemblyId;
     }
     
     /** Sets the value of the 'assemblyId' field */
-    public org.ga4gh.models.ReferenceSet.Builder setAssemblyId(java.lang.CharSequence value) {
+    public org.ga4gh.models.ReferenceSet.Builder setAssemblyId(java.lang.String value) {
       validate(fields()[5], value);
       this.assemblyId = value;
       fieldSetFlags()[5] = true;
@@ -532,12 +532,12 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
     }
 
     /** Gets the value of the 'sourceURI' field */
-    public java.lang.CharSequence getSourceURI() {
+    public java.lang.String getSourceURI() {
       return sourceURI;
     }
     
     /** Sets the value of the 'sourceURI' field */
-    public org.ga4gh.models.ReferenceSet.Builder setSourceURI(java.lang.CharSequence value) {
+    public org.ga4gh.models.ReferenceSet.Builder setSourceURI(java.lang.String value) {
       validate(fields()[6], value);
       this.sourceURI = value;
       fieldSetFlags()[6] = true;
@@ -557,12 +557,12 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
     }
 
     /** Gets the value of the 'sourceAccessions' field */
-    public java.util.List<java.lang.CharSequence> getSourceAccessions() {
+    public java.util.List<java.lang.String> getSourceAccessions() {
       return sourceAccessions;
     }
     
     /** Sets the value of the 'sourceAccessions' field */
-    public org.ga4gh.models.ReferenceSet.Builder setSourceAccessions(java.util.List<java.lang.CharSequence> value) {
+    public org.ga4gh.models.ReferenceSet.Builder setSourceAccessions(java.util.List<java.lang.String> value) {
       validate(fields()[7], value);
       this.sourceAccessions = value;
       fieldSetFlags()[7] = true;
@@ -609,14 +609,14 @@ public class ReferenceSet extends org.apache.avro.specific.SpecificRecordBase im
     public ReferenceSet build() {
       try {
         ReferenceSet record = new ReferenceSet();
-        record.id = fieldSetFlags()[0] ? this.id : (java.lang.CharSequence) defaultValue(fields()[0]);
-        record.referenceIds = fieldSetFlags()[1] ? this.referenceIds : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[1]);
-        record.md5checksum = fieldSetFlags()[2] ? this.md5checksum : (java.lang.CharSequence) defaultValue(fields()[2]);
+        record.id = fieldSetFlags()[0] ? this.id : (java.lang.String) defaultValue(fields()[0]);
+        record.referenceIds = fieldSetFlags()[1] ? this.referenceIds : (java.util.List<java.lang.String>) defaultValue(fields()[1]);
+        record.md5checksum = fieldSetFlags()[2] ? this.md5checksum : (java.lang.String) defaultValue(fields()[2]);
         record.ncbiTaxonId = fieldSetFlags()[3] ? this.ncbiTaxonId : (java.lang.Integer) defaultValue(fields()[3]);
-        record.description = fieldSetFlags()[4] ? this.description : (java.lang.CharSequence) defaultValue(fields()[4]);
-        record.assemblyId = fieldSetFlags()[5] ? this.assemblyId : (java.lang.CharSequence) defaultValue(fields()[5]);
-        record.sourceURI = fieldSetFlags()[6] ? this.sourceURI : (java.lang.CharSequence) defaultValue(fields()[6]);
-        record.sourceAccessions = fieldSetFlags()[7] ? this.sourceAccessions : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[7]);
+        record.description = fieldSetFlags()[4] ? this.description : (java.lang.String) defaultValue(fields()[4]);
+        record.assemblyId = fieldSetFlags()[5] ? this.assemblyId : (java.lang.String) defaultValue(fields()[5]);
+        record.sourceURI = fieldSetFlags()[6] ? this.sourceURI : (java.lang.String) defaultValue(fields()[6]);
+        record.sourceAccessions = fieldSetFlags()[7] ? this.sourceAccessions : (java.util.List<java.lang.String>) defaultValue(fields()[7]);
         record.isDerived = fieldSetFlags()[8] ? this.isDerived : (java.lang.Boolean) defaultValue(fields()[8]);
         return record;
       } catch (Exception e) {

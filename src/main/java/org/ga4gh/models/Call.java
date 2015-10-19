@@ -17,24 +17,24 @@ the same `CallSet`. If a server supports "classic" mode, it must provide `Call`s
 for all `Variant`s that have associated `AlleleCall`s in the `CallSet`. */
 @org.apache.avro.specific.AvroGenerated
 public class Call extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Call\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"A `Call` represents the determination of genotype with respect to a\\nparticular `Variant`.\\n\\nIt may include associated information such as quality\\nand phasing. For example, a call might assign a probability of 0.32 to\\nthe occurrence of a SNP named rs1234 in a call set with the name NA12345.\\n\\nThe genotypes described by `Call`s must be consistent with any `AlleleCall`s in\\nthe same `CallSet`. If a server supports \\\"classic\\\" mode, it must provide `Call`s\\nfor all `Variant`s that have associated `AlleleCall`s in the `CallSet`.\",\"fields\":[{\"name\":\"callSetId\",\"type\":[\"null\",\"string\"],\"doc\":\"The ID of the call set this variant call belongs to.\\n  If this field is not present, the ordering of the call sets from a\\n  `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match\\n  the ordering of the calls on this `Variant`.\\n  The number of results will also be the same.\"},{\"name\":\"callSetName\",\"type\":[\"null\",\"string\"],\"doc\":\"The name of the call set this variant call belongs to.\\n  If this field is not present, the ordering of the call sets from a\\n  `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match\\n  the ordering of the calls on this `Variant`.\\n  The number of results will also be the same.\",\"default\":null},{\"name\":\"variantId\",\"type\":[\"null\",\"string\"],\"doc\":\"The ID of the `Variant` that this `Call` belongs to. Must be set in any `Call`\\n  that is not being returned from the server already contained within its\\n  `Variant`.\"},{\"name\":\"genotype\",\"type\":{\"type\":\"array\",\"items\":\"int\"},\"doc\":\"The genotype of this variant call.\\n\\n  A 0 value represents the reference allele of the associated `Variant`. Any\\n  other value is a 1-based index into the alternate alleles of the associated\\n  `Variant`.\\n\\n  If a variant had a referenceBases field of \\\"T\\\", an alternateBases\\n  value of [\\\"A\\\", \\\"C\\\"], and the genotype was [2, 1], that would mean the call\\n  represented the heterozygous value \\\"CA\\\" for this variant. If the genotype\\n  was instead [0, 1] the represented value would be \\\"TA\\\". Ordering of the\\n  genotype values is important if the phaseset field is present.\",\"default\":[]},{\"name\":\"phaseset\",\"type\":[\"null\",\"string\",{\"type\":\"array\",\"items\":\"string\"}],\"doc\":\"If this field is a string, this variant call's genotype ordering implies\\n  the phase of the bases and is consistent with any other variant calls on\\n  the same contig which have the same phaseset string.\\n\\n  If this field is an array, each entry is associated with the corresponding\\n  entry in the `genotype` array. Allele instances that are associated with the\\n  same `phaseset` string occur on the same molecule of DNA.\\n\\n  For example, if one `Call` has `genotype` [0, 1], another is associated with\\n  `Allele` 3, and both have a `phaseset` of [\\\"maternal\\\", \\\"paternal\\\"], then one\\n  DNA molecule carries 0, 3 and another carries 1, 3.\\n\\n  If the API server supports the \\\"classic\\\" mode, this field must not be an\\n  array. If the API server supports the \\\"graph\\\" mode and not the \\\"classic\\\" mode,\\n  this field must be an array.\",\"default\":null},{\"name\":\"genotypeLikelihood\",\"type\":{\"type\":\"array\",\"items\":\"double\"},\"doc\":\"The genotype likelihoods for this variant call. Each array entry\\n  represents how likely a specific genotype is for this call as\\n  log10(P(data | genotype)), analogous to the GL tag in the VCF spec. The\\n  value ordering is defined by the GL tag in the VCF spec.\",\"default\":[]},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":\"string\"}},\"doc\":\"A map of additional variant call information.\",\"default\":{}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Call\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"A `Call` represents the determination of genotype with respect to a\\nparticular `Variant`.\\n\\nIt may include associated information such as quality\\nand phasing. For example, a call might assign a probability of 0.32 to\\nthe occurrence of a SNP named rs1234 in a call set with the name NA12345.\\n\\nThe genotypes described by `Call`s must be consistent with any `AlleleCall`s in\\nthe same `CallSet`. If a server supports \\\"classic\\\" mode, it must provide `Call`s\\nfor all `Variant`s that have associated `AlleleCall`s in the `CallSet`.\",\"fields\":[{\"name\":\"callSetId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The ID of the call set this variant call belongs to.\\n  If this field is not present, the ordering of the call sets from a\\n  `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match\\n  the ordering of the calls on this `Variant`.\\n  The number of results will also be the same.\"},{\"name\":\"callSetName\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The name of the call set this variant call belongs to.\\n  If this field is not present, the ordering of the call sets from a\\n  `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match\\n  the ordering of the calls on this `Variant`.\\n  The number of results will also be the same.\",\"default\":null},{\"name\":\"variantId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The ID of the `Variant` that this `Call` belongs to. Must be set in any `Call`\\n  that is not being returned from the server already contained within its\\n  `Variant`.\"},{\"name\":\"genotype\",\"type\":{\"type\":\"array\",\"items\":\"int\"},\"doc\":\"The genotype of this variant call.\\n\\n  A 0 value represents the reference allele of the associated `Variant`. Any\\n  other value is a 1-based index into the alternate alleles of the associated\\n  `Variant`.\\n\\n  If a variant had a referenceBases field of \\\"T\\\", an alternateBases\\n  value of [\\\"A\\\", \\\"C\\\"], and the genotype was [2, 1], that would mean the call\\n  represented the heterozygous value \\\"CA\\\" for this variant. If the genotype\\n  was instead [0, 1] the represented value would be \\\"TA\\\". Ordering of the\\n  genotype values is important if the phaseset field is present.\",\"default\":[]},{\"name\":\"phaseset\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"},{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}],\"doc\":\"If this field is a string, this variant call's genotype ordering implies\\n  the phase of the bases and is consistent with any other variant calls on\\n  the same contig which have the same phaseset string.\\n\\n  If this field is an array, each entry is associated with the corresponding\\n  entry in the `genotype` array. Allele instances that are associated with the\\n  same `phaseset` string occur on the same molecule of DNA.\\n\\n  For example, if one `Call` has `genotype` [0, 1], another is associated with\\n  `Allele` 3, and both have a `phaseset` of [\\\"maternal\\\", \\\"paternal\\\"], then one\\n  DNA molecule carries 0, 3 and another carries 1, 3.\\n\\n  If the API server supports the \\\"classic\\\" mode, this field must not be an\\n  array. If the API server supports the \\\"graph\\\" mode and not the \\\"classic\\\" mode,\\n  this field must be an array.\",\"default\":null},{\"name\":\"genotypeLikelihood\",\"type\":{\"type\":\"array\",\"items\":\"double\"},\"doc\":\"The genotype likelihoods for this variant call. Each array entry\\n  represents how likely a specific genotype is for this call as\\n  log10(P(data | genotype)), analogous to the GL tag in the VCF spec. The\\n  value ordering is defined by the GL tag in the VCF spec.\",\"default\":[]},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"avro.java.string\":\"String\"},\"doc\":\"A map of additional variant call information.\",\"default\":{}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The ID of the call set this variant call belongs to.
   If this field is not present, the ordering of the call sets from a
   `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match
   the ordering of the calls on this `Variant`.
   The number of results will also be the same. */
-   private java.lang.CharSequence callSetId;
+   private java.lang.String callSetId;
   /** The name of the call set this variant call belongs to.
   If this field is not present, the ordering of the call sets from a
   `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match
   the ordering of the calls on this `Variant`.
   The number of results will also be the same. */
-   private java.lang.CharSequence callSetName;
+   private java.lang.String callSetName;
   /** The ID of the `Variant` that this `Call` belongs to. Must be set in any `Call`
   that is not being returned from the server already contained within its
   `Variant`. */
-   private java.lang.CharSequence variantId;
+   private java.lang.String variantId;
   /** The genotype of this variant call.
 
   A 0 value represents the reference allele of the associated `Variant`. Any
@@ -69,7 +69,7 @@ public class Call extends org.apache.avro.specific.SpecificRecordBase implements
   value ordering is defined by the GL tag in the VCF spec. */
    private java.util.List<java.lang.Double> genotypeLikelihood;
   /** A map of additional variant call information. */
-   private java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info;
+   private java.util.Map<java.lang.String,java.util.List<java.lang.String>> info;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -81,7 +81,7 @@ public class Call extends org.apache.avro.specific.SpecificRecordBase implements
   /**
    * All-args constructor.
    */
-  public Call(java.lang.CharSequence callSetId, java.lang.CharSequence callSetName, java.lang.CharSequence variantId, java.util.List<java.lang.Integer> genotype, java.lang.Object phaseset, java.util.List<java.lang.Double> genotypeLikelihood, java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info) {
+  public Call(java.lang.String callSetId, java.lang.String callSetName, java.lang.String variantId, java.util.List<java.lang.Integer> genotype, java.lang.Object phaseset, java.util.List<java.lang.Double> genotypeLikelihood, java.util.Map<java.lang.String,java.util.List<java.lang.String>> info) {
     this.callSetId = callSetId;
     this.callSetName = callSetName;
     this.variantId = variantId;
@@ -109,13 +109,13 @@ public class Call extends org.apache.avro.specific.SpecificRecordBase implements
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: callSetId = (java.lang.CharSequence)value$; break;
-    case 1: callSetName = (java.lang.CharSequence)value$; break;
-    case 2: variantId = (java.lang.CharSequence)value$; break;
+    case 0: callSetId = (java.lang.String)value$; break;
+    case 1: callSetName = (java.lang.String)value$; break;
+    case 2: variantId = (java.lang.String)value$; break;
     case 3: genotype = (java.util.List<java.lang.Integer>)value$; break;
     case 4: phaseset = (java.lang.Object)value$; break;
     case 5: genotypeLikelihood = (java.util.List<java.lang.Double>)value$; break;
-    case 6: info = (java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>>)value$; break;
+    case 6: info = (java.util.Map<java.lang.String,java.util.List<java.lang.String>>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -127,7 +127,7 @@ public class Call extends org.apache.avro.specific.SpecificRecordBase implements
   `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match
   the ordering of the calls on this `Variant`.
   The number of results will also be the same.   */
-  public java.lang.CharSequence getCallSetId() {
+  public java.lang.String getCallSetId() {
     return callSetId;
   }
 
@@ -139,7 +139,7 @@ public class Call extends org.apache.avro.specific.SpecificRecordBase implements
   the ordering of the calls on this `Variant`.
   The number of results will also be the same.   * @param value the value to set.
    */
-  public void setCallSetId(java.lang.CharSequence value) {
+  public void setCallSetId(java.lang.String value) {
     this.callSetId = value;
   }
 
@@ -150,7 +150,7 @@ public class Call extends org.apache.avro.specific.SpecificRecordBase implements
   `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match
   the ordering of the calls on this `Variant`.
   The number of results will also be the same.   */
-  public java.lang.CharSequence getCallSetName() {
+  public java.lang.String getCallSetName() {
     return callSetName;
   }
 
@@ -162,7 +162,7 @@ public class Call extends org.apache.avro.specific.SpecificRecordBase implements
   the ordering of the calls on this `Variant`.
   The number of results will also be the same.   * @param value the value to set.
    */
-  public void setCallSetName(java.lang.CharSequence value) {
+  public void setCallSetName(java.lang.String value) {
     this.callSetName = value;
   }
 
@@ -171,7 +171,7 @@ public class Call extends org.apache.avro.specific.SpecificRecordBase implements
    * The ID of the `Variant` that this `Call` belongs to. Must be set in any `Call`
   that is not being returned from the server already contained within its
   `Variant`.   */
-  public java.lang.CharSequence getVariantId() {
+  public java.lang.String getVariantId() {
     return variantId;
   }
 
@@ -181,7 +181,7 @@ public class Call extends org.apache.avro.specific.SpecificRecordBase implements
   that is not being returned from the server already contained within its
   `Variant`.   * @param value the value to set.
    */
-  public void setVariantId(java.lang.CharSequence value) {
+  public void setVariantId(java.lang.String value) {
     this.variantId = value;
   }
 
@@ -287,7 +287,7 @@ public class Call extends org.apache.avro.specific.SpecificRecordBase implements
   /**
    * Gets the value of the 'info' field.
    * A map of additional variant call information.   */
-  public java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> getInfo() {
+  public java.util.Map<java.lang.String,java.util.List<java.lang.String>> getInfo() {
     return info;
   }
 
@@ -295,7 +295,7 @@ public class Call extends org.apache.avro.specific.SpecificRecordBase implements
    * Sets the value of the 'info' field.
    * A map of additional variant call information.   * @param value the value to set.
    */
-  public void setInfo(java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> value) {
+  public void setInfo(java.util.Map<java.lang.String,java.util.List<java.lang.String>> value) {
     this.info = value;
   }
 
@@ -320,13 +320,13 @@ public class Call extends org.apache.avro.specific.SpecificRecordBase implements
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Call>
     implements org.apache.avro.data.RecordBuilder<Call> {
 
-    private java.lang.CharSequence callSetId;
-    private java.lang.CharSequence callSetName;
-    private java.lang.CharSequence variantId;
+    private java.lang.String callSetId;
+    private java.lang.String callSetName;
+    private java.lang.String variantId;
     private java.util.List<java.lang.Integer> genotype;
     private java.lang.Object phaseset;
     private java.util.List<java.lang.Double> genotypeLikelihood;
-    private java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info;
+    private java.util.Map<java.lang.String,java.util.List<java.lang.String>> info;
 
     /** Creates a new Builder */
     private Builder() {
@@ -400,12 +400,12 @@ public class Call extends org.apache.avro.specific.SpecificRecordBase implements
     }
 
     /** Gets the value of the 'callSetId' field */
-    public java.lang.CharSequence getCallSetId() {
+    public java.lang.String getCallSetId() {
       return callSetId;
     }
     
     /** Sets the value of the 'callSetId' field */
-    public org.ga4gh.models.Call.Builder setCallSetId(java.lang.CharSequence value) {
+    public org.ga4gh.models.Call.Builder setCallSetId(java.lang.String value) {
       validate(fields()[0], value);
       this.callSetId = value;
       fieldSetFlags()[0] = true;
@@ -425,12 +425,12 @@ public class Call extends org.apache.avro.specific.SpecificRecordBase implements
     }
 
     /** Gets the value of the 'callSetName' field */
-    public java.lang.CharSequence getCallSetName() {
+    public java.lang.String getCallSetName() {
       return callSetName;
     }
     
     /** Sets the value of the 'callSetName' field */
-    public org.ga4gh.models.Call.Builder setCallSetName(java.lang.CharSequence value) {
+    public org.ga4gh.models.Call.Builder setCallSetName(java.lang.String value) {
       validate(fields()[1], value);
       this.callSetName = value;
       fieldSetFlags()[1] = true;
@@ -450,12 +450,12 @@ public class Call extends org.apache.avro.specific.SpecificRecordBase implements
     }
 
     /** Gets the value of the 'variantId' field */
-    public java.lang.CharSequence getVariantId() {
+    public java.lang.String getVariantId() {
       return variantId;
     }
     
     /** Sets the value of the 'variantId' field */
-    public org.ga4gh.models.Call.Builder setVariantId(java.lang.CharSequence value) {
+    public org.ga4gh.models.Call.Builder setVariantId(java.lang.String value) {
       validate(fields()[2], value);
       this.variantId = value;
       fieldSetFlags()[2] = true;
@@ -550,12 +550,12 @@ public class Call extends org.apache.avro.specific.SpecificRecordBase implements
     }
 
     /** Gets the value of the 'info' field */
-    public java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> getInfo() {
+    public java.util.Map<java.lang.String,java.util.List<java.lang.String>> getInfo() {
       return info;
     }
     
     /** Sets the value of the 'info' field */
-    public org.ga4gh.models.Call.Builder setInfo(java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> value) {
+    public org.ga4gh.models.Call.Builder setInfo(java.util.Map<java.lang.String,java.util.List<java.lang.String>> value) {
       validate(fields()[6], value);
       this.info = value;
       fieldSetFlags()[6] = true;
@@ -578,13 +578,13 @@ public class Call extends org.apache.avro.specific.SpecificRecordBase implements
     public Call build() {
       try {
         Call record = new Call();
-        record.callSetId = fieldSetFlags()[0] ? this.callSetId : (java.lang.CharSequence) defaultValue(fields()[0]);
-        record.callSetName = fieldSetFlags()[1] ? this.callSetName : (java.lang.CharSequence) defaultValue(fields()[1]);
-        record.variantId = fieldSetFlags()[2] ? this.variantId : (java.lang.CharSequence) defaultValue(fields()[2]);
+        record.callSetId = fieldSetFlags()[0] ? this.callSetId : (java.lang.String) defaultValue(fields()[0]);
+        record.callSetName = fieldSetFlags()[1] ? this.callSetName : (java.lang.String) defaultValue(fields()[1]);
+        record.variantId = fieldSetFlags()[2] ? this.variantId : (java.lang.String) defaultValue(fields()[2]);
         record.genotype = fieldSetFlags()[3] ? this.genotype : (java.util.List<java.lang.Integer>) defaultValue(fields()[3]);
         record.phaseset = fieldSetFlags()[4] ? this.phaseset : (java.lang.Object) defaultValue(fields()[4]);
         record.genotypeLikelihood = fieldSetFlags()[5] ? this.genotypeLikelihood : (java.util.List<java.lang.Double>) defaultValue(fields()[5]);
-        record.info = fieldSetFlags()[6] ? this.info : (java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>>) defaultValue(fields()[6]);
+        record.info = fieldSetFlags()[6] ? this.info : (java.util.Map<java.lang.String,java.util.List<java.lang.String>>) defaultValue(fields()[6]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

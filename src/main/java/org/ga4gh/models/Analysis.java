@@ -10,25 +10,25 @@ package org.ga4gh.models;
 information about the methodology used. */
 @org.apache.avro.specific.AvroGenerated
 public class Analysis extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Analysis\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"An analysis contains an interpretation of one or several experiments.\\n(e.g. SNVs, copy number variations, methylation status) together with\\ninformation about the methodology used.\",\"fields\":[{\"name\":\"id\",\"type\":\"string\",\"doc\":\"The analysis UUID. This is globally unique.\"},{\"name\":\"name\",\"type\":[\"null\",\"string\"],\"doc\":\"The name of the analysis.\",\"default\":null},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"A description of the analysis.\",\"default\":null},{\"name\":\"created\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this analysis was created in milliseconds from the epoch.\",\"default\":null},{\"name\":\"updated\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this analysis was last updated in milliseconds\\n  from the epoch.\",\"default\":null},{\"name\":\"type\",\"type\":[\"null\",\"string\"],\"doc\":\"The type of analysis.\",\"default\":null},{\"name\":\"software\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"The software run to generate this analysis.\",\"default\":null},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":\"string\"}},\"doc\":\"A map of additional analysis information.\",\"default\":{}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Analysis\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"An analysis contains an interpretation of one or several experiments.\\n(e.g. SNVs, copy number variations, methylation status) together with\\ninformation about the methodology used.\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The analysis UUID. This is globally unique.\"},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The name of the analysis.\",\"default\":null},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"A description of the analysis.\",\"default\":null},{\"name\":\"created\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this analysis was created in milliseconds from the epoch.\",\"default\":null},{\"name\":\"updated\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this analysis was last updated in milliseconds\\n  from the epoch.\",\"default\":null},{\"name\":\"type\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The type of analysis.\",\"default\":null},{\"name\":\"software\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"The software run to generate this analysis.\",\"default\":null},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"avro.java.string\":\"String\"},\"doc\":\"A map of additional analysis information.\",\"default\":{}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The analysis UUID. This is globally unique. */
-   private java.lang.CharSequence id;
+   private java.lang.String id;
   /** The name of the analysis. */
-   private java.lang.CharSequence name;
+   private java.lang.String name;
   /** A description of the analysis. */
-   private java.lang.CharSequence description;
+   private java.lang.String description;
   /** The time at which this analysis was created in milliseconds from the epoch. */
    private java.lang.Long created;
   /** The time at which this analysis was last updated in milliseconds
   from the epoch. */
    private java.lang.Long updated;
   /** The type of analysis. */
-   private java.lang.CharSequence type;
+   private java.lang.String type;
   /** The software run to generate this analysis. */
-   private java.util.List<java.lang.CharSequence> software;
+   private java.util.List<java.lang.String> software;
   /** A map of additional analysis information. */
-   private java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info;
+   private java.util.Map<java.lang.String,java.util.List<java.lang.String>> info;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -40,7 +40,7 @@ public class Analysis extends org.apache.avro.specific.SpecificRecordBase implem
   /**
    * All-args constructor.
    */
-  public Analysis(java.lang.CharSequence id, java.lang.CharSequence name, java.lang.CharSequence description, java.lang.Long created, java.lang.Long updated, java.lang.CharSequence type, java.util.List<java.lang.CharSequence> software, java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info) {
+  public Analysis(java.lang.String id, java.lang.String name, java.lang.String description, java.lang.Long created, java.lang.Long updated, java.lang.String type, java.util.List<java.lang.String> software, java.util.Map<java.lang.String,java.util.List<java.lang.String>> info) {
     this.id = id;
     this.name = name;
     this.description = description;
@@ -70,14 +70,14 @@ public class Analysis extends org.apache.avro.specific.SpecificRecordBase implem
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: id = (java.lang.CharSequence)value$; break;
-    case 1: name = (java.lang.CharSequence)value$; break;
-    case 2: description = (java.lang.CharSequence)value$; break;
+    case 0: id = (java.lang.String)value$; break;
+    case 1: name = (java.lang.String)value$; break;
+    case 2: description = (java.lang.String)value$; break;
     case 3: created = (java.lang.Long)value$; break;
     case 4: updated = (java.lang.Long)value$; break;
-    case 5: type = (java.lang.CharSequence)value$; break;
-    case 6: software = (java.util.List<java.lang.CharSequence>)value$; break;
-    case 7: info = (java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>>)value$; break;
+    case 5: type = (java.lang.String)value$; break;
+    case 6: software = (java.util.List<java.lang.String>)value$; break;
+    case 7: info = (java.util.Map<java.lang.String,java.util.List<java.lang.String>>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -85,7 +85,7 @@ public class Analysis extends org.apache.avro.specific.SpecificRecordBase implem
   /**
    * Gets the value of the 'id' field.
    * The analysis UUID. This is globally unique.   */
-  public java.lang.CharSequence getId() {
+  public java.lang.String getId() {
     return id;
   }
 
@@ -93,14 +93,14 @@ public class Analysis extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'id' field.
    * The analysis UUID. This is globally unique.   * @param value the value to set.
    */
-  public void setId(java.lang.CharSequence value) {
+  public void setId(java.lang.String value) {
     this.id = value;
   }
 
   /**
    * Gets the value of the 'name' field.
    * The name of the analysis.   */
-  public java.lang.CharSequence getName() {
+  public java.lang.String getName() {
     return name;
   }
 
@@ -108,14 +108,14 @@ public class Analysis extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'name' field.
    * The name of the analysis.   * @param value the value to set.
    */
-  public void setName(java.lang.CharSequence value) {
+  public void setName(java.lang.String value) {
     this.name = value;
   }
 
   /**
    * Gets the value of the 'description' field.
    * A description of the analysis.   */
-  public java.lang.CharSequence getDescription() {
+  public java.lang.String getDescription() {
     return description;
   }
 
@@ -123,7 +123,7 @@ public class Analysis extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'description' field.
    * A description of the analysis.   * @param value the value to set.
    */
-  public void setDescription(java.lang.CharSequence value) {
+  public void setDescription(java.lang.String value) {
     this.description = value;
   }
 
@@ -162,7 +162,7 @@ public class Analysis extends org.apache.avro.specific.SpecificRecordBase implem
   /**
    * Gets the value of the 'type' field.
    * The type of analysis.   */
-  public java.lang.CharSequence getType() {
+  public java.lang.String getType() {
     return type;
   }
 
@@ -170,14 +170,14 @@ public class Analysis extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'type' field.
    * The type of analysis.   * @param value the value to set.
    */
-  public void setType(java.lang.CharSequence value) {
+  public void setType(java.lang.String value) {
     this.type = value;
   }
 
   /**
    * Gets the value of the 'software' field.
    * The software run to generate this analysis.   */
-  public java.util.List<java.lang.CharSequence> getSoftware() {
+  public java.util.List<java.lang.String> getSoftware() {
     return software;
   }
 
@@ -185,14 +185,14 @@ public class Analysis extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'software' field.
    * The software run to generate this analysis.   * @param value the value to set.
    */
-  public void setSoftware(java.util.List<java.lang.CharSequence> value) {
+  public void setSoftware(java.util.List<java.lang.String> value) {
     this.software = value;
   }
 
   /**
    * Gets the value of the 'info' field.
    * A map of additional analysis information.   */
-  public java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> getInfo() {
+  public java.util.Map<java.lang.String,java.util.List<java.lang.String>> getInfo() {
     return info;
   }
 
@@ -200,7 +200,7 @@ public class Analysis extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'info' field.
    * A map of additional analysis information.   * @param value the value to set.
    */
-  public void setInfo(java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> value) {
+  public void setInfo(java.util.Map<java.lang.String,java.util.List<java.lang.String>> value) {
     this.info = value;
   }
 
@@ -225,14 +225,14 @@ public class Analysis extends org.apache.avro.specific.SpecificRecordBase implem
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Analysis>
     implements org.apache.avro.data.RecordBuilder<Analysis> {
 
-    private java.lang.CharSequence id;
-    private java.lang.CharSequence name;
-    private java.lang.CharSequence description;
+    private java.lang.String id;
+    private java.lang.String name;
+    private java.lang.String description;
     private java.lang.Long created;
     private java.lang.Long updated;
-    private java.lang.CharSequence type;
-    private java.util.List<java.lang.CharSequence> software;
-    private java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info;
+    private java.lang.String type;
+    private java.util.List<java.lang.String> software;
+    private java.util.Map<java.lang.String,java.util.List<java.lang.String>> info;
 
     /** Creates a new Builder */
     private Builder() {
@@ -314,12 +314,12 @@ public class Analysis extends org.apache.avro.specific.SpecificRecordBase implem
     }
 
     /** Gets the value of the 'id' field */
-    public java.lang.CharSequence getId() {
+    public java.lang.String getId() {
       return id;
     }
     
     /** Sets the value of the 'id' field */
-    public org.ga4gh.models.Analysis.Builder setId(java.lang.CharSequence value) {
+    public org.ga4gh.models.Analysis.Builder setId(java.lang.String value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -339,12 +339,12 @@ public class Analysis extends org.apache.avro.specific.SpecificRecordBase implem
     }
 
     /** Gets the value of the 'name' field */
-    public java.lang.CharSequence getName() {
+    public java.lang.String getName() {
       return name;
     }
     
     /** Sets the value of the 'name' field */
-    public org.ga4gh.models.Analysis.Builder setName(java.lang.CharSequence value) {
+    public org.ga4gh.models.Analysis.Builder setName(java.lang.String value) {
       validate(fields()[1], value);
       this.name = value;
       fieldSetFlags()[1] = true;
@@ -364,12 +364,12 @@ public class Analysis extends org.apache.avro.specific.SpecificRecordBase implem
     }
 
     /** Gets the value of the 'description' field */
-    public java.lang.CharSequence getDescription() {
+    public java.lang.String getDescription() {
       return description;
     }
     
     /** Sets the value of the 'description' field */
-    public org.ga4gh.models.Analysis.Builder setDescription(java.lang.CharSequence value) {
+    public org.ga4gh.models.Analysis.Builder setDescription(java.lang.String value) {
       validate(fields()[2], value);
       this.description = value;
       fieldSetFlags()[2] = true;
@@ -439,12 +439,12 @@ public class Analysis extends org.apache.avro.specific.SpecificRecordBase implem
     }
 
     /** Gets the value of the 'type' field */
-    public java.lang.CharSequence getType() {
+    public java.lang.String getType() {
       return type;
     }
     
     /** Sets the value of the 'type' field */
-    public org.ga4gh.models.Analysis.Builder setType(java.lang.CharSequence value) {
+    public org.ga4gh.models.Analysis.Builder setType(java.lang.String value) {
       validate(fields()[5], value);
       this.type = value;
       fieldSetFlags()[5] = true;
@@ -464,12 +464,12 @@ public class Analysis extends org.apache.avro.specific.SpecificRecordBase implem
     }
 
     /** Gets the value of the 'software' field */
-    public java.util.List<java.lang.CharSequence> getSoftware() {
+    public java.util.List<java.lang.String> getSoftware() {
       return software;
     }
     
     /** Sets the value of the 'software' field */
-    public org.ga4gh.models.Analysis.Builder setSoftware(java.util.List<java.lang.CharSequence> value) {
+    public org.ga4gh.models.Analysis.Builder setSoftware(java.util.List<java.lang.String> value) {
       validate(fields()[6], value);
       this.software = value;
       fieldSetFlags()[6] = true;
@@ -489,12 +489,12 @@ public class Analysis extends org.apache.avro.specific.SpecificRecordBase implem
     }
 
     /** Gets the value of the 'info' field */
-    public java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> getInfo() {
+    public java.util.Map<java.lang.String,java.util.List<java.lang.String>> getInfo() {
       return info;
     }
     
     /** Sets the value of the 'info' field */
-    public org.ga4gh.models.Analysis.Builder setInfo(java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> value) {
+    public org.ga4gh.models.Analysis.Builder setInfo(java.util.Map<java.lang.String,java.util.List<java.lang.String>> value) {
       validate(fields()[7], value);
       this.info = value;
       fieldSetFlags()[7] = true;
@@ -517,14 +517,14 @@ public class Analysis extends org.apache.avro.specific.SpecificRecordBase implem
     public Analysis build() {
       try {
         Analysis record = new Analysis();
-        record.id = fieldSetFlags()[0] ? this.id : (java.lang.CharSequence) defaultValue(fields()[0]);
-        record.name = fieldSetFlags()[1] ? this.name : (java.lang.CharSequence) defaultValue(fields()[1]);
-        record.description = fieldSetFlags()[2] ? this.description : (java.lang.CharSequence) defaultValue(fields()[2]);
+        record.id = fieldSetFlags()[0] ? this.id : (java.lang.String) defaultValue(fields()[0]);
+        record.name = fieldSetFlags()[1] ? this.name : (java.lang.String) defaultValue(fields()[1]);
+        record.description = fieldSetFlags()[2] ? this.description : (java.lang.String) defaultValue(fields()[2]);
         record.created = fieldSetFlags()[3] ? this.created : (java.lang.Long) defaultValue(fields()[3]);
         record.updated = fieldSetFlags()[4] ? this.updated : (java.lang.Long) defaultValue(fields()[4]);
-        record.type = fieldSetFlags()[5] ? this.type : (java.lang.CharSequence) defaultValue(fields()[5]);
-        record.software = fieldSetFlags()[6] ? this.software : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[6]);
-        record.info = fieldSetFlags()[7] ? this.info : (java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>>) defaultValue(fields()[7]);
+        record.type = fieldSetFlags()[5] ? this.type : (java.lang.String) defaultValue(fields()[5]);
+        record.software = fieldSetFlags()[6] ? this.software : (java.util.List<java.lang.String>) defaultValue(fields()[6]);
+        record.info = fieldSetFlags()[7] ? this.info : (java.util.Map<java.lang.String,java.util.List<java.lang.String>>) defaultValue(fields()[7]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

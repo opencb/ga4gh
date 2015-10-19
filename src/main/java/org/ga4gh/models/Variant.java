@@ -11,14 +11,14 @@ Variants belong to a `VariantSet`.
 This is equivalent to a row in VCF. */
 @org.apache.avro.specific.AvroGenerated
 public class Variant extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Variant\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"A `Variant` represents a change in DNA sequence relative to some reference.\\nFor example, a variant could represent a SNP or an insertion.\\nVariants belong to a `VariantSet`.\\nThis is equivalent to a row in VCF.\",\"fields\":[{\"name\":\"id\",\"type\":\"string\",\"doc\":\"The variant ID.\"},{\"name\":\"variantSetId\",\"type\":\"string\",\"doc\":\"The ID of the variant set this variant belongs to.\"},{\"name\":\"names\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"Names for the variant, for example a RefSNP ID.\",\"default\":[]},{\"name\":\"created\",\"type\":[\"null\",\"long\"],\"doc\":\"The date this variant was created in milliseconds from the epoch.\",\"default\":null},{\"name\":\"updated\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this variant was last updated in\\n  milliseconds from the epoch.\",\"default\":null},{\"name\":\"referenceName\",\"type\":[\"null\",\"string\"],\"doc\":\"The reference on which this variant occurs.\\n  (e.g. `chr20` or `X`)\\n\\n  If the API server supports the \\\"classic\\\" mode, this field must not be null.\",\"default\":null},{\"name\":\"start\",\"type\":[\"null\",\"long\"],\"doc\":\"The start position at which this variant occurs (0-based).\\n  This corresponds to the first base of the string of reference bases.\\n  Genomic positions are non-negative integers less than reference length.\\n  Variants spanning the join of circular genomes are represented as\\n  two variants one on each side of the join (position 0).\\n\\n  If the API server supports the \\\"classic\\\" mode, this field must not be null.\",\"default\":null},{\"name\":\"end\",\"type\":[\"null\",\"long\"],\"doc\":\"The end position (exclusive), resulting in [start, end) closed-open interval.\\n  This is typically calculated by `start + referenceBases.length`.\\n\\n  If the API server supports the \\\"classic\\\" mode, this field must not be null.\",\"default\":null},{\"name\":\"referenceBases\",\"type\":[\"null\",\"string\"],\"doc\":\"The reference bases for this variant. They occupy the range described by\\n  `referenceName`, `start`, and `end`, which all must be set if this field is\\n  set.\\n\\n  If the API server supports the \\\"classic\\\" mode, this field must not be null.\",\"default\":null},{\"name\":\"alternateBases\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}],\"doc\":\"The bases that appear instead of the reference bases. If this field is not\\n  null, `referenceBases` must be set.\\n\\n  If the API server supports the \\\"classic\\\" mode, this field must not be null.\",\"default\":null},{\"name\":\"alleleIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}],\"doc\":\"The IDs of the reference and alternate `Allele`s for this `Variant`. The first\\n  is the reference allele, and any others are alternates. If this field is set\\n  along with `referenceName`, `start`, `end`, `referenceBases`, and/or\\n  `alternateBases`, those fields must agree with the `Allele`s given here.\\n\\n  If the API server supports the \\\"graph\\\" mode, this field must not be null.\"},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":\"string\"}},\"doc\":\"A map of additional variant information.\",\"default\":{}},{\"name\":\"calls\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Call\",\"doc\":\"A `Call` represents the determination of genotype with respect to a\\nparticular `Variant`.\\n\\nIt may include associated information such as quality\\nand phasing. For example, a call might assign a probability of 0.32 to\\nthe occurrence of a SNP named rs1234 in a call set with the name NA12345.\\n\\nThe genotypes described by `Call`s must be consistent with any `AlleleCall`s in\\nthe same `CallSet`. If a server supports \\\"classic\\\" mode, it must provide `Call`s\\nfor all `Variant`s that have associated `AlleleCall`s in the `CallSet`.\",\"fields\":[{\"name\":\"callSetId\",\"type\":[\"null\",\"string\"],\"doc\":\"The ID of the call set this variant call belongs to.\\n  If this field is not present, the ordering of the call sets from a\\n  `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match\\n  the ordering of the calls on this `Variant`.\\n  The number of results will also be the same.\"},{\"name\":\"callSetName\",\"type\":[\"null\",\"string\"],\"doc\":\"The name of the call set this variant call belongs to.\\n  If this field is not present, the ordering of the call sets from a\\n  `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match\\n  the ordering of the calls on this `Variant`.\\n  The number of results will also be the same.\",\"default\":null},{\"name\":\"variantId\",\"type\":[\"null\",\"string\"],\"doc\":\"The ID of the `Variant` that this `Call` belongs to. Must be set in any `Call`\\n  that is not being returned from the server already contained within its\\n  `Variant`.\"},{\"name\":\"genotype\",\"type\":{\"type\":\"array\",\"items\":\"int\"},\"doc\":\"The genotype of this variant call.\\n\\n  A 0 value represents the reference allele of the associated `Variant`. Any\\n  other value is a 1-based index into the alternate alleles of the associated\\n  `Variant`.\\n\\n  If a variant had a referenceBases field of \\\"T\\\", an alternateBases\\n  value of [\\\"A\\\", \\\"C\\\"], and the genotype was [2, 1], that would mean the call\\n  represented the heterozygous value \\\"CA\\\" for this variant. If the genotype\\n  was instead [0, 1] the represented value would be \\\"TA\\\". Ordering of the\\n  genotype values is important if the phaseset field is present.\",\"default\":[]},{\"name\":\"phaseset\",\"type\":[\"null\",\"string\",{\"type\":\"array\",\"items\":\"string\"}],\"doc\":\"If this field is a string, this variant call's genotype ordering implies\\n  the phase of the bases and is consistent with any other variant calls on\\n  the same contig which have the same phaseset string.\\n\\n  If this field is an array, each entry is associated with the corresponding\\n  entry in the `genotype` array. Allele instances that are associated with the\\n  same `phaseset` string occur on the same molecule of DNA.\\n\\n  For example, if one `Call` has `genotype` [0, 1], another is associated with\\n  `Allele` 3, and both have a `phaseset` of [\\\"maternal\\\", \\\"paternal\\\"], then one\\n  DNA molecule carries 0, 3 and another carries 1, 3.\\n\\n  If the API server supports the \\\"classic\\\" mode, this field must not be an\\n  array. If the API server supports the \\\"graph\\\" mode and not the \\\"classic\\\" mode,\\n  this field must be an array.\",\"default\":null},{\"name\":\"genotypeLikelihood\",\"type\":{\"type\":\"array\",\"items\":\"double\"},\"doc\":\"The genotype likelihoods for this variant call. Each array entry\\n  represents how likely a specific genotype is for this call as\\n  log10(P(data | genotype)), analogous to the GL tag in the VCF spec. The\\n  value ordering is defined by the GL tag in the VCF spec.\",\"default\":[]},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":\"string\"}},\"doc\":\"A map of additional variant call information.\",\"default\":{}}]}}],\"doc\":\"The variant calls for this particular variant. Each one represents the\\n  determination of genotype with respect to this variant. `Call`s in this array\\n  are implicitly associated with this `Variant`.\\n\\n  Calls are also available through the `searchCalls()` API method.\\n\\n  If the API server supports the \\\"classic\\\" mode, this field must not be null.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Variant\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"A `Variant` represents a change in DNA sequence relative to some reference.\\nFor example, a variant could represent a SNP or an insertion.\\nVariants belong to a `VariantSet`.\\nThis is equivalent to a row in VCF.\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The variant ID.\"},{\"name\":\"variantSetId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The ID of the variant set this variant belongs to.\"},{\"name\":\"names\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"Names for the variant, for example a RefSNP ID.\",\"default\":[]},{\"name\":\"created\",\"type\":[\"null\",\"long\"],\"doc\":\"The date this variant was created in milliseconds from the epoch.\",\"default\":null},{\"name\":\"updated\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this variant was last updated in\\n  milliseconds from the epoch.\",\"default\":null},{\"name\":\"referenceName\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The reference on which this variant occurs.\\n  (e.g. `chr20` or `X`)\\n\\n  If the API server supports the \\\"classic\\\" mode, this field must not be null.\",\"default\":null},{\"name\":\"start\",\"type\":[\"null\",\"long\"],\"doc\":\"The start position at which this variant occurs (0-based).\\n  This corresponds to the first base of the string of reference bases.\\n  Genomic positions are non-negative integers less than reference length.\\n  Variants spanning the join of circular genomes are represented as\\n  two variants one on each side of the join (position 0).\\n\\n  If the API server supports the \\\"classic\\\" mode, this field must not be null.\",\"default\":null},{\"name\":\"end\",\"type\":[\"null\",\"long\"],\"doc\":\"The end position (exclusive), resulting in [start, end) closed-open interval.\\n  This is typically calculated by `start + referenceBases.length`.\\n\\n  If the API server supports the \\\"classic\\\" mode, this field must not be null.\",\"default\":null},{\"name\":\"referenceBases\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The reference bases for this variant. They occupy the range described by\\n  `referenceName`, `start`, and `end`, which all must be set if this field is\\n  set.\\n\\n  If the API server supports the \\\"classic\\\" mode, this field must not be null.\",\"default\":null},{\"name\":\"alternateBases\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}],\"doc\":\"The bases that appear instead of the reference bases. If this field is not\\n  null, `referenceBases` must be set.\\n\\n  If the API server supports the \\\"classic\\\" mode, this field must not be null.\",\"default\":null},{\"name\":\"alleleIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}],\"doc\":\"The IDs of the reference and alternate `Allele`s for this `Variant`. The first\\n  is the reference allele, and any others are alternates. If this field is set\\n  along with `referenceName`, `start`, `end`, `referenceBases`, and/or\\n  `alternateBases`, those fields must agree with the `Allele`s given here.\\n\\n  If the API server supports the \\\"graph\\\" mode, this field must not be null.\"},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"avro.java.string\":\"String\"},\"doc\":\"A map of additional variant information.\",\"default\":{}},{\"name\":\"calls\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Call\",\"doc\":\"A `Call` represents the determination of genotype with respect to a\\nparticular `Variant`.\\n\\nIt may include associated information such as quality\\nand phasing. For example, a call might assign a probability of 0.32 to\\nthe occurrence of a SNP named rs1234 in a call set with the name NA12345.\\n\\nThe genotypes described by `Call`s must be consistent with any `AlleleCall`s in\\nthe same `CallSet`. If a server supports \\\"classic\\\" mode, it must provide `Call`s\\nfor all `Variant`s that have associated `AlleleCall`s in the `CallSet`.\",\"fields\":[{\"name\":\"callSetId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The ID of the call set this variant call belongs to.\\n  If this field is not present, the ordering of the call sets from a\\n  `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match\\n  the ordering of the calls on this `Variant`.\\n  The number of results will also be the same.\"},{\"name\":\"callSetName\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The name of the call set this variant call belongs to.\\n  If this field is not present, the ordering of the call sets from a\\n  `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match\\n  the ordering of the calls on this `Variant`.\\n  The number of results will also be the same.\",\"default\":null},{\"name\":\"variantId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The ID of the `Variant` that this `Call` belongs to. Must be set in any `Call`\\n  that is not being returned from the server already contained within its\\n  `Variant`.\"},{\"name\":\"genotype\",\"type\":{\"type\":\"array\",\"items\":\"int\"},\"doc\":\"The genotype of this variant call.\\n\\n  A 0 value represents the reference allele of the associated `Variant`. Any\\n  other value is a 1-based index into the alternate alleles of the associated\\n  `Variant`.\\n\\n  If a variant had a referenceBases field of \\\"T\\\", an alternateBases\\n  value of [\\\"A\\\", \\\"C\\\"], and the genotype was [2, 1], that would mean the call\\n  represented the heterozygous value \\\"CA\\\" for this variant. If the genotype\\n  was instead [0, 1] the represented value would be \\\"TA\\\". Ordering of the\\n  genotype values is important if the phaseset field is present.\",\"default\":[]},{\"name\":\"phaseset\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"},{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}],\"doc\":\"If this field is a string, this variant call's genotype ordering implies\\n  the phase of the bases and is consistent with any other variant calls on\\n  the same contig which have the same phaseset string.\\n\\n  If this field is an array, each entry is associated with the corresponding\\n  entry in the `genotype` array. Allele instances that are associated with the\\n  same `phaseset` string occur on the same molecule of DNA.\\n\\n  For example, if one `Call` has `genotype` [0, 1], another is associated with\\n  `Allele` 3, and both have a `phaseset` of [\\\"maternal\\\", \\\"paternal\\\"], then one\\n  DNA molecule carries 0, 3 and another carries 1, 3.\\n\\n  If the API server supports the \\\"classic\\\" mode, this field must not be an\\n  array. If the API server supports the \\\"graph\\\" mode and not the \\\"classic\\\" mode,\\n  this field must be an array.\",\"default\":null},{\"name\":\"genotypeLikelihood\",\"type\":{\"type\":\"array\",\"items\":\"double\"},\"doc\":\"The genotype likelihoods for this variant call. Each array entry\\n  represents how likely a specific genotype is for this call as\\n  log10(P(data | genotype)), analogous to the GL tag in the VCF spec. The\\n  value ordering is defined by the GL tag in the VCF spec.\",\"default\":[]},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"avro.java.string\":\"String\"},\"doc\":\"A map of additional variant call information.\",\"default\":{}}]}}],\"doc\":\"The variant calls for this particular variant. Each one represents the\\n  determination of genotype with respect to this variant. `Call`s in this array\\n  are implicitly associated with this `Variant`.\\n\\n  Calls are also available through the `searchCalls()` API method.\\n\\n  If the API server supports the \\\"classic\\\" mode, this field must not be null.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The variant ID. */
-   private java.lang.CharSequence id;
+   private java.lang.String id;
   /** The ID of the variant set this variant belongs to. */
-   private java.lang.CharSequence variantSetId;
+   private java.lang.String variantSetId;
   /** Names for the variant, for example a RefSNP ID. */
-   private java.util.List<java.lang.CharSequence> names;
+   private java.util.List<java.lang.String> names;
   /** The date this variant was created in milliseconds from the epoch. */
    private java.lang.Long created;
   /** The time at which this variant was last updated in
@@ -28,7 +28,7 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
   (e.g. `chr20` or `X`)
 
   If the API server supports the "classic" mode, this field must not be null. */
-   private java.lang.CharSequence referenceName;
+   private java.lang.String referenceName;
   /** The start position at which this variant occurs (0-based).
   This corresponds to the first base of the string of reference bases.
   Genomic positions are non-negative integers less than reference length.
@@ -47,21 +47,21 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
   set.
 
   If the API server supports the "classic" mode, this field must not be null. */
-   private java.lang.CharSequence referenceBases;
+   private java.lang.String referenceBases;
   /** The bases that appear instead of the reference bases. If this field is not
   null, `referenceBases` must be set.
 
   If the API server supports the "classic" mode, this field must not be null. */
-   private java.util.List<java.lang.CharSequence> alternateBases;
+   private java.util.List<java.lang.String> alternateBases;
   /** The IDs of the reference and alternate `Allele`s for this `Variant`. The first
   is the reference allele, and any others are alternates. If this field is set
   along with `referenceName`, `start`, `end`, `referenceBases`, and/or
   `alternateBases`, those fields must agree with the `Allele`s given here.
 
   If the API server supports the "graph" mode, this field must not be null. */
-   private java.util.List<java.lang.CharSequence> alleleIds;
+   private java.util.List<java.lang.String> alleleIds;
   /** A map of additional variant information. */
-   private java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info;
+   private java.util.Map<java.lang.String,java.util.List<java.lang.String>> info;
   /** The variant calls for this particular variant. Each one represents the
   determination of genotype with respect to this variant. `Call`s in this array
   are implicitly associated with this `Variant`.
@@ -81,7 +81,7 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
   /**
    * All-args constructor.
    */
-  public Variant(java.lang.CharSequence id, java.lang.CharSequence variantSetId, java.util.List<java.lang.CharSequence> names, java.lang.Long created, java.lang.Long updated, java.lang.CharSequence referenceName, java.lang.Long start, java.lang.Long end, java.lang.CharSequence referenceBases, java.util.List<java.lang.CharSequence> alternateBases, java.util.List<java.lang.CharSequence> alleleIds, java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info, java.util.List<org.ga4gh.models.Call> calls) {
+  public Variant(java.lang.String id, java.lang.String variantSetId, java.util.List<java.lang.String> names, java.lang.Long created, java.lang.Long updated, java.lang.String referenceName, java.lang.Long start, java.lang.Long end, java.lang.String referenceBases, java.util.List<java.lang.String> alternateBases, java.util.List<java.lang.String> alleleIds, java.util.Map<java.lang.String,java.util.List<java.lang.String>> info, java.util.List<org.ga4gh.models.Call> calls) {
     this.id = id;
     this.variantSetId = variantSetId;
     this.names = names;
@@ -121,18 +121,18 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: id = (java.lang.CharSequence)value$; break;
-    case 1: variantSetId = (java.lang.CharSequence)value$; break;
-    case 2: names = (java.util.List<java.lang.CharSequence>)value$; break;
+    case 0: id = (java.lang.String)value$; break;
+    case 1: variantSetId = (java.lang.String)value$; break;
+    case 2: names = (java.util.List<java.lang.String>)value$; break;
     case 3: created = (java.lang.Long)value$; break;
     case 4: updated = (java.lang.Long)value$; break;
-    case 5: referenceName = (java.lang.CharSequence)value$; break;
+    case 5: referenceName = (java.lang.String)value$; break;
     case 6: start = (java.lang.Long)value$; break;
     case 7: end = (java.lang.Long)value$; break;
-    case 8: referenceBases = (java.lang.CharSequence)value$; break;
-    case 9: alternateBases = (java.util.List<java.lang.CharSequence>)value$; break;
-    case 10: alleleIds = (java.util.List<java.lang.CharSequence>)value$; break;
-    case 11: info = (java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>>)value$; break;
+    case 8: referenceBases = (java.lang.String)value$; break;
+    case 9: alternateBases = (java.util.List<java.lang.String>)value$; break;
+    case 10: alleleIds = (java.util.List<java.lang.String>)value$; break;
+    case 11: info = (java.util.Map<java.lang.String,java.util.List<java.lang.String>>)value$; break;
     case 12: calls = (java.util.List<org.ga4gh.models.Call>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
@@ -141,7 +141,7 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
   /**
    * Gets the value of the 'id' field.
    * The variant ID.   */
-  public java.lang.CharSequence getId() {
+  public java.lang.String getId() {
     return id;
   }
 
@@ -149,14 +149,14 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'id' field.
    * The variant ID.   * @param value the value to set.
    */
-  public void setId(java.lang.CharSequence value) {
+  public void setId(java.lang.String value) {
     this.id = value;
   }
 
   /**
    * Gets the value of the 'variantSetId' field.
    * The ID of the variant set this variant belongs to.   */
-  public java.lang.CharSequence getVariantSetId() {
+  public java.lang.String getVariantSetId() {
     return variantSetId;
   }
 
@@ -164,14 +164,14 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'variantSetId' field.
    * The ID of the variant set this variant belongs to.   * @param value the value to set.
    */
-  public void setVariantSetId(java.lang.CharSequence value) {
+  public void setVariantSetId(java.lang.String value) {
     this.variantSetId = value;
   }
 
   /**
    * Gets the value of the 'names' field.
    * Names for the variant, for example a RefSNP ID.   */
-  public java.util.List<java.lang.CharSequence> getNames() {
+  public java.util.List<java.lang.String> getNames() {
     return names;
   }
 
@@ -179,7 +179,7 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'names' field.
    * Names for the variant, for example a RefSNP ID.   * @param value the value to set.
    */
-  public void setNames(java.util.List<java.lang.CharSequence> value) {
+  public void setNames(java.util.List<java.lang.String> value) {
     this.names = value;
   }
 
@@ -221,7 +221,7 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
   (e.g. `chr20` or `X`)
 
   If the API server supports the "classic" mode, this field must not be null.   */
-  public java.lang.CharSequence getReferenceName() {
+  public java.lang.String getReferenceName() {
     return referenceName;
   }
 
@@ -232,7 +232,7 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
 
   If the API server supports the "classic" mode, this field must not be null.   * @param value the value to set.
    */
-  public void setReferenceName(java.lang.CharSequence value) {
+  public void setReferenceName(java.lang.String value) {
     this.referenceName = value;
   }
 
@@ -291,7 +291,7 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
   set.
 
   If the API server supports the "classic" mode, this field must not be null.   */
-  public java.lang.CharSequence getReferenceBases() {
+  public java.lang.String getReferenceBases() {
     return referenceBases;
   }
 
@@ -303,7 +303,7 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
 
   If the API server supports the "classic" mode, this field must not be null.   * @param value the value to set.
    */
-  public void setReferenceBases(java.lang.CharSequence value) {
+  public void setReferenceBases(java.lang.String value) {
     this.referenceBases = value;
   }
 
@@ -313,7 +313,7 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
   null, `referenceBases` must be set.
 
   If the API server supports the "classic" mode, this field must not be null.   */
-  public java.util.List<java.lang.CharSequence> getAlternateBases() {
+  public java.util.List<java.lang.String> getAlternateBases() {
     return alternateBases;
   }
 
@@ -324,7 +324,7 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
 
   If the API server supports the "classic" mode, this field must not be null.   * @param value the value to set.
    */
-  public void setAlternateBases(java.util.List<java.lang.CharSequence> value) {
+  public void setAlternateBases(java.util.List<java.lang.String> value) {
     this.alternateBases = value;
   }
 
@@ -336,7 +336,7 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
   `alternateBases`, those fields must agree with the `Allele`s given here.
 
   If the API server supports the "graph" mode, this field must not be null.   */
-  public java.util.List<java.lang.CharSequence> getAlleleIds() {
+  public java.util.List<java.lang.String> getAlleleIds() {
     return alleleIds;
   }
 
@@ -349,14 +349,14 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
 
   If the API server supports the "graph" mode, this field must not be null.   * @param value the value to set.
    */
-  public void setAlleleIds(java.util.List<java.lang.CharSequence> value) {
+  public void setAlleleIds(java.util.List<java.lang.String> value) {
     this.alleleIds = value;
   }
 
   /**
    * Gets the value of the 'info' field.
    * A map of additional variant information.   */
-  public java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> getInfo() {
+  public java.util.Map<java.lang.String,java.util.List<java.lang.String>> getInfo() {
     return info;
   }
 
@@ -364,7 +364,7 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'info' field.
    * A map of additional variant information.   * @param value the value to set.
    */
-  public void setInfo(java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> value) {
+  public void setInfo(java.util.Map<java.lang.String,java.util.List<java.lang.String>> value) {
     this.info = value;
   }
 
@@ -416,18 +416,18 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Variant>
     implements org.apache.avro.data.RecordBuilder<Variant> {
 
-    private java.lang.CharSequence id;
-    private java.lang.CharSequence variantSetId;
-    private java.util.List<java.lang.CharSequence> names;
+    private java.lang.String id;
+    private java.lang.String variantSetId;
+    private java.util.List<java.lang.String> names;
     private java.lang.Long created;
     private java.lang.Long updated;
-    private java.lang.CharSequence referenceName;
+    private java.lang.String referenceName;
     private java.lang.Long start;
     private java.lang.Long end;
-    private java.lang.CharSequence referenceBases;
-    private java.util.List<java.lang.CharSequence> alternateBases;
-    private java.util.List<java.lang.CharSequence> alleleIds;
-    private java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info;
+    private java.lang.String referenceBases;
+    private java.util.List<java.lang.String> alternateBases;
+    private java.util.List<java.lang.String> alleleIds;
+    private java.util.Map<java.lang.String,java.util.List<java.lang.String>> info;
     private java.util.List<org.ga4gh.models.Call> calls;
 
     /** Creates a new Builder */
@@ -550,12 +550,12 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'id' field */
-    public java.lang.CharSequence getId() {
+    public java.lang.String getId() {
       return id;
     }
     
     /** Sets the value of the 'id' field */
-    public org.ga4gh.models.Variant.Builder setId(java.lang.CharSequence value) {
+    public org.ga4gh.models.Variant.Builder setId(java.lang.String value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -575,12 +575,12 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'variantSetId' field */
-    public java.lang.CharSequence getVariantSetId() {
+    public java.lang.String getVariantSetId() {
       return variantSetId;
     }
     
     /** Sets the value of the 'variantSetId' field */
-    public org.ga4gh.models.Variant.Builder setVariantSetId(java.lang.CharSequence value) {
+    public org.ga4gh.models.Variant.Builder setVariantSetId(java.lang.String value) {
       validate(fields()[1], value);
       this.variantSetId = value;
       fieldSetFlags()[1] = true;
@@ -600,12 +600,12 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'names' field */
-    public java.util.List<java.lang.CharSequence> getNames() {
+    public java.util.List<java.lang.String> getNames() {
       return names;
     }
     
     /** Sets the value of the 'names' field */
-    public org.ga4gh.models.Variant.Builder setNames(java.util.List<java.lang.CharSequence> value) {
+    public org.ga4gh.models.Variant.Builder setNames(java.util.List<java.lang.String> value) {
       validate(fields()[2], value);
       this.names = value;
       fieldSetFlags()[2] = true;
@@ -675,12 +675,12 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'referenceName' field */
-    public java.lang.CharSequence getReferenceName() {
+    public java.lang.String getReferenceName() {
       return referenceName;
     }
     
     /** Sets the value of the 'referenceName' field */
-    public org.ga4gh.models.Variant.Builder setReferenceName(java.lang.CharSequence value) {
+    public org.ga4gh.models.Variant.Builder setReferenceName(java.lang.String value) {
       validate(fields()[5], value);
       this.referenceName = value;
       fieldSetFlags()[5] = true;
@@ -750,12 +750,12 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'referenceBases' field */
-    public java.lang.CharSequence getReferenceBases() {
+    public java.lang.String getReferenceBases() {
       return referenceBases;
     }
     
     /** Sets the value of the 'referenceBases' field */
-    public org.ga4gh.models.Variant.Builder setReferenceBases(java.lang.CharSequence value) {
+    public org.ga4gh.models.Variant.Builder setReferenceBases(java.lang.String value) {
       validate(fields()[8], value);
       this.referenceBases = value;
       fieldSetFlags()[8] = true;
@@ -775,12 +775,12 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'alternateBases' field */
-    public java.util.List<java.lang.CharSequence> getAlternateBases() {
+    public java.util.List<java.lang.String> getAlternateBases() {
       return alternateBases;
     }
     
     /** Sets the value of the 'alternateBases' field */
-    public org.ga4gh.models.Variant.Builder setAlternateBases(java.util.List<java.lang.CharSequence> value) {
+    public org.ga4gh.models.Variant.Builder setAlternateBases(java.util.List<java.lang.String> value) {
       validate(fields()[9], value);
       this.alternateBases = value;
       fieldSetFlags()[9] = true;
@@ -800,12 +800,12 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'alleleIds' field */
-    public java.util.List<java.lang.CharSequence> getAlleleIds() {
+    public java.util.List<java.lang.String> getAlleleIds() {
       return alleleIds;
     }
     
     /** Sets the value of the 'alleleIds' field */
-    public org.ga4gh.models.Variant.Builder setAlleleIds(java.util.List<java.lang.CharSequence> value) {
+    public org.ga4gh.models.Variant.Builder setAlleleIds(java.util.List<java.lang.String> value) {
       validate(fields()[10], value);
       this.alleleIds = value;
       fieldSetFlags()[10] = true;
@@ -825,12 +825,12 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'info' field */
-    public java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> getInfo() {
+    public java.util.Map<java.lang.String,java.util.List<java.lang.String>> getInfo() {
       return info;
     }
     
     /** Sets the value of the 'info' field */
-    public org.ga4gh.models.Variant.Builder setInfo(java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> value) {
+    public org.ga4gh.models.Variant.Builder setInfo(java.util.Map<java.lang.String,java.util.List<java.lang.String>> value) {
       validate(fields()[11], value);
       this.info = value;
       fieldSetFlags()[11] = true;
@@ -878,18 +878,18 @@ public class Variant extends org.apache.avro.specific.SpecificRecordBase impleme
     public Variant build() {
       try {
         Variant record = new Variant();
-        record.id = fieldSetFlags()[0] ? this.id : (java.lang.CharSequence) defaultValue(fields()[0]);
-        record.variantSetId = fieldSetFlags()[1] ? this.variantSetId : (java.lang.CharSequence) defaultValue(fields()[1]);
-        record.names = fieldSetFlags()[2] ? this.names : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[2]);
+        record.id = fieldSetFlags()[0] ? this.id : (java.lang.String) defaultValue(fields()[0]);
+        record.variantSetId = fieldSetFlags()[1] ? this.variantSetId : (java.lang.String) defaultValue(fields()[1]);
+        record.names = fieldSetFlags()[2] ? this.names : (java.util.List<java.lang.String>) defaultValue(fields()[2]);
         record.created = fieldSetFlags()[3] ? this.created : (java.lang.Long) defaultValue(fields()[3]);
         record.updated = fieldSetFlags()[4] ? this.updated : (java.lang.Long) defaultValue(fields()[4]);
-        record.referenceName = fieldSetFlags()[5] ? this.referenceName : (java.lang.CharSequence) defaultValue(fields()[5]);
+        record.referenceName = fieldSetFlags()[5] ? this.referenceName : (java.lang.String) defaultValue(fields()[5]);
         record.start = fieldSetFlags()[6] ? this.start : (java.lang.Long) defaultValue(fields()[6]);
         record.end = fieldSetFlags()[7] ? this.end : (java.lang.Long) defaultValue(fields()[7]);
-        record.referenceBases = fieldSetFlags()[8] ? this.referenceBases : (java.lang.CharSequence) defaultValue(fields()[8]);
-        record.alternateBases = fieldSetFlags()[9] ? this.alternateBases : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[9]);
-        record.alleleIds = fieldSetFlags()[10] ? this.alleleIds : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[10]);
-        record.info = fieldSetFlags()[11] ? this.info : (java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>>) defaultValue(fields()[11]);
+        record.referenceBases = fieldSetFlags()[8] ? this.referenceBases : (java.lang.String) defaultValue(fields()[8]);
+        record.alternateBases = fieldSetFlags()[9] ? this.alternateBases : (java.util.List<java.lang.String>) defaultValue(fields()[9]);
+        record.alleleIds = fieldSetFlags()[10] ? this.alleleIds : (java.util.List<java.lang.String>) defaultValue(fields()[10]);
+        record.info = fieldSetFlags()[11] ? this.info : (java.util.Map<java.lang.String,java.util.List<java.lang.String>>) defaultValue(fields()[11]);
         record.calls = fieldSetFlags()[12] ? this.calls : (java.util.List<org.ga4gh.models.Call>) defaultValue(fields()[12]);
         return record;
       } catch (Exception e) {

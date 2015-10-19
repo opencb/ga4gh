@@ -8,14 +8,14 @@ package org.ga4gh.methods;
 /** This is the response from `POST /individuals/search` expressed as JSON. */
 @org.apache.avro.specific.AvroGenerated
 public class SearchIndividualsResponse extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchIndividualsResponse\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This is the response from `POST /individuals/search` expressed as JSON.\",\"fields\":[{\"name\":\"individuals\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Individual\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"An individual (or subject) typically corresponds to an individual\\nhuman or other organism.\",\"fields\":[{\"name\":\"id\",\"type\":\"string\",\"doc\":\"The individual UUID. This is globally unique.\"},{\"name\":\"groupIds\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"The IDs of the individual groups this individual belongs to.\",\"default\":[]},{\"name\":\"name\",\"type\":[\"null\",\"string\"],\"doc\":\"The name of the individual.\",\"default\":null},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"A description of the individual.\",\"default\":null},{\"name\":\"created\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this individual was created in milliseconds from the epoch.\",\"default\":null},{\"name\":\"updated\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this individual was last updated in milliseconds\\n  from the epoch.\",\"default\":null},{\"name\":\"species\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"OntologyTerm\",\"doc\":\"An ontology term describing an attribute. (e.g. the phenotype attribute\\n'polydactyly' from HPO)\",\"fields\":[{\"name\":\"ontologySource\",\"type\":\"string\",\"doc\":\"The source of the onotology term.\\n  (e.g. `Ontology for Biomedical Investigation`)\"},{\"name\":\"id\",\"type\":\"string\",\"doc\":\"The ID defined by the external onotology source.\\n  (e.g. `http://purl.obolibrary.org/obo/OBI_0001271`)\"},{\"name\":\"name\",\"type\":[\"null\",\"string\"],\"doc\":\"The name of the onotology term. (e.g. `RNA-seq assay`)\",\"default\":null}]}],\"doc\":\"The species of this individual. Using\\n  [NCBI taxonomy](http://www.ncbi.nlm.nih.gov/taxonomy) is recommended.\\n  For a representation of an NCBI Taxon ID as an OntologyTerm, see\\n  [NCBITaxon Ontology](http://www.obofoundry.org/wiki/index.php/NCBITaxon:Main_Page).\\n  For example, 'Homo sapiens' has the ID 9606. The NCBITaxon ontology ID for this is\\n  NCBITaxon:9606, which has the URI http://purl.obolibrary.org/obo/NCBITaxon_9606\",\"default\":null},{\"name\":\"sex\",\"type\":{\"type\":\"enum\",\"name\":\"GeneticSex\",\"doc\":\"* `FEMALE`: Genetic/chromosomal female\\n* `MALE`: Genetic/chromosomal male\\n* `OTHER`: sex information ambiguous, e.g. not clear XX/XY/ZZ...\\n* `MIXED_SAMPLE`: Multiple samples, e.g. pooled, environmental\\n* `NOT_APPLICABLE`: Used for prokaryotes, snails, etc. Not used for humans.\",\"symbols\":[\"FEMALE\",\"MALE\",\"OTHER\",\"MIXED_SAMPLE\",\"NOT_APPLICABLE\"]},\"doc\":\"The genetic sex of this individual. Use `null` when unknown.\",\"default\":null},{\"name\":\"developmentalStage\",\"type\":[\"null\",\"OntologyTerm\"],\"doc\":\"The developmental stage of this individual. Using Uberon is recommended.\\n  TODO: Add link to uberon\",\"default\":null},{\"name\":\"dateOfBirth\",\"type\":[\"null\",\"long\"],\"doc\":\"The date of birth of this individual in milliseconds from the epoch.\\n  This field may be approximate.\",\"default\":null},{\"name\":\"diseases\",\"type\":{\"type\":\"array\",\"items\":\"OntologyTerm\"},\"doc\":\"Diseases with which the individual has been diagnosed.\\n  TODO: Is this the right representation?\",\"default\":[]},{\"name\":\"phenotypes\",\"type\":{\"type\":\"array\",\"items\":\"OntologyTerm\"},\"doc\":\"Phenotypes for this individual.\\n  TODO: Is this the right representation?\",\"default\":[]},{\"name\":\"stagingSystem\",\"type\":[\"null\",\"string\"],\"doc\":\"Disease area specific classification (e.g. classification of cancer samples\\n  such as Dukes)\",\"default\":null},{\"name\":\"clinicalTreatment\",\"type\":[\"null\",\"string\"],\"doc\":\"A description of the clinical treatment used for this individual.\",\"default\":null},{\"name\":\"strain\",\"type\":[\"null\",\"string\"],\"doc\":\"The strain of this individual, for non-humans.\",\"default\":null},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":\"string\"}},\"doc\":\"A map of additional individual information.\",\"default\":{}}]}},\"doc\":\"The list of matching individuals.\",\"default\":[]},{\"name\":\"nextPageToken\",\"type\":[\"null\",\"string\"],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  Provide this value in a subsequent request to return the next page of\\n  results. This field will be empty if there aren't any additional results.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchIndividualsResponse\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This is the response from `POST /individuals/search` expressed as JSON.\",\"fields\":[{\"name\":\"individuals\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Individual\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"An individual (or subject) typically corresponds to an individual\\nhuman or other organism.\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The individual UUID. This is globally unique.\"},{\"name\":\"groupIds\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"The IDs of the individual groups this individual belongs to.\",\"default\":[]},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The name of the individual.\",\"default\":null},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"A description of the individual.\",\"default\":null},{\"name\":\"created\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this individual was created in milliseconds from the epoch.\",\"default\":null},{\"name\":\"updated\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this individual was last updated in milliseconds\\n  from the epoch.\",\"default\":null},{\"name\":\"species\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"OntologyTerm\",\"doc\":\"An ontology term describing an attribute. (e.g. the phenotype attribute\\n'polydactyly' from HPO)\",\"fields\":[{\"name\":\"ontologySource\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The source of the onotology term.\\n  (e.g. `Ontology for Biomedical Investigation`)\"},{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The ID defined by the external onotology source.\\n  (e.g. `http://purl.obolibrary.org/obo/OBI_0001271`)\"},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The name of the onotology term. (e.g. `RNA-seq assay`)\",\"default\":null}]}],\"doc\":\"The species of this individual. Using\\n  [NCBI taxonomy](http://www.ncbi.nlm.nih.gov/taxonomy) is recommended.\\n  For a representation of an NCBI Taxon ID as an OntologyTerm, see\\n  [NCBITaxon Ontology](http://www.obofoundry.org/wiki/index.php/NCBITaxon:Main_Page).\\n  For example, 'Homo sapiens' has the ID 9606. The NCBITaxon ontology ID for this is\\n  NCBITaxon:9606, which has the URI http://purl.obolibrary.org/obo/NCBITaxon_9606\",\"default\":null},{\"name\":\"sex\",\"type\":{\"type\":\"enum\",\"name\":\"GeneticSex\",\"doc\":\"* `FEMALE`: Genetic/chromosomal female\\n* `MALE`: Genetic/chromosomal male\\n* `OTHER`: sex information ambiguous, e.g. not clear XX/XY/ZZ...\\n* `MIXED_SAMPLE`: Multiple samples, e.g. pooled, environmental\\n* `NOT_APPLICABLE`: Used for prokaryotes, snails, etc. Not used for humans.\",\"symbols\":[\"FEMALE\",\"MALE\",\"OTHER\",\"MIXED_SAMPLE\",\"NOT_APPLICABLE\"]},\"doc\":\"The genetic sex of this individual. Use `null` when unknown.\",\"default\":null},{\"name\":\"developmentalStage\",\"type\":[\"null\",\"OntologyTerm\"],\"doc\":\"The developmental stage of this individual. Using Uberon is recommended.\\n  TODO: Add link to uberon\",\"default\":null},{\"name\":\"dateOfBirth\",\"type\":[\"null\",\"long\"],\"doc\":\"The date of birth of this individual in milliseconds from the epoch.\\n  This field may be approximate.\",\"default\":null},{\"name\":\"diseases\",\"type\":{\"type\":\"array\",\"items\":\"OntologyTerm\"},\"doc\":\"Diseases with which the individual has been diagnosed.\\n  TODO: Is this the right representation?\",\"default\":[]},{\"name\":\"phenotypes\",\"type\":{\"type\":\"array\",\"items\":\"OntologyTerm\"},\"doc\":\"Phenotypes for this individual.\\n  TODO: Is this the right representation?\",\"default\":[]},{\"name\":\"stagingSystem\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Disease area specific classification (e.g. classification of cancer samples\\n  such as Dukes)\",\"default\":null},{\"name\":\"clinicalTreatment\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"A description of the clinical treatment used for this individual.\",\"default\":null},{\"name\":\"strain\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The strain of this individual, for non-humans.\",\"default\":null},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"avro.java.string\":\"String\"},\"doc\":\"A map of additional individual information.\",\"default\":{}}]}},\"doc\":\"The list of matching individuals.\",\"default\":[]},{\"name\":\"nextPageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  Provide this value in a subsequent request to return the next page of\\n  results. This field will be empty if there aren't any additional results.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The list of matching individuals. */
    private java.util.List<org.ga4gh.models.Individual> individuals;
   /** The continuation token, which is used to page through large result sets.
   Provide this value in a subsequent request to return the next page of
   results. This field will be empty if there aren't any additional results. */
-   private java.lang.CharSequence nextPageToken;
+   private java.lang.String nextPageToken;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -27,7 +27,7 @@ public class SearchIndividualsResponse extends org.apache.avro.specific.Specific
   /**
    * All-args constructor.
    */
-  public SearchIndividualsResponse(java.util.List<org.ga4gh.models.Individual> individuals, java.lang.CharSequence nextPageToken) {
+  public SearchIndividualsResponse(java.util.List<org.ga4gh.models.Individual> individuals, java.lang.String nextPageToken) {
     this.individuals = individuals;
     this.nextPageToken = nextPageToken;
   }
@@ -46,7 +46,7 @@ public class SearchIndividualsResponse extends org.apache.avro.specific.Specific
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: individuals = (java.util.List<org.ga4gh.models.Individual>)value$; break;
-    case 1: nextPageToken = (java.lang.CharSequence)value$; break;
+    case 1: nextPageToken = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -71,7 +71,7 @@ public class SearchIndividualsResponse extends org.apache.avro.specific.Specific
    * The continuation token, which is used to page through large result sets.
   Provide this value in a subsequent request to return the next page of
   results. This field will be empty if there aren't any additional results.   */
-  public java.lang.CharSequence getNextPageToken() {
+  public java.lang.String getNextPageToken() {
     return nextPageToken;
   }
 
@@ -81,7 +81,7 @@ public class SearchIndividualsResponse extends org.apache.avro.specific.Specific
   Provide this value in a subsequent request to return the next page of
   results. This field will be empty if there aren't any additional results.   * @param value the value to set.
    */
-  public void setNextPageToken(java.lang.CharSequence value) {
+  public void setNextPageToken(java.lang.String value) {
     this.nextPageToken = value;
   }
 
@@ -107,7 +107,7 @@ public class SearchIndividualsResponse extends org.apache.avro.specific.Specific
     implements org.apache.avro.data.RecordBuilder<SearchIndividualsResponse> {
 
     private java.util.List<org.ga4gh.models.Individual> individuals;
-    private java.lang.CharSequence nextPageToken;
+    private java.lang.String nextPageToken;
 
     /** Creates a new Builder */
     private Builder() {
@@ -166,12 +166,12 @@ public class SearchIndividualsResponse extends org.apache.avro.specific.Specific
     }
 
     /** Gets the value of the 'nextPageToken' field */
-    public java.lang.CharSequence getNextPageToken() {
+    public java.lang.String getNextPageToken() {
       return nextPageToken;
     }
     
     /** Sets the value of the 'nextPageToken' field */
-    public org.ga4gh.methods.SearchIndividualsResponse.Builder setNextPageToken(java.lang.CharSequence value) {
+    public org.ga4gh.methods.SearchIndividualsResponse.Builder setNextPageToken(java.lang.String value) {
       validate(fields()[1], value);
       this.nextPageToken = value;
       fieldSetFlags()[1] = true;
@@ -195,7 +195,7 @@ public class SearchIndividualsResponse extends org.apache.avro.specific.Specific
       try {
         SearchIndividualsResponse record = new SearchIndividualsResponse();
         record.individuals = fieldSetFlags()[0] ? this.individuals : (java.util.List<org.ga4gh.models.Individual>) defaultValue(fields()[0]);
-        record.nextPageToken = fieldSetFlags()[1] ? this.nextPageToken : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.nextPageToken = fieldSetFlags()[1] ? this.nextPageToken : (java.lang.String) defaultValue(fields()[1]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

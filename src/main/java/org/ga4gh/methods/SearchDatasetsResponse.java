@@ -8,14 +8,14 @@ package org.ga4gh.methods;
 /** This is the response from `POST /datasets/search` expressed as JSON. */
 @org.apache.avro.specific.AvroGenerated
 public class SearchDatasetsResponse extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchDatasetsResponse\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This is the response from `POST /datasets/search` expressed as JSON.\",\"fields\":[{\"name\":\"datasets\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Dataset\",\"namespace\":\"org.ga4gh.models\",\"fields\":[{\"name\":\"id\",\"type\":\"string\",\"doc\":\"The dataset ID.\"},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"The dataset description.\",\"default\":null}]}},\"doc\":\"The list of datasets.\",\"default\":[]},{\"name\":\"nextPageToken\",\"type\":[\"null\",\"string\"],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  Provide this value in a subsequent request to return the next page of\\n  results. This field will be empty if there aren't any additional results.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchDatasetsResponse\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This is the response from `POST /datasets/search` expressed as JSON.\",\"fields\":[{\"name\":\"datasets\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Dataset\",\"namespace\":\"org.ga4gh.models\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The dataset ID.\"},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The dataset description.\",\"default\":null}]}},\"doc\":\"The list of datasets.\",\"default\":[]},{\"name\":\"nextPageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  Provide this value in a subsequent request to return the next page of\\n  results. This field will be empty if there aren't any additional results.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The list of datasets. */
    private java.util.List<org.ga4gh.models.Dataset> datasets;
   /** The continuation token, which is used to page through large result sets.
   Provide this value in a subsequent request to return the next page of
   results. This field will be empty if there aren't any additional results. */
-   private java.lang.CharSequence nextPageToken;
+   private java.lang.String nextPageToken;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -27,7 +27,7 @@ public class SearchDatasetsResponse extends org.apache.avro.specific.SpecificRec
   /**
    * All-args constructor.
    */
-  public SearchDatasetsResponse(java.util.List<org.ga4gh.models.Dataset> datasets, java.lang.CharSequence nextPageToken) {
+  public SearchDatasetsResponse(java.util.List<org.ga4gh.models.Dataset> datasets, java.lang.String nextPageToken) {
     this.datasets = datasets;
     this.nextPageToken = nextPageToken;
   }
@@ -46,7 +46,7 @@ public class SearchDatasetsResponse extends org.apache.avro.specific.SpecificRec
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: datasets = (java.util.List<org.ga4gh.models.Dataset>)value$; break;
-    case 1: nextPageToken = (java.lang.CharSequence)value$; break;
+    case 1: nextPageToken = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -71,7 +71,7 @@ public class SearchDatasetsResponse extends org.apache.avro.specific.SpecificRec
    * The continuation token, which is used to page through large result sets.
   Provide this value in a subsequent request to return the next page of
   results. This field will be empty if there aren't any additional results.   */
-  public java.lang.CharSequence getNextPageToken() {
+  public java.lang.String getNextPageToken() {
     return nextPageToken;
   }
 
@@ -81,7 +81,7 @@ public class SearchDatasetsResponse extends org.apache.avro.specific.SpecificRec
   Provide this value in a subsequent request to return the next page of
   results. This field will be empty if there aren't any additional results.   * @param value the value to set.
    */
-  public void setNextPageToken(java.lang.CharSequence value) {
+  public void setNextPageToken(java.lang.String value) {
     this.nextPageToken = value;
   }
 
@@ -107,7 +107,7 @@ public class SearchDatasetsResponse extends org.apache.avro.specific.SpecificRec
     implements org.apache.avro.data.RecordBuilder<SearchDatasetsResponse> {
 
     private java.util.List<org.ga4gh.models.Dataset> datasets;
-    private java.lang.CharSequence nextPageToken;
+    private java.lang.String nextPageToken;
 
     /** Creates a new Builder */
     private Builder() {
@@ -166,12 +166,12 @@ public class SearchDatasetsResponse extends org.apache.avro.specific.SpecificRec
     }
 
     /** Gets the value of the 'nextPageToken' field */
-    public java.lang.CharSequence getNextPageToken() {
+    public java.lang.String getNextPageToken() {
       return nextPageToken;
     }
     
     /** Sets the value of the 'nextPageToken' field */
-    public org.ga4gh.methods.SearchDatasetsResponse.Builder setNextPageToken(java.lang.CharSequence value) {
+    public org.ga4gh.methods.SearchDatasetsResponse.Builder setNextPageToken(java.lang.String value) {
       validate(fields()[1], value);
       this.nextPageToken = value;
       fieldSetFlags()[1] = true;
@@ -195,7 +195,7 @@ public class SearchDatasetsResponse extends org.apache.avro.specific.SpecificRec
       try {
         SearchDatasetsResponse record = new SearchDatasetsResponse();
         record.datasets = fieldSetFlags()[0] ? this.datasets : (java.util.List<org.ga4gh.models.Dataset>) defaultValue(fields()[0]);
-        record.nextPageToken = fieldSetFlags()[1] ? this.nextPageToken : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.nextPageToken = fieldSetFlags()[1] ? this.nextPageToken : (java.lang.String) defaultValue(fields()[1]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

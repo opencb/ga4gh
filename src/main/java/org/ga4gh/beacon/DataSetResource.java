@@ -8,20 +8,20 @@ package org.ga4gh.beacon;
 /** DataSetResource */
 @org.apache.avro.specific.AvroGenerated
 public class DataSetResource extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"DataSetResource\",\"namespace\":\"org.ga4gh.beacon\",\"doc\":\"DataSetResource\",\"fields\":[{\"name\":\"id\",\"type\":\"string\",\"doc\":\"Dataset name\"},{\"name\":\"reference\",\"type\":\"string\",\"doc\":\"Reference genome\"},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"Dataset description\",\"default\":null},{\"name\":\"size\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"DataSizeResource\",\"doc\":\"DataSetSizeResource\",\"fields\":[{\"name\":\"variants\",\"type\":\"int\",\"doc\":\"Total number of variant positions in the data set\"},{\"name\":\"samples\",\"type\":\"int\",\"doc\":\"Total number of samples in the data set\"}]}],\"doc\":\"Dimensions of the data set. Should be provided if the beacon reports allele frequencies.\",\"default\":null},{\"name\":\"multiple\",\"type\":\"boolean\",\"doc\":\"True if this dataset contains data from 2 or more other datasets.\"},{\"name\":\"datasets\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"List of names of each of the datasets that comprises this aggregated dataset. Should be provided if ‘multiple’ is true.\",\"default\":[]},{\"name\":\"data_use\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"DataUseResource\",\"doc\":\"DataUseResource\",\"fields\":[{\"name\":\"category\",\"type\":\"string\",\"doc\":\"Data Use category.\"},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"Description of Data Use category.\",\"default\":null},{\"name\":\"requirements\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"DataUseRequirementResource\",\"doc\":\"DataUseRequirementResource\",\"fields\":[{\"name\":\"name\",\"type\":\"string\",\"doc\":\"Data Use requirement\"},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"Description of Data Use requirement.\",\"default\":null}]}},\"doc\":\"Data Use requirements.\",\"default\":[]}]}},\"doc\":\"Data use limitations, specified as a set of DataUseResource.\",\"default\":[]}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"DataSetResource\",\"namespace\":\"org.ga4gh.beacon\",\"doc\":\"DataSetResource\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Dataset name\"},{\"name\":\"reference\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Reference genome\"},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Dataset description\",\"default\":null},{\"name\":\"size\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"DataSizeResource\",\"doc\":\"DataSetSizeResource\",\"fields\":[{\"name\":\"variants\",\"type\":\"int\",\"doc\":\"Total number of variant positions in the data set\"},{\"name\":\"samples\",\"type\":\"int\",\"doc\":\"Total number of samples in the data set\"}]}],\"doc\":\"Dimensions of the data set. Should be provided if the beacon reports allele frequencies.\",\"default\":null},{\"name\":\"multiple\",\"type\":\"boolean\",\"doc\":\"True if this dataset contains data from 2 or more other datasets.\"},{\"name\":\"datasets\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"List of names of each of the datasets that comprises this aggregated dataset. Should be provided if ‘multiple’ is true.\",\"default\":[]},{\"name\":\"data_use\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"DataUseResource\",\"doc\":\"DataUseResource\",\"fields\":[{\"name\":\"category\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Data Use category.\"},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Description of Data Use category.\",\"default\":null},{\"name\":\"requirements\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"DataUseRequirementResource\",\"doc\":\"DataUseRequirementResource\",\"fields\":[{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Data Use requirement\"},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Description of Data Use requirement.\",\"default\":null}]}},\"doc\":\"Data Use requirements.\",\"default\":[]}]}},\"doc\":\"Data use limitations, specified as a set of DataUseResource.\",\"default\":[]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** Dataset name */
-   private java.lang.CharSequence id;
+   private java.lang.String id;
   /** Reference genome */
-   private java.lang.CharSequence reference;
+   private java.lang.String reference;
   /** Dataset description */
-   private java.lang.CharSequence description;
+   private java.lang.String description;
   /** Dimensions of the data set. Should be provided if the beacon reports allele frequencies. */
    private org.ga4gh.beacon.DataSizeResource size;
   /** True if this dataset contains data from 2 or more other datasets. */
    private boolean multiple;
   /** List of names of each of the datasets that comprises this aggregated dataset. Should be provided if ‘multiple’ is true. */
-   private java.util.List<java.lang.CharSequence> datasets;
+   private java.util.List<java.lang.String> datasets;
   /** Data use limitations, specified as a set of DataUseResource. */
    private java.util.List<org.ga4gh.beacon.DataUseResource> data_use;
 
@@ -35,7 +35,7 @@ public class DataSetResource extends org.apache.avro.specific.SpecificRecordBase
   /**
    * All-args constructor.
    */
-  public DataSetResource(java.lang.CharSequence id, java.lang.CharSequence reference, java.lang.CharSequence description, org.ga4gh.beacon.DataSizeResource size, java.lang.Boolean multiple, java.util.List<java.lang.CharSequence> datasets, java.util.List<org.ga4gh.beacon.DataUseResource> data_use) {
+  public DataSetResource(java.lang.String id, java.lang.String reference, java.lang.String description, org.ga4gh.beacon.DataSizeResource size, java.lang.Boolean multiple, java.util.List<java.lang.String> datasets, java.util.List<org.ga4gh.beacon.DataUseResource> data_use) {
     this.id = id;
     this.reference = reference;
     this.description = description;
@@ -63,12 +63,12 @@ public class DataSetResource extends org.apache.avro.specific.SpecificRecordBase
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: id = (java.lang.CharSequence)value$; break;
-    case 1: reference = (java.lang.CharSequence)value$; break;
-    case 2: description = (java.lang.CharSequence)value$; break;
+    case 0: id = (java.lang.String)value$; break;
+    case 1: reference = (java.lang.String)value$; break;
+    case 2: description = (java.lang.String)value$; break;
     case 3: size = (org.ga4gh.beacon.DataSizeResource)value$; break;
     case 4: multiple = (java.lang.Boolean)value$; break;
-    case 5: datasets = (java.util.List<java.lang.CharSequence>)value$; break;
+    case 5: datasets = (java.util.List<java.lang.String>)value$; break;
     case 6: data_use = (java.util.List<org.ga4gh.beacon.DataUseResource>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
@@ -77,7 +77,7 @@ public class DataSetResource extends org.apache.avro.specific.SpecificRecordBase
   /**
    * Gets the value of the 'id' field.
    * Dataset name   */
-  public java.lang.CharSequence getId() {
+  public java.lang.String getId() {
     return id;
   }
 
@@ -85,14 +85,14 @@ public class DataSetResource extends org.apache.avro.specific.SpecificRecordBase
    * Sets the value of the 'id' field.
    * Dataset name   * @param value the value to set.
    */
-  public void setId(java.lang.CharSequence value) {
+  public void setId(java.lang.String value) {
     this.id = value;
   }
 
   /**
    * Gets the value of the 'reference' field.
    * Reference genome   */
-  public java.lang.CharSequence getReference() {
+  public java.lang.String getReference() {
     return reference;
   }
 
@@ -100,14 +100,14 @@ public class DataSetResource extends org.apache.avro.specific.SpecificRecordBase
    * Sets the value of the 'reference' field.
    * Reference genome   * @param value the value to set.
    */
-  public void setReference(java.lang.CharSequence value) {
+  public void setReference(java.lang.String value) {
     this.reference = value;
   }
 
   /**
    * Gets the value of the 'description' field.
    * Dataset description   */
-  public java.lang.CharSequence getDescription() {
+  public java.lang.String getDescription() {
     return description;
   }
 
@@ -115,7 +115,7 @@ public class DataSetResource extends org.apache.avro.specific.SpecificRecordBase
    * Sets the value of the 'description' field.
    * Dataset description   * @param value the value to set.
    */
-  public void setDescription(java.lang.CharSequence value) {
+  public void setDescription(java.lang.String value) {
     this.description = value;
   }
 
@@ -152,7 +152,7 @@ public class DataSetResource extends org.apache.avro.specific.SpecificRecordBase
   /**
    * Gets the value of the 'datasets' field.
    * List of names of each of the datasets that comprises this aggregated dataset. Should be provided if ‘multiple’ is true.   */
-  public java.util.List<java.lang.CharSequence> getDatasets() {
+  public java.util.List<java.lang.String> getDatasets() {
     return datasets;
   }
 
@@ -160,7 +160,7 @@ public class DataSetResource extends org.apache.avro.specific.SpecificRecordBase
    * Sets the value of the 'datasets' field.
    * List of names of each of the datasets that comprises this aggregated dataset. Should be provided if ‘multiple’ is true.   * @param value the value to set.
    */
-  public void setDatasets(java.util.List<java.lang.CharSequence> value) {
+  public void setDatasets(java.util.List<java.lang.String> value) {
     this.datasets = value;
   }
 
@@ -200,12 +200,12 @@ public class DataSetResource extends org.apache.avro.specific.SpecificRecordBase
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<DataSetResource>
     implements org.apache.avro.data.RecordBuilder<DataSetResource> {
 
-    private java.lang.CharSequence id;
-    private java.lang.CharSequence reference;
-    private java.lang.CharSequence description;
+    private java.lang.String id;
+    private java.lang.String reference;
+    private java.lang.String description;
     private org.ga4gh.beacon.DataSizeResource size;
     private boolean multiple;
-    private java.util.List<java.lang.CharSequence> datasets;
+    private java.util.List<java.lang.String> datasets;
     private java.util.List<org.ga4gh.beacon.DataUseResource> data_use;
 
     /** Creates a new Builder */
@@ -280,12 +280,12 @@ public class DataSetResource extends org.apache.avro.specific.SpecificRecordBase
     }
 
     /** Gets the value of the 'id' field */
-    public java.lang.CharSequence getId() {
+    public java.lang.String getId() {
       return id;
     }
     
     /** Sets the value of the 'id' field */
-    public org.ga4gh.beacon.DataSetResource.Builder setId(java.lang.CharSequence value) {
+    public org.ga4gh.beacon.DataSetResource.Builder setId(java.lang.String value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -305,12 +305,12 @@ public class DataSetResource extends org.apache.avro.specific.SpecificRecordBase
     }
 
     /** Gets the value of the 'reference' field */
-    public java.lang.CharSequence getReference() {
+    public java.lang.String getReference() {
       return reference;
     }
     
     /** Sets the value of the 'reference' field */
-    public org.ga4gh.beacon.DataSetResource.Builder setReference(java.lang.CharSequence value) {
+    public org.ga4gh.beacon.DataSetResource.Builder setReference(java.lang.String value) {
       validate(fields()[1], value);
       this.reference = value;
       fieldSetFlags()[1] = true;
@@ -330,12 +330,12 @@ public class DataSetResource extends org.apache.avro.specific.SpecificRecordBase
     }
 
     /** Gets the value of the 'description' field */
-    public java.lang.CharSequence getDescription() {
+    public java.lang.String getDescription() {
       return description;
     }
     
     /** Sets the value of the 'description' field */
-    public org.ga4gh.beacon.DataSetResource.Builder setDescription(java.lang.CharSequence value) {
+    public org.ga4gh.beacon.DataSetResource.Builder setDescription(java.lang.String value) {
       validate(fields()[2], value);
       this.description = value;
       fieldSetFlags()[2] = true;
@@ -404,12 +404,12 @@ public class DataSetResource extends org.apache.avro.specific.SpecificRecordBase
     }
 
     /** Gets the value of the 'datasets' field */
-    public java.util.List<java.lang.CharSequence> getDatasets() {
+    public java.util.List<java.lang.String> getDatasets() {
       return datasets;
     }
     
     /** Sets the value of the 'datasets' field */
-    public org.ga4gh.beacon.DataSetResource.Builder setDatasets(java.util.List<java.lang.CharSequence> value) {
+    public org.ga4gh.beacon.DataSetResource.Builder setDatasets(java.util.List<java.lang.String> value) {
       validate(fields()[5], value);
       this.datasets = value;
       fieldSetFlags()[5] = true;
@@ -457,12 +457,12 @@ public class DataSetResource extends org.apache.avro.specific.SpecificRecordBase
     public DataSetResource build() {
       try {
         DataSetResource record = new DataSetResource();
-        record.id = fieldSetFlags()[0] ? this.id : (java.lang.CharSequence) defaultValue(fields()[0]);
-        record.reference = fieldSetFlags()[1] ? this.reference : (java.lang.CharSequence) defaultValue(fields()[1]);
-        record.description = fieldSetFlags()[2] ? this.description : (java.lang.CharSequence) defaultValue(fields()[2]);
+        record.id = fieldSetFlags()[0] ? this.id : (java.lang.String) defaultValue(fields()[0]);
+        record.reference = fieldSetFlags()[1] ? this.reference : (java.lang.String) defaultValue(fields()[1]);
+        record.description = fieldSetFlags()[2] ? this.description : (java.lang.String) defaultValue(fields()[2]);
         record.size = fieldSetFlags()[3] ? this.size : (org.ga4gh.beacon.DataSizeResource) defaultValue(fields()[3]);
         record.multiple = fieldSetFlags()[4] ? this.multiple : (java.lang.Boolean) defaultValue(fields()[4]);
-        record.datasets = fieldSetFlags()[5] ? this.datasets : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[5]);
+        record.datasets = fieldSetFlags()[5] ? this.datasets : (java.util.List<java.lang.String>) defaultValue(fields()[5]);
         record.data_use = fieldSetFlags()[6] ? this.data_use : (java.util.List<org.ga4gh.beacon.DataUseResource>) defaultValue(fields()[6]);
         return record;
       } catch (Exception e) {

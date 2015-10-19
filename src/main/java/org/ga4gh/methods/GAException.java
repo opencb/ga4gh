@@ -8,10 +8,10 @@ package org.ga4gh.methods;
 /** A general exception type. */
 @org.apache.avro.specific.AvroGenerated
 public class GAException extends org.apache.avro.specific.SpecificExceptionBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"error\",\"name\":\"GAException\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"A general exception type.\",\"fields\":[{\"name\":\"message\",\"type\":\"string\",\"doc\":\"The error message\"},{\"name\":\"errorCode\",\"type\":\"int\",\"doc\":\"The numerical error code\",\"default\":-1}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"error\",\"name\":\"GAException\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"A general exception type.\",\"fields\":[{\"name\":\"message\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The error message\"},{\"name\":\"errorCode\",\"type\":\"int\",\"doc\":\"The numerical error code\",\"default\":-1}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The error message */
-   private java.lang.CharSequence message$;
+   private java.lang.String message$;
   /** The numerical error code */
    private int errorCode;
 
@@ -44,7 +44,7 @@ public class GAException extends org.apache.avro.specific.SpecificExceptionBase 
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: message$ = (java.lang.CharSequence)value$; break;
+    case 0: message$ = (java.lang.String)value$; break;
     case 1: errorCode = (java.lang.Integer)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
@@ -53,7 +53,7 @@ public class GAException extends org.apache.avro.specific.SpecificExceptionBase 
   /**
    * Gets the value of the 'message$' field.
    * The error message   */
-  public java.lang.CharSequence getMessage$() {
+  public java.lang.String getMessage$() {
     return message$;
   }
 
@@ -61,7 +61,7 @@ public class GAException extends org.apache.avro.specific.SpecificExceptionBase 
    * Sets the value of the 'message$' field.
    * The error message   * @param value the value to set.
    */
-  public void setMessage$(java.lang.CharSequence value) {
+  public void setMessage$(java.lang.String value) {
     this.message$ = value;
   }
 
@@ -101,7 +101,7 @@ public class GAException extends org.apache.avro.specific.SpecificExceptionBase 
   public static class Builder extends org.apache.avro.specific.SpecificErrorBuilderBase<GAException>
     implements org.apache.avro.data.ErrorBuilder<GAException> {
 
-    private java.lang.CharSequence message$;
+    private java.lang.String message$;
     private int errorCode;
 
     /** Creates a new Builder */
@@ -160,12 +160,12 @@ public class GAException extends org.apache.avro.specific.SpecificExceptionBase 
     }
 
     /** Gets the value of the 'message$' field */
-    public java.lang.CharSequence getMessage$() {
+    public java.lang.String getMessage$() {
       return message$;
     }
     
     /** Sets the value of the 'message$' field */
-    public org.ga4gh.methods.GAException.Builder setMessage$(java.lang.CharSequence value) {
+    public org.ga4gh.methods.GAException.Builder setMessage$(java.lang.String value) {
       validate(fields()[0], value);
       this.message$ = value;
       fieldSetFlags()[0] = true;
@@ -212,7 +212,7 @@ public class GAException extends org.apache.avro.specific.SpecificExceptionBase 
     public GAException build() {
       try {
         GAException record = new GAException(getValue(), getCause());
-        record.message$ = fieldSetFlags()[0] ? this.message$ : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.message$ = fieldSetFlags()[0] ? this.message$ : (java.lang.String) defaultValue(fields()[0]);
         record.errorCode = fieldSetFlags()[1] ? this.errorCode : (java.lang.Integer) defaultValue(fields()[1]);
         return record;
       } catch (Exception e) {

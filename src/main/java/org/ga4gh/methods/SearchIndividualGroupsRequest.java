@@ -8,18 +8,18 @@ package org.ga4gh.methods;
 /** This request maps to the body of `POST /individualgroups/search` as JSON. */
 @org.apache.avro.specific.AvroGenerated
 public class SearchIndividualGroupsRequest extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchIndividualGroupsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /individualgroups/search` as JSON.\",\"fields\":[{\"name\":\"name\",\"type\":[\"null\",\"string\"],\"doc\":\"Only return individual groups for which a substring of the name matches\\n  this string.\",\"default\":null},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",\"string\"],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchIndividualGroupsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /individualgroups/search` as JSON.\",\"fields\":[{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Only return individual groups for which a substring of the name matches\\n  this string.\",\"default\":null},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** Only return individual groups for which a substring of the name matches
   this string. */
-   private java.lang.CharSequence name;
+   private java.lang.String name;
   /** Specifies the maximum number of results to return in a single page.
   If unspecified, a system default will be used. */
    private java.lang.Integer pageSize;
   /** The continuation token, which is used to page through large result sets.
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response. */
-   private java.lang.CharSequence pageToken;
+   private java.lang.String pageToken;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -31,7 +31,7 @@ public class SearchIndividualGroupsRequest extends org.apache.avro.specific.Spec
   /**
    * All-args constructor.
    */
-  public SearchIndividualGroupsRequest(java.lang.CharSequence name, java.lang.Integer pageSize, java.lang.CharSequence pageToken) {
+  public SearchIndividualGroupsRequest(java.lang.String name, java.lang.Integer pageSize, java.lang.String pageToken) {
     this.name = name;
     this.pageSize = pageSize;
     this.pageToken = pageToken;
@@ -51,9 +51,9 @@ public class SearchIndividualGroupsRequest extends org.apache.avro.specific.Spec
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: name = (java.lang.CharSequence)value$; break;
+    case 0: name = (java.lang.String)value$; break;
     case 1: pageSize = (java.lang.Integer)value$; break;
-    case 2: pageToken = (java.lang.CharSequence)value$; break;
+    case 2: pageToken = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -62,7 +62,7 @@ public class SearchIndividualGroupsRequest extends org.apache.avro.specific.Spec
    * Gets the value of the 'name' field.
    * Only return individual groups for which a substring of the name matches
   this string.   */
-  public java.lang.CharSequence getName() {
+  public java.lang.String getName() {
     return name;
   }
 
@@ -71,7 +71,7 @@ public class SearchIndividualGroupsRequest extends org.apache.avro.specific.Spec
    * Only return individual groups for which a substring of the name matches
   this string.   * @param value the value to set.
    */
-  public void setName(java.lang.CharSequence value) {
+  public void setName(java.lang.String value) {
     this.name = value;
   }
 
@@ -97,7 +97,7 @@ public class SearchIndividualGroupsRequest extends org.apache.avro.specific.Spec
    * The continuation token, which is used to page through large result sets.
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response.   */
-  public java.lang.CharSequence getPageToken() {
+  public java.lang.String getPageToken() {
     return pageToken;
   }
 
@@ -107,7 +107,7 @@ public class SearchIndividualGroupsRequest extends org.apache.avro.specific.Spec
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response.   * @param value the value to set.
    */
-  public void setPageToken(java.lang.CharSequence value) {
+  public void setPageToken(java.lang.String value) {
     this.pageToken = value;
   }
 
@@ -132,9 +132,9 @@ public class SearchIndividualGroupsRequest extends org.apache.avro.specific.Spec
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<SearchIndividualGroupsRequest>
     implements org.apache.avro.data.RecordBuilder<SearchIndividualGroupsRequest> {
 
-    private java.lang.CharSequence name;
+    private java.lang.String name;
     private java.lang.Integer pageSize;
-    private java.lang.CharSequence pageToken;
+    private java.lang.String pageToken;
 
     /** Creates a new Builder */
     private Builder() {
@@ -176,12 +176,12 @@ public class SearchIndividualGroupsRequest extends org.apache.avro.specific.Spec
     }
 
     /** Gets the value of the 'name' field */
-    public java.lang.CharSequence getName() {
+    public java.lang.String getName() {
       return name;
     }
     
     /** Sets the value of the 'name' field */
-    public org.ga4gh.methods.SearchIndividualGroupsRequest.Builder setName(java.lang.CharSequence value) {
+    public org.ga4gh.methods.SearchIndividualGroupsRequest.Builder setName(java.lang.String value) {
       validate(fields()[0], value);
       this.name = value;
       fieldSetFlags()[0] = true;
@@ -226,12 +226,12 @@ public class SearchIndividualGroupsRequest extends org.apache.avro.specific.Spec
     }
 
     /** Gets the value of the 'pageToken' field */
-    public java.lang.CharSequence getPageToken() {
+    public java.lang.String getPageToken() {
       return pageToken;
     }
     
     /** Sets the value of the 'pageToken' field */
-    public org.ga4gh.methods.SearchIndividualGroupsRequest.Builder setPageToken(java.lang.CharSequence value) {
+    public org.ga4gh.methods.SearchIndividualGroupsRequest.Builder setPageToken(java.lang.String value) {
       validate(fields()[2], value);
       this.pageToken = value;
       fieldSetFlags()[2] = true;
@@ -254,9 +254,9 @@ public class SearchIndividualGroupsRequest extends org.apache.avro.specific.Spec
     public SearchIndividualGroupsRequest build() {
       try {
         SearchIndividualGroupsRequest record = new SearchIndividualGroupsRequest();
-        record.name = fieldSetFlags()[0] ? this.name : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.name = fieldSetFlags()[0] ? this.name : (java.lang.String) defaultValue(fields()[0]);
         record.pageSize = fieldSetFlags()[1] ? this.pageSize : (java.lang.Integer) defaultValue(fields()[1]);
-        record.pageToken = fieldSetFlags()[2] ? this.pageToken : (java.lang.CharSequence) defaultValue(fields()[2]);
+        record.pageToken = fieldSetFlags()[2] ? this.pageToken : (java.lang.String) defaultValue(fields()[2]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

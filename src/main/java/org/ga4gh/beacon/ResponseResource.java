@@ -8,19 +8,19 @@ package org.ga4gh.beacon;
 /** The response to the Beacon query */
 @org.apache.avro.specific.AvroGenerated
 public class ResponseResource extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ResponseResource\",\"namespace\":\"org.ga4gh.beacon\",\"doc\":\"The response to the Beacon query\",\"fields\":[{\"name\":\"exists\",\"type\":\"string\",\"doc\":\"Whether the beacon has observed variants. True if an observation exactly matches request. Overlap if an\\n  observation overlaps request, but not exactly, as in the case of indels or if the query used wildcard for\\n  allele. False if data are present at the requested position but no observations exactly match or overlap. Null\\n  otherwise.\"},{\"name\":\"frequency\",\"type\":\"double\",\"doc\":\"frequency\"},{\"name\":\"observed\",\"type\":[\"null\",\"int\"],\"doc\":\"# observed\",\"default\":null},{\"name\":\"info\",\"type\":[\"null\",\"string\"],\"doc\":\"Additional message. OK if request succeeded.\",\"default\":null},{\"name\":\"err\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"ErrorResource\",\"doc\":\"ErrorResource\",\"fields\":[{\"name\":\"name\",\"type\":\"string\",\"doc\":\"allele\"},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"# observed\",\"default\":null}]}],\"doc\":\"Error details. Provided if a beacon encountered an error.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ResponseResource\",\"namespace\":\"org.ga4gh.beacon\",\"doc\":\"The response to the Beacon query\",\"fields\":[{\"name\":\"exists\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Whether the beacon has observed variants. True if an observation exactly matches request. Overlap if an\\n  observation overlaps request, but not exactly, as in the case of indels or if the query used wildcard for\\n  allele. False if data are present at the requested position but no observations exactly match or overlap. Null\\n  otherwise.\"},{\"name\":\"frequency\",\"type\":\"double\",\"doc\":\"frequency\"},{\"name\":\"observed\",\"type\":[\"null\",\"int\"],\"doc\":\"# observed\",\"default\":null},{\"name\":\"info\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Additional message. OK if request succeeded.\",\"default\":null},{\"name\":\"err\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"ErrorResource\",\"doc\":\"ErrorResource\",\"fields\":[{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"allele\"},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"# observed\",\"default\":null}]}],\"doc\":\"Error details. Provided if a beacon encountered an error.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** Whether the beacon has observed variants. True if an observation exactly matches request. Overlap if an
   observation overlaps request, but not exactly, as in the case of indels or if the query used wildcard for
   allele. False if data are present at the requested position but no observations exactly match or overlap. Null
   otherwise. */
-   private java.lang.CharSequence exists;
+   private java.lang.String exists;
   /** frequency */
    private double frequency;
   /** # observed */
    private java.lang.Integer observed;
   /** Additional message. OK if request succeeded. */
-   private java.lang.CharSequence info;
+   private java.lang.String info;
   /** Error details. Provided if a beacon encountered an error. */
    private org.ga4gh.beacon.ErrorResource err;
 
@@ -34,7 +34,7 @@ public class ResponseResource extends org.apache.avro.specific.SpecificRecordBas
   /**
    * All-args constructor.
    */
-  public ResponseResource(java.lang.CharSequence exists, java.lang.Double frequency, java.lang.Integer observed, java.lang.CharSequence info, org.ga4gh.beacon.ErrorResource err) {
+  public ResponseResource(java.lang.String exists, java.lang.Double frequency, java.lang.Integer observed, java.lang.String info, org.ga4gh.beacon.ErrorResource err) {
     this.exists = exists;
     this.frequency = frequency;
     this.observed = observed;
@@ -58,10 +58,10 @@ public class ResponseResource extends org.apache.avro.specific.SpecificRecordBas
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: exists = (java.lang.CharSequence)value$; break;
+    case 0: exists = (java.lang.String)value$; break;
     case 1: frequency = (java.lang.Double)value$; break;
     case 2: observed = (java.lang.Integer)value$; break;
-    case 3: info = (java.lang.CharSequence)value$; break;
+    case 3: info = (java.lang.String)value$; break;
     case 4: err = (org.ga4gh.beacon.ErrorResource)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
@@ -73,7 +73,7 @@ public class ResponseResource extends org.apache.avro.specific.SpecificRecordBas
   observation overlaps request, but not exactly, as in the case of indels or if the query used wildcard for
   allele. False if data are present at the requested position but no observations exactly match or overlap. Null
   otherwise.   */
-  public java.lang.CharSequence getExists() {
+  public java.lang.String getExists() {
     return exists;
   }
 
@@ -84,7 +84,7 @@ public class ResponseResource extends org.apache.avro.specific.SpecificRecordBas
   allele. False if data are present at the requested position but no observations exactly match or overlap. Null
   otherwise.   * @param value the value to set.
    */
-  public void setExists(java.lang.CharSequence value) {
+  public void setExists(java.lang.String value) {
     this.exists = value;
   }
 
@@ -121,7 +121,7 @@ public class ResponseResource extends org.apache.avro.specific.SpecificRecordBas
   /**
    * Gets the value of the 'info' field.
    * Additional message. OK if request succeeded.   */
-  public java.lang.CharSequence getInfo() {
+  public java.lang.String getInfo() {
     return info;
   }
 
@@ -129,7 +129,7 @@ public class ResponseResource extends org.apache.avro.specific.SpecificRecordBas
    * Sets the value of the 'info' field.
    * Additional message. OK if request succeeded.   * @param value the value to set.
    */
-  public void setInfo(java.lang.CharSequence value) {
+  public void setInfo(java.lang.String value) {
     this.info = value;
   }
 
@@ -169,10 +169,10 @@ public class ResponseResource extends org.apache.avro.specific.SpecificRecordBas
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<ResponseResource>
     implements org.apache.avro.data.RecordBuilder<ResponseResource> {
 
-    private java.lang.CharSequence exists;
+    private java.lang.String exists;
     private double frequency;
     private java.lang.Integer observed;
-    private java.lang.CharSequence info;
+    private java.lang.String info;
     private org.ga4gh.beacon.ErrorResource err;
 
     /** Creates a new Builder */
@@ -231,12 +231,12 @@ public class ResponseResource extends org.apache.avro.specific.SpecificRecordBas
     }
 
     /** Gets the value of the 'exists' field */
-    public java.lang.CharSequence getExists() {
+    public java.lang.String getExists() {
       return exists;
     }
     
     /** Sets the value of the 'exists' field */
-    public org.ga4gh.beacon.ResponseResource.Builder setExists(java.lang.CharSequence value) {
+    public org.ga4gh.beacon.ResponseResource.Builder setExists(java.lang.String value) {
       validate(fields()[0], value);
       this.exists = value;
       fieldSetFlags()[0] = true;
@@ -305,12 +305,12 @@ public class ResponseResource extends org.apache.avro.specific.SpecificRecordBas
     }
 
     /** Gets the value of the 'info' field */
-    public java.lang.CharSequence getInfo() {
+    public java.lang.String getInfo() {
       return info;
     }
     
     /** Sets the value of the 'info' field */
-    public org.ga4gh.beacon.ResponseResource.Builder setInfo(java.lang.CharSequence value) {
+    public org.ga4gh.beacon.ResponseResource.Builder setInfo(java.lang.String value) {
       validate(fields()[3], value);
       this.info = value;
       fieldSetFlags()[3] = true;
@@ -358,10 +358,10 @@ public class ResponseResource extends org.apache.avro.specific.SpecificRecordBas
     public ResponseResource build() {
       try {
         ResponseResource record = new ResponseResource();
-        record.exists = fieldSetFlags()[0] ? this.exists : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.exists = fieldSetFlags()[0] ? this.exists : (java.lang.String) defaultValue(fields()[0]);
         record.frequency = fieldSetFlags()[1] ? this.frequency : (java.lang.Double) defaultValue(fields()[1]);
         record.observed = fieldSetFlags()[2] ? this.observed : (java.lang.Integer) defaultValue(fields()[2]);
-        record.info = fieldSetFlags()[3] ? this.info : (java.lang.CharSequence) defaultValue(fields()[3]);
+        record.info = fieldSetFlags()[3] ? this.info : (java.lang.String) defaultValue(fields()[3]);
         record.err = fieldSetFlags()[4] ? this.err : (org.ga4gh.beacon.ErrorResource) defaultValue(fields()[4]);
         return record;
       } catch (Exception e) {

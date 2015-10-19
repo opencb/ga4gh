@@ -11,7 +11,7 @@ example:
 `GET /sequence/c95d4520-8c63-45f1-924d-6a9604a919fb?start=100&end=200` */
 @org.apache.avro.specific.AvroGenerated
 public class GetSequenceBasesRequest extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"GetSequenceBasesRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"The query parameters for a request to `GET /sequence/{id}`, for\\nexample:\\n\\n`GET /sequence/c95d4520-8c63-45f1-924d-6a9604a919fb?start=100&end=200`\",\"fields\":[{\"name\":\"start\",\"type\":\"long\",\"doc\":\"The start position (0-based) of this query. Defaults to 0.\\n  Genomic positions are non-negative integers less than segment length.\\n  Requests spanning the join of circular genomes are represented as\\n  two requests one on each side of the join (position 0).\",\"default\":0},{\"name\":\"end\",\"type\":[\"null\",\"long\"],\"doc\":\"The end position (0-based, exclusive) of this query. Defaults\\n  to the length of this `Segment`.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",\"string\"],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"GetSequenceBasesRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"The query parameters for a request to `GET /sequence/{id}`, for\\nexample:\\n\\n`GET /sequence/c95d4520-8c63-45f1-924d-6a9604a919fb?start=100&end=200`\",\"fields\":[{\"name\":\"start\",\"type\":\"long\",\"doc\":\"The start position (0-based) of this query. Defaults to 0.\\n  Genomic positions are non-negative integers less than segment length.\\n  Requests spanning the join of circular genomes are represented as\\n  two requests one on each side of the join (position 0).\",\"default\":0},{\"name\":\"end\",\"type\":[\"null\",\"long\"],\"doc\":\"The end position (0-based, exclusive) of this query. Defaults\\n  to the length of this `Segment`.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The start position (0-based) of this query. Defaults to 0.
   Genomic positions are non-negative integers less than segment length.
@@ -24,7 +24,7 @@ public class GetSequenceBasesRequest extends org.apache.avro.specific.SpecificRe
   /** The continuation token, which is used to page through large result sets.
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response. */
-   private java.lang.CharSequence pageToken;
+   private java.lang.String pageToken;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -36,7 +36,7 @@ public class GetSequenceBasesRequest extends org.apache.avro.specific.SpecificRe
   /**
    * All-args constructor.
    */
-  public GetSequenceBasesRequest(java.lang.Long start, java.lang.Long end, java.lang.CharSequence pageToken) {
+  public GetSequenceBasesRequest(java.lang.Long start, java.lang.Long end, java.lang.String pageToken) {
     this.start = start;
     this.end = end;
     this.pageToken = pageToken;
@@ -58,7 +58,7 @@ public class GetSequenceBasesRequest extends org.apache.avro.specific.SpecificRe
     switch (field$) {
     case 0: start = (java.lang.Long)value$; break;
     case 1: end = (java.lang.Long)value$; break;
-    case 2: pageToken = (java.lang.CharSequence)value$; break;
+    case 2: pageToken = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -106,7 +106,7 @@ public class GetSequenceBasesRequest extends org.apache.avro.specific.SpecificRe
    * The continuation token, which is used to page through large result sets.
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response.   */
-  public java.lang.CharSequence getPageToken() {
+  public java.lang.String getPageToken() {
     return pageToken;
   }
 
@@ -116,7 +116,7 @@ public class GetSequenceBasesRequest extends org.apache.avro.specific.SpecificRe
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response.   * @param value the value to set.
    */
-  public void setPageToken(java.lang.CharSequence value) {
+  public void setPageToken(java.lang.String value) {
     this.pageToken = value;
   }
 
@@ -143,7 +143,7 @@ public class GetSequenceBasesRequest extends org.apache.avro.specific.SpecificRe
 
     private long start;
     private java.lang.Long end;
-    private java.lang.CharSequence pageToken;
+    private java.lang.String pageToken;
 
     /** Creates a new Builder */
     private Builder() {
@@ -234,12 +234,12 @@ public class GetSequenceBasesRequest extends org.apache.avro.specific.SpecificRe
     }
 
     /** Gets the value of the 'pageToken' field */
-    public java.lang.CharSequence getPageToken() {
+    public java.lang.String getPageToken() {
       return pageToken;
     }
     
     /** Sets the value of the 'pageToken' field */
-    public org.ga4gh.methods.GetSequenceBasesRequest.Builder setPageToken(java.lang.CharSequence value) {
+    public org.ga4gh.methods.GetSequenceBasesRequest.Builder setPageToken(java.lang.String value) {
       validate(fields()[2], value);
       this.pageToken = value;
       fieldSetFlags()[2] = true;
@@ -264,7 +264,7 @@ public class GetSequenceBasesRequest extends org.apache.avro.specific.SpecificRe
         GetSequenceBasesRequest record = new GetSequenceBasesRequest();
         record.start = fieldSetFlags()[0] ? this.start : (java.lang.Long) defaultValue(fields()[0]);
         record.end = fieldSetFlags()[1] ? this.end : (java.lang.Long) defaultValue(fields()[1]);
-        record.pageToken = fieldSetFlags()[2] ? this.pageToken : (java.lang.CharSequence) defaultValue(fields()[2]);
+        record.pageToken = fieldSetFlags()[2] ? this.pageToken : (java.lang.String) defaultValue(fields()[2]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

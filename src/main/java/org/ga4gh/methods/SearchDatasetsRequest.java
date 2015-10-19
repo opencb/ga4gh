@@ -8,7 +8,7 @@ package org.ga4gh.methods;
 /** This request maps to the body of `POST /datasets/search` as JSON. */
 @org.apache.avro.specific.AvroGenerated
 public class SearchDatasetsRequest extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchDatasetsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /datasets/search` as JSON.\",\"fields\":[{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",\"string\"],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchDatasetsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /datasets/search` as JSON.\",\"fields\":[{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** Specifies the maximum number of results to return in a single page.
   If unspecified, a system default will be used. */
@@ -16,7 +16,7 @@ public class SearchDatasetsRequest extends org.apache.avro.specific.SpecificReco
   /** The continuation token, which is used to page through large result sets.
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response. */
-   private java.lang.CharSequence pageToken;
+   private java.lang.String pageToken;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -28,7 +28,7 @@ public class SearchDatasetsRequest extends org.apache.avro.specific.SpecificReco
   /**
    * All-args constructor.
    */
-  public SearchDatasetsRequest(java.lang.Integer pageSize, java.lang.CharSequence pageToken) {
+  public SearchDatasetsRequest(java.lang.Integer pageSize, java.lang.String pageToken) {
     this.pageSize = pageSize;
     this.pageToken = pageToken;
   }
@@ -47,7 +47,7 @@ public class SearchDatasetsRequest extends org.apache.avro.specific.SpecificReco
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: pageSize = (java.lang.Integer)value$; break;
-    case 1: pageToken = (java.lang.CharSequence)value$; break;
+    case 1: pageToken = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -74,7 +74,7 @@ public class SearchDatasetsRequest extends org.apache.avro.specific.SpecificReco
    * The continuation token, which is used to page through large result sets.
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response.   */
-  public java.lang.CharSequence getPageToken() {
+  public java.lang.String getPageToken() {
     return pageToken;
   }
 
@@ -84,7 +84,7 @@ public class SearchDatasetsRequest extends org.apache.avro.specific.SpecificReco
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response.   * @param value the value to set.
    */
-  public void setPageToken(java.lang.CharSequence value) {
+  public void setPageToken(java.lang.String value) {
     this.pageToken = value;
   }
 
@@ -110,7 +110,7 @@ public class SearchDatasetsRequest extends org.apache.avro.specific.SpecificReco
     implements org.apache.avro.data.RecordBuilder<SearchDatasetsRequest> {
 
     private java.lang.Integer pageSize;
-    private java.lang.CharSequence pageToken;
+    private java.lang.String pageToken;
 
     /** Creates a new Builder */
     private Builder() {
@@ -169,12 +169,12 @@ public class SearchDatasetsRequest extends org.apache.avro.specific.SpecificReco
     }
 
     /** Gets the value of the 'pageToken' field */
-    public java.lang.CharSequence getPageToken() {
+    public java.lang.String getPageToken() {
       return pageToken;
     }
     
     /** Sets the value of the 'pageToken' field */
-    public org.ga4gh.methods.SearchDatasetsRequest.Builder setPageToken(java.lang.CharSequence value) {
+    public org.ga4gh.methods.SearchDatasetsRequest.Builder setPageToken(java.lang.String value) {
       validate(fields()[1], value);
       this.pageToken = value;
       fieldSetFlags()[1] = true;
@@ -198,7 +198,7 @@ public class SearchDatasetsRequest extends org.apache.avro.specific.SpecificReco
       try {
         SearchDatasetsRequest record = new SearchDatasetsRequest();
         record.pageSize = fieldSetFlags()[0] ? this.pageSize : (java.lang.Integer) defaultValue(fields()[0]);
-        record.pageToken = fieldSetFlags()[1] ? this.pageToken : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.pageToken = fieldSetFlags()[1] ? this.pageToken : (java.lang.String) defaultValue(fields()[1]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

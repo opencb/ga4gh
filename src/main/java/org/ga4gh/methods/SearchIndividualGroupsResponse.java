@@ -8,14 +8,14 @@ package org.ga4gh.methods;
 /** This is the response from `POST /individualgroups/search` expressed as JSON. */
 @org.apache.avro.specific.AvroGenerated
 public class SearchIndividualGroupsResponse extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchIndividualGroupsResponse\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This is the response from `POST /individualgroups/search` expressed as JSON.\",\"fields\":[{\"name\":\"individualGroups\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"IndividualGroup\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"Represents a group of individuals. (e.g. a trio)\",\"fields\":[{\"name\":\"id\",\"type\":\"string\",\"doc\":\"The individual group UUID. This is globally unique.\"},{\"name\":\"name\",\"type\":[\"null\",\"string\"],\"doc\":\"The name of the individual group.\",\"default\":null},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"A description of the individual group.\",\"default\":null},{\"name\":\"created\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this individual group was created in milliseconds from\\n  the epoch.\",\"default\":null},{\"name\":\"updated\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this individual group was last updated in milliseconds\\n  from the epoch.\",\"default\":null},{\"name\":\"type\",\"type\":[\"null\",\"string\"],\"doc\":\"The type of individual group.\",\"default\":null},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":\"string\"}},\"doc\":\"A map of additional individual group information.\",\"default\":{}}]}},\"doc\":\"The list of matching individual groups.\",\"default\":[]},{\"name\":\"nextPageToken\",\"type\":[\"null\",\"string\"],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  Provide this value in a subsequent request to return the next page of\\n  results. This field will be empty if there aren't any additional results.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchIndividualGroupsResponse\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This is the response from `POST /individualgroups/search` expressed as JSON.\",\"fields\":[{\"name\":\"individualGroups\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"IndividualGroup\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"Represents a group of individuals. (e.g. a trio)\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The individual group UUID. This is globally unique.\"},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The name of the individual group.\",\"default\":null},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"A description of the individual group.\",\"default\":null},{\"name\":\"created\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this individual group was created in milliseconds from\\n  the epoch.\",\"default\":null},{\"name\":\"updated\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this individual group was last updated in milliseconds\\n  from the epoch.\",\"default\":null},{\"name\":\"type\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The type of individual group.\",\"default\":null},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"avro.java.string\":\"String\"},\"doc\":\"A map of additional individual group information.\",\"default\":{}}]}},\"doc\":\"The list of matching individual groups.\",\"default\":[]},{\"name\":\"nextPageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  Provide this value in a subsequent request to return the next page of\\n  results. This field will be empty if there aren't any additional results.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The list of matching individual groups. */
    private java.util.List<org.ga4gh.models.IndividualGroup> individualGroups;
   /** The continuation token, which is used to page through large result sets.
   Provide this value in a subsequent request to return the next page of
   results. This field will be empty if there aren't any additional results. */
-   private java.lang.CharSequence nextPageToken;
+   private java.lang.String nextPageToken;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -27,7 +27,7 @@ public class SearchIndividualGroupsResponse extends org.apache.avro.specific.Spe
   /**
    * All-args constructor.
    */
-  public SearchIndividualGroupsResponse(java.util.List<org.ga4gh.models.IndividualGroup> individualGroups, java.lang.CharSequence nextPageToken) {
+  public SearchIndividualGroupsResponse(java.util.List<org.ga4gh.models.IndividualGroup> individualGroups, java.lang.String nextPageToken) {
     this.individualGroups = individualGroups;
     this.nextPageToken = nextPageToken;
   }
@@ -46,7 +46,7 @@ public class SearchIndividualGroupsResponse extends org.apache.avro.specific.Spe
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: individualGroups = (java.util.List<org.ga4gh.models.IndividualGroup>)value$; break;
-    case 1: nextPageToken = (java.lang.CharSequence)value$; break;
+    case 1: nextPageToken = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -71,7 +71,7 @@ public class SearchIndividualGroupsResponse extends org.apache.avro.specific.Spe
    * The continuation token, which is used to page through large result sets.
   Provide this value in a subsequent request to return the next page of
   results. This field will be empty if there aren't any additional results.   */
-  public java.lang.CharSequence getNextPageToken() {
+  public java.lang.String getNextPageToken() {
     return nextPageToken;
   }
 
@@ -81,7 +81,7 @@ public class SearchIndividualGroupsResponse extends org.apache.avro.specific.Spe
   Provide this value in a subsequent request to return the next page of
   results. This field will be empty if there aren't any additional results.   * @param value the value to set.
    */
-  public void setNextPageToken(java.lang.CharSequence value) {
+  public void setNextPageToken(java.lang.String value) {
     this.nextPageToken = value;
   }
 
@@ -107,7 +107,7 @@ public class SearchIndividualGroupsResponse extends org.apache.avro.specific.Spe
     implements org.apache.avro.data.RecordBuilder<SearchIndividualGroupsResponse> {
 
     private java.util.List<org.ga4gh.models.IndividualGroup> individualGroups;
-    private java.lang.CharSequence nextPageToken;
+    private java.lang.String nextPageToken;
 
     /** Creates a new Builder */
     private Builder() {
@@ -166,12 +166,12 @@ public class SearchIndividualGroupsResponse extends org.apache.avro.specific.Spe
     }
 
     /** Gets the value of the 'nextPageToken' field */
-    public java.lang.CharSequence getNextPageToken() {
+    public java.lang.String getNextPageToken() {
       return nextPageToken;
     }
     
     /** Sets the value of the 'nextPageToken' field */
-    public org.ga4gh.methods.SearchIndividualGroupsResponse.Builder setNextPageToken(java.lang.CharSequence value) {
+    public org.ga4gh.methods.SearchIndividualGroupsResponse.Builder setNextPageToken(java.lang.String value) {
       validate(fields()[1], value);
       this.nextPageToken = value;
       fieldSetFlags()[1] = true;
@@ -195,7 +195,7 @@ public class SearchIndividualGroupsResponse extends org.apache.avro.specific.Spe
       try {
         SearchIndividualGroupsResponse record = new SearchIndividualGroupsResponse();
         record.individualGroups = fieldSetFlags()[0] ? this.individualGroups : (java.util.List<org.ga4gh.models.IndividualGroup>) defaultValue(fields()[0]);
-        record.nextPageToken = fieldSetFlags()[1] ? this.nextPageToken : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.nextPageToken = fieldSetFlags()[1] ? this.nextPageToken : (java.lang.String) defaultValue(fields()[1]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

@@ -7,18 +7,18 @@ package org.ga4gh.models;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Program extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Program\",\"namespace\":\"org.ga4gh.models\",\"fields\":[{\"name\":\"commandLine\",\"type\":[\"null\",\"string\"],\"doc\":\"The command line used to run this program.\",\"default\":null},{\"name\":\"id\",\"type\":[\"null\",\"string\"],\"doc\":\"The user specified ID of the program.\",\"default\":null},{\"name\":\"name\",\"type\":[\"null\",\"string\"],\"doc\":\"The name of the program.\",\"default\":null},{\"name\":\"prevProgramId\",\"type\":[\"null\",\"string\"],\"doc\":\"The ID of the program run before this one.\",\"default\":null},{\"name\":\"version\",\"type\":[\"null\",\"string\"],\"doc\":\"The version of the program run.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Program\",\"namespace\":\"org.ga4gh.models\",\"fields\":[{\"name\":\"commandLine\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The command line used to run this program.\",\"default\":null},{\"name\":\"id\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The user specified ID of the program.\",\"default\":null},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The name of the program.\",\"default\":null},{\"name\":\"prevProgramId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The ID of the program run before this one.\",\"default\":null},{\"name\":\"version\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The version of the program run.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The command line used to run this program. */
-   private java.lang.CharSequence commandLine;
+   private java.lang.String commandLine;
   /** The user specified ID of the program. */
-   private java.lang.CharSequence id;
+   private java.lang.String id;
   /** The name of the program. */
-   private java.lang.CharSequence name;
+   private java.lang.String name;
   /** The ID of the program run before this one. */
-   private java.lang.CharSequence prevProgramId;
+   private java.lang.String prevProgramId;
   /** The version of the program run. */
-   private java.lang.CharSequence version;
+   private java.lang.String version;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -30,7 +30,7 @@ public class Program extends org.apache.avro.specific.SpecificRecordBase impleme
   /**
    * All-args constructor.
    */
-  public Program(java.lang.CharSequence commandLine, java.lang.CharSequence id, java.lang.CharSequence name, java.lang.CharSequence prevProgramId, java.lang.CharSequence version) {
+  public Program(java.lang.String commandLine, java.lang.String id, java.lang.String name, java.lang.String prevProgramId, java.lang.String version) {
     this.commandLine = commandLine;
     this.id = id;
     this.name = name;
@@ -54,11 +54,11 @@ public class Program extends org.apache.avro.specific.SpecificRecordBase impleme
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: commandLine = (java.lang.CharSequence)value$; break;
-    case 1: id = (java.lang.CharSequence)value$; break;
-    case 2: name = (java.lang.CharSequence)value$; break;
-    case 3: prevProgramId = (java.lang.CharSequence)value$; break;
-    case 4: version = (java.lang.CharSequence)value$; break;
+    case 0: commandLine = (java.lang.String)value$; break;
+    case 1: id = (java.lang.String)value$; break;
+    case 2: name = (java.lang.String)value$; break;
+    case 3: prevProgramId = (java.lang.String)value$; break;
+    case 4: version = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -66,7 +66,7 @@ public class Program extends org.apache.avro.specific.SpecificRecordBase impleme
   /**
    * Gets the value of the 'commandLine' field.
    * The command line used to run this program.   */
-  public java.lang.CharSequence getCommandLine() {
+  public java.lang.String getCommandLine() {
     return commandLine;
   }
 
@@ -74,14 +74,14 @@ public class Program extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'commandLine' field.
    * The command line used to run this program.   * @param value the value to set.
    */
-  public void setCommandLine(java.lang.CharSequence value) {
+  public void setCommandLine(java.lang.String value) {
     this.commandLine = value;
   }
 
   /**
    * Gets the value of the 'id' field.
    * The user specified ID of the program.   */
-  public java.lang.CharSequence getId() {
+  public java.lang.String getId() {
     return id;
   }
 
@@ -89,14 +89,14 @@ public class Program extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'id' field.
    * The user specified ID of the program.   * @param value the value to set.
    */
-  public void setId(java.lang.CharSequence value) {
+  public void setId(java.lang.String value) {
     this.id = value;
   }
 
   /**
    * Gets the value of the 'name' field.
    * The name of the program.   */
-  public java.lang.CharSequence getName() {
+  public java.lang.String getName() {
     return name;
   }
 
@@ -104,14 +104,14 @@ public class Program extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'name' field.
    * The name of the program.   * @param value the value to set.
    */
-  public void setName(java.lang.CharSequence value) {
+  public void setName(java.lang.String value) {
     this.name = value;
   }
 
   /**
    * Gets the value of the 'prevProgramId' field.
    * The ID of the program run before this one.   */
-  public java.lang.CharSequence getPrevProgramId() {
+  public java.lang.String getPrevProgramId() {
     return prevProgramId;
   }
 
@@ -119,14 +119,14 @@ public class Program extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'prevProgramId' field.
    * The ID of the program run before this one.   * @param value the value to set.
    */
-  public void setPrevProgramId(java.lang.CharSequence value) {
+  public void setPrevProgramId(java.lang.String value) {
     this.prevProgramId = value;
   }
 
   /**
    * Gets the value of the 'version' field.
    * The version of the program run.   */
-  public java.lang.CharSequence getVersion() {
+  public java.lang.String getVersion() {
     return version;
   }
 
@@ -134,7 +134,7 @@ public class Program extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'version' field.
    * The version of the program run.   * @param value the value to set.
    */
-  public void setVersion(java.lang.CharSequence value) {
+  public void setVersion(java.lang.String value) {
     this.version = value;
   }
 
@@ -159,11 +159,11 @@ public class Program extends org.apache.avro.specific.SpecificRecordBase impleme
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Program>
     implements org.apache.avro.data.RecordBuilder<Program> {
 
-    private java.lang.CharSequence commandLine;
-    private java.lang.CharSequence id;
-    private java.lang.CharSequence name;
-    private java.lang.CharSequence prevProgramId;
-    private java.lang.CharSequence version;
+    private java.lang.String commandLine;
+    private java.lang.String id;
+    private java.lang.String name;
+    private java.lang.String prevProgramId;
+    private java.lang.String version;
 
     /** Creates a new Builder */
     private Builder() {
@@ -221,12 +221,12 @@ public class Program extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'commandLine' field */
-    public java.lang.CharSequence getCommandLine() {
+    public java.lang.String getCommandLine() {
       return commandLine;
     }
     
     /** Sets the value of the 'commandLine' field */
-    public org.ga4gh.models.Program.Builder setCommandLine(java.lang.CharSequence value) {
+    public org.ga4gh.models.Program.Builder setCommandLine(java.lang.String value) {
       validate(fields()[0], value);
       this.commandLine = value;
       fieldSetFlags()[0] = true;
@@ -246,12 +246,12 @@ public class Program extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'id' field */
-    public java.lang.CharSequence getId() {
+    public java.lang.String getId() {
       return id;
     }
     
     /** Sets the value of the 'id' field */
-    public org.ga4gh.models.Program.Builder setId(java.lang.CharSequence value) {
+    public org.ga4gh.models.Program.Builder setId(java.lang.String value) {
       validate(fields()[1], value);
       this.id = value;
       fieldSetFlags()[1] = true;
@@ -271,12 +271,12 @@ public class Program extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'name' field */
-    public java.lang.CharSequence getName() {
+    public java.lang.String getName() {
       return name;
     }
     
     /** Sets the value of the 'name' field */
-    public org.ga4gh.models.Program.Builder setName(java.lang.CharSequence value) {
+    public org.ga4gh.models.Program.Builder setName(java.lang.String value) {
       validate(fields()[2], value);
       this.name = value;
       fieldSetFlags()[2] = true;
@@ -296,12 +296,12 @@ public class Program extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'prevProgramId' field */
-    public java.lang.CharSequence getPrevProgramId() {
+    public java.lang.String getPrevProgramId() {
       return prevProgramId;
     }
     
     /** Sets the value of the 'prevProgramId' field */
-    public org.ga4gh.models.Program.Builder setPrevProgramId(java.lang.CharSequence value) {
+    public org.ga4gh.models.Program.Builder setPrevProgramId(java.lang.String value) {
       validate(fields()[3], value);
       this.prevProgramId = value;
       fieldSetFlags()[3] = true;
@@ -321,12 +321,12 @@ public class Program extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /** Gets the value of the 'version' field */
-    public java.lang.CharSequence getVersion() {
+    public java.lang.String getVersion() {
       return version;
     }
     
     /** Sets the value of the 'version' field */
-    public org.ga4gh.models.Program.Builder setVersion(java.lang.CharSequence value) {
+    public org.ga4gh.models.Program.Builder setVersion(java.lang.String value) {
       validate(fields()[4], value);
       this.version = value;
       fieldSetFlags()[4] = true;
@@ -349,11 +349,11 @@ public class Program extends org.apache.avro.specific.SpecificRecordBase impleme
     public Program build() {
       try {
         Program record = new Program();
-        record.commandLine = fieldSetFlags()[0] ? this.commandLine : (java.lang.CharSequence) defaultValue(fields()[0]);
-        record.id = fieldSetFlags()[1] ? this.id : (java.lang.CharSequence) defaultValue(fields()[1]);
-        record.name = fieldSetFlags()[2] ? this.name : (java.lang.CharSequence) defaultValue(fields()[2]);
-        record.prevProgramId = fieldSetFlags()[3] ? this.prevProgramId : (java.lang.CharSequence) defaultValue(fields()[3]);
-        record.version = fieldSetFlags()[4] ? this.version : (java.lang.CharSequence) defaultValue(fields()[4]);
+        record.commandLine = fieldSetFlags()[0] ? this.commandLine : (java.lang.String) defaultValue(fields()[0]);
+        record.id = fieldSetFlags()[1] ? this.id : (java.lang.String) defaultValue(fields()[1]);
+        record.name = fieldSetFlags()[2] ? this.name : (java.lang.String) defaultValue(fields()[2]);
+        record.prevProgramId = fieldSetFlags()[3] ? this.prevProgramId : (java.lang.String) defaultValue(fields()[3]);
+        record.version = fieldSetFlags()[4] ? this.version : (java.lang.String) defaultValue(fields()[4]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

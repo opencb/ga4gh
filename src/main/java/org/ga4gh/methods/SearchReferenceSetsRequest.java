@@ -9,27 +9,27 @@ package org.ga4gh.methods;
 as JSON. */
 @org.apache.avro.specific.AvroGenerated
 public class SearchReferenceSetsRequest extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchReferenceSetsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /referencesets/search`\\nas JSON.\",\"fields\":[{\"name\":\"md5checksums\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"If nonempty, return the reference sets which match any of the given\\n  `md5checksum`s. See `ReferenceSet::md5checksum` for details.\",\"default\":[]},{\"name\":\"accessions\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"If nonempty, return reference sets for which the accession\\n  matches this string. Best to give a version number (e.g. `GCF_000001405.26`).\\n  If only the main accession number is given then all records with\\n  that main accession will be returned, whichever version.\\n  Note that different versions will have different sequences.\",\"default\":[]},{\"name\":\"assemblyId\",\"type\":[\"null\",\"string\"],\"doc\":\"If present, return reference sets for which the `assemblyId`\\n  contains this string.\",\"default\":null},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",\"string\"],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchReferenceSetsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /referencesets/search`\\nas JSON.\",\"fields\":[{\"name\":\"md5checksums\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"If nonempty, return the reference sets which match any of the given\\n  `md5checksum`s. See `ReferenceSet::md5checksum` for details.\",\"default\":[]},{\"name\":\"accessions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"If nonempty, return reference sets for which the accession\\n  matches this string. Best to give a version number (e.g. `GCF_000001405.26`).\\n  If only the main accession number is given then all records with\\n  that main accession will be returned, whichever version.\\n  Note that different versions will have different sequences.\",\"default\":[]},{\"name\":\"assemblyId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"If present, return reference sets for which the `assemblyId`\\n  contains this string.\",\"default\":null},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** If nonempty, return the reference sets which match any of the given
   `md5checksum`s. See `ReferenceSet::md5checksum` for details. */
-   private java.util.List<java.lang.CharSequence> md5checksums;
+   private java.util.List<java.lang.String> md5checksums;
   /** If nonempty, return reference sets for which the accession
   matches this string. Best to give a version number (e.g. `GCF_000001405.26`).
   If only the main accession number is given then all records with
   that main accession will be returned, whichever version.
   Note that different versions will have different sequences. */
-   private java.util.List<java.lang.CharSequence> accessions;
+   private java.util.List<java.lang.String> accessions;
   /** If present, return reference sets for which the `assemblyId`
   contains this string. */
-   private java.lang.CharSequence assemblyId;
+   private java.lang.String assemblyId;
   /** Specifies the maximum number of results to return in a single page.
   If unspecified, a system default will be used. */
    private java.lang.Integer pageSize;
   /** The continuation token, which is used to page through large result sets.
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response. */
-   private java.lang.CharSequence pageToken;
+   private java.lang.String pageToken;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -41,7 +41,7 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
   /**
    * All-args constructor.
    */
-  public SearchReferenceSetsRequest(java.util.List<java.lang.CharSequence> md5checksums, java.util.List<java.lang.CharSequence> accessions, java.lang.CharSequence assemblyId, java.lang.Integer pageSize, java.lang.CharSequence pageToken) {
+  public SearchReferenceSetsRequest(java.util.List<java.lang.String> md5checksums, java.util.List<java.lang.String> accessions, java.lang.String assemblyId, java.lang.Integer pageSize, java.lang.String pageToken) {
     this.md5checksums = md5checksums;
     this.accessions = accessions;
     this.assemblyId = assemblyId;
@@ -65,11 +65,11 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: md5checksums = (java.util.List<java.lang.CharSequence>)value$; break;
-    case 1: accessions = (java.util.List<java.lang.CharSequence>)value$; break;
-    case 2: assemblyId = (java.lang.CharSequence)value$; break;
+    case 0: md5checksums = (java.util.List<java.lang.String>)value$; break;
+    case 1: accessions = (java.util.List<java.lang.String>)value$; break;
+    case 2: assemblyId = (java.lang.String)value$; break;
     case 3: pageSize = (java.lang.Integer)value$; break;
-    case 4: pageToken = (java.lang.CharSequence)value$; break;
+    case 4: pageToken = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -78,7 +78,7 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
    * Gets the value of the 'md5checksums' field.
    * If nonempty, return the reference sets which match any of the given
   `md5checksum`s. See `ReferenceSet::md5checksum` for details.   */
-  public java.util.List<java.lang.CharSequence> getMd5checksums() {
+  public java.util.List<java.lang.String> getMd5checksums() {
     return md5checksums;
   }
 
@@ -87,7 +87,7 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
    * If nonempty, return the reference sets which match any of the given
   `md5checksum`s. See `ReferenceSet::md5checksum` for details.   * @param value the value to set.
    */
-  public void setMd5checksums(java.util.List<java.lang.CharSequence> value) {
+  public void setMd5checksums(java.util.List<java.lang.String> value) {
     this.md5checksums = value;
   }
 
@@ -98,7 +98,7 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
   If only the main accession number is given then all records with
   that main accession will be returned, whichever version.
   Note that different versions will have different sequences.   */
-  public java.util.List<java.lang.CharSequence> getAccessions() {
+  public java.util.List<java.lang.String> getAccessions() {
     return accessions;
   }
 
@@ -110,7 +110,7 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
   that main accession will be returned, whichever version.
   Note that different versions will have different sequences.   * @param value the value to set.
    */
-  public void setAccessions(java.util.List<java.lang.CharSequence> value) {
+  public void setAccessions(java.util.List<java.lang.String> value) {
     this.accessions = value;
   }
 
@@ -118,7 +118,7 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
    * Gets the value of the 'assemblyId' field.
    * If present, return reference sets for which the `assemblyId`
   contains this string.   */
-  public java.lang.CharSequence getAssemblyId() {
+  public java.lang.String getAssemblyId() {
     return assemblyId;
   }
 
@@ -127,7 +127,7 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
    * If present, return reference sets for which the `assemblyId`
   contains this string.   * @param value the value to set.
    */
-  public void setAssemblyId(java.lang.CharSequence value) {
+  public void setAssemblyId(java.lang.String value) {
     this.assemblyId = value;
   }
 
@@ -153,7 +153,7 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
    * The continuation token, which is used to page through large result sets.
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response.   */
-  public java.lang.CharSequence getPageToken() {
+  public java.lang.String getPageToken() {
     return pageToken;
   }
 
@@ -163,7 +163,7 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response.   * @param value the value to set.
    */
-  public void setPageToken(java.lang.CharSequence value) {
+  public void setPageToken(java.lang.String value) {
     this.pageToken = value;
   }
 
@@ -188,11 +188,11 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<SearchReferenceSetsRequest>
     implements org.apache.avro.data.RecordBuilder<SearchReferenceSetsRequest> {
 
-    private java.util.List<java.lang.CharSequence> md5checksums;
-    private java.util.List<java.lang.CharSequence> accessions;
-    private java.lang.CharSequence assemblyId;
+    private java.util.List<java.lang.String> md5checksums;
+    private java.util.List<java.lang.String> accessions;
+    private java.lang.String assemblyId;
     private java.lang.Integer pageSize;
-    private java.lang.CharSequence pageToken;
+    private java.lang.String pageToken;
 
     /** Creates a new Builder */
     private Builder() {
@@ -250,12 +250,12 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
     }
 
     /** Gets the value of the 'md5checksums' field */
-    public java.util.List<java.lang.CharSequence> getMd5checksums() {
+    public java.util.List<java.lang.String> getMd5checksums() {
       return md5checksums;
     }
     
     /** Sets the value of the 'md5checksums' field */
-    public org.ga4gh.methods.SearchReferenceSetsRequest.Builder setMd5checksums(java.util.List<java.lang.CharSequence> value) {
+    public org.ga4gh.methods.SearchReferenceSetsRequest.Builder setMd5checksums(java.util.List<java.lang.String> value) {
       validate(fields()[0], value);
       this.md5checksums = value;
       fieldSetFlags()[0] = true;
@@ -275,12 +275,12 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
     }
 
     /** Gets the value of the 'accessions' field */
-    public java.util.List<java.lang.CharSequence> getAccessions() {
+    public java.util.List<java.lang.String> getAccessions() {
       return accessions;
     }
     
     /** Sets the value of the 'accessions' field */
-    public org.ga4gh.methods.SearchReferenceSetsRequest.Builder setAccessions(java.util.List<java.lang.CharSequence> value) {
+    public org.ga4gh.methods.SearchReferenceSetsRequest.Builder setAccessions(java.util.List<java.lang.String> value) {
       validate(fields()[1], value);
       this.accessions = value;
       fieldSetFlags()[1] = true;
@@ -300,12 +300,12 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
     }
 
     /** Gets the value of the 'assemblyId' field */
-    public java.lang.CharSequence getAssemblyId() {
+    public java.lang.String getAssemblyId() {
       return assemblyId;
     }
     
     /** Sets the value of the 'assemblyId' field */
-    public org.ga4gh.methods.SearchReferenceSetsRequest.Builder setAssemblyId(java.lang.CharSequence value) {
+    public org.ga4gh.methods.SearchReferenceSetsRequest.Builder setAssemblyId(java.lang.String value) {
       validate(fields()[2], value);
       this.assemblyId = value;
       fieldSetFlags()[2] = true;
@@ -350,12 +350,12 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
     }
 
     /** Gets the value of the 'pageToken' field */
-    public java.lang.CharSequence getPageToken() {
+    public java.lang.String getPageToken() {
       return pageToken;
     }
     
     /** Sets the value of the 'pageToken' field */
-    public org.ga4gh.methods.SearchReferenceSetsRequest.Builder setPageToken(java.lang.CharSequence value) {
+    public org.ga4gh.methods.SearchReferenceSetsRequest.Builder setPageToken(java.lang.String value) {
       validate(fields()[4], value);
       this.pageToken = value;
       fieldSetFlags()[4] = true;
@@ -378,11 +378,11 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
     public SearchReferenceSetsRequest build() {
       try {
         SearchReferenceSetsRequest record = new SearchReferenceSetsRequest();
-        record.md5checksums = fieldSetFlags()[0] ? this.md5checksums : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[0]);
-        record.accessions = fieldSetFlags()[1] ? this.accessions : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[1]);
-        record.assemblyId = fieldSetFlags()[2] ? this.assemblyId : (java.lang.CharSequence) defaultValue(fields()[2]);
+        record.md5checksums = fieldSetFlags()[0] ? this.md5checksums : (java.util.List<java.lang.String>) defaultValue(fields()[0]);
+        record.accessions = fieldSetFlags()[1] ? this.accessions : (java.util.List<java.lang.String>) defaultValue(fields()[1]);
+        record.assemblyId = fieldSetFlags()[2] ? this.assemblyId : (java.lang.String) defaultValue(fields()[2]);
         record.pageSize = fieldSetFlags()[3] ? this.pageSize : (java.lang.Integer) defaultValue(fields()[3]);
-        record.pageToken = fieldSetFlags()[4] ? this.pageToken : (java.lang.CharSequence) defaultValue(fields()[4]);
+        record.pageToken = fieldSetFlags()[4] ? this.pageToken : (java.lang.String) defaultValue(fields()[4]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

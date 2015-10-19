@@ -9,14 +9,14 @@ package org.ga4gh.methods;
 expressed as JSON. */
 @org.apache.avro.specific.AvroGenerated
 public class SearchReferenceSetsResponse extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchReferenceSetsResponse\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This is the response from `POST /referencesets/search`\\nexpressed as JSON.\",\"fields\":[{\"name\":\"referenceSets\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"ReferenceSet\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"A `ReferenceSet` is a set of `Reference`s which typically comprise a\\nreference assembly, such as `GRCh38`. A `ReferenceSet` defines a common\\ncoordinate space for comparing reference-aligned experimental data.\",\"fields\":[{\"name\":\"id\",\"type\":\"string\",\"doc\":\"The reference set ID. Unique in the repository.\"},{\"name\":\"referenceIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}],\"doc\":\"The IDs of the `Reference` objects that are part of this set.\\n\\n  This field should be left null if the set contains a very large number of\\n  `Reference`s. The `Reference`s in the set may also be obtained through a\\n  `searchReferences()` API call.\",\"default\":null},{\"name\":\"md5checksum\",\"type\":\"string\",\"doc\":\"Order-independent MD5 checksum which identifies this `ReferenceSet`. The\\n  checksum is computed by sorting all `reference.md5checksum` (for all\\n  `reference` in this set) in ascending lexicographic order, concatenating,\\n  and taking the MD5 of that value.\"},{\"name\":\"ncbiTaxonId\",\"type\":[\"null\",\"int\"],\"doc\":\"ID from http://www.ncbi.nlm.nih.gov/taxonomy (e.g. 9606->human) indicating\\n  the species which this assembly is intended to model. Note that contained\\n  `Reference`s may specify a different `ncbiTaxonId`, as assemblies may\\n  contain reference sequences which do not belong to the modeled species, e.g.\\n  EBV in a human reference genome.\",\"default\":null},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"Optional free text description of this reference set.\",\"default\":null},{\"name\":\"assemblyId\",\"type\":[\"null\",\"string\"],\"doc\":\"Public id of this reference set, such as `GRCh37`.\",\"default\":null},{\"name\":\"sourceURI\",\"type\":[\"null\",\"string\"],\"doc\":\"Specifies a FASTA format file/string.\",\"default\":null},{\"name\":\"sourceAccessions\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally\\n  with a version number, e.g. `NC_000001.11`.\"},{\"name\":\"isDerived\",\"type\":\"boolean\",\"doc\":\"A reference set may be derived from a source if it contains\\n  additional sequences, or some of the sequences within it are derived\\n  (see the definition of `isDerived` in `Reference`).\",\"default\":false}]}},\"doc\":\"The list of matching reference sets.\",\"default\":[]},{\"name\":\"nextPageToken\",\"type\":[\"null\",\"string\"],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  Provide this value in a subsequent request to return the next page of\\n  results. This field will be empty if there aren't any additional results.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchReferenceSetsResponse\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This is the response from `POST /referencesets/search`\\nexpressed as JSON.\",\"fields\":[{\"name\":\"referenceSets\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"ReferenceSet\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"A `ReferenceSet` is a set of `Reference`s which typically comprise a\\nreference assembly, such as `GRCh38`. A `ReferenceSet` defines a common\\ncoordinate space for comparing reference-aligned experimental data.\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The reference set ID. Unique in the repository.\"},{\"name\":\"referenceIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}],\"doc\":\"The IDs of the `Reference` objects that are part of this set.\\n\\n  This field should be left null if the set contains a very large number of\\n  `Reference`s. The `Reference`s in the set may also be obtained through a\\n  `searchReferences()` API call.\",\"default\":null},{\"name\":\"md5checksum\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Order-independent MD5 checksum which identifies this `ReferenceSet`. The\\n  checksum is computed by sorting all `reference.md5checksum` (for all\\n  `reference` in this set) in ascending lexicographic order, concatenating,\\n  and taking the MD5 of that value.\"},{\"name\":\"ncbiTaxonId\",\"type\":[\"null\",\"int\"],\"doc\":\"ID from http://www.ncbi.nlm.nih.gov/taxonomy (e.g. 9606->human) indicating\\n  the species which this assembly is intended to model. Note that contained\\n  `Reference`s may specify a different `ncbiTaxonId`, as assemblies may\\n  contain reference sequences which do not belong to the modeled species, e.g.\\n  EBV in a human reference genome.\",\"default\":null},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Optional free text description of this reference set.\",\"default\":null},{\"name\":\"assemblyId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Public id of this reference set, such as `GRCh37`.\",\"default\":null},{\"name\":\"sourceURI\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Specifies a FASTA format file/string.\",\"default\":null},{\"name\":\"sourceAccessions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally\\n  with a version number, e.g. `NC_000001.11`.\"},{\"name\":\"isDerived\",\"type\":\"boolean\",\"doc\":\"A reference set may be derived from a source if it contains\\n  additional sequences, or some of the sequences within it are derived\\n  (see the definition of `isDerived` in `Reference`).\",\"default\":false}]}},\"doc\":\"The list of matching reference sets.\",\"default\":[]},{\"name\":\"nextPageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  Provide this value in a subsequent request to return the next page of\\n  results. This field will be empty if there aren't any additional results.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The list of matching reference sets. */
    private java.util.List<org.ga4gh.models.ReferenceSet> referenceSets;
   /** The continuation token, which is used to page through large result sets.
   Provide this value in a subsequent request to return the next page of
   results. This field will be empty if there aren't any additional results. */
-   private java.lang.CharSequence nextPageToken;
+   private java.lang.String nextPageToken;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -28,7 +28,7 @@ public class SearchReferenceSetsResponse extends org.apache.avro.specific.Specif
   /**
    * All-args constructor.
    */
-  public SearchReferenceSetsResponse(java.util.List<org.ga4gh.models.ReferenceSet> referenceSets, java.lang.CharSequence nextPageToken) {
+  public SearchReferenceSetsResponse(java.util.List<org.ga4gh.models.ReferenceSet> referenceSets, java.lang.String nextPageToken) {
     this.referenceSets = referenceSets;
     this.nextPageToken = nextPageToken;
   }
@@ -47,7 +47,7 @@ public class SearchReferenceSetsResponse extends org.apache.avro.specific.Specif
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: referenceSets = (java.util.List<org.ga4gh.models.ReferenceSet>)value$; break;
-    case 1: nextPageToken = (java.lang.CharSequence)value$; break;
+    case 1: nextPageToken = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -72,7 +72,7 @@ public class SearchReferenceSetsResponse extends org.apache.avro.specific.Specif
    * The continuation token, which is used to page through large result sets.
   Provide this value in a subsequent request to return the next page of
   results. This field will be empty if there aren't any additional results.   */
-  public java.lang.CharSequence getNextPageToken() {
+  public java.lang.String getNextPageToken() {
     return nextPageToken;
   }
 
@@ -82,7 +82,7 @@ public class SearchReferenceSetsResponse extends org.apache.avro.specific.Specif
   Provide this value in a subsequent request to return the next page of
   results. This field will be empty if there aren't any additional results.   * @param value the value to set.
    */
-  public void setNextPageToken(java.lang.CharSequence value) {
+  public void setNextPageToken(java.lang.String value) {
     this.nextPageToken = value;
   }
 
@@ -108,7 +108,7 @@ public class SearchReferenceSetsResponse extends org.apache.avro.specific.Specif
     implements org.apache.avro.data.RecordBuilder<SearchReferenceSetsResponse> {
 
     private java.util.List<org.ga4gh.models.ReferenceSet> referenceSets;
-    private java.lang.CharSequence nextPageToken;
+    private java.lang.String nextPageToken;
 
     /** Creates a new Builder */
     private Builder() {
@@ -167,12 +167,12 @@ public class SearchReferenceSetsResponse extends org.apache.avro.specific.Specif
     }
 
     /** Gets the value of the 'nextPageToken' field */
-    public java.lang.CharSequence getNextPageToken() {
+    public java.lang.String getNextPageToken() {
       return nextPageToken;
     }
     
     /** Sets the value of the 'nextPageToken' field */
-    public org.ga4gh.methods.SearchReferenceSetsResponse.Builder setNextPageToken(java.lang.CharSequence value) {
+    public org.ga4gh.methods.SearchReferenceSetsResponse.Builder setNextPageToken(java.lang.String value) {
       validate(fields()[1], value);
       this.nextPageToken = value;
       fieldSetFlags()[1] = true;
@@ -196,7 +196,7 @@ public class SearchReferenceSetsResponse extends org.apache.avro.specific.Specif
       try {
         SearchReferenceSetsResponse record = new SearchReferenceSetsResponse();
         record.referenceSets = fieldSetFlags()[0] ? this.referenceSets : (java.util.List<org.ga4gh.models.ReferenceSet>) defaultValue(fields()[0]);
-        record.nextPageToken = fieldSetFlags()[1] ? this.nextPageToken : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.nextPageToken = fieldSetFlags()[1] ? this.nextPageToken : (java.lang.String) defaultValue(fields()[1]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

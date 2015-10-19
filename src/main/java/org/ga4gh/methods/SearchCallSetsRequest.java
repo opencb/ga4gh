@@ -8,21 +8,21 @@ package org.ga4gh.methods;
 /** This request maps to the body of `POST /callsets/search` as JSON. */
 @org.apache.avro.specific.AvroGenerated
 public class SearchCallSetsRequest extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchCallSetsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /callsets/search` as JSON.\",\"fields\":[{\"name\":\"variantSetIds\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"If nonempty, will restrict the query to call sets within the\\n  given variant sets.\",\"default\":[]},{\"name\":\"name\",\"type\":[\"null\",\"string\"],\"doc\":\"Only return call sets for which a substring of the name matches this\\n  string.\",\"default\":null},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",\"string\"],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchCallSetsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /callsets/search` as JSON.\",\"fields\":[{\"name\":\"variantSetIds\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"If nonempty, will restrict the query to call sets within the\\n  given variant sets.\",\"default\":[]},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Only return call sets for which a substring of the name matches this\\n  string.\",\"default\":null},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** If nonempty, will restrict the query to call sets within the
   given variant sets. */
-   private java.util.List<java.lang.CharSequence> variantSetIds;
+   private java.util.List<java.lang.String> variantSetIds;
   /** Only return call sets for which a substring of the name matches this
   string. */
-   private java.lang.CharSequence name;
+   private java.lang.String name;
   /** Specifies the maximum number of results to return in a single page.
   If unspecified, a system default will be used. */
    private java.lang.Integer pageSize;
   /** The continuation token, which is used to page through large result sets.
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response. */
-   private java.lang.CharSequence pageToken;
+   private java.lang.String pageToken;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -34,7 +34,7 @@ public class SearchCallSetsRequest extends org.apache.avro.specific.SpecificReco
   /**
    * All-args constructor.
    */
-  public SearchCallSetsRequest(java.util.List<java.lang.CharSequence> variantSetIds, java.lang.CharSequence name, java.lang.Integer pageSize, java.lang.CharSequence pageToken) {
+  public SearchCallSetsRequest(java.util.List<java.lang.String> variantSetIds, java.lang.String name, java.lang.Integer pageSize, java.lang.String pageToken) {
     this.variantSetIds = variantSetIds;
     this.name = name;
     this.pageSize = pageSize;
@@ -56,10 +56,10 @@ public class SearchCallSetsRequest extends org.apache.avro.specific.SpecificReco
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: variantSetIds = (java.util.List<java.lang.CharSequence>)value$; break;
-    case 1: name = (java.lang.CharSequence)value$; break;
+    case 0: variantSetIds = (java.util.List<java.lang.String>)value$; break;
+    case 1: name = (java.lang.String)value$; break;
     case 2: pageSize = (java.lang.Integer)value$; break;
-    case 3: pageToken = (java.lang.CharSequence)value$; break;
+    case 3: pageToken = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -68,7 +68,7 @@ public class SearchCallSetsRequest extends org.apache.avro.specific.SpecificReco
    * Gets the value of the 'variantSetIds' field.
    * If nonempty, will restrict the query to call sets within the
   given variant sets.   */
-  public java.util.List<java.lang.CharSequence> getVariantSetIds() {
+  public java.util.List<java.lang.String> getVariantSetIds() {
     return variantSetIds;
   }
 
@@ -77,7 +77,7 @@ public class SearchCallSetsRequest extends org.apache.avro.specific.SpecificReco
    * If nonempty, will restrict the query to call sets within the
   given variant sets.   * @param value the value to set.
    */
-  public void setVariantSetIds(java.util.List<java.lang.CharSequence> value) {
+  public void setVariantSetIds(java.util.List<java.lang.String> value) {
     this.variantSetIds = value;
   }
 
@@ -85,7 +85,7 @@ public class SearchCallSetsRequest extends org.apache.avro.specific.SpecificReco
    * Gets the value of the 'name' field.
    * Only return call sets for which a substring of the name matches this
   string.   */
-  public java.lang.CharSequence getName() {
+  public java.lang.String getName() {
     return name;
   }
 
@@ -94,7 +94,7 @@ public class SearchCallSetsRequest extends org.apache.avro.specific.SpecificReco
    * Only return call sets for which a substring of the name matches this
   string.   * @param value the value to set.
    */
-  public void setName(java.lang.CharSequence value) {
+  public void setName(java.lang.String value) {
     this.name = value;
   }
 
@@ -120,7 +120,7 @@ public class SearchCallSetsRequest extends org.apache.avro.specific.SpecificReco
    * The continuation token, which is used to page through large result sets.
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response.   */
-  public java.lang.CharSequence getPageToken() {
+  public java.lang.String getPageToken() {
     return pageToken;
   }
 
@@ -130,7 +130,7 @@ public class SearchCallSetsRequest extends org.apache.avro.specific.SpecificReco
   To get the next page of results, set this parameter to the value of
   `nextPageToken` from the previous response.   * @param value the value to set.
    */
-  public void setPageToken(java.lang.CharSequence value) {
+  public void setPageToken(java.lang.String value) {
     this.pageToken = value;
   }
 
@@ -155,10 +155,10 @@ public class SearchCallSetsRequest extends org.apache.avro.specific.SpecificReco
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<SearchCallSetsRequest>
     implements org.apache.avro.data.RecordBuilder<SearchCallSetsRequest> {
 
-    private java.util.List<java.lang.CharSequence> variantSetIds;
-    private java.lang.CharSequence name;
+    private java.util.List<java.lang.String> variantSetIds;
+    private java.lang.String name;
     private java.lang.Integer pageSize;
-    private java.lang.CharSequence pageToken;
+    private java.lang.String pageToken;
 
     /** Creates a new Builder */
     private Builder() {
@@ -208,12 +208,12 @@ public class SearchCallSetsRequest extends org.apache.avro.specific.SpecificReco
     }
 
     /** Gets the value of the 'variantSetIds' field */
-    public java.util.List<java.lang.CharSequence> getVariantSetIds() {
+    public java.util.List<java.lang.String> getVariantSetIds() {
       return variantSetIds;
     }
     
     /** Sets the value of the 'variantSetIds' field */
-    public org.ga4gh.methods.SearchCallSetsRequest.Builder setVariantSetIds(java.util.List<java.lang.CharSequence> value) {
+    public org.ga4gh.methods.SearchCallSetsRequest.Builder setVariantSetIds(java.util.List<java.lang.String> value) {
       validate(fields()[0], value);
       this.variantSetIds = value;
       fieldSetFlags()[0] = true;
@@ -233,12 +233,12 @@ public class SearchCallSetsRequest extends org.apache.avro.specific.SpecificReco
     }
 
     /** Gets the value of the 'name' field */
-    public java.lang.CharSequence getName() {
+    public java.lang.String getName() {
       return name;
     }
     
     /** Sets the value of the 'name' field */
-    public org.ga4gh.methods.SearchCallSetsRequest.Builder setName(java.lang.CharSequence value) {
+    public org.ga4gh.methods.SearchCallSetsRequest.Builder setName(java.lang.String value) {
       validate(fields()[1], value);
       this.name = value;
       fieldSetFlags()[1] = true;
@@ -283,12 +283,12 @@ public class SearchCallSetsRequest extends org.apache.avro.specific.SpecificReco
     }
 
     /** Gets the value of the 'pageToken' field */
-    public java.lang.CharSequence getPageToken() {
+    public java.lang.String getPageToken() {
       return pageToken;
     }
     
     /** Sets the value of the 'pageToken' field */
-    public org.ga4gh.methods.SearchCallSetsRequest.Builder setPageToken(java.lang.CharSequence value) {
+    public org.ga4gh.methods.SearchCallSetsRequest.Builder setPageToken(java.lang.String value) {
       validate(fields()[3], value);
       this.pageToken = value;
       fieldSetFlags()[3] = true;
@@ -311,10 +311,10 @@ public class SearchCallSetsRequest extends org.apache.avro.specific.SpecificReco
     public SearchCallSetsRequest build() {
       try {
         SearchCallSetsRequest record = new SearchCallSetsRequest();
-        record.variantSetIds = fieldSetFlags()[0] ? this.variantSetIds : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[0]);
-        record.name = fieldSetFlags()[1] ? this.name : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.variantSetIds = fieldSetFlags()[0] ? this.variantSetIds : (java.util.List<java.lang.String>) defaultValue(fields()[0]);
+        record.name = fieldSetFlags()[1] ? this.name : (java.lang.String) defaultValue(fields()[1]);
         record.pageSize = fieldSetFlags()[2] ? this.pageSize : (java.lang.Integer) defaultValue(fields()[2]);
-        record.pageToken = fieldSetFlags()[3] ? this.pageToken : (java.lang.CharSequence) defaultValue(fields()[3]);
+        record.pageToken = fieldSetFlags()[3] ? this.pageToken : (java.lang.String) defaultValue(fields()[3]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

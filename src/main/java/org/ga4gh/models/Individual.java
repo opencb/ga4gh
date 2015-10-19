@@ -9,16 +9,16 @@ package org.ga4gh.models;
 human or other organism. */
 @org.apache.avro.specific.AvroGenerated
 public class Individual extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Individual\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"An individual (or subject) typically corresponds to an individual\\nhuman or other organism.\",\"fields\":[{\"name\":\"id\",\"type\":\"string\",\"doc\":\"The individual UUID. This is globally unique.\"},{\"name\":\"groupIds\",\"type\":{\"type\":\"array\",\"items\":\"string\"},\"doc\":\"The IDs of the individual groups this individual belongs to.\",\"default\":[]},{\"name\":\"name\",\"type\":[\"null\",\"string\"],\"doc\":\"The name of the individual.\",\"default\":null},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"doc\":\"A description of the individual.\",\"default\":null},{\"name\":\"created\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this individual was created in milliseconds from the epoch.\",\"default\":null},{\"name\":\"updated\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this individual was last updated in milliseconds\\n  from the epoch.\",\"default\":null},{\"name\":\"species\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"OntologyTerm\",\"doc\":\"An ontology term describing an attribute. (e.g. the phenotype attribute\\n'polydactyly' from HPO)\",\"fields\":[{\"name\":\"ontologySource\",\"type\":\"string\",\"doc\":\"The source of the onotology term.\\n  (e.g. `Ontology for Biomedical Investigation`)\"},{\"name\":\"id\",\"type\":\"string\",\"doc\":\"The ID defined by the external onotology source.\\n  (e.g. `http://purl.obolibrary.org/obo/OBI_0001271`)\"},{\"name\":\"name\",\"type\":[\"null\",\"string\"],\"doc\":\"The name of the onotology term. (e.g. `RNA-seq assay`)\",\"default\":null}]}],\"doc\":\"The species of this individual. Using\\n  [NCBI taxonomy](http://www.ncbi.nlm.nih.gov/taxonomy) is recommended.\\n  For a representation of an NCBI Taxon ID as an OntologyTerm, see\\n  [NCBITaxon Ontology](http://www.obofoundry.org/wiki/index.php/NCBITaxon:Main_Page).\\n  For example, 'Homo sapiens' has the ID 9606. The NCBITaxon ontology ID for this is\\n  NCBITaxon:9606, which has the URI http://purl.obolibrary.org/obo/NCBITaxon_9606\",\"default\":null},{\"name\":\"sex\",\"type\":{\"type\":\"enum\",\"name\":\"GeneticSex\",\"doc\":\"* `FEMALE`: Genetic/chromosomal female\\n* `MALE`: Genetic/chromosomal male\\n* `OTHER`: sex information ambiguous, e.g. not clear XX/XY/ZZ...\\n* `MIXED_SAMPLE`: Multiple samples, e.g. pooled, environmental\\n* `NOT_APPLICABLE`: Used for prokaryotes, snails, etc. Not used for humans.\",\"symbols\":[\"FEMALE\",\"MALE\",\"OTHER\",\"MIXED_SAMPLE\",\"NOT_APPLICABLE\"]},\"doc\":\"The genetic sex of this individual. Use `null` when unknown.\",\"default\":null},{\"name\":\"developmentalStage\",\"type\":[\"null\",\"OntologyTerm\"],\"doc\":\"The developmental stage of this individual. Using Uberon is recommended.\\n  TODO: Add link to uberon\",\"default\":null},{\"name\":\"dateOfBirth\",\"type\":[\"null\",\"long\"],\"doc\":\"The date of birth of this individual in milliseconds from the epoch.\\n  This field may be approximate.\",\"default\":null},{\"name\":\"diseases\",\"type\":{\"type\":\"array\",\"items\":\"OntologyTerm\"},\"doc\":\"Diseases with which the individual has been diagnosed.\\n  TODO: Is this the right representation?\",\"default\":[]},{\"name\":\"phenotypes\",\"type\":{\"type\":\"array\",\"items\":\"OntologyTerm\"},\"doc\":\"Phenotypes for this individual.\\n  TODO: Is this the right representation?\",\"default\":[]},{\"name\":\"stagingSystem\",\"type\":[\"null\",\"string\"],\"doc\":\"Disease area specific classification (e.g. classification of cancer samples\\n  such as Dukes)\",\"default\":null},{\"name\":\"clinicalTreatment\",\"type\":[\"null\",\"string\"],\"doc\":\"A description of the clinical treatment used for this individual.\",\"default\":null},{\"name\":\"strain\",\"type\":[\"null\",\"string\"],\"doc\":\"The strain of this individual, for non-humans.\",\"default\":null},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":\"string\"}},\"doc\":\"A map of additional individual information.\",\"default\":{}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Individual\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"An individual (or subject) typically corresponds to an individual\\nhuman or other organism.\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The individual UUID. This is globally unique.\"},{\"name\":\"groupIds\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"The IDs of the individual groups this individual belongs to.\",\"default\":[]},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The name of the individual.\",\"default\":null},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"A description of the individual.\",\"default\":null},{\"name\":\"created\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this individual was created in milliseconds from the epoch.\",\"default\":null},{\"name\":\"updated\",\"type\":[\"null\",\"long\"],\"doc\":\"The time at which this individual was last updated in milliseconds\\n  from the epoch.\",\"default\":null},{\"name\":\"species\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"OntologyTerm\",\"doc\":\"An ontology term describing an attribute. (e.g. the phenotype attribute\\n'polydactyly' from HPO)\",\"fields\":[{\"name\":\"ontologySource\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The source of the onotology term.\\n  (e.g. `Ontology for Biomedical Investigation`)\"},{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The ID defined by the external onotology source.\\n  (e.g. `http://purl.obolibrary.org/obo/OBI_0001271`)\"},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The name of the onotology term. (e.g. `RNA-seq assay`)\",\"default\":null}]}],\"doc\":\"The species of this individual. Using\\n  [NCBI taxonomy](http://www.ncbi.nlm.nih.gov/taxonomy) is recommended.\\n  For a representation of an NCBI Taxon ID as an OntologyTerm, see\\n  [NCBITaxon Ontology](http://www.obofoundry.org/wiki/index.php/NCBITaxon:Main_Page).\\n  For example, 'Homo sapiens' has the ID 9606. The NCBITaxon ontology ID for this is\\n  NCBITaxon:9606, which has the URI http://purl.obolibrary.org/obo/NCBITaxon_9606\",\"default\":null},{\"name\":\"sex\",\"type\":{\"type\":\"enum\",\"name\":\"GeneticSex\",\"doc\":\"* `FEMALE`: Genetic/chromosomal female\\n* `MALE`: Genetic/chromosomal male\\n* `OTHER`: sex information ambiguous, e.g. not clear XX/XY/ZZ...\\n* `MIXED_SAMPLE`: Multiple samples, e.g. pooled, environmental\\n* `NOT_APPLICABLE`: Used for prokaryotes, snails, etc. Not used for humans.\",\"symbols\":[\"FEMALE\",\"MALE\",\"OTHER\",\"MIXED_SAMPLE\",\"NOT_APPLICABLE\"]},\"doc\":\"The genetic sex of this individual. Use `null` when unknown.\",\"default\":null},{\"name\":\"developmentalStage\",\"type\":[\"null\",\"OntologyTerm\"],\"doc\":\"The developmental stage of this individual. Using Uberon is recommended.\\n  TODO: Add link to uberon\",\"default\":null},{\"name\":\"dateOfBirth\",\"type\":[\"null\",\"long\"],\"doc\":\"The date of birth of this individual in milliseconds from the epoch.\\n  This field may be approximate.\",\"default\":null},{\"name\":\"diseases\",\"type\":{\"type\":\"array\",\"items\":\"OntologyTerm\"},\"doc\":\"Diseases with which the individual has been diagnosed.\\n  TODO: Is this the right representation?\",\"default\":[]},{\"name\":\"phenotypes\",\"type\":{\"type\":\"array\",\"items\":\"OntologyTerm\"},\"doc\":\"Phenotypes for this individual.\\n  TODO: Is this the right representation?\",\"default\":[]},{\"name\":\"stagingSystem\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Disease area specific classification (e.g. classification of cancer samples\\n  such as Dukes)\",\"default\":null},{\"name\":\"clinicalTreatment\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"A description of the clinical treatment used for this individual.\",\"default\":null},{\"name\":\"strain\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The strain of this individual, for non-humans.\",\"default\":null},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"avro.java.string\":\"String\"},\"doc\":\"A map of additional individual information.\",\"default\":{}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The individual UUID. This is globally unique. */
-   private java.lang.CharSequence id;
+   private java.lang.String id;
   /** The IDs of the individual groups this individual belongs to. */
-   private java.util.List<java.lang.CharSequence> groupIds;
+   private java.util.List<java.lang.String> groupIds;
   /** The name of the individual. */
-   private java.lang.CharSequence name;
+   private java.lang.String name;
   /** A description of the individual. */
-   private java.lang.CharSequence description;
+   private java.lang.String description;
   /** The time at which this individual was created in milliseconds from the epoch. */
    private java.lang.Long created;
   /** The time at which this individual was last updated in milliseconds
@@ -47,13 +47,13 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
    private java.util.List<org.ga4gh.models.OntologyTerm> phenotypes;
   /** Disease area specific classification (e.g. classification of cancer samples
   such as Dukes) */
-   private java.lang.CharSequence stagingSystem;
+   private java.lang.String stagingSystem;
   /** A description of the clinical treatment used for this individual. */
-   private java.lang.CharSequence clinicalTreatment;
+   private java.lang.String clinicalTreatment;
   /** The strain of this individual, for non-humans. */
-   private java.lang.CharSequence strain;
+   private java.lang.String strain;
   /** A map of additional individual information. */
-   private java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info;
+   private java.util.Map<java.lang.String,java.util.List<java.lang.String>> info;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -65,7 +65,7 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
   /**
    * All-args constructor.
    */
-  public Individual(java.lang.CharSequence id, java.util.List<java.lang.CharSequence> groupIds, java.lang.CharSequence name, java.lang.CharSequence description, java.lang.Long created, java.lang.Long updated, org.ga4gh.models.OntologyTerm species, org.ga4gh.models.GeneticSex sex, org.ga4gh.models.OntologyTerm developmentalStage, java.lang.Long dateOfBirth, java.util.List<org.ga4gh.models.OntologyTerm> diseases, java.util.List<org.ga4gh.models.OntologyTerm> phenotypes, java.lang.CharSequence stagingSystem, java.lang.CharSequence clinicalTreatment, java.lang.CharSequence strain, java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info) {
+  public Individual(java.lang.String id, java.util.List<java.lang.String> groupIds, java.lang.String name, java.lang.String description, java.lang.Long created, java.lang.Long updated, org.ga4gh.models.OntologyTerm species, org.ga4gh.models.GeneticSex sex, org.ga4gh.models.OntologyTerm developmentalStage, java.lang.Long dateOfBirth, java.util.List<org.ga4gh.models.OntologyTerm> diseases, java.util.List<org.ga4gh.models.OntologyTerm> phenotypes, java.lang.String stagingSystem, java.lang.String clinicalTreatment, java.lang.String strain, java.util.Map<java.lang.String,java.util.List<java.lang.String>> info) {
     this.id = id;
     this.groupIds = groupIds;
     this.name = name;
@@ -111,10 +111,10 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: id = (java.lang.CharSequence)value$; break;
-    case 1: groupIds = (java.util.List<java.lang.CharSequence>)value$; break;
-    case 2: name = (java.lang.CharSequence)value$; break;
-    case 3: description = (java.lang.CharSequence)value$; break;
+    case 0: id = (java.lang.String)value$; break;
+    case 1: groupIds = (java.util.List<java.lang.String>)value$; break;
+    case 2: name = (java.lang.String)value$; break;
+    case 3: description = (java.lang.String)value$; break;
     case 4: created = (java.lang.Long)value$; break;
     case 5: updated = (java.lang.Long)value$; break;
     case 6: species = (org.ga4gh.models.OntologyTerm)value$; break;
@@ -123,10 +123,10 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
     case 9: dateOfBirth = (java.lang.Long)value$; break;
     case 10: diseases = (java.util.List<org.ga4gh.models.OntologyTerm>)value$; break;
     case 11: phenotypes = (java.util.List<org.ga4gh.models.OntologyTerm>)value$; break;
-    case 12: stagingSystem = (java.lang.CharSequence)value$; break;
-    case 13: clinicalTreatment = (java.lang.CharSequence)value$; break;
-    case 14: strain = (java.lang.CharSequence)value$; break;
-    case 15: info = (java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>>)value$; break;
+    case 12: stagingSystem = (java.lang.String)value$; break;
+    case 13: clinicalTreatment = (java.lang.String)value$; break;
+    case 14: strain = (java.lang.String)value$; break;
+    case 15: info = (java.util.Map<java.lang.String,java.util.List<java.lang.String>>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -134,7 +134,7 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
   /**
    * Gets the value of the 'id' field.
    * The individual UUID. This is globally unique.   */
-  public java.lang.CharSequence getId() {
+  public java.lang.String getId() {
     return id;
   }
 
@@ -142,14 +142,14 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'id' field.
    * The individual UUID. This is globally unique.   * @param value the value to set.
    */
-  public void setId(java.lang.CharSequence value) {
+  public void setId(java.lang.String value) {
     this.id = value;
   }
 
   /**
    * Gets the value of the 'groupIds' field.
    * The IDs of the individual groups this individual belongs to.   */
-  public java.util.List<java.lang.CharSequence> getGroupIds() {
+  public java.util.List<java.lang.String> getGroupIds() {
     return groupIds;
   }
 
@@ -157,14 +157,14 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'groupIds' field.
    * The IDs of the individual groups this individual belongs to.   * @param value the value to set.
    */
-  public void setGroupIds(java.util.List<java.lang.CharSequence> value) {
+  public void setGroupIds(java.util.List<java.lang.String> value) {
     this.groupIds = value;
   }
 
   /**
    * Gets the value of the 'name' field.
    * The name of the individual.   */
-  public java.lang.CharSequence getName() {
+  public java.lang.String getName() {
     return name;
   }
 
@@ -172,14 +172,14 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'name' field.
    * The name of the individual.   * @param value the value to set.
    */
-  public void setName(java.lang.CharSequence value) {
+  public void setName(java.lang.String value) {
     this.name = value;
   }
 
   /**
    * Gets the value of the 'description' field.
    * A description of the individual.   */
-  public java.lang.CharSequence getDescription() {
+  public java.lang.String getDescription() {
     return description;
   }
 
@@ -187,7 +187,7 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'description' field.
    * A description of the individual.   * @param value the value to set.
    */
-  public void setDescription(java.lang.CharSequence value) {
+  public void setDescription(java.lang.String value) {
     this.description = value;
   }
 
@@ -335,7 +335,7 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'stagingSystem' field.
    * Disease area specific classification (e.g. classification of cancer samples
   such as Dukes)   */
-  public java.lang.CharSequence getStagingSystem() {
+  public java.lang.String getStagingSystem() {
     return stagingSystem;
   }
 
@@ -344,14 +344,14 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
    * Disease area specific classification (e.g. classification of cancer samples
   such as Dukes)   * @param value the value to set.
    */
-  public void setStagingSystem(java.lang.CharSequence value) {
+  public void setStagingSystem(java.lang.String value) {
     this.stagingSystem = value;
   }
 
   /**
    * Gets the value of the 'clinicalTreatment' field.
    * A description of the clinical treatment used for this individual.   */
-  public java.lang.CharSequence getClinicalTreatment() {
+  public java.lang.String getClinicalTreatment() {
     return clinicalTreatment;
   }
 
@@ -359,14 +359,14 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'clinicalTreatment' field.
    * A description of the clinical treatment used for this individual.   * @param value the value to set.
    */
-  public void setClinicalTreatment(java.lang.CharSequence value) {
+  public void setClinicalTreatment(java.lang.String value) {
     this.clinicalTreatment = value;
   }
 
   /**
    * Gets the value of the 'strain' field.
    * The strain of this individual, for non-humans.   */
-  public java.lang.CharSequence getStrain() {
+  public java.lang.String getStrain() {
     return strain;
   }
 
@@ -374,14 +374,14 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'strain' field.
    * The strain of this individual, for non-humans.   * @param value the value to set.
    */
-  public void setStrain(java.lang.CharSequence value) {
+  public void setStrain(java.lang.String value) {
     this.strain = value;
   }
 
   /**
    * Gets the value of the 'info' field.
    * A map of additional individual information.   */
-  public java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> getInfo() {
+  public java.util.Map<java.lang.String,java.util.List<java.lang.String>> getInfo() {
     return info;
   }
 
@@ -389,7 +389,7 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'info' field.
    * A map of additional individual information.   * @param value the value to set.
    */
-  public void setInfo(java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> value) {
+  public void setInfo(java.util.Map<java.lang.String,java.util.List<java.lang.String>> value) {
     this.info = value;
   }
 
@@ -414,10 +414,10 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Individual>
     implements org.apache.avro.data.RecordBuilder<Individual> {
 
-    private java.lang.CharSequence id;
-    private java.util.List<java.lang.CharSequence> groupIds;
-    private java.lang.CharSequence name;
-    private java.lang.CharSequence description;
+    private java.lang.String id;
+    private java.util.List<java.lang.String> groupIds;
+    private java.lang.String name;
+    private java.lang.String description;
     private java.lang.Long created;
     private java.lang.Long updated;
     private org.ga4gh.models.OntologyTerm species;
@@ -426,10 +426,10 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
     private java.lang.Long dateOfBirth;
     private java.util.List<org.ga4gh.models.OntologyTerm> diseases;
     private java.util.List<org.ga4gh.models.OntologyTerm> phenotypes;
-    private java.lang.CharSequence stagingSystem;
-    private java.lang.CharSequence clinicalTreatment;
-    private java.lang.CharSequence strain;
-    private java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> info;
+    private java.lang.String stagingSystem;
+    private java.lang.String clinicalTreatment;
+    private java.lang.String strain;
+    private java.util.Map<java.lang.String,java.util.List<java.lang.String>> info;
 
     /** Creates a new Builder */
     private Builder() {
@@ -575,12 +575,12 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
     }
 
     /** Gets the value of the 'id' field */
-    public java.lang.CharSequence getId() {
+    public java.lang.String getId() {
       return id;
     }
     
     /** Sets the value of the 'id' field */
-    public org.ga4gh.models.Individual.Builder setId(java.lang.CharSequence value) {
+    public org.ga4gh.models.Individual.Builder setId(java.lang.String value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -600,12 +600,12 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
     }
 
     /** Gets the value of the 'groupIds' field */
-    public java.util.List<java.lang.CharSequence> getGroupIds() {
+    public java.util.List<java.lang.String> getGroupIds() {
       return groupIds;
     }
     
     /** Sets the value of the 'groupIds' field */
-    public org.ga4gh.models.Individual.Builder setGroupIds(java.util.List<java.lang.CharSequence> value) {
+    public org.ga4gh.models.Individual.Builder setGroupIds(java.util.List<java.lang.String> value) {
       validate(fields()[1], value);
       this.groupIds = value;
       fieldSetFlags()[1] = true;
@@ -625,12 +625,12 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
     }
 
     /** Gets the value of the 'name' field */
-    public java.lang.CharSequence getName() {
+    public java.lang.String getName() {
       return name;
     }
     
     /** Sets the value of the 'name' field */
-    public org.ga4gh.models.Individual.Builder setName(java.lang.CharSequence value) {
+    public org.ga4gh.models.Individual.Builder setName(java.lang.String value) {
       validate(fields()[2], value);
       this.name = value;
       fieldSetFlags()[2] = true;
@@ -650,12 +650,12 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
     }
 
     /** Gets the value of the 'description' field */
-    public java.lang.CharSequence getDescription() {
+    public java.lang.String getDescription() {
       return description;
     }
     
     /** Sets the value of the 'description' field */
-    public org.ga4gh.models.Individual.Builder setDescription(java.lang.CharSequence value) {
+    public org.ga4gh.models.Individual.Builder setDescription(java.lang.String value) {
       validate(fields()[3], value);
       this.description = value;
       fieldSetFlags()[3] = true;
@@ -875,12 +875,12 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
     }
 
     /** Gets the value of the 'stagingSystem' field */
-    public java.lang.CharSequence getStagingSystem() {
+    public java.lang.String getStagingSystem() {
       return stagingSystem;
     }
     
     /** Sets the value of the 'stagingSystem' field */
-    public org.ga4gh.models.Individual.Builder setStagingSystem(java.lang.CharSequence value) {
+    public org.ga4gh.models.Individual.Builder setStagingSystem(java.lang.String value) {
       validate(fields()[12], value);
       this.stagingSystem = value;
       fieldSetFlags()[12] = true;
@@ -900,12 +900,12 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
     }
 
     /** Gets the value of the 'clinicalTreatment' field */
-    public java.lang.CharSequence getClinicalTreatment() {
+    public java.lang.String getClinicalTreatment() {
       return clinicalTreatment;
     }
     
     /** Sets the value of the 'clinicalTreatment' field */
-    public org.ga4gh.models.Individual.Builder setClinicalTreatment(java.lang.CharSequence value) {
+    public org.ga4gh.models.Individual.Builder setClinicalTreatment(java.lang.String value) {
       validate(fields()[13], value);
       this.clinicalTreatment = value;
       fieldSetFlags()[13] = true;
@@ -925,12 +925,12 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
     }
 
     /** Gets the value of the 'strain' field */
-    public java.lang.CharSequence getStrain() {
+    public java.lang.String getStrain() {
       return strain;
     }
     
     /** Sets the value of the 'strain' field */
-    public org.ga4gh.models.Individual.Builder setStrain(java.lang.CharSequence value) {
+    public org.ga4gh.models.Individual.Builder setStrain(java.lang.String value) {
       validate(fields()[14], value);
       this.strain = value;
       fieldSetFlags()[14] = true;
@@ -950,12 +950,12 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
     }
 
     /** Gets the value of the 'info' field */
-    public java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> getInfo() {
+    public java.util.Map<java.lang.String,java.util.List<java.lang.String>> getInfo() {
       return info;
     }
     
     /** Sets the value of the 'info' field */
-    public org.ga4gh.models.Individual.Builder setInfo(java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>> value) {
+    public org.ga4gh.models.Individual.Builder setInfo(java.util.Map<java.lang.String,java.util.List<java.lang.String>> value) {
       validate(fields()[15], value);
       this.info = value;
       fieldSetFlags()[15] = true;
@@ -978,10 +978,10 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
     public Individual build() {
       try {
         Individual record = new Individual();
-        record.id = fieldSetFlags()[0] ? this.id : (java.lang.CharSequence) defaultValue(fields()[0]);
-        record.groupIds = fieldSetFlags()[1] ? this.groupIds : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[1]);
-        record.name = fieldSetFlags()[2] ? this.name : (java.lang.CharSequence) defaultValue(fields()[2]);
-        record.description = fieldSetFlags()[3] ? this.description : (java.lang.CharSequence) defaultValue(fields()[3]);
+        record.id = fieldSetFlags()[0] ? this.id : (java.lang.String) defaultValue(fields()[0]);
+        record.groupIds = fieldSetFlags()[1] ? this.groupIds : (java.util.List<java.lang.String>) defaultValue(fields()[1]);
+        record.name = fieldSetFlags()[2] ? this.name : (java.lang.String) defaultValue(fields()[2]);
+        record.description = fieldSetFlags()[3] ? this.description : (java.lang.String) defaultValue(fields()[3]);
         record.created = fieldSetFlags()[4] ? this.created : (java.lang.Long) defaultValue(fields()[4]);
         record.updated = fieldSetFlags()[5] ? this.updated : (java.lang.Long) defaultValue(fields()[5]);
         record.species = fieldSetFlags()[6] ? this.species : (org.ga4gh.models.OntologyTerm) defaultValue(fields()[6]);
@@ -990,10 +990,10 @@ public class Individual extends org.apache.avro.specific.SpecificRecordBase impl
         record.dateOfBirth = fieldSetFlags()[9] ? this.dateOfBirth : (java.lang.Long) defaultValue(fields()[9]);
         record.diseases = fieldSetFlags()[10] ? this.diseases : (java.util.List<org.ga4gh.models.OntologyTerm>) defaultValue(fields()[10]);
         record.phenotypes = fieldSetFlags()[11] ? this.phenotypes : (java.util.List<org.ga4gh.models.OntologyTerm>) defaultValue(fields()[11]);
-        record.stagingSystem = fieldSetFlags()[12] ? this.stagingSystem : (java.lang.CharSequence) defaultValue(fields()[12]);
-        record.clinicalTreatment = fieldSetFlags()[13] ? this.clinicalTreatment : (java.lang.CharSequence) defaultValue(fields()[13]);
-        record.strain = fieldSetFlags()[14] ? this.strain : (java.lang.CharSequence) defaultValue(fields()[14]);
-        record.info = fieldSetFlags()[15] ? this.info : (java.util.Map<java.lang.CharSequence,java.util.List<java.lang.CharSequence>>) defaultValue(fields()[15]);
+        record.stagingSystem = fieldSetFlags()[12] ? this.stagingSystem : (java.lang.String) defaultValue(fields()[12]);
+        record.clinicalTreatment = fieldSetFlags()[13] ? this.clinicalTreatment : (java.lang.String) defaultValue(fields()[13]);
+        record.strain = fieldSetFlags()[14] ? this.strain : (java.lang.String) defaultValue(fields()[14]);
+        record.info = fieldSetFlags()[15] ? this.info : (java.util.Map<java.lang.String,java.util.List<java.lang.String>>) defaultValue(fields()[15]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
