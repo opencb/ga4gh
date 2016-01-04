@@ -5,10 +5,10 @@
  */
 package org.ga4gh.models;  
 @SuppressWarnings("all")
-/** This metadata represents VCF header information. */
+/** Optional metadata associated with a variant set. */
 @org.apache.avro.specific.AvroGenerated
 public class VariantSetMetadata extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"VariantSetMetadata\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"This metadata represents VCF header information.\",\"fields\":[{\"name\":\"key\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The top-level key.\"},{\"name\":\"value\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The value field for simple metadata.\"},{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"User-provided ID field, not enforced by this API.\\n  Two or more pieces of structured metadata with identical\\n  id and key fields are considered equivalent.\"},{\"name\":\"type\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The type of data.\"},{\"name\":\"number\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The number of values that can be included in a field described by this\\n  metadata.\"},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"A textual description of this metadata.\"},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"avro.java.string\":\"String\"},\"doc\":\"Remaining structured metadata key-value pairs.\",\"default\":{}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"VariantSetMetadata\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"Optional metadata associated with a variant set.\",\"fields\":[{\"name\":\"key\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The top-level key.\"},{\"name\":\"value\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The value field for simple metadata.\"},{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"User-provided ID field, not enforced by this API.\\n  Two or more pieces of structured metadata with identical\\n  id and key fields are considered equivalent.\\n  `FIXME: If it's not enforced, then why can't it be null?`\"},{\"name\":\"type\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The type of data.\"},{\"name\":\"number\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The number of values that can be included in a field described by this\\n  metadata.\"},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"A textual description of this metadata.\"},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"avro.java.string\":\"String\"},\"doc\":\"Remaining structured metadata key-value pairs.\",\"default\":{}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The top-level key. */
    private java.lang.String key;
@@ -16,7 +16,8 @@ public class VariantSetMetadata extends org.apache.avro.specific.SpecificRecordB
    private java.lang.String value;
   /** User-provided ID field, not enforced by this API.
   Two or more pieces of structured metadata with identical
-  id and key fields are considered equivalent. */
+  id and key fields are considered equivalent.
+  `FIXME: If it's not enforced, then why can't it be null?` */
    private java.lang.String id;
   /** The type of data. */
    private java.lang.String type;
@@ -111,7 +112,8 @@ public class VariantSetMetadata extends org.apache.avro.specific.SpecificRecordB
    * Gets the value of the 'id' field.
    * User-provided ID field, not enforced by this API.
   Two or more pieces of structured metadata with identical
-  id and key fields are considered equivalent.   */
+  id and key fields are considered equivalent.
+  `FIXME: If it's not enforced, then why can't it be null?`   */
   public java.lang.String getId() {
     return id;
   }
@@ -120,7 +122,8 @@ public class VariantSetMetadata extends org.apache.avro.specific.SpecificRecordB
    * Sets the value of the 'id' field.
    * User-provided ID field, not enforced by this API.
   Two or more pieces of structured metadata with identical
-  id and key fields are considered equivalent.   * @param value the value to set.
+  id and key fields are considered equivalent.
+  `FIXME: If it's not enforced, then why can't it be null?`   * @param value the value to set.
    */
   public void setId(java.lang.String value) {
     this.id = value;

@@ -8,9 +8,9 @@ package org.ga4gh.methods;
 /** The response from `GET /references/{id}/bases` expressed as JSON. */
 @org.apache.avro.specific.AvroGenerated
 public class ListReferenceBasesResponse extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ListReferenceBasesResponse\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"The response from `GET /references/{id}/bases` expressed as JSON.\",\"fields\":[{\"name\":\"offset\",\"type\":\"long\",\"doc\":\"The offset position (0-based) of the given `sequence` from the start of this\\n  `Reference`. This value will differ for each page in a paginated request.\",\"default\":0},{\"name\":\"sequence\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"A substring of the bases that make up this reference. Bases are represented\\n  as IUPAC-IUB codes; this string matches the regexp `[ACGTMRWSYKVHDBN]*`.\"},{\"name\":\"nextPageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  Provide this value in a subsequent request to return the next page of\\n  results. This field will be empty if there aren't any additional results.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ListReferenceBasesResponse\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"The response from `GET /references/{id}/bases` expressed as JSON.\",\"fields\":[{\"name\":\"offset\",\"type\":\"long\",\"doc\":\"The offset position (0-based) of the given sequence from the start of this\\n  `Reference`. This value will differ for each page in a paginated request.\",\"default\":0},{\"name\":\"sequence\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"A substring of the bases that make up this reference. Bases are represented\\n  as IUPAC-IUB codes; this string matches the regexp `[ACGTMRWSYKVHDBN]*`.\"},{\"name\":\"nextPageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  Provide this value in a subsequent request to return the next page of\\n  results. This field will be empty if there aren't any additional results.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
-  /** The offset position (0-based) of the given `sequence` from the start of this
+  /** The offset position (0-based) of the given sequence from the start of this
   `Reference`. This value will differ for each page in a paginated request. */
    private long offset;
   /** A substring of the bases that make up this reference. Bases are represented
@@ -60,7 +60,7 @@ public class ListReferenceBasesResponse extends org.apache.avro.specific.Specifi
 
   /**
    * Gets the value of the 'offset' field.
-   * The offset position (0-based) of the given `sequence` from the start of this
+   * The offset position (0-based) of the given sequence from the start of this
   `Reference`. This value will differ for each page in a paginated request.   */
   public java.lang.Long getOffset() {
     return offset;
@@ -68,7 +68,7 @@ public class ListReferenceBasesResponse extends org.apache.avro.specific.Specifi
 
   /**
    * Sets the value of the 'offset' field.
-   * The offset position (0-based) of the given `sequence` from the start of this
+   * The offset position (0-based) of the given sequence from the start of this
   `Reference`. This value will differ for each page in a paginated request.   * @param value the value to set.
    */
   public void setOffset(java.lang.Long value) {

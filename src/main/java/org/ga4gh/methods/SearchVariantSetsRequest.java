@@ -8,11 +8,10 @@ package org.ga4gh.methods;
 /** This request maps to the body of `POST /variantsets/search` as JSON. */
 @org.apache.avro.specific.AvroGenerated
 public class SearchVariantSetsRequest extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchVariantSetsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /variantsets/search` as JSON.\",\"fields\":[{\"name\":\"datasetIds\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"If nonempty, will restrict the query to variant sets within the\\n  given datasets.\",\"default\":[]},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchVariantSetsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /variantsets/search` as JSON.\",\"fields\":[{\"name\":\"datasetId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The `Dataset` to search.\"},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
-  /** If nonempty, will restrict the query to variant sets within the
-  given datasets. */
-   private java.util.List<java.lang.String> datasetIds;
+  /** The `Dataset` to search. */
+   private java.lang.String datasetId;
   /** Specifies the maximum number of results to return in a single page.
   If unspecified, a system default will be used. */
    private java.lang.Integer pageSize;
@@ -31,8 +30,8 @@ public class SearchVariantSetsRequest extends org.apache.avro.specific.SpecificR
   /**
    * All-args constructor.
    */
-  public SearchVariantSetsRequest(java.util.List<java.lang.String> datasetIds, java.lang.Integer pageSize, java.lang.String pageToken) {
-    this.datasetIds = datasetIds;
+  public SearchVariantSetsRequest(java.lang.String datasetId, java.lang.Integer pageSize, java.lang.String pageToken) {
+    this.datasetId = datasetId;
     this.pageSize = pageSize;
     this.pageToken = pageToken;
   }
@@ -41,7 +40,7 @@ public class SearchVariantSetsRequest extends org.apache.avro.specific.SpecificR
   // Used by DatumWriter.  Applications should not call. 
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return datasetIds;
+    case 0: return datasetId;
     case 1: return pageSize;
     case 2: return pageToken;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
@@ -51,7 +50,7 @@ public class SearchVariantSetsRequest extends org.apache.avro.specific.SpecificR
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: datasetIds = (java.util.List<java.lang.String>)value$; break;
+    case 0: datasetId = (java.lang.String)value$; break;
     case 1: pageSize = (java.lang.Integer)value$; break;
     case 2: pageToken = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
@@ -59,20 +58,18 @@ public class SearchVariantSetsRequest extends org.apache.avro.specific.SpecificR
   }
 
   /**
-   * Gets the value of the 'datasetIds' field.
-   * If nonempty, will restrict the query to variant sets within the
-  given datasets.   */
-  public java.util.List<java.lang.String> getDatasetIds() {
-    return datasetIds;
+   * Gets the value of the 'datasetId' field.
+   * The `Dataset` to search.   */
+  public java.lang.String getDatasetId() {
+    return datasetId;
   }
 
   /**
-   * Sets the value of the 'datasetIds' field.
-   * If nonempty, will restrict the query to variant sets within the
-  given datasets.   * @param value the value to set.
+   * Sets the value of the 'datasetId' field.
+   * The `Dataset` to search.   * @param value the value to set.
    */
-  public void setDatasetIds(java.util.List<java.lang.String> value) {
-    this.datasetIds = value;
+  public void setDatasetId(java.lang.String value) {
+    this.datasetId = value;
   }
 
   /**
@@ -132,7 +129,7 @@ public class SearchVariantSetsRequest extends org.apache.avro.specific.SpecificR
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<SearchVariantSetsRequest>
     implements org.apache.avro.data.RecordBuilder<SearchVariantSetsRequest> {
 
-    private java.util.List<java.lang.String> datasetIds;
+    private java.lang.String datasetId;
     private java.lang.Integer pageSize;
     private java.lang.String pageToken;
 
@@ -144,8 +141,8 @@ public class SearchVariantSetsRequest extends org.apache.avro.specific.SpecificR
     /** Creates a Builder by copying an existing Builder */
     private Builder(org.ga4gh.methods.SearchVariantSetsRequest.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.datasetIds)) {
-        this.datasetIds = data().deepCopy(fields()[0].schema(), other.datasetIds);
+      if (isValidValue(fields()[0], other.datasetId)) {
+        this.datasetId = data().deepCopy(fields()[0].schema(), other.datasetId);
         fieldSetFlags()[0] = true;
       }
       if (isValidValue(fields()[1], other.pageSize)) {
@@ -161,8 +158,8 @@ public class SearchVariantSetsRequest extends org.apache.avro.specific.SpecificR
     /** Creates a Builder by copying an existing SearchVariantSetsRequest instance */
     private Builder(org.ga4gh.methods.SearchVariantSetsRequest other) {
             super(org.ga4gh.methods.SearchVariantSetsRequest.SCHEMA$);
-      if (isValidValue(fields()[0], other.datasetIds)) {
-        this.datasetIds = data().deepCopy(fields()[0].schema(), other.datasetIds);
+      if (isValidValue(fields()[0], other.datasetId)) {
+        this.datasetId = data().deepCopy(fields()[0].schema(), other.datasetId);
         fieldSetFlags()[0] = true;
       }
       if (isValidValue(fields()[1], other.pageSize)) {
@@ -175,27 +172,27 @@ public class SearchVariantSetsRequest extends org.apache.avro.specific.SpecificR
       }
     }
 
-    /** Gets the value of the 'datasetIds' field */
-    public java.util.List<java.lang.String> getDatasetIds() {
-      return datasetIds;
+    /** Gets the value of the 'datasetId' field */
+    public java.lang.String getDatasetId() {
+      return datasetId;
     }
     
-    /** Sets the value of the 'datasetIds' field */
-    public org.ga4gh.methods.SearchVariantSetsRequest.Builder setDatasetIds(java.util.List<java.lang.String> value) {
+    /** Sets the value of the 'datasetId' field */
+    public org.ga4gh.methods.SearchVariantSetsRequest.Builder setDatasetId(java.lang.String value) {
       validate(fields()[0], value);
-      this.datasetIds = value;
+      this.datasetId = value;
       fieldSetFlags()[0] = true;
       return this; 
     }
     
-    /** Checks whether the 'datasetIds' field has been set */
-    public boolean hasDatasetIds() {
+    /** Checks whether the 'datasetId' field has been set */
+    public boolean hasDatasetId() {
       return fieldSetFlags()[0];
     }
     
-    /** Clears the value of the 'datasetIds' field */
-    public org.ga4gh.methods.SearchVariantSetsRequest.Builder clearDatasetIds() {
-      datasetIds = null;
+    /** Clears the value of the 'datasetId' field */
+    public org.ga4gh.methods.SearchVariantSetsRequest.Builder clearDatasetId() {
+      datasetId = null;
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -254,7 +251,7 @@ public class SearchVariantSetsRequest extends org.apache.avro.specific.SpecificR
     public SearchVariantSetsRequest build() {
       try {
         SearchVariantSetsRequest record = new SearchVariantSetsRequest();
-        record.datasetIds = fieldSetFlags()[0] ? this.datasetIds : (java.util.List<java.lang.String>) defaultValue(fields()[0]);
+        record.datasetId = fieldSetFlags()[0] ? this.datasetId : (java.lang.String) defaultValue(fields()[0]);
         record.pageSize = fieldSetFlags()[1] ? this.pageSize : (java.lang.Integer) defaultValue(fields()[1]);
         record.pageToken = fieldSetFlags()[2] ? this.pageToken : (java.lang.String) defaultValue(fields()[2]);
         return record;

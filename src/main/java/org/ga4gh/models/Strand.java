@@ -6,12 +6,11 @@
 package org.ga4gh.models;  
 @SuppressWarnings("all")
 /** Indicates the DNA strand associate for some data item.
-* `POS_STRAND`:  The postive (+) strand.
 * `NEG_STRAND`: The negative (-) strand.
-* `NO_STRAND`: Strand-independent data or data where the strand can not be determined. */
+* `POS_STRAND`:  The postive (+) strand. */
 @org.apache.avro.specific.AvroGenerated
 public enum Strand { 
-  POS_STRAND, NEG_STRAND, NO_STRAND  ;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"enum\",\"name\":\"Strand\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"Indicates the DNA strand associate for some data item.\\n* `POS_STRAND`:  The postive (+) strand.\\n* `NEG_STRAND`: The negative (-) strand.\\n* `NO_STRAND`: Strand-independent data or data where the strand can not be determined.\",\"symbols\":[\"POS_STRAND\",\"NEG_STRAND\",\"NO_STRAND\"]}");
+  NEG_STRAND, POS_STRAND  ;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"enum\",\"name\":\"Strand\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"Indicates the DNA strand associate for some data item.\\n* `NEG_STRAND`: The negative (-) strand.\\n* `POS_STRAND`:  The postive (+) strand.\",\"symbols\":[\"NEG_STRAND\",\"POS_STRAND\"]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 }

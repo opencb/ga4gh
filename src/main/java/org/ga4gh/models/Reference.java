@@ -9,77 +9,28 @@ package org.ga4gh.models;
 reference coordinate space for other genomic annotations. A single
 `Reference` might represent the human chromosome 1, for instance.
 
-`Reference`s are designed to be immutable. When extending a `ReferenceSet` with
-new `Reference`s, the existing `References` should not be changed. Newly added
-`Reference` sequences may be children of existing `Reference` sequences, but
-existing `Reference` sequences should not be made to be children of newly added
-`Reference` sequences.
-
-An API server that supports the "graph" mode must always set the `segment`
-field. An API server that supports the "classic" mode must always set the `id`
-field. New client and server implementations should prefer the "graph" mode. */
+`Reference`s are designed to be immutable. */
 @org.apache.avro.specific.AvroGenerated
 public class Reference extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Reference\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"A `Reference` is a canonical assembled contig, intended to act as a\\nreference coordinate space for other genomic annotations. A single\\n`Reference` might represent the human chromosome 1, for instance.\\n\\n`Reference`s are designed to be immutable. When extending a `ReferenceSet` with\\nnew `Reference`s, the existing `References` should not be changed. Newly added\\n`Reference` sequences may be children of existing `Reference` sequences, but\\nexisting `Reference` sequences should not be made to be children of newly added\\n`Reference` sequences.\\n\\nAn API server that supports the \\\"graph\\\" mode must always set the `segment`\\nfield. An API server that supports the \\\"classic\\\" mode must always set the `id`\\nfield. New client and server implementations should prefer the \\\"graph\\\" mode.\",\"fields\":[{\"name\":\"segment\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Segment\",\"doc\":\"A `Segment` is a range on a sequence, possibly including the joins at the\\nsequence's ends. It does not include base data. (The bases for a sequence are\\navailable through the `getSequenceBases()` API call.)\\n\\nIn the sequence \\\"GTGG\\\", the segment starting at index 1 on the forward strand\\nwith length 2 is the \\\"TG\\\" on the forward strand. The length-2 segment starting\\nat index 1 on the reverse strand is \\\"AC\\\", corresponding to the first two base\\npairs of the sequence, or the last two bases of the reverse complement.\",\"fields\":[{\"name\":\"start\",\"type\":{\"type\":\"record\",\"name\":\"Position\",\"doc\":\"A `Position` is a side of a base pair in some already known sequence. A\\n`Position` is represented by a sequence name or ID, a base number on that\\nsequence (0-based), and a `Strand` to indicate the left or right side.\\n\\nFor example, given the sequence \\\"GTGG\\\", the `Position` on that sequence at\\noffset 1 in the forward orientation would be the left side of the T/A base pair.\\nThe base at this `Position` is \\\"T\\\". Alternately, for offset 1 in the reverse\\norientation, the `Position` would be the right side of the T/A base pair, and\\nthe base at the `Position` is \\\"A\\\".\\n\\nOffsets added to a `Position` are interpreted as reading along its strand;\\nadding to a reverse strand position actually subtracts from its `position`\\nmember.\",\"fields\":[{\"name\":\"referenceName\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The name of the reference sequence in whatever reference set is being used.\\n  Does not generally include a \\\"chr\\\" prefix, so for example \\\"X\\\" would be used\\n  for the X chromosome.\\n\\n  If `sequenceId` is null, this must not be null.\",\"default\":null},{\"name\":\"sequenceId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The ID of the sequence on which the `Position` is located. This may be a\\n  `Reference` sequence, or a novel piece of sequence associated with a\\n  `VariantSet`.\\n\\n  If `referenceName` is null, this must not be null.\\n\\n  If the server supports the \\\"graph\\\" mode, this must not be null.\",\"default\":null},{\"name\":\"position\",\"type\":\"long\",\"doc\":\"The 0-based offset from the start of the forward strand for that sequence.\\n  Genomic positions are non-negative integers less than sequence length.\"},{\"name\":\"strand\",\"type\":{\"type\":\"enum\",\"name\":\"Strand\",\"doc\":\"Indicates the DNA strand associate for some data item.\\n* `POS_STRAND`:  The postive (+) strand.\\n* `NEG_STRAND`: The negative (-) strand.\\n* `NO_STRAND`: Strand-independent data or data where the strand can not be determined.\",\"symbols\":[\"POS_STRAND\",\"NEG_STRAND\",\"NO_STRAND\"]},\"doc\":\"Strand the position is associated with. `POS_STRAND` represents the forward\\n  strand, or equivalently the left side of a base, and `NEG_STRAND` represents\\n  the reverse strand, or equivalently the right side of a base.\"}]},\"doc\":\"The sequence ID and start index of this `Segment`. This base is always\\n  included in the segment, regardless of orientation.\"},{\"name\":\"length\",\"type\":\"long\",\"doc\":\"The length of this `Segment`'s sequence. If `start` is on the forward strand,\\n  the `Segment` contains the range [`start.position`, `start.position` +\\n  `length`). If `start` is on the reverse strand, the `Segment` contains the\\n  range (`start.position` - `length`, `start.position`]. This is equivalent to\\n  starting from the side indicated by `start`, and traversing through that base\\n  out to the specified length.\"},{\"name\":\"startJoin\",\"type\":[\"null\",\"Position\"],\"doc\":\"Start and end `Position`s where this `Segment` attaches to other sequences.\\n  Note that the segmentId for start and end might not be the same. The\\n  `Segment`s covering the sequences onto which this `Segment` is joined are\\n  called its \\\"parents\\\", while this segment is a \\\"child\\\".\\n\\n  Joins may occur on the outer sides of the terminal bases in a sequence: the\\n  left side of the base at index 0, and the right side of the base with maximum\\n  index. These are the \\\"terminal sides\\\" of the sequence. `startJoin` is the join\\n  on the side indicated by `start`, and may only be set if that side is a\\n  terminal side. Similarly, `endJoin` is the join on the opposite side of the\\n  piece of sequence selected by the segment, and may only be set if that side is\\n  a terminal side. The value of `startJoin` or `endJoin`, if set, is the side to\\n  which the corresponding side of this `Sequence` is connected.\",\"default\":null},{\"name\":\"endJoin\",\"type\":[\"null\",\"Position\"],\"default\":null}]}],\"doc\":\"The `Segment` describing this `Reference`'s sequence in the `ReferenceSet`'s\\n  sequence graph.\\n\\n  The `Segment` will generally cover the entirety of the sequence, but may be\\n  shorter if only a subrange of a sequence is to be included in the\\n  `ReferenceSet`.\\n\\n  The sequence ID of the `Segment` is equal to ID of the `Reference`. The\\n  actual sequence bases for a `Reference` are available through the\\n  `getSequenceBases()` API call on this `Reference`'s sequence.\\n\\n  If the API server supports the \\\"graph\\\" mode, this field must not be null.\",\"default\":null},{\"name\":\"id\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The reference ID. Unique within the repository. A sequence with this ID\\n  exists, containing the reference's bases. If null, `segment` must be set, and\\n  the sequence ID field from `segment` is used.\\n\\n  If the API server supports the \\\"classic\\\" mode, this field must not be null.\",\"default\":null},{\"name\":\"length\",\"type\":\"long\",\"doc\":\"The length of this reference's sequence.\"},{\"name\":\"md5checksum\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The MD5 checksum uniquely representing this `Reference` and its position in\\n  the `ReferenceSet`'s sequence graph, as a lower-case hexadecimal string.\\n\\n  If `segment.startJoin` and `segment.endJoin` are both null, or `segment`\\n  itself is null, this is the MD5 of the upper-case sequence excluding all\\n  whitespace characters (this is equivalent to SQ:M5 in SAM).\\n\\n  Otherwise, this hash is to be computed as follows:\\n\\n  * Initialize a new MD5 hashing state.\\n\\n  * Add in the the MD5 of the upper-case sequence excluding all whitespace\\n  characters, as a lower-case hexadecimal string.\\n\\n  * If `segment.startJoin` is null, add in 32 '0' characters. Otherwise add in\\n  the `md5checksum` of the `Reference` indicated by `segment.startJoin`,\\n  `segment.startJoin.position` as a decimal string, and\\n  `segment.startJoin.strand` as either \\\"+\\\" or \\\"-\\\".\\n\\n  * If `segment.endJoin` is null, add in 32 '0' characters. Otherwise add in\\n  the `md5checksum` of the `Reference` indicated by `segment.endJoin`,\\n  `segment.endJoin.position` as a decimal string, and `segment.endJoin.strand`\\n  as either \\\"+\\\" or \\\"-\\\".\\n\\n  * Compute the digest and represent it as a lower-case hexadecimal string.\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The name of this reference. (e.g. '22') Also see the\\n  `names` field on the parent `ReferenceSet`.\"},{\"name\":\"sourceURI\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The URI from which the sequence was obtained.\\n  Specifies a FASTA format file/string with one name, sequence pair.\\n  In most ca","ses, clients should call the `getSequenceBases()` or\\n  `getReferenceBases()` methods to obtain sequence bases for a `Reference`\\n  instead of attempting to retrieve this URI.\",\"default\":null},{\"name\":\"sourceAccessions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally\\n  with a version number, e.g. `GCF_000001405.26`.\"},{\"name\":\"isDerived\",\"type\":\"boolean\",\"doc\":\"A sequence X is said to be derived from source sequence Y, if X and Y\\n  are of the same length and the per-base sequence divergence at A/C/G/T bases\\n  is sufficiently small. Two sequences derived from the same official\\n  sequence share the same coordinates and annotations, and\\n  can be replaced with the official sequence for certain use cases.\",\"default\":false},{\"name\":\"sourceDivergence\",\"type\":[\"null\",\"float\"],\"doc\":\"The `sourceDivergence` is the fraction of non-indel bases that do not match the\\n  reference this record was derived from.\",\"default\":null},{\"name\":\"ncbiTaxonId\",\"type\":[\"null\",\"int\"],\"doc\":\"ID from http://www.ncbi.nlm.nih.gov/taxonomy (e.g. 9606->human).\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Reference\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"A `Reference` is a canonical assembled contig, intended to act as a\\nreference coordinate space for other genomic annotations. A single\\n`Reference` might represent the human chromosome 1, for instance.\\n\\n`Reference`s are designed to be immutable.\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The reference ID. Unique within the repository.\"},{\"name\":\"length\",\"type\":\"long\",\"doc\":\"The length of this reference's sequence.\"},{\"name\":\"md5checksum\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The MD5 checksum uniquely representing this `Reference` as a lower-case\\n  hexadecimal string, calculated as the MD5 of the upper-case sequence\\n  excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The name of this reference. (e.g. '22').\"},{\"name\":\"sourceURI\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The URI from which the sequence was obtained. Specifies a FASTA format\\n  file/string with one name, sequence pair. In most cases, clients should call\\n  the `getReferenceBases()` method to obtain sequence bases for a `Reference`\\n  instead of attempting to retrieve this URI.\",\"default\":null},{\"name\":\"sourceAccessions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include\\n  a version number, e.g. `GCF_000001405.26`.\"},{\"name\":\"isDerived\",\"type\":\"boolean\",\"doc\":\"A sequence X is said to be derived from source sequence Y, if X and Y\\n  are of the same length and the per-base sequence divergence at A/C/G/T bases\\n  is sufficiently small. Two sequences derived from the same official\\n  sequence share the same coordinates and annotations, and\\n  can be replaced with the official sequence for certain use cases.\",\"default\":false},{\"name\":\"sourceDivergence\",\"type\":[\"null\",\"float\"],\"doc\":\"The `sourceDivergence` is the fraction of non-indel bases that do not match the\\n  reference this record was derived from.\",\"default\":null},{\"name\":\"ncbiTaxonId\",\"type\":[\"null\",\"int\"],\"doc\":\"ID from http://www.ncbi.nlm.nih.gov/taxonomy (e.g. 9606->human).\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
-  /** The `Segment` describing this `Reference`'s sequence in the `ReferenceSet`'s
-  sequence graph.
-
-  The `Segment` will generally cover the entirety of the sequence, but may be
-  shorter if only a subrange of a sequence is to be included in the
-  `ReferenceSet`.
-
-  The sequence ID of the `Segment` is equal to ID of the `Reference`. The
-  actual sequence bases for a `Reference` are available through the
-  `getSequenceBases()` API call on this `Reference`'s sequence.
-
-  If the API server supports the "graph" mode, this field must not be null. */
-   private org.ga4gh.models.Segment segment;
-  /** The reference ID. Unique within the repository. A sequence with this ID
-  exists, containing the reference's bases. If null, `segment` must be set, and
-  the sequence ID field from `segment` is used.
-
-  If the API server supports the "classic" mode, this field must not be null. */
+  /** The reference ID. Unique within the repository. */
    private java.lang.String id;
   /** The length of this reference's sequence. */
    private long length;
-  /** The MD5 checksum uniquely representing this `Reference` and its position in
-  the `ReferenceSet`'s sequence graph, as a lower-case hexadecimal string.
-
-  If `segment.startJoin` and `segment.endJoin` are both null, or `segment`
-  itself is null, this is the MD5 of the upper-case sequence excluding all
-  whitespace characters (this is equivalent to SQ:M5 in SAM).
-
-  Otherwise, this hash is to be computed as follows:
-
-  * Initialize a new MD5 hashing state.
-
-  * Add in the the MD5 of the upper-case sequence excluding all whitespace
-  characters, as a lower-case hexadecimal string.
-
-  * If `segment.startJoin` is null, add in 32 '0' characters. Otherwise add in
-  the `md5checksum` of the `Reference` indicated by `segment.startJoin`,
-  `segment.startJoin.position` as a decimal string, and
-  `segment.startJoin.strand` as either "+" or "-".
-
-  * If `segment.endJoin` is null, add in 32 '0' characters. Otherwise add in
-  the `md5checksum` of the `Reference` indicated by `segment.endJoin`,
-  `segment.endJoin.position` as a decimal string, and `segment.endJoin.strand`
-  as either "+" or "-".
-
-  * Compute the digest and represent it as a lower-case hexadecimal string. */
+  /** The MD5 checksum uniquely representing this `Reference` as a lower-case
+  hexadecimal string, calculated as the MD5 of the upper-case sequence
+  excluding all whitespace characters (this is equivalent to SQ:M5 in SAM). */
    private java.lang.String md5checksum;
-  /** The name of this reference. (e.g. '22') Also see the
-  `names` field on the parent `ReferenceSet`. */
+  /** The name of this reference. (e.g. '22'). */
    private java.lang.String name;
-  /** The URI from which the sequence was obtained.
-  Specifies a FASTA format file/string with one name, sequence pair.
-  In most cases, clients should call the `getSequenceBases()` or
-  `getReferenceBases()` methods to obtain sequence bases for a `Reference`
+  /** The URI from which the sequence was obtained. Specifies a FASTA format
+  file/string with one name, sequence pair. In most cases, clients should call
+  the `getReferenceBases()` method to obtain sequence bases for a `Reference`
   instead of attempting to retrieve this URI. */
    private java.lang.String sourceURI;
-  /** All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally
-  with a version number, e.g. `GCF_000001405.26`. */
+  /** All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include
+  a version number, e.g. `GCF_000001405.26`. */
    private java.util.List<java.lang.String> sourceAccessions;
   /** A sequence X is said to be derived from source sequence Y, if X and Y
   are of the same length and the per-base sequence divergence at A/C/G/T bases
@@ -103,8 +54,7 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
   /**
    * All-args constructor.
    */
-  public Reference(org.ga4gh.models.Segment segment, java.lang.String id, java.lang.Long length, java.lang.String md5checksum, java.lang.String name, java.lang.String sourceURI, java.util.List<java.lang.String> sourceAccessions, java.lang.Boolean isDerived, java.lang.Float sourceDivergence, java.lang.Integer ncbiTaxonId) {
-    this.segment = segment;
+  public Reference(java.lang.String id, java.lang.Long length, java.lang.String md5checksum, java.lang.String name, java.lang.String sourceURI, java.util.List<java.lang.String> sourceAccessions, java.lang.Boolean isDerived, java.lang.Float sourceDivergence, java.lang.Integer ncbiTaxonId) {
     this.id = id;
     this.length = length;
     this.md5checksum = md5checksum;
@@ -120,16 +70,15 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
   // Used by DatumWriter.  Applications should not call. 
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return segment;
-    case 1: return id;
-    case 2: return length;
-    case 3: return md5checksum;
-    case 4: return name;
-    case 5: return sourceURI;
-    case 6: return sourceAccessions;
-    case 7: return isDerived;
-    case 8: return sourceDivergence;
-    case 9: return ncbiTaxonId;
+    case 0: return id;
+    case 1: return length;
+    case 2: return md5checksum;
+    case 3: return name;
+    case 4: return sourceURI;
+    case 5: return sourceAccessions;
+    case 6: return isDerived;
+    case 7: return sourceDivergence;
+    case 8: return ncbiTaxonId;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -137,75 +86,29 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: segment = (org.ga4gh.models.Segment)value$; break;
-    case 1: id = (java.lang.String)value$; break;
-    case 2: length = (java.lang.Long)value$; break;
-    case 3: md5checksum = (java.lang.String)value$; break;
-    case 4: name = (java.lang.String)value$; break;
-    case 5: sourceURI = (java.lang.String)value$; break;
-    case 6: sourceAccessions = (java.util.List<java.lang.String>)value$; break;
-    case 7: isDerived = (java.lang.Boolean)value$; break;
-    case 8: sourceDivergence = (java.lang.Float)value$; break;
-    case 9: ncbiTaxonId = (java.lang.Integer)value$; break;
+    case 0: id = (java.lang.String)value$; break;
+    case 1: length = (java.lang.Long)value$; break;
+    case 2: md5checksum = (java.lang.String)value$; break;
+    case 3: name = (java.lang.String)value$; break;
+    case 4: sourceURI = (java.lang.String)value$; break;
+    case 5: sourceAccessions = (java.util.List<java.lang.String>)value$; break;
+    case 6: isDerived = (java.lang.Boolean)value$; break;
+    case 7: sourceDivergence = (java.lang.Float)value$; break;
+    case 8: ncbiTaxonId = (java.lang.Integer)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
 
   /**
-   * Gets the value of the 'segment' field.
-   * The `Segment` describing this `Reference`'s sequence in the `ReferenceSet`'s
-  sequence graph.
-
-  The `Segment` will generally cover the entirety of the sequence, but may be
-  shorter if only a subrange of a sequence is to be included in the
-  `ReferenceSet`.
-
-  The sequence ID of the `Segment` is equal to ID of the `Reference`. The
-  actual sequence bases for a `Reference` are available through the
-  `getSequenceBases()` API call on this `Reference`'s sequence.
-
-  If the API server supports the "graph" mode, this field must not be null.   */
-  public org.ga4gh.models.Segment getSegment() {
-    return segment;
-  }
-
-  /**
-   * Sets the value of the 'segment' field.
-   * The `Segment` describing this `Reference`'s sequence in the `ReferenceSet`'s
-  sequence graph.
-
-  The `Segment` will generally cover the entirety of the sequence, but may be
-  shorter if only a subrange of a sequence is to be included in the
-  `ReferenceSet`.
-
-  The sequence ID of the `Segment` is equal to ID of the `Reference`. The
-  actual sequence bases for a `Reference` are available through the
-  `getSequenceBases()` API call on this `Reference`'s sequence.
-
-  If the API server supports the "graph" mode, this field must not be null.   * @param value the value to set.
-   */
-  public void setSegment(org.ga4gh.models.Segment value) {
-    this.segment = value;
-  }
-
-  /**
    * Gets the value of the 'id' field.
-   * The reference ID. Unique within the repository. A sequence with this ID
-  exists, containing the reference's bases. If null, `segment` must be set, and
-  the sequence ID field from `segment` is used.
-
-  If the API server supports the "classic" mode, this field must not be null.   */
+   * The reference ID. Unique within the repository.   */
   public java.lang.String getId() {
     return id;
   }
 
   /**
    * Sets the value of the 'id' field.
-   * The reference ID. Unique within the repository. A sequence with this ID
-  exists, containing the reference's bases. If null, `segment` must be set, and
-  the sequence ID field from `segment` is used.
-
-  If the API server supports the "classic" mode, this field must not be null.   * @param value the value to set.
+   * The reference ID. Unique within the repository.   * @param value the value to set.
    */
   public void setId(java.lang.String value) {
     this.id = value;
@@ -228,62 +131,18 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
 
   /**
    * Gets the value of the 'md5checksum' field.
-   * The MD5 checksum uniquely representing this `Reference` and its position in
-  the `ReferenceSet`'s sequence graph, as a lower-case hexadecimal string.
-
-  If `segment.startJoin` and `segment.endJoin` are both null, or `segment`
-  itself is null, this is the MD5 of the upper-case sequence excluding all
-  whitespace characters (this is equivalent to SQ:M5 in SAM).
-
-  Otherwise, this hash is to be computed as follows:
-
-  * Initialize a new MD5 hashing state.
-
-  * Add in the the MD5 of the upper-case sequence excluding all whitespace
-  characters, as a lower-case hexadecimal string.
-
-  * If `segment.startJoin` is null, add in 32 '0' characters. Otherwise add in
-  the `md5checksum` of the `Reference` indicated by `segment.startJoin`,
-  `segment.startJoin.position` as a decimal string, and
-  `segment.startJoin.strand` as either "+" or "-".
-
-  * If `segment.endJoin` is null, add in 32 '0' characters. Otherwise add in
-  the `md5checksum` of the `Reference` indicated by `segment.endJoin`,
-  `segment.endJoin.position` as a decimal string, and `segment.endJoin.strand`
-  as either "+" or "-".
-
-  * Compute the digest and represent it as a lower-case hexadecimal string.   */
+   * The MD5 checksum uniquely representing this `Reference` as a lower-case
+  hexadecimal string, calculated as the MD5 of the upper-case sequence
+  excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).   */
   public java.lang.String getMd5checksum() {
     return md5checksum;
   }
 
   /**
    * Sets the value of the 'md5checksum' field.
-   * The MD5 checksum uniquely representing this `Reference` and its position in
-  the `ReferenceSet`'s sequence graph, as a lower-case hexadecimal string.
-
-  If `segment.startJoin` and `segment.endJoin` are both null, or `segment`
-  itself is null, this is the MD5 of the upper-case sequence excluding all
-  whitespace characters (this is equivalent to SQ:M5 in SAM).
-
-  Otherwise, this hash is to be computed as follows:
-
-  * Initialize a new MD5 hashing state.
-
-  * Add in the the MD5 of the upper-case sequence excluding all whitespace
-  characters, as a lower-case hexadecimal string.
-
-  * If `segment.startJoin` is null, add in 32 '0' characters. Otherwise add in
-  the `md5checksum` of the `Reference` indicated by `segment.startJoin`,
-  `segment.startJoin.position` as a decimal string, and
-  `segment.startJoin.strand` as either "+" or "-".
-
-  * If `segment.endJoin` is null, add in 32 '0' characters. Otherwise add in
-  the `md5checksum` of the `Reference` indicated by `segment.endJoin`,
-  `segment.endJoin.position` as a decimal string, and `segment.endJoin.strand`
-  as either "+" or "-".
-
-  * Compute the digest and represent it as a lower-case hexadecimal string.   * @param value the value to set.
+   * The MD5 checksum uniquely representing this `Reference` as a lower-case
+  hexadecimal string, calculated as the MD5 of the upper-case sequence
+  excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).   * @param value the value to set.
    */
   public void setMd5checksum(java.lang.String value) {
     this.md5checksum = value;
@@ -291,16 +150,14 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
 
   /**
    * Gets the value of the 'name' field.
-   * The name of this reference. (e.g. '22') Also see the
-  `names` field on the parent `ReferenceSet`.   */
+   * The name of this reference. (e.g. '22').   */
   public java.lang.String getName() {
     return name;
   }
 
   /**
    * Sets the value of the 'name' field.
-   * The name of this reference. (e.g. '22') Also see the
-  `names` field on the parent `ReferenceSet`.   * @param value the value to set.
+   * The name of this reference. (e.g. '22').   * @param value the value to set.
    */
   public void setName(java.lang.String value) {
     this.name = value;
@@ -308,10 +165,9 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
 
   /**
    * Gets the value of the 'sourceURI' field.
-   * The URI from which the sequence was obtained.
-  Specifies a FASTA format file/string with one name, sequence pair.
-  In most cases, clients should call the `getSequenceBases()` or
-  `getReferenceBases()` methods to obtain sequence bases for a `Reference`
+   * The URI from which the sequence was obtained. Specifies a FASTA format
+  file/string with one name, sequence pair. In most cases, clients should call
+  the `getReferenceBases()` method to obtain sequence bases for a `Reference`
   instead of attempting to retrieve this URI.   */
   public java.lang.String getSourceURI() {
     return sourceURI;
@@ -319,10 +175,9 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
 
   /**
    * Sets the value of the 'sourceURI' field.
-   * The URI from which the sequence was obtained.
-  Specifies a FASTA format file/string with one name, sequence pair.
-  In most cases, clients should call the `getSequenceBases()` or
-  `getReferenceBases()` methods to obtain sequence bases for a `Reference`
+   * The URI from which the sequence was obtained. Specifies a FASTA format
+  file/string with one name, sequence pair. In most cases, clients should call
+  the `getReferenceBases()` method to obtain sequence bases for a `Reference`
   instead of attempting to retrieve this URI.   * @param value the value to set.
    */
   public void setSourceURI(java.lang.String value) {
@@ -331,16 +186,16 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
 
   /**
    * Gets the value of the 'sourceAccessions' field.
-   * All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally
-  with a version number, e.g. `GCF_000001405.26`.   */
+   * All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include
+  a version number, e.g. `GCF_000001405.26`.   */
   public java.util.List<java.lang.String> getSourceAccessions() {
     return sourceAccessions;
   }
 
   /**
    * Sets the value of the 'sourceAccessions' field.
-   * All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally
-  with a version number, e.g. `GCF_000001405.26`.   * @param value the value to set.
+   * All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include
+  a version number, e.g. `GCF_000001405.26`.   * @param value the value to set.
    */
   public void setSourceAccessions(java.util.List<java.lang.String> value) {
     this.sourceAccessions = value;
@@ -422,7 +277,6 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Reference>
     implements org.apache.avro.data.RecordBuilder<Reference> {
 
-    private org.ga4gh.models.Segment segment;
     private java.lang.String id;
     private long length;
     private java.lang.String md5checksum;
@@ -441,116 +295,83 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
     /** Creates a Builder by copying an existing Builder */
     private Builder(org.ga4gh.models.Reference.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.segment)) {
-        this.segment = data().deepCopy(fields()[0].schema(), other.segment);
+      if (isValidValue(fields()[0], other.id)) {
+        this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.id)) {
-        this.id = data().deepCopy(fields()[1].schema(), other.id);
+      if (isValidValue(fields()[1], other.length)) {
+        this.length = data().deepCopy(fields()[1].schema(), other.length);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.length)) {
-        this.length = data().deepCopy(fields()[2].schema(), other.length);
+      if (isValidValue(fields()[2], other.md5checksum)) {
+        this.md5checksum = data().deepCopy(fields()[2].schema(), other.md5checksum);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.md5checksum)) {
-        this.md5checksum = data().deepCopy(fields()[3].schema(), other.md5checksum);
+      if (isValidValue(fields()[3], other.name)) {
+        this.name = data().deepCopy(fields()[3].schema(), other.name);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.name)) {
-        this.name = data().deepCopy(fields()[4].schema(), other.name);
+      if (isValidValue(fields()[4], other.sourceURI)) {
+        this.sourceURI = data().deepCopy(fields()[4].schema(), other.sourceURI);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.sourceURI)) {
-        this.sourceURI = data().deepCopy(fields()[5].schema(), other.sourceURI);
+      if (isValidValue(fields()[5], other.sourceAccessions)) {
+        this.sourceAccessions = data().deepCopy(fields()[5].schema(), other.sourceAccessions);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.sourceAccessions)) {
-        this.sourceAccessions = data().deepCopy(fields()[6].schema(), other.sourceAccessions);
+      if (isValidValue(fields()[6], other.isDerived)) {
+        this.isDerived = data().deepCopy(fields()[6].schema(), other.isDerived);
         fieldSetFlags()[6] = true;
       }
-      if (isValidValue(fields()[7], other.isDerived)) {
-        this.isDerived = data().deepCopy(fields()[7].schema(), other.isDerived);
+      if (isValidValue(fields()[7], other.sourceDivergence)) {
+        this.sourceDivergence = data().deepCopy(fields()[7].schema(), other.sourceDivergence);
         fieldSetFlags()[7] = true;
       }
-      if (isValidValue(fields()[8], other.sourceDivergence)) {
-        this.sourceDivergence = data().deepCopy(fields()[8].schema(), other.sourceDivergence);
+      if (isValidValue(fields()[8], other.ncbiTaxonId)) {
+        this.ncbiTaxonId = data().deepCopy(fields()[8].schema(), other.ncbiTaxonId);
         fieldSetFlags()[8] = true;
-      }
-      if (isValidValue(fields()[9], other.ncbiTaxonId)) {
-        this.ncbiTaxonId = data().deepCopy(fields()[9].schema(), other.ncbiTaxonId);
-        fieldSetFlags()[9] = true;
       }
     }
     
     /** Creates a Builder by copying an existing Reference instance */
     private Builder(org.ga4gh.models.Reference other) {
             super(org.ga4gh.models.Reference.SCHEMA$);
-      if (isValidValue(fields()[0], other.segment)) {
-        this.segment = data().deepCopy(fields()[0].schema(), other.segment);
+      if (isValidValue(fields()[0], other.id)) {
+        this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.id)) {
-        this.id = data().deepCopy(fields()[1].schema(), other.id);
+      if (isValidValue(fields()[1], other.length)) {
+        this.length = data().deepCopy(fields()[1].schema(), other.length);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.length)) {
-        this.length = data().deepCopy(fields()[2].schema(), other.length);
+      if (isValidValue(fields()[2], other.md5checksum)) {
+        this.md5checksum = data().deepCopy(fields()[2].schema(), other.md5checksum);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.md5checksum)) {
-        this.md5checksum = data().deepCopy(fields()[3].schema(), other.md5checksum);
+      if (isValidValue(fields()[3], other.name)) {
+        this.name = data().deepCopy(fields()[3].schema(), other.name);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.name)) {
-        this.name = data().deepCopy(fields()[4].schema(), other.name);
+      if (isValidValue(fields()[4], other.sourceURI)) {
+        this.sourceURI = data().deepCopy(fields()[4].schema(), other.sourceURI);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.sourceURI)) {
-        this.sourceURI = data().deepCopy(fields()[5].schema(), other.sourceURI);
+      if (isValidValue(fields()[5], other.sourceAccessions)) {
+        this.sourceAccessions = data().deepCopy(fields()[5].schema(), other.sourceAccessions);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.sourceAccessions)) {
-        this.sourceAccessions = data().deepCopy(fields()[6].schema(), other.sourceAccessions);
+      if (isValidValue(fields()[6], other.isDerived)) {
+        this.isDerived = data().deepCopy(fields()[6].schema(), other.isDerived);
         fieldSetFlags()[6] = true;
       }
-      if (isValidValue(fields()[7], other.isDerived)) {
-        this.isDerived = data().deepCopy(fields()[7].schema(), other.isDerived);
+      if (isValidValue(fields()[7], other.sourceDivergence)) {
+        this.sourceDivergence = data().deepCopy(fields()[7].schema(), other.sourceDivergence);
         fieldSetFlags()[7] = true;
       }
-      if (isValidValue(fields()[8], other.sourceDivergence)) {
-        this.sourceDivergence = data().deepCopy(fields()[8].schema(), other.sourceDivergence);
+      if (isValidValue(fields()[8], other.ncbiTaxonId)) {
+        this.ncbiTaxonId = data().deepCopy(fields()[8].schema(), other.ncbiTaxonId);
         fieldSetFlags()[8] = true;
       }
-      if (isValidValue(fields()[9], other.ncbiTaxonId)) {
-        this.ncbiTaxonId = data().deepCopy(fields()[9].schema(), other.ncbiTaxonId);
-        fieldSetFlags()[9] = true;
-      }
-    }
-
-    /** Gets the value of the 'segment' field */
-    public org.ga4gh.models.Segment getSegment() {
-      return segment;
-    }
-    
-    /** Sets the value of the 'segment' field */
-    public org.ga4gh.models.Reference.Builder setSegment(org.ga4gh.models.Segment value) {
-      validate(fields()[0], value);
-      this.segment = value;
-      fieldSetFlags()[0] = true;
-      return this; 
-    }
-    
-    /** Checks whether the 'segment' field has been set */
-    public boolean hasSegment() {
-      return fieldSetFlags()[0];
-    }
-    
-    /** Clears the value of the 'segment' field */
-    public org.ga4gh.models.Reference.Builder clearSegment() {
-      segment = null;
-      fieldSetFlags()[0] = false;
-      return this;
     }
 
     /** Gets the value of the 'id' field */
@@ -560,21 +381,21 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
     
     /** Sets the value of the 'id' field */
     public org.ga4gh.models.Reference.Builder setId(java.lang.String value) {
-      validate(fields()[1], value);
+      validate(fields()[0], value);
       this.id = value;
-      fieldSetFlags()[1] = true;
+      fieldSetFlags()[0] = true;
       return this; 
     }
     
     /** Checks whether the 'id' field has been set */
     public boolean hasId() {
-      return fieldSetFlags()[1];
+      return fieldSetFlags()[0];
     }
     
     /** Clears the value of the 'id' field */
     public org.ga4gh.models.Reference.Builder clearId() {
       id = null;
-      fieldSetFlags()[1] = false;
+      fieldSetFlags()[0] = false;
       return this;
     }
 
@@ -585,20 +406,20 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
     
     /** Sets the value of the 'length' field */
     public org.ga4gh.models.Reference.Builder setLength(long value) {
-      validate(fields()[2], value);
+      validate(fields()[1], value);
       this.length = value;
-      fieldSetFlags()[2] = true;
+      fieldSetFlags()[1] = true;
       return this; 
     }
     
     /** Checks whether the 'length' field has been set */
     public boolean hasLength() {
-      return fieldSetFlags()[2];
+      return fieldSetFlags()[1];
     }
     
     /** Clears the value of the 'length' field */
     public org.ga4gh.models.Reference.Builder clearLength() {
-      fieldSetFlags()[2] = false;
+      fieldSetFlags()[1] = false;
       return this;
     }
 
@@ -609,21 +430,21 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
     
     /** Sets the value of the 'md5checksum' field */
     public org.ga4gh.models.Reference.Builder setMd5checksum(java.lang.String value) {
-      validate(fields()[3], value);
+      validate(fields()[2], value);
       this.md5checksum = value;
-      fieldSetFlags()[3] = true;
+      fieldSetFlags()[2] = true;
       return this; 
     }
     
     /** Checks whether the 'md5checksum' field has been set */
     public boolean hasMd5checksum() {
-      return fieldSetFlags()[3];
+      return fieldSetFlags()[2];
     }
     
     /** Clears the value of the 'md5checksum' field */
     public org.ga4gh.models.Reference.Builder clearMd5checksum() {
       md5checksum = null;
-      fieldSetFlags()[3] = false;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -634,21 +455,21 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
     
     /** Sets the value of the 'name' field */
     public org.ga4gh.models.Reference.Builder setName(java.lang.String value) {
-      validate(fields()[4], value);
+      validate(fields()[3], value);
       this.name = value;
-      fieldSetFlags()[4] = true;
+      fieldSetFlags()[3] = true;
       return this; 
     }
     
     /** Checks whether the 'name' field has been set */
     public boolean hasName() {
-      return fieldSetFlags()[4];
+      return fieldSetFlags()[3];
     }
     
     /** Clears the value of the 'name' field */
     public org.ga4gh.models.Reference.Builder clearName() {
       name = null;
-      fieldSetFlags()[4] = false;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
@@ -659,21 +480,21 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
     
     /** Sets the value of the 'sourceURI' field */
     public org.ga4gh.models.Reference.Builder setSourceURI(java.lang.String value) {
-      validate(fields()[5], value);
+      validate(fields()[4], value);
       this.sourceURI = value;
-      fieldSetFlags()[5] = true;
+      fieldSetFlags()[4] = true;
       return this; 
     }
     
     /** Checks whether the 'sourceURI' field has been set */
     public boolean hasSourceURI() {
-      return fieldSetFlags()[5];
+      return fieldSetFlags()[4];
     }
     
     /** Clears the value of the 'sourceURI' field */
     public org.ga4gh.models.Reference.Builder clearSourceURI() {
       sourceURI = null;
-      fieldSetFlags()[5] = false;
+      fieldSetFlags()[4] = false;
       return this;
     }
 
@@ -684,21 +505,21 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
     
     /** Sets the value of the 'sourceAccessions' field */
     public org.ga4gh.models.Reference.Builder setSourceAccessions(java.util.List<java.lang.String> value) {
-      validate(fields()[6], value);
+      validate(fields()[5], value);
       this.sourceAccessions = value;
-      fieldSetFlags()[6] = true;
+      fieldSetFlags()[5] = true;
       return this; 
     }
     
     /** Checks whether the 'sourceAccessions' field has been set */
     public boolean hasSourceAccessions() {
-      return fieldSetFlags()[6];
+      return fieldSetFlags()[5];
     }
     
     /** Clears the value of the 'sourceAccessions' field */
     public org.ga4gh.models.Reference.Builder clearSourceAccessions() {
       sourceAccessions = null;
-      fieldSetFlags()[6] = false;
+      fieldSetFlags()[5] = false;
       return this;
     }
 
@@ -709,20 +530,20 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
     
     /** Sets the value of the 'isDerived' field */
     public org.ga4gh.models.Reference.Builder setIsDerived(boolean value) {
-      validate(fields()[7], value);
+      validate(fields()[6], value);
       this.isDerived = value;
-      fieldSetFlags()[7] = true;
+      fieldSetFlags()[6] = true;
       return this; 
     }
     
     /** Checks whether the 'isDerived' field has been set */
     public boolean hasIsDerived() {
-      return fieldSetFlags()[7];
+      return fieldSetFlags()[6];
     }
     
     /** Clears the value of the 'isDerived' field */
     public org.ga4gh.models.Reference.Builder clearIsDerived() {
-      fieldSetFlags()[7] = false;
+      fieldSetFlags()[6] = false;
       return this;
     }
 
@@ -733,21 +554,21 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
     
     /** Sets the value of the 'sourceDivergence' field */
     public org.ga4gh.models.Reference.Builder setSourceDivergence(java.lang.Float value) {
-      validate(fields()[8], value);
+      validate(fields()[7], value);
       this.sourceDivergence = value;
-      fieldSetFlags()[8] = true;
+      fieldSetFlags()[7] = true;
       return this; 
     }
     
     /** Checks whether the 'sourceDivergence' field has been set */
     public boolean hasSourceDivergence() {
-      return fieldSetFlags()[8];
+      return fieldSetFlags()[7];
     }
     
     /** Clears the value of the 'sourceDivergence' field */
     public org.ga4gh.models.Reference.Builder clearSourceDivergence() {
       sourceDivergence = null;
-      fieldSetFlags()[8] = false;
+      fieldSetFlags()[7] = false;
       return this;
     }
 
@@ -758,21 +579,21 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
     
     /** Sets the value of the 'ncbiTaxonId' field */
     public org.ga4gh.models.Reference.Builder setNcbiTaxonId(java.lang.Integer value) {
-      validate(fields()[9], value);
+      validate(fields()[8], value);
       this.ncbiTaxonId = value;
-      fieldSetFlags()[9] = true;
+      fieldSetFlags()[8] = true;
       return this; 
     }
     
     /** Checks whether the 'ncbiTaxonId' field has been set */
     public boolean hasNcbiTaxonId() {
-      return fieldSetFlags()[9];
+      return fieldSetFlags()[8];
     }
     
     /** Clears the value of the 'ncbiTaxonId' field */
     public org.ga4gh.models.Reference.Builder clearNcbiTaxonId() {
       ncbiTaxonId = null;
-      fieldSetFlags()[9] = false;
+      fieldSetFlags()[8] = false;
       return this;
     }
 
@@ -780,16 +601,15 @@ public class Reference extends org.apache.avro.specific.SpecificRecordBase imple
     public Reference build() {
       try {
         Reference record = new Reference();
-        record.segment = fieldSetFlags()[0] ? this.segment : (org.ga4gh.models.Segment) defaultValue(fields()[0]);
-        record.id = fieldSetFlags()[1] ? this.id : (java.lang.String) defaultValue(fields()[1]);
-        record.length = fieldSetFlags()[2] ? this.length : (java.lang.Long) defaultValue(fields()[2]);
-        record.md5checksum = fieldSetFlags()[3] ? this.md5checksum : (java.lang.String) defaultValue(fields()[3]);
-        record.name = fieldSetFlags()[4] ? this.name : (java.lang.String) defaultValue(fields()[4]);
-        record.sourceURI = fieldSetFlags()[5] ? this.sourceURI : (java.lang.String) defaultValue(fields()[5]);
-        record.sourceAccessions = fieldSetFlags()[6] ? this.sourceAccessions : (java.util.List<java.lang.String>) defaultValue(fields()[6]);
-        record.isDerived = fieldSetFlags()[7] ? this.isDerived : (java.lang.Boolean) defaultValue(fields()[7]);
-        record.sourceDivergence = fieldSetFlags()[8] ? this.sourceDivergence : (java.lang.Float) defaultValue(fields()[8]);
-        record.ncbiTaxonId = fieldSetFlags()[9] ? this.ncbiTaxonId : (java.lang.Integer) defaultValue(fields()[9]);
+        record.id = fieldSetFlags()[0] ? this.id : (java.lang.String) defaultValue(fields()[0]);
+        record.length = fieldSetFlags()[1] ? this.length : (java.lang.Long) defaultValue(fields()[1]);
+        record.md5checksum = fieldSetFlags()[2] ? this.md5checksum : (java.lang.String) defaultValue(fields()[2]);
+        record.name = fieldSetFlags()[3] ? this.name : (java.lang.String) defaultValue(fields()[3]);
+        record.sourceURI = fieldSetFlags()[4] ? this.sourceURI : (java.lang.String) defaultValue(fields()[4]);
+        record.sourceAccessions = fieldSetFlags()[5] ? this.sourceAccessions : (java.util.List<java.lang.String>) defaultValue(fields()[5]);
+        record.isDerived = fieldSetFlags()[6] ? this.isDerived : (java.lang.Boolean) defaultValue(fields()[6]);
+        record.sourceDivergence = fieldSetFlags()[7] ? this.sourceDivergence : (java.lang.Float) defaultValue(fields()[7]);
+        record.ncbiTaxonId = fieldSetFlags()[8] ? this.ncbiTaxonId : (java.lang.Integer) defaultValue(fields()[8]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

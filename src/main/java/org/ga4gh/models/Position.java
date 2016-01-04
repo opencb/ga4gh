@@ -5,43 +5,19 @@
  */
 package org.ga4gh.models;  
 @SuppressWarnings("all")
-/** A `Position` is a side of a base pair in some already known sequence. A
-`Position` is represented by a sequence name or ID, a base number on that
-sequence (0-based), and a `Strand` to indicate the left or right side.
-
-For example, given the sequence "GTGG", the `Position` on that sequence at
-offset 1 in the forward orientation would be the left side of the T/A base pair.
-The base at this `Position` is "T". Alternately, for offset 1 in the reverse
-orientation, the `Position` would be the right side of the T/A base pair, and
-the base at the `Position` is "A".
-
-Offsets added to a `Position` are interpreted as reading along its strand;
-adding to a reverse strand position actually subtracts from its `position`
-member. */
+/** A `Position` is an unoriented base in some `Reference`. A `Position` is
+represented by a `Reference` name, and a base number on that `Reference`
+(0-based). */
 @org.apache.avro.specific.AvroGenerated
 public class Position extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Position\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"A `Position` is a side of a base pair in some already known sequence. A\\n`Position` is represented by a sequence name or ID, a base number on that\\nsequence (0-based), and a `Strand` to indicate the left or right side.\\n\\nFor example, given the sequence \\\"GTGG\\\", the `Position` on that sequence at\\noffset 1 in the forward orientation would be the left side of the T/A base pair.\\nThe base at this `Position` is \\\"T\\\". Alternately, for offset 1 in the reverse\\norientation, the `Position` would be the right side of the T/A base pair, and\\nthe base at the `Position` is \\\"A\\\".\\n\\nOffsets added to a `Position` are interpreted as reading along its strand;\\nadding to a reverse strand position actually subtracts from its `position`\\nmember.\",\"fields\":[{\"name\":\"referenceName\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The name of the reference sequence in whatever reference set is being used.\\n  Does not generally include a \\\"chr\\\" prefix, so for example \\\"X\\\" would be used\\n  for the X chromosome.\\n\\n  If `sequenceId` is null, this must not be null.\",\"default\":null},{\"name\":\"sequenceId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The ID of the sequence on which the `Position` is located. This may be a\\n  `Reference` sequence, or a novel piece of sequence associated with a\\n  `VariantSet`.\\n\\n  If `referenceName` is null, this must not be null.\\n\\n  If the server supports the \\\"graph\\\" mode, this must not be null.\",\"default\":null},{\"name\":\"position\",\"type\":\"long\",\"doc\":\"The 0-based offset from the start of the forward strand for that sequence.\\n  Genomic positions are non-negative integers less than sequence length.\"},{\"name\":\"strand\",\"type\":{\"type\":\"enum\",\"name\":\"Strand\",\"doc\":\"Indicates the DNA strand associate for some data item.\\n* `POS_STRAND`:  The postive (+) strand.\\n* `NEG_STRAND`: The negative (-) strand.\\n* `NO_STRAND`: Strand-independent data or data where the strand can not be determined.\",\"symbols\":[\"POS_STRAND\",\"NEG_STRAND\",\"NO_STRAND\"]},\"doc\":\"Strand the position is associated with. `POS_STRAND` represents the forward\\n  strand, or equivalently the left side of a base, and `NEG_STRAND` represents\\n  the reverse strand, or equivalently the right side of a base.\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Position\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"A `Position` is an unoriented base in some `Reference`. A `Position` is\\nrepresented by a `Reference` name, and a base number on that `Reference`\\n(0-based).\",\"fields\":[{\"name\":\"referenceName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The name of the `Reference` on which the `Position` is located.\"},{\"name\":\"position\",\"type\":\"long\",\"doc\":\"The 0-based offset from the start of the forward strand for that `Reference`.\\n  Genomic positions are non-negative integers less than `Reference` length.\"},{\"name\":\"strand\",\"type\":{\"type\":\"enum\",\"name\":\"Strand\",\"doc\":\"Indicates the DNA strand associate for some data item.\\n* `NEG_STRAND`: The negative (-) strand.\\n* `POS_STRAND`:  The postive (+) strand.\",\"symbols\":[\"NEG_STRAND\",\"POS_STRAND\"]},\"doc\":\"Strand the position is associated with.\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
-  /** The name of the reference sequence in whatever reference set is being used.
-  Does not generally include a "chr" prefix, so for example "X" would be used
-  for the X chromosome.
-
-  If `sequenceId` is null, this must not be null. */
+  /** The name of the `Reference` on which the `Position` is located. */
    private java.lang.String referenceName;
-  /** The ID of the sequence on which the `Position` is located. This may be a
-  `Reference` sequence, or a novel piece of sequence associated with a
-  `VariantSet`.
-
-  If `referenceName` is null, this must not be null.
-
-  If the server supports the "graph" mode, this must not be null. */
-   private java.lang.String sequenceId;
-  /** The 0-based offset from the start of the forward strand for that sequence.
-  Genomic positions are non-negative integers less than sequence length. */
+  /** The 0-based offset from the start of the forward strand for that `Reference`.
+  Genomic positions are non-negative integers less than `Reference` length. */
    private long position;
-  /** Strand the position is associated with. `POS_STRAND` represents the forward
-  strand, or equivalently the left side of a base, and `NEG_STRAND` represents
-  the reverse strand, or equivalently the right side of a base. */
+  /** Strand the position is associated with. */
    private org.ga4gh.models.Strand strand;
 
   /**
@@ -54,9 +30,8 @@ public class Position extends org.apache.avro.specific.SpecificRecordBase implem
   /**
    * All-args constructor.
    */
-  public Position(java.lang.String referenceName, java.lang.String sequenceId, java.lang.Long position, org.ga4gh.models.Strand strand) {
+  public Position(java.lang.String referenceName, java.lang.Long position, org.ga4gh.models.Strand strand) {
     this.referenceName = referenceName;
-    this.sequenceId = sequenceId;
     this.position = position;
     this.strand = strand;
   }
@@ -66,9 +41,8 @@ public class Position extends org.apache.avro.specific.SpecificRecordBase implem
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return referenceName;
-    case 1: return sequenceId;
-    case 2: return position;
-    case 3: return strand;
+    case 1: return position;
+    case 2: return strand;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -77,75 +51,39 @@ public class Position extends org.apache.avro.specific.SpecificRecordBase implem
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: referenceName = (java.lang.String)value$; break;
-    case 1: sequenceId = (java.lang.String)value$; break;
-    case 2: position = (java.lang.Long)value$; break;
-    case 3: strand = (org.ga4gh.models.Strand)value$; break;
+    case 1: position = (java.lang.Long)value$; break;
+    case 2: strand = (org.ga4gh.models.Strand)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
 
   /**
    * Gets the value of the 'referenceName' field.
-   * The name of the reference sequence in whatever reference set is being used.
-  Does not generally include a "chr" prefix, so for example "X" would be used
-  for the X chromosome.
-
-  If `sequenceId` is null, this must not be null.   */
+   * The name of the `Reference` on which the `Position` is located.   */
   public java.lang.String getReferenceName() {
     return referenceName;
   }
 
   /**
    * Sets the value of the 'referenceName' field.
-   * The name of the reference sequence in whatever reference set is being used.
-  Does not generally include a "chr" prefix, so for example "X" would be used
-  for the X chromosome.
-
-  If `sequenceId` is null, this must not be null.   * @param value the value to set.
+   * The name of the `Reference` on which the `Position` is located.   * @param value the value to set.
    */
   public void setReferenceName(java.lang.String value) {
     this.referenceName = value;
   }
 
   /**
-   * Gets the value of the 'sequenceId' field.
-   * The ID of the sequence on which the `Position` is located. This may be a
-  `Reference` sequence, or a novel piece of sequence associated with a
-  `VariantSet`.
-
-  If `referenceName` is null, this must not be null.
-
-  If the server supports the "graph" mode, this must not be null.   */
-  public java.lang.String getSequenceId() {
-    return sequenceId;
-  }
-
-  /**
-   * Sets the value of the 'sequenceId' field.
-   * The ID of the sequence on which the `Position` is located. This may be a
-  `Reference` sequence, or a novel piece of sequence associated with a
-  `VariantSet`.
-
-  If `referenceName` is null, this must not be null.
-
-  If the server supports the "graph" mode, this must not be null.   * @param value the value to set.
-   */
-  public void setSequenceId(java.lang.String value) {
-    this.sequenceId = value;
-  }
-
-  /**
    * Gets the value of the 'position' field.
-   * The 0-based offset from the start of the forward strand for that sequence.
-  Genomic positions are non-negative integers less than sequence length.   */
+   * The 0-based offset from the start of the forward strand for that `Reference`.
+  Genomic positions are non-negative integers less than `Reference` length.   */
   public java.lang.Long getPosition() {
     return position;
   }
 
   /**
    * Sets the value of the 'position' field.
-   * The 0-based offset from the start of the forward strand for that sequence.
-  Genomic positions are non-negative integers less than sequence length.   * @param value the value to set.
+   * The 0-based offset from the start of the forward strand for that `Reference`.
+  Genomic positions are non-negative integers less than `Reference` length.   * @param value the value to set.
    */
   public void setPosition(java.lang.Long value) {
     this.position = value;
@@ -153,18 +91,14 @@ public class Position extends org.apache.avro.specific.SpecificRecordBase implem
 
   /**
    * Gets the value of the 'strand' field.
-   * Strand the position is associated with. `POS_STRAND` represents the forward
-  strand, or equivalently the left side of a base, and `NEG_STRAND` represents
-  the reverse strand, or equivalently the right side of a base.   */
+   * Strand the position is associated with.   */
   public org.ga4gh.models.Strand getStrand() {
     return strand;
   }
 
   /**
    * Sets the value of the 'strand' field.
-   * Strand the position is associated with. `POS_STRAND` represents the forward
-  strand, or equivalently the left side of a base, and `NEG_STRAND` represents
-  the reverse strand, or equivalently the right side of a base.   * @param value the value to set.
+   * Strand the position is associated with.   * @param value the value to set.
    */
   public void setStrand(org.ga4gh.models.Strand value) {
     this.strand = value;
@@ -192,7 +126,6 @@ public class Position extends org.apache.avro.specific.SpecificRecordBase implem
     implements org.apache.avro.data.RecordBuilder<Position> {
 
     private java.lang.String referenceName;
-    private java.lang.String sequenceId;
     private long position;
     private org.ga4gh.models.Strand strand;
 
@@ -208,17 +141,13 @@ public class Position extends org.apache.avro.specific.SpecificRecordBase implem
         this.referenceName = data().deepCopy(fields()[0].schema(), other.referenceName);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.sequenceId)) {
-        this.sequenceId = data().deepCopy(fields()[1].schema(), other.sequenceId);
+      if (isValidValue(fields()[1], other.position)) {
+        this.position = data().deepCopy(fields()[1].schema(), other.position);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.position)) {
-        this.position = data().deepCopy(fields()[2].schema(), other.position);
+      if (isValidValue(fields()[2], other.strand)) {
+        this.strand = data().deepCopy(fields()[2].schema(), other.strand);
         fieldSetFlags()[2] = true;
-      }
-      if (isValidValue(fields()[3], other.strand)) {
-        this.strand = data().deepCopy(fields()[3].schema(), other.strand);
-        fieldSetFlags()[3] = true;
       }
     }
     
@@ -229,17 +158,13 @@ public class Position extends org.apache.avro.specific.SpecificRecordBase implem
         this.referenceName = data().deepCopy(fields()[0].schema(), other.referenceName);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.sequenceId)) {
-        this.sequenceId = data().deepCopy(fields()[1].schema(), other.sequenceId);
+      if (isValidValue(fields()[1], other.position)) {
+        this.position = data().deepCopy(fields()[1].schema(), other.position);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.position)) {
-        this.position = data().deepCopy(fields()[2].schema(), other.position);
+      if (isValidValue(fields()[2], other.strand)) {
+        this.strand = data().deepCopy(fields()[2].schema(), other.strand);
         fieldSetFlags()[2] = true;
-      }
-      if (isValidValue(fields()[3], other.strand)) {
-        this.strand = data().deepCopy(fields()[3].schema(), other.strand);
-        fieldSetFlags()[3] = true;
       }
     }
 
@@ -268,31 +193,6 @@ public class Position extends org.apache.avro.specific.SpecificRecordBase implem
       return this;
     }
 
-    /** Gets the value of the 'sequenceId' field */
-    public java.lang.String getSequenceId() {
-      return sequenceId;
-    }
-    
-    /** Sets the value of the 'sequenceId' field */
-    public org.ga4gh.models.Position.Builder setSequenceId(java.lang.String value) {
-      validate(fields()[1], value);
-      this.sequenceId = value;
-      fieldSetFlags()[1] = true;
-      return this; 
-    }
-    
-    /** Checks whether the 'sequenceId' field has been set */
-    public boolean hasSequenceId() {
-      return fieldSetFlags()[1];
-    }
-    
-    /** Clears the value of the 'sequenceId' field */
-    public org.ga4gh.models.Position.Builder clearSequenceId() {
-      sequenceId = null;
-      fieldSetFlags()[1] = false;
-      return this;
-    }
-
     /** Gets the value of the 'position' field */
     public java.lang.Long getPosition() {
       return position;
@@ -300,20 +200,20 @@ public class Position extends org.apache.avro.specific.SpecificRecordBase implem
     
     /** Sets the value of the 'position' field */
     public org.ga4gh.models.Position.Builder setPosition(long value) {
-      validate(fields()[2], value);
+      validate(fields()[1], value);
       this.position = value;
-      fieldSetFlags()[2] = true;
+      fieldSetFlags()[1] = true;
       return this; 
     }
     
     /** Checks whether the 'position' field has been set */
     public boolean hasPosition() {
-      return fieldSetFlags()[2];
+      return fieldSetFlags()[1];
     }
     
     /** Clears the value of the 'position' field */
     public org.ga4gh.models.Position.Builder clearPosition() {
-      fieldSetFlags()[2] = false;
+      fieldSetFlags()[1] = false;
       return this;
     }
 
@@ -324,21 +224,21 @@ public class Position extends org.apache.avro.specific.SpecificRecordBase implem
     
     /** Sets the value of the 'strand' field */
     public org.ga4gh.models.Position.Builder setStrand(org.ga4gh.models.Strand value) {
-      validate(fields()[3], value);
+      validate(fields()[2], value);
       this.strand = value;
-      fieldSetFlags()[3] = true;
+      fieldSetFlags()[2] = true;
       return this; 
     }
     
     /** Checks whether the 'strand' field has been set */
     public boolean hasStrand() {
-      return fieldSetFlags()[3];
+      return fieldSetFlags()[2];
     }
     
     /** Clears the value of the 'strand' field */
     public org.ga4gh.models.Position.Builder clearStrand() {
       strand = null;
-      fieldSetFlags()[3] = false;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -347,9 +247,8 @@ public class Position extends org.apache.avro.specific.SpecificRecordBase implem
       try {
         Position record = new Position();
         record.referenceName = fieldSetFlags()[0] ? this.referenceName : (java.lang.String) defaultValue(fields()[0]);
-        record.sequenceId = fieldSetFlags()[1] ? this.sequenceId : (java.lang.String) defaultValue(fields()[1]);
-        record.position = fieldSetFlags()[2] ? this.position : (java.lang.Long) defaultValue(fields()[2]);
-        record.strand = fieldSetFlags()[3] ? this.strand : (org.ga4gh.models.Strand) defaultValue(fields()[3]);
+        record.position = fieldSetFlags()[1] ? this.position : (java.lang.Long) defaultValue(fields()[1]);
+        record.strand = fieldSetFlags()[2] ? this.strand : (org.ga4gh.models.Strand) defaultValue(fields()[2]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

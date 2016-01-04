@@ -5,15 +5,20 @@
  */
 package org.ga4gh.methods;  
 @SuppressWarnings("all")
-/** This request maps to the body of `POST /readgroupsets/search` as JSON. */
+/** This request maps to the body of `POST /readgroupsets/search` as JSON.
+
+TODO: Factor this out to a common API patterns section.
+- If searching by a resource ID, and that resource is not found, the method
+will return a `404` HTTP status code (`NOT_FOUND`).
+- If searching by other attributes, e.g. `name`, and no matches are found, the
+method will return a `200` HTTP status code (`OK`) with an empty result list. */
 @org.apache.avro.specific.AvroGenerated
 public class SearchReadGroupSetsRequest extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchReadGroupSetsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /readgroupsets/search` as JSON.\",\"fields\":[{\"name\":\"datasetIds\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"The list of datasets to search.\",\"default\":[]},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Only return read group sets for which a substring of the name matches\\n  this string.\",\"default\":null},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchReadGroupSetsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /readgroupsets/search` as JSON.\\n\\nTODO: Factor this out to a common API patterns section.\\n- If searching by a resource ID, and that resource is not found, the method\\nwill return a `404` HTTP status code (`NOT_FOUND`).\\n- If searching by other attributes, e.g. `name`, and no matches are found, the\\nmethod will return a `200` HTTP status code (`OK`) with an empty result list.\",\"fields\":[{\"name\":\"datasetId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The dataset to search.\"},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Only return read group sets with this name (case-sensitive, exact match).\",\"default\":null},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
-  /** The list of datasets to search. */
-   private java.util.List<java.lang.String> datasetIds;
-  /** Only return read group sets for which a substring of the name matches
-  this string. */
+  /** The dataset to search. */
+   private java.lang.String datasetId;
+  /** Only return read group sets with this name (case-sensitive, exact match). */
    private java.lang.String name;
   /** Specifies the maximum number of results to return in a single page.
   If unspecified, a system default will be used. */
@@ -33,8 +38,8 @@ public class SearchReadGroupSetsRequest extends org.apache.avro.specific.Specifi
   /**
    * All-args constructor.
    */
-  public SearchReadGroupSetsRequest(java.util.List<java.lang.String> datasetIds, java.lang.String name, java.lang.Integer pageSize, java.lang.String pageToken) {
-    this.datasetIds = datasetIds;
+  public SearchReadGroupSetsRequest(java.lang.String datasetId, java.lang.String name, java.lang.Integer pageSize, java.lang.String pageToken) {
+    this.datasetId = datasetId;
     this.name = name;
     this.pageSize = pageSize;
     this.pageToken = pageToken;
@@ -44,7 +49,7 @@ public class SearchReadGroupSetsRequest extends org.apache.avro.specific.Specifi
   // Used by DatumWriter.  Applications should not call. 
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return datasetIds;
+    case 0: return datasetId;
     case 1: return name;
     case 2: return pageSize;
     case 3: return pageToken;
@@ -55,7 +60,7 @@ public class SearchReadGroupSetsRequest extends org.apache.avro.specific.Specifi
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: datasetIds = (java.util.List<java.lang.String>)value$; break;
+    case 0: datasetId = (java.lang.String)value$; break;
     case 1: name = (java.lang.String)value$; break;
     case 2: pageSize = (java.lang.Integer)value$; break;
     case 3: pageToken = (java.lang.String)value$; break;
@@ -64,32 +69,30 @@ public class SearchReadGroupSetsRequest extends org.apache.avro.specific.Specifi
   }
 
   /**
-   * Gets the value of the 'datasetIds' field.
-   * The list of datasets to search.   */
-  public java.util.List<java.lang.String> getDatasetIds() {
-    return datasetIds;
+   * Gets the value of the 'datasetId' field.
+   * The dataset to search.   */
+  public java.lang.String getDatasetId() {
+    return datasetId;
   }
 
   /**
-   * Sets the value of the 'datasetIds' field.
-   * The list of datasets to search.   * @param value the value to set.
+   * Sets the value of the 'datasetId' field.
+   * The dataset to search.   * @param value the value to set.
    */
-  public void setDatasetIds(java.util.List<java.lang.String> value) {
-    this.datasetIds = value;
+  public void setDatasetId(java.lang.String value) {
+    this.datasetId = value;
   }
 
   /**
    * Gets the value of the 'name' field.
-   * Only return read group sets for which a substring of the name matches
-  this string.   */
+   * Only return read group sets with this name (case-sensitive, exact match).   */
   public java.lang.String getName() {
     return name;
   }
 
   /**
    * Sets the value of the 'name' field.
-   * Only return read group sets for which a substring of the name matches
-  this string.   * @param value the value to set.
+   * Only return read group sets with this name (case-sensitive, exact match).   * @param value the value to set.
    */
   public void setName(java.lang.String value) {
     this.name = value;
@@ -152,7 +155,7 @@ public class SearchReadGroupSetsRequest extends org.apache.avro.specific.Specifi
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<SearchReadGroupSetsRequest>
     implements org.apache.avro.data.RecordBuilder<SearchReadGroupSetsRequest> {
 
-    private java.util.List<java.lang.String> datasetIds;
+    private java.lang.String datasetId;
     private java.lang.String name;
     private java.lang.Integer pageSize;
     private java.lang.String pageToken;
@@ -165,8 +168,8 @@ public class SearchReadGroupSetsRequest extends org.apache.avro.specific.Specifi
     /** Creates a Builder by copying an existing Builder */
     private Builder(org.ga4gh.methods.SearchReadGroupSetsRequest.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.datasetIds)) {
-        this.datasetIds = data().deepCopy(fields()[0].schema(), other.datasetIds);
+      if (isValidValue(fields()[0], other.datasetId)) {
+        this.datasetId = data().deepCopy(fields()[0].schema(), other.datasetId);
         fieldSetFlags()[0] = true;
       }
       if (isValidValue(fields()[1], other.name)) {
@@ -186,8 +189,8 @@ public class SearchReadGroupSetsRequest extends org.apache.avro.specific.Specifi
     /** Creates a Builder by copying an existing SearchReadGroupSetsRequest instance */
     private Builder(org.ga4gh.methods.SearchReadGroupSetsRequest other) {
             super(org.ga4gh.methods.SearchReadGroupSetsRequest.SCHEMA$);
-      if (isValidValue(fields()[0], other.datasetIds)) {
-        this.datasetIds = data().deepCopy(fields()[0].schema(), other.datasetIds);
+      if (isValidValue(fields()[0], other.datasetId)) {
+        this.datasetId = data().deepCopy(fields()[0].schema(), other.datasetId);
         fieldSetFlags()[0] = true;
       }
       if (isValidValue(fields()[1], other.name)) {
@@ -204,27 +207,27 @@ public class SearchReadGroupSetsRequest extends org.apache.avro.specific.Specifi
       }
     }
 
-    /** Gets the value of the 'datasetIds' field */
-    public java.util.List<java.lang.String> getDatasetIds() {
-      return datasetIds;
+    /** Gets the value of the 'datasetId' field */
+    public java.lang.String getDatasetId() {
+      return datasetId;
     }
     
-    /** Sets the value of the 'datasetIds' field */
-    public org.ga4gh.methods.SearchReadGroupSetsRequest.Builder setDatasetIds(java.util.List<java.lang.String> value) {
+    /** Sets the value of the 'datasetId' field */
+    public org.ga4gh.methods.SearchReadGroupSetsRequest.Builder setDatasetId(java.lang.String value) {
       validate(fields()[0], value);
-      this.datasetIds = value;
+      this.datasetId = value;
       fieldSetFlags()[0] = true;
       return this; 
     }
     
-    /** Checks whether the 'datasetIds' field has been set */
-    public boolean hasDatasetIds() {
+    /** Checks whether the 'datasetId' field has been set */
+    public boolean hasDatasetId() {
       return fieldSetFlags()[0];
     }
     
-    /** Clears the value of the 'datasetIds' field */
-    public org.ga4gh.methods.SearchReadGroupSetsRequest.Builder clearDatasetIds() {
-      datasetIds = null;
+    /** Clears the value of the 'datasetId' field */
+    public org.ga4gh.methods.SearchReadGroupSetsRequest.Builder clearDatasetId() {
+      datasetId = null;
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -308,7 +311,7 @@ public class SearchReadGroupSetsRequest extends org.apache.avro.specific.Specifi
     public SearchReadGroupSetsRequest build() {
       try {
         SearchReadGroupSetsRequest record = new SearchReadGroupSetsRequest();
-        record.datasetIds = fieldSetFlags()[0] ? this.datasetIds : (java.util.List<java.lang.String>) defaultValue(fields()[0]);
+        record.datasetId = fieldSetFlags()[0] ? this.datasetId : (java.lang.String) defaultValue(fields()[0]);
         record.name = fieldSetFlags()[1] ? this.name : (java.lang.String) defaultValue(fields()[1]);
         record.pageSize = fieldSetFlags()[2] ? this.pageSize : (java.lang.Integer) defaultValue(fields()[2]);
         record.pageToken = fieldSetFlags()[3] ? this.pageToken : (java.lang.String) defaultValue(fields()[3]);

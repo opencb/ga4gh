@@ -11,11 +11,13 @@ This request maps to the body of `POST /reads/search` as JSON.
 
 If a reference is specified, all queried `ReadGroup`s must be aligned
 to `ReferenceSet`s containing that same `Reference`. If no reference is
-specified, all `ReadGroup`s must be aligned to the same `ReferenceSet`.
+specified, all queried `ReadGroup`s must be aligned to the same `ReferenceSet`.
 */
 record SearchReadsRequest {
-  /** If nonempty, restrict this query to reads within the given readgroups. */
-  array<string> readGroupIds = [];
+  /**
+  The ReadGroups to search. At least one id must be specified.
+  */
+  array<string> readGroupIds;
 
   /**
   The reference to query. Leaving blank returns results from all
@@ -30,7 +32,7 @@ record SearchReadsRequest {
   Requests spanning the join of circular genomes are represented as
   two requests one on each side of the join (position 0).
   */
-  union { long, null } start = 0;
+  union { null, long } start = null;
 
   /**
   The end position (0-based, exclusive) of this query.
@@ -70,7 +72,23 @@ record SearchReadsResponse {
 }
 
 /**
-Gets a list of `ReadAlignment` matching the search criteria.
+Gets a list of `ReadAlignment`s for one or more `ReadGroup`s.
+
+`searchReads` operates over a genomic coordinate space of reference sequence
+and position defined by the `Reference`s to which the requested `ReadGroup`s are
+aligned.
+
+If a target positional range is specified, search returns all reads whose
+alignment to the reference genome *overlap* the range. A query which specifies
+only read group IDs yields all reads in those read groups, including unmapped
+reads.
+
+All reads returned (including reads on subsequent pages) are ordered by genomic
+coordinate (by reference sequence, then position). Reads with equivalent genomic
+coordinates are returned in an unspecified order. This order must be consistent
+for a given repository, such that two queries for the same content (regardless
+of page size) yield reads in the same order across their respective streams of
+paginated responses.
 
 `POST /reads/search` must accept a JSON version of `SearchReadsRequest` as
 the post body and will return a JSON version of `SearchReadsResponse`.
@@ -80,14 +98,22 @@ SearchReadsResponse searchReads(
   SearchReadsRequest request) throws GAException;
 
 /******************  /readgroupsets/search  *********************/
-/** This request maps to the body of `POST /readgroupsets/search` as JSON. */
+/** This request maps to the body of `POST /readgroupsets/search` as JSON.
+
+TODO: Factor this out to a common API patterns section.
+- If searching by a resource ID, and that resource is not found, the method
+will return a `404` HTTP status code (`NOT_FOUND`).
+- If searching by other attributes, e.g. `name`, and no matches are found, the
+method will return a `200` HTTP status code (`OK`) with an empty result list.
+*/
 record SearchReadGroupSetsRequest {
-  /** The list of datasets to search. */
-  array<string> datasetIds = [];
+  /**
+  The dataset to search.
+  */
+  string datasetId;
 
   /**
-  Only return read group sets for which a substring of the name matches
-  this string.
+  Only return read group sets with this name (case-sensitive, exact match).
   */
   union { null, string } name = null;
 
@@ -139,6 +165,17 @@ Gets a `org.ga4gh.models.ReadGroupSet` by ID.
 org.ga4gh.models.ReadGroupSet getReadGroupSet(
   /**
   The ID of the `ReadGroupSet`.
+  */
+  string id) throws GAException;
+
+/****************  /readgroups/{id}  *******************/
+/**
+Gets a `org.ga4gh.models.ReadGroup` by ID.
+`GET /readgroups/{id}` will return a JSON version of `ReadGroup`.
+*/
+org.ga4gh.models.ReadGroup getReadGroup(
+  /**
+  The ID of the `ReadGroup`.
   */
   string id) throws GAException;
 
@@ -202,5 +239,5 @@ org.ga4gh.models.Dataset getDataset(
   The ID of the `Dataset`.
   */
   string id) throws GAException;
-  
+
 }

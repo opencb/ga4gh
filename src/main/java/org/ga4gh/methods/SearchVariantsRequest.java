@@ -8,30 +8,24 @@ package org.ga4gh.methods;
 /** This request maps to the body of `POST /variants/search` as JSON. */
 @org.apache.avro.specific.AvroGenerated
 public class SearchVariantsRequest extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchVariantsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /variants/search` as JSON.\",\"fields\":[{\"name\":\"variantSetIds\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"Required. The IDs of the variant sets to search over.\",\"default\":[]},{\"name\":\"variantName\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Only return variants which have exactly this name.\",\"default\":null},{\"name\":\"callSetIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}],\"doc\":\"Only return variant calls which belong to call sets with these IDs.\\n  If an empty array, returns variants without any call objects.\\n  If null, returns all variant calls.\",\"default\":null},{\"name\":\"referenceName\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Only return variants with reference alleles on the reference with this name.\\n  One of this field or `referenceId` is required.\",\"default\":null},{\"name\":\"referenceId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Only return variants with reference alleles on the reference with this ID. One\\n  of this field or `referenceName` is required.\",\"default\":null},{\"name\":\"start\",\"type\":\"long\",\"doc\":\"Required. The beginning of the window (0-based, inclusive) for\\n  which variants with overlapping reference alleles should be returned.\\n  Genomic positions are non-negative integers less than reference length.\\n  Requests spanning the join of circular genomes are represented as\\n  two requests one on each side of the join (position 0).\"},{\"name\":\"end\",\"type\":\"long\",\"doc\":\"Required. The end of the window (0-based, exclusive) for which variants with\\n  overlapping reference alleles should be returned.\"},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchVariantsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /variants/search` as JSON.\",\"fields\":[{\"name\":\"variantSetId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The `VariantSet` to search.\"},{\"name\":\"callSetIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}],\"doc\":\"Only return variant calls which belong to call sets with these IDs.\\n  If an empty array, returns variants without any call objects.\\n  If null, returns all variant calls.\",\"default\":null},{\"name\":\"referenceName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Required. Only return variants on this reference.\"},{\"name\":\"start\",\"type\":\"long\",\"doc\":\"Required. The beginning of the window (0-based, inclusive) for\\n  which overlapping variants should be returned.\\n  Genomic positions are non-negative integers less than reference length.\\n  Requests spanning the join of circular genomes are represented as\\n  two requests one on each side of the join (position 0).\"},{\"name\":\"end\",\"type\":\"long\",\"doc\":\"Required. The end of the window (0-based, exclusive) for which overlapping\\n  variants should be returned.\"},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
-  /** Required. The IDs of the variant sets to search over. */
-   private java.util.List<java.lang.String> variantSetIds;
-  /** Only return variants which have exactly this name. */
-   private java.lang.String variantName;
+  /** The `VariantSet` to search. */
+   private java.lang.String variantSetId;
   /** Only return variant calls which belong to call sets with these IDs.
   If an empty array, returns variants without any call objects.
   If null, returns all variant calls. */
    private java.util.List<java.lang.String> callSetIds;
-  /** Only return variants with reference alleles on the reference with this name.
-  One of this field or `referenceId` is required. */
+  /** Required. Only return variants on this reference. */
    private java.lang.String referenceName;
-  /** Only return variants with reference alleles on the reference with this ID. One
-  of this field or `referenceName` is required. */
-   private java.lang.String referenceId;
   /** Required. The beginning of the window (0-based, inclusive) for
-  which variants with overlapping reference alleles should be returned.
+  which overlapping variants should be returned.
   Genomic positions are non-negative integers less than reference length.
   Requests spanning the join of circular genomes are represented as
   two requests one on each side of the join (position 0). */
    private long start;
-  /** Required. The end of the window (0-based, exclusive) for which variants with
-  overlapping reference alleles should be returned. */
+  /** Required. The end of the window (0-based, exclusive) for which overlapping
+  variants should be returned. */
    private long end;
   /** Specifies the maximum number of results to return in a single page.
   If unspecified, a system default will be used. */
@@ -51,12 +45,10 @@ public class SearchVariantsRequest extends org.apache.avro.specific.SpecificReco
   /**
    * All-args constructor.
    */
-  public SearchVariantsRequest(java.util.List<java.lang.String> variantSetIds, java.lang.String variantName, java.util.List<java.lang.String> callSetIds, java.lang.String referenceName, java.lang.String referenceId, java.lang.Long start, java.lang.Long end, java.lang.Integer pageSize, java.lang.String pageToken) {
-    this.variantSetIds = variantSetIds;
-    this.variantName = variantName;
+  public SearchVariantsRequest(java.lang.String variantSetId, java.util.List<java.lang.String> callSetIds, java.lang.String referenceName, java.lang.Long start, java.lang.Long end, java.lang.Integer pageSize, java.lang.String pageToken) {
+    this.variantSetId = variantSetId;
     this.callSetIds = callSetIds;
     this.referenceName = referenceName;
-    this.referenceId = referenceId;
     this.start = start;
     this.end = end;
     this.pageSize = pageSize;
@@ -67,15 +59,13 @@ public class SearchVariantsRequest extends org.apache.avro.specific.SpecificReco
   // Used by DatumWriter.  Applications should not call. 
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return variantSetIds;
-    case 1: return variantName;
-    case 2: return callSetIds;
-    case 3: return referenceName;
-    case 4: return referenceId;
-    case 5: return start;
-    case 6: return end;
-    case 7: return pageSize;
-    case 8: return pageToken;
+    case 0: return variantSetId;
+    case 1: return callSetIds;
+    case 2: return referenceName;
+    case 3: return start;
+    case 4: return end;
+    case 5: return pageSize;
+    case 6: return pageToken;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -83,47 +73,30 @@ public class SearchVariantsRequest extends org.apache.avro.specific.SpecificReco
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: variantSetIds = (java.util.List<java.lang.String>)value$; break;
-    case 1: variantName = (java.lang.String)value$; break;
-    case 2: callSetIds = (java.util.List<java.lang.String>)value$; break;
-    case 3: referenceName = (java.lang.String)value$; break;
-    case 4: referenceId = (java.lang.String)value$; break;
-    case 5: start = (java.lang.Long)value$; break;
-    case 6: end = (java.lang.Long)value$; break;
-    case 7: pageSize = (java.lang.Integer)value$; break;
-    case 8: pageToken = (java.lang.String)value$; break;
+    case 0: variantSetId = (java.lang.String)value$; break;
+    case 1: callSetIds = (java.util.List<java.lang.String>)value$; break;
+    case 2: referenceName = (java.lang.String)value$; break;
+    case 3: start = (java.lang.Long)value$; break;
+    case 4: end = (java.lang.Long)value$; break;
+    case 5: pageSize = (java.lang.Integer)value$; break;
+    case 6: pageToken = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
 
   /**
-   * Gets the value of the 'variantSetIds' field.
-   * Required. The IDs of the variant sets to search over.   */
-  public java.util.List<java.lang.String> getVariantSetIds() {
-    return variantSetIds;
+   * Gets the value of the 'variantSetId' field.
+   * The `VariantSet` to search.   */
+  public java.lang.String getVariantSetId() {
+    return variantSetId;
   }
 
   /**
-   * Sets the value of the 'variantSetIds' field.
-   * Required. The IDs of the variant sets to search over.   * @param value the value to set.
+   * Sets the value of the 'variantSetId' field.
+   * The `VariantSet` to search.   * @param value the value to set.
    */
-  public void setVariantSetIds(java.util.List<java.lang.String> value) {
-    this.variantSetIds = value;
-  }
-
-  /**
-   * Gets the value of the 'variantName' field.
-   * Only return variants which have exactly this name.   */
-  public java.lang.String getVariantName() {
-    return variantName;
-  }
-
-  /**
-   * Sets the value of the 'variantName' field.
-   * Only return variants which have exactly this name.   * @param value the value to set.
-   */
-  public void setVariantName(java.lang.String value) {
-    this.variantName = value;
+  public void setVariantSetId(java.lang.String value) {
+    this.variantSetId = value;
   }
 
   /**
@@ -147,42 +120,23 @@ public class SearchVariantsRequest extends org.apache.avro.specific.SpecificReco
 
   /**
    * Gets the value of the 'referenceName' field.
-   * Only return variants with reference alleles on the reference with this name.
-  One of this field or `referenceId` is required.   */
+   * Required. Only return variants on this reference.   */
   public java.lang.String getReferenceName() {
     return referenceName;
   }
 
   /**
    * Sets the value of the 'referenceName' field.
-   * Only return variants with reference alleles on the reference with this name.
-  One of this field or `referenceId` is required.   * @param value the value to set.
+   * Required. Only return variants on this reference.   * @param value the value to set.
    */
   public void setReferenceName(java.lang.String value) {
     this.referenceName = value;
   }
 
   /**
-   * Gets the value of the 'referenceId' field.
-   * Only return variants with reference alleles on the reference with this ID. One
-  of this field or `referenceName` is required.   */
-  public java.lang.String getReferenceId() {
-    return referenceId;
-  }
-
-  /**
-   * Sets the value of the 'referenceId' field.
-   * Only return variants with reference alleles on the reference with this ID. One
-  of this field or `referenceName` is required.   * @param value the value to set.
-   */
-  public void setReferenceId(java.lang.String value) {
-    this.referenceId = value;
-  }
-
-  /**
    * Gets the value of the 'start' field.
    * Required. The beginning of the window (0-based, inclusive) for
-  which variants with overlapping reference alleles should be returned.
+  which overlapping variants should be returned.
   Genomic positions are non-negative integers less than reference length.
   Requests spanning the join of circular genomes are represented as
   two requests one on each side of the join (position 0).   */
@@ -193,7 +147,7 @@ public class SearchVariantsRequest extends org.apache.avro.specific.SpecificReco
   /**
    * Sets the value of the 'start' field.
    * Required. The beginning of the window (0-based, inclusive) for
-  which variants with overlapping reference alleles should be returned.
+  which overlapping variants should be returned.
   Genomic positions are non-negative integers less than reference length.
   Requests spanning the join of circular genomes are represented as
   two requests one on each side of the join (position 0).   * @param value the value to set.
@@ -204,16 +158,16 @@ public class SearchVariantsRequest extends org.apache.avro.specific.SpecificReco
 
   /**
    * Gets the value of the 'end' field.
-   * Required. The end of the window (0-based, exclusive) for which variants with
-  overlapping reference alleles should be returned.   */
+   * Required. The end of the window (0-based, exclusive) for which overlapping
+  variants should be returned.   */
   public java.lang.Long getEnd() {
     return end;
   }
 
   /**
    * Sets the value of the 'end' field.
-   * Required. The end of the window (0-based, exclusive) for which variants with
-  overlapping reference alleles should be returned.   * @param value the value to set.
+   * Required. The end of the window (0-based, exclusive) for which overlapping
+  variants should be returned.   * @param value the value to set.
    */
   public void setEnd(java.lang.Long value) {
     this.end = value;
@@ -276,11 +230,9 @@ public class SearchVariantsRequest extends org.apache.avro.specific.SpecificReco
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<SearchVariantsRequest>
     implements org.apache.avro.data.RecordBuilder<SearchVariantsRequest> {
 
-    private java.util.List<java.lang.String> variantSetIds;
-    private java.lang.String variantName;
+    private java.lang.String variantSetId;
     private java.util.List<java.lang.String> callSetIds;
     private java.lang.String referenceName;
-    private java.lang.String referenceId;
     private long start;
     private long end;
     private java.lang.Integer pageSize;
@@ -294,132 +246,91 @@ public class SearchVariantsRequest extends org.apache.avro.specific.SpecificReco
     /** Creates a Builder by copying an existing Builder */
     private Builder(org.ga4gh.methods.SearchVariantsRequest.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.variantSetIds)) {
-        this.variantSetIds = data().deepCopy(fields()[0].schema(), other.variantSetIds);
+      if (isValidValue(fields()[0], other.variantSetId)) {
+        this.variantSetId = data().deepCopy(fields()[0].schema(), other.variantSetId);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.variantName)) {
-        this.variantName = data().deepCopy(fields()[1].schema(), other.variantName);
+      if (isValidValue(fields()[1], other.callSetIds)) {
+        this.callSetIds = data().deepCopy(fields()[1].schema(), other.callSetIds);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.callSetIds)) {
-        this.callSetIds = data().deepCopy(fields()[2].schema(), other.callSetIds);
+      if (isValidValue(fields()[2], other.referenceName)) {
+        this.referenceName = data().deepCopy(fields()[2].schema(), other.referenceName);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.referenceName)) {
-        this.referenceName = data().deepCopy(fields()[3].schema(), other.referenceName);
+      if (isValidValue(fields()[3], other.start)) {
+        this.start = data().deepCopy(fields()[3].schema(), other.start);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.referenceId)) {
-        this.referenceId = data().deepCopy(fields()[4].schema(), other.referenceId);
+      if (isValidValue(fields()[4], other.end)) {
+        this.end = data().deepCopy(fields()[4].schema(), other.end);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.start)) {
-        this.start = data().deepCopy(fields()[5].schema(), other.start);
+      if (isValidValue(fields()[5], other.pageSize)) {
+        this.pageSize = data().deepCopy(fields()[5].schema(), other.pageSize);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.end)) {
-        this.end = data().deepCopy(fields()[6].schema(), other.end);
+      if (isValidValue(fields()[6], other.pageToken)) {
+        this.pageToken = data().deepCopy(fields()[6].schema(), other.pageToken);
         fieldSetFlags()[6] = true;
-      }
-      if (isValidValue(fields()[7], other.pageSize)) {
-        this.pageSize = data().deepCopy(fields()[7].schema(), other.pageSize);
-        fieldSetFlags()[7] = true;
-      }
-      if (isValidValue(fields()[8], other.pageToken)) {
-        this.pageToken = data().deepCopy(fields()[8].schema(), other.pageToken);
-        fieldSetFlags()[8] = true;
       }
     }
     
     /** Creates a Builder by copying an existing SearchVariantsRequest instance */
     private Builder(org.ga4gh.methods.SearchVariantsRequest other) {
             super(org.ga4gh.methods.SearchVariantsRequest.SCHEMA$);
-      if (isValidValue(fields()[0], other.variantSetIds)) {
-        this.variantSetIds = data().deepCopy(fields()[0].schema(), other.variantSetIds);
+      if (isValidValue(fields()[0], other.variantSetId)) {
+        this.variantSetId = data().deepCopy(fields()[0].schema(), other.variantSetId);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.variantName)) {
-        this.variantName = data().deepCopy(fields()[1].schema(), other.variantName);
+      if (isValidValue(fields()[1], other.callSetIds)) {
+        this.callSetIds = data().deepCopy(fields()[1].schema(), other.callSetIds);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.callSetIds)) {
-        this.callSetIds = data().deepCopy(fields()[2].schema(), other.callSetIds);
+      if (isValidValue(fields()[2], other.referenceName)) {
+        this.referenceName = data().deepCopy(fields()[2].schema(), other.referenceName);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.referenceName)) {
-        this.referenceName = data().deepCopy(fields()[3].schema(), other.referenceName);
+      if (isValidValue(fields()[3], other.start)) {
+        this.start = data().deepCopy(fields()[3].schema(), other.start);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.referenceId)) {
-        this.referenceId = data().deepCopy(fields()[4].schema(), other.referenceId);
+      if (isValidValue(fields()[4], other.end)) {
+        this.end = data().deepCopy(fields()[4].schema(), other.end);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.start)) {
-        this.start = data().deepCopy(fields()[5].schema(), other.start);
+      if (isValidValue(fields()[5], other.pageSize)) {
+        this.pageSize = data().deepCopy(fields()[5].schema(), other.pageSize);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.end)) {
-        this.end = data().deepCopy(fields()[6].schema(), other.end);
+      if (isValidValue(fields()[6], other.pageToken)) {
+        this.pageToken = data().deepCopy(fields()[6].schema(), other.pageToken);
         fieldSetFlags()[6] = true;
-      }
-      if (isValidValue(fields()[7], other.pageSize)) {
-        this.pageSize = data().deepCopy(fields()[7].schema(), other.pageSize);
-        fieldSetFlags()[7] = true;
-      }
-      if (isValidValue(fields()[8], other.pageToken)) {
-        this.pageToken = data().deepCopy(fields()[8].schema(), other.pageToken);
-        fieldSetFlags()[8] = true;
       }
     }
 
-    /** Gets the value of the 'variantSetIds' field */
-    public java.util.List<java.lang.String> getVariantSetIds() {
-      return variantSetIds;
+    /** Gets the value of the 'variantSetId' field */
+    public java.lang.String getVariantSetId() {
+      return variantSetId;
     }
     
-    /** Sets the value of the 'variantSetIds' field */
-    public org.ga4gh.methods.SearchVariantsRequest.Builder setVariantSetIds(java.util.List<java.lang.String> value) {
+    /** Sets the value of the 'variantSetId' field */
+    public org.ga4gh.methods.SearchVariantsRequest.Builder setVariantSetId(java.lang.String value) {
       validate(fields()[0], value);
-      this.variantSetIds = value;
+      this.variantSetId = value;
       fieldSetFlags()[0] = true;
       return this; 
     }
     
-    /** Checks whether the 'variantSetIds' field has been set */
-    public boolean hasVariantSetIds() {
+    /** Checks whether the 'variantSetId' field has been set */
+    public boolean hasVariantSetId() {
       return fieldSetFlags()[0];
     }
     
-    /** Clears the value of the 'variantSetIds' field */
-    public org.ga4gh.methods.SearchVariantsRequest.Builder clearVariantSetIds() {
-      variantSetIds = null;
+    /** Clears the value of the 'variantSetId' field */
+    public org.ga4gh.methods.SearchVariantsRequest.Builder clearVariantSetId() {
+      variantSetId = null;
       fieldSetFlags()[0] = false;
-      return this;
-    }
-
-    /** Gets the value of the 'variantName' field */
-    public java.lang.String getVariantName() {
-      return variantName;
-    }
-    
-    /** Sets the value of the 'variantName' field */
-    public org.ga4gh.methods.SearchVariantsRequest.Builder setVariantName(java.lang.String value) {
-      validate(fields()[1], value);
-      this.variantName = value;
-      fieldSetFlags()[1] = true;
-      return this; 
-    }
-    
-    /** Checks whether the 'variantName' field has been set */
-    public boolean hasVariantName() {
-      return fieldSetFlags()[1];
-    }
-    
-    /** Clears the value of the 'variantName' field */
-    public org.ga4gh.methods.SearchVariantsRequest.Builder clearVariantName() {
-      variantName = null;
-      fieldSetFlags()[1] = false;
       return this;
     }
 
@@ -430,21 +341,21 @@ public class SearchVariantsRequest extends org.apache.avro.specific.SpecificReco
     
     /** Sets the value of the 'callSetIds' field */
     public org.ga4gh.methods.SearchVariantsRequest.Builder setCallSetIds(java.util.List<java.lang.String> value) {
-      validate(fields()[2], value);
+      validate(fields()[1], value);
       this.callSetIds = value;
-      fieldSetFlags()[2] = true;
+      fieldSetFlags()[1] = true;
       return this; 
     }
     
     /** Checks whether the 'callSetIds' field has been set */
     public boolean hasCallSetIds() {
-      return fieldSetFlags()[2];
+      return fieldSetFlags()[1];
     }
     
     /** Clears the value of the 'callSetIds' field */
     public org.ga4gh.methods.SearchVariantsRequest.Builder clearCallSetIds() {
       callSetIds = null;
-      fieldSetFlags()[2] = false;
+      fieldSetFlags()[1] = false;
       return this;
     }
 
@@ -455,46 +366,21 @@ public class SearchVariantsRequest extends org.apache.avro.specific.SpecificReco
     
     /** Sets the value of the 'referenceName' field */
     public org.ga4gh.methods.SearchVariantsRequest.Builder setReferenceName(java.lang.String value) {
-      validate(fields()[3], value);
+      validate(fields()[2], value);
       this.referenceName = value;
-      fieldSetFlags()[3] = true;
+      fieldSetFlags()[2] = true;
       return this; 
     }
     
     /** Checks whether the 'referenceName' field has been set */
     public boolean hasReferenceName() {
-      return fieldSetFlags()[3];
+      return fieldSetFlags()[2];
     }
     
     /** Clears the value of the 'referenceName' field */
     public org.ga4gh.methods.SearchVariantsRequest.Builder clearReferenceName() {
       referenceName = null;
-      fieldSetFlags()[3] = false;
-      return this;
-    }
-
-    /** Gets the value of the 'referenceId' field */
-    public java.lang.String getReferenceId() {
-      return referenceId;
-    }
-    
-    /** Sets the value of the 'referenceId' field */
-    public org.ga4gh.methods.SearchVariantsRequest.Builder setReferenceId(java.lang.String value) {
-      validate(fields()[4], value);
-      this.referenceId = value;
-      fieldSetFlags()[4] = true;
-      return this; 
-    }
-    
-    /** Checks whether the 'referenceId' field has been set */
-    public boolean hasReferenceId() {
-      return fieldSetFlags()[4];
-    }
-    
-    /** Clears the value of the 'referenceId' field */
-    public org.ga4gh.methods.SearchVariantsRequest.Builder clearReferenceId() {
-      referenceId = null;
-      fieldSetFlags()[4] = false;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -505,20 +391,20 @@ public class SearchVariantsRequest extends org.apache.avro.specific.SpecificReco
     
     /** Sets the value of the 'start' field */
     public org.ga4gh.methods.SearchVariantsRequest.Builder setStart(long value) {
-      validate(fields()[5], value);
+      validate(fields()[3], value);
       this.start = value;
-      fieldSetFlags()[5] = true;
+      fieldSetFlags()[3] = true;
       return this; 
     }
     
     /** Checks whether the 'start' field has been set */
     public boolean hasStart() {
-      return fieldSetFlags()[5];
+      return fieldSetFlags()[3];
     }
     
     /** Clears the value of the 'start' field */
     public org.ga4gh.methods.SearchVariantsRequest.Builder clearStart() {
-      fieldSetFlags()[5] = false;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
@@ -529,20 +415,20 @@ public class SearchVariantsRequest extends org.apache.avro.specific.SpecificReco
     
     /** Sets the value of the 'end' field */
     public org.ga4gh.methods.SearchVariantsRequest.Builder setEnd(long value) {
-      validate(fields()[6], value);
+      validate(fields()[4], value);
       this.end = value;
-      fieldSetFlags()[6] = true;
+      fieldSetFlags()[4] = true;
       return this; 
     }
     
     /** Checks whether the 'end' field has been set */
     public boolean hasEnd() {
-      return fieldSetFlags()[6];
+      return fieldSetFlags()[4];
     }
     
     /** Clears the value of the 'end' field */
     public org.ga4gh.methods.SearchVariantsRequest.Builder clearEnd() {
-      fieldSetFlags()[6] = false;
+      fieldSetFlags()[4] = false;
       return this;
     }
 
@@ -553,21 +439,21 @@ public class SearchVariantsRequest extends org.apache.avro.specific.SpecificReco
     
     /** Sets the value of the 'pageSize' field */
     public org.ga4gh.methods.SearchVariantsRequest.Builder setPageSize(java.lang.Integer value) {
-      validate(fields()[7], value);
+      validate(fields()[5], value);
       this.pageSize = value;
-      fieldSetFlags()[7] = true;
+      fieldSetFlags()[5] = true;
       return this; 
     }
     
     /** Checks whether the 'pageSize' field has been set */
     public boolean hasPageSize() {
-      return fieldSetFlags()[7];
+      return fieldSetFlags()[5];
     }
     
     /** Clears the value of the 'pageSize' field */
     public org.ga4gh.methods.SearchVariantsRequest.Builder clearPageSize() {
       pageSize = null;
-      fieldSetFlags()[7] = false;
+      fieldSetFlags()[5] = false;
       return this;
     }
 
@@ -578,21 +464,21 @@ public class SearchVariantsRequest extends org.apache.avro.specific.SpecificReco
     
     /** Sets the value of the 'pageToken' field */
     public org.ga4gh.methods.SearchVariantsRequest.Builder setPageToken(java.lang.String value) {
-      validate(fields()[8], value);
+      validate(fields()[6], value);
       this.pageToken = value;
-      fieldSetFlags()[8] = true;
+      fieldSetFlags()[6] = true;
       return this; 
     }
     
     /** Checks whether the 'pageToken' field has been set */
     public boolean hasPageToken() {
-      return fieldSetFlags()[8];
+      return fieldSetFlags()[6];
     }
     
     /** Clears the value of the 'pageToken' field */
     public org.ga4gh.methods.SearchVariantsRequest.Builder clearPageToken() {
       pageToken = null;
-      fieldSetFlags()[8] = false;
+      fieldSetFlags()[6] = false;
       return this;
     }
 
@@ -600,15 +486,13 @@ public class SearchVariantsRequest extends org.apache.avro.specific.SpecificReco
     public SearchVariantsRequest build() {
       try {
         SearchVariantsRequest record = new SearchVariantsRequest();
-        record.variantSetIds = fieldSetFlags()[0] ? this.variantSetIds : (java.util.List<java.lang.String>) defaultValue(fields()[0]);
-        record.variantName = fieldSetFlags()[1] ? this.variantName : (java.lang.String) defaultValue(fields()[1]);
-        record.callSetIds = fieldSetFlags()[2] ? this.callSetIds : (java.util.List<java.lang.String>) defaultValue(fields()[2]);
-        record.referenceName = fieldSetFlags()[3] ? this.referenceName : (java.lang.String) defaultValue(fields()[3]);
-        record.referenceId = fieldSetFlags()[4] ? this.referenceId : (java.lang.String) defaultValue(fields()[4]);
-        record.start = fieldSetFlags()[5] ? this.start : (java.lang.Long) defaultValue(fields()[5]);
-        record.end = fieldSetFlags()[6] ? this.end : (java.lang.Long) defaultValue(fields()[6]);
-        record.pageSize = fieldSetFlags()[7] ? this.pageSize : (java.lang.Integer) defaultValue(fields()[7]);
-        record.pageToken = fieldSetFlags()[8] ? this.pageToken : (java.lang.String) defaultValue(fields()[8]);
+        record.variantSetId = fieldSetFlags()[0] ? this.variantSetId : (java.lang.String) defaultValue(fields()[0]);
+        record.callSetIds = fieldSetFlags()[1] ? this.callSetIds : (java.util.List<java.lang.String>) defaultValue(fields()[1]);
+        record.referenceName = fieldSetFlags()[2] ? this.referenceName : (java.lang.String) defaultValue(fields()[2]);
+        record.start = fieldSetFlags()[3] ? this.start : (java.lang.Long) defaultValue(fields()[3]);
+        record.end = fieldSetFlags()[4] ? this.end : (java.lang.Long) defaultValue(fields()[4]);
+        record.pageSize = fieldSetFlags()[5] ? this.pageSize : (java.lang.Integer) defaultValue(fields()[5]);
+        record.pageToken = fieldSetFlags()[6] ? this.pageToken : (java.lang.String) defaultValue(fields()[6]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

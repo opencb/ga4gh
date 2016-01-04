@@ -9,19 +9,17 @@ package org.ga4gh.methods;
 as JSON. */
 @org.apache.avro.specific.AvroGenerated
 public class SearchReferenceSetsRequest extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchReferenceSetsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /referencesets/search`\\nas JSON.\",\"fields\":[{\"name\":\"md5checksums\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"If nonempty, return the reference sets which match any of the given\\n  `md5checksum`s. See `ReferenceSet::md5checksum` for details.\",\"default\":[]},{\"name\":\"accessions\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"If nonempty, return reference sets for which the accession\\n  matches this string. Best to give a version number (e.g. `GCF_000001405.26`).\\n  If only the main accession number is given then all records with\\n  that main accession will be returned, whichever version.\\n  Note that different versions will have different sequences.\",\"default\":[]},{\"name\":\"assemblyId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"If present, return reference sets for which the `assemblyId`\\n  contains this string.\",\"default\":null},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchReferenceSetsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /referencesets/search`\\nas JSON.\",\"fields\":[{\"name\":\"md5checksum\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"If not null, return the reference sets for which the\\n  `md5checksum` matches this string (case-sensitive, exact match).\\n  See `ReferenceSet::md5checksum` for details.\",\"default\":null},{\"name\":\"accession\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"If not null, return the reference sets for which the `accession`\\n  matches this string (case-sensitive, exact match).\",\"default\":null},{\"name\":\"assemblyId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"If not null, return the reference sets for which the `assemblyId`\\n  matches this string (case-sensitive, exact match).\",\"default\":null},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
-  /** If nonempty, return the reference sets which match any of the given
-  `md5checksum`s. See `ReferenceSet::md5checksum` for details. */
-   private java.util.List<java.lang.String> md5checksums;
-  /** If nonempty, return reference sets for which the accession
-  matches this string. Best to give a version number (e.g. `GCF_000001405.26`).
-  If only the main accession number is given then all records with
-  that main accession will be returned, whichever version.
-  Note that different versions will have different sequences. */
-   private java.util.List<java.lang.String> accessions;
-  /** If present, return reference sets for which the `assemblyId`
-  contains this string. */
+  /** If not null, return the reference sets for which the
+  `md5checksum` matches this string (case-sensitive, exact match).
+  See `ReferenceSet::md5checksum` for details. */
+   private java.lang.String md5checksum;
+  /** If not null, return the reference sets for which the `accession`
+  matches this string (case-sensitive, exact match). */
+   private java.lang.String accession;
+  /** If not null, return the reference sets for which the `assemblyId`
+  matches this string (case-sensitive, exact match). */
    private java.lang.String assemblyId;
   /** Specifies the maximum number of results to return in a single page.
   If unspecified, a system default will be used. */
@@ -41,9 +39,9 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
   /**
    * All-args constructor.
    */
-  public SearchReferenceSetsRequest(java.util.List<java.lang.String> md5checksums, java.util.List<java.lang.String> accessions, java.lang.String assemblyId, java.lang.Integer pageSize, java.lang.String pageToken) {
-    this.md5checksums = md5checksums;
-    this.accessions = accessions;
+  public SearchReferenceSetsRequest(java.lang.String md5checksum, java.lang.String accession, java.lang.String assemblyId, java.lang.Integer pageSize, java.lang.String pageToken) {
+    this.md5checksum = md5checksum;
+    this.accession = accession;
     this.assemblyId = assemblyId;
     this.pageSize = pageSize;
     this.pageToken = pageToken;
@@ -53,8 +51,8 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
   // Used by DatumWriter.  Applications should not call. 
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return md5checksums;
-    case 1: return accessions;
+    case 0: return md5checksum;
+    case 1: return accession;
     case 2: return assemblyId;
     case 3: return pageSize;
     case 4: return pageToken;
@@ -65,8 +63,8 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: md5checksums = (java.util.List<java.lang.String>)value$; break;
-    case 1: accessions = (java.util.List<java.lang.String>)value$; break;
+    case 0: md5checksum = (java.lang.String)value$; break;
+    case 1: accession = (java.lang.String)value$; break;
     case 2: assemblyId = (java.lang.String)value$; break;
     case 3: pageSize = (java.lang.Integer)value$; break;
     case 4: pageToken = (java.lang.String)value$; break;
@@ -75,57 +73,53 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
   }
 
   /**
-   * Gets the value of the 'md5checksums' field.
-   * If nonempty, return the reference sets which match any of the given
-  `md5checksum`s. See `ReferenceSet::md5checksum` for details.   */
-  public java.util.List<java.lang.String> getMd5checksums() {
-    return md5checksums;
+   * Gets the value of the 'md5checksum' field.
+   * If not null, return the reference sets for which the
+  `md5checksum` matches this string (case-sensitive, exact match).
+  See `ReferenceSet::md5checksum` for details.   */
+  public java.lang.String getMd5checksum() {
+    return md5checksum;
   }
 
   /**
-   * Sets the value of the 'md5checksums' field.
-   * If nonempty, return the reference sets which match any of the given
-  `md5checksum`s. See `ReferenceSet::md5checksum` for details.   * @param value the value to set.
+   * Sets the value of the 'md5checksum' field.
+   * If not null, return the reference sets for which the
+  `md5checksum` matches this string (case-sensitive, exact match).
+  See `ReferenceSet::md5checksum` for details.   * @param value the value to set.
    */
-  public void setMd5checksums(java.util.List<java.lang.String> value) {
-    this.md5checksums = value;
+  public void setMd5checksum(java.lang.String value) {
+    this.md5checksum = value;
   }
 
   /**
-   * Gets the value of the 'accessions' field.
-   * If nonempty, return reference sets for which the accession
-  matches this string. Best to give a version number (e.g. `GCF_000001405.26`).
-  If only the main accession number is given then all records with
-  that main accession will be returned, whichever version.
-  Note that different versions will have different sequences.   */
-  public java.util.List<java.lang.String> getAccessions() {
-    return accessions;
+   * Gets the value of the 'accession' field.
+   * If not null, return the reference sets for which the `accession`
+  matches this string (case-sensitive, exact match).   */
+  public java.lang.String getAccession() {
+    return accession;
   }
 
   /**
-   * Sets the value of the 'accessions' field.
-   * If nonempty, return reference sets for which the accession
-  matches this string. Best to give a version number (e.g. `GCF_000001405.26`).
-  If only the main accession number is given then all records with
-  that main accession will be returned, whichever version.
-  Note that different versions will have different sequences.   * @param value the value to set.
+   * Sets the value of the 'accession' field.
+   * If not null, return the reference sets for which the `accession`
+  matches this string (case-sensitive, exact match).   * @param value the value to set.
    */
-  public void setAccessions(java.util.List<java.lang.String> value) {
-    this.accessions = value;
+  public void setAccession(java.lang.String value) {
+    this.accession = value;
   }
 
   /**
    * Gets the value of the 'assemblyId' field.
-   * If present, return reference sets for which the `assemblyId`
-  contains this string.   */
+   * If not null, return the reference sets for which the `assemblyId`
+  matches this string (case-sensitive, exact match).   */
   public java.lang.String getAssemblyId() {
     return assemblyId;
   }
 
   /**
    * Sets the value of the 'assemblyId' field.
-   * If present, return reference sets for which the `assemblyId`
-  contains this string.   * @param value the value to set.
+   * If not null, return the reference sets for which the `assemblyId`
+  matches this string (case-sensitive, exact match).   * @param value the value to set.
    */
   public void setAssemblyId(java.lang.String value) {
     this.assemblyId = value;
@@ -188,8 +182,8 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<SearchReferenceSetsRequest>
     implements org.apache.avro.data.RecordBuilder<SearchReferenceSetsRequest> {
 
-    private java.util.List<java.lang.String> md5checksums;
-    private java.util.List<java.lang.String> accessions;
+    private java.lang.String md5checksum;
+    private java.lang.String accession;
     private java.lang.String assemblyId;
     private java.lang.Integer pageSize;
     private java.lang.String pageToken;
@@ -202,12 +196,12 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
     /** Creates a Builder by copying an existing Builder */
     private Builder(org.ga4gh.methods.SearchReferenceSetsRequest.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.md5checksums)) {
-        this.md5checksums = data().deepCopy(fields()[0].schema(), other.md5checksums);
+      if (isValidValue(fields()[0], other.md5checksum)) {
+        this.md5checksum = data().deepCopy(fields()[0].schema(), other.md5checksum);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.accessions)) {
-        this.accessions = data().deepCopy(fields()[1].schema(), other.accessions);
+      if (isValidValue(fields()[1], other.accession)) {
+        this.accession = data().deepCopy(fields()[1].schema(), other.accession);
         fieldSetFlags()[1] = true;
       }
       if (isValidValue(fields()[2], other.assemblyId)) {
@@ -227,12 +221,12 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
     /** Creates a Builder by copying an existing SearchReferenceSetsRequest instance */
     private Builder(org.ga4gh.methods.SearchReferenceSetsRequest other) {
             super(org.ga4gh.methods.SearchReferenceSetsRequest.SCHEMA$);
-      if (isValidValue(fields()[0], other.md5checksums)) {
-        this.md5checksums = data().deepCopy(fields()[0].schema(), other.md5checksums);
+      if (isValidValue(fields()[0], other.md5checksum)) {
+        this.md5checksum = data().deepCopy(fields()[0].schema(), other.md5checksum);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.accessions)) {
-        this.accessions = data().deepCopy(fields()[1].schema(), other.accessions);
+      if (isValidValue(fields()[1], other.accession)) {
+        this.accession = data().deepCopy(fields()[1].schema(), other.accession);
         fieldSetFlags()[1] = true;
       }
       if (isValidValue(fields()[2], other.assemblyId)) {
@@ -249,52 +243,52 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
       }
     }
 
-    /** Gets the value of the 'md5checksums' field */
-    public java.util.List<java.lang.String> getMd5checksums() {
-      return md5checksums;
+    /** Gets the value of the 'md5checksum' field */
+    public java.lang.String getMd5checksum() {
+      return md5checksum;
     }
     
-    /** Sets the value of the 'md5checksums' field */
-    public org.ga4gh.methods.SearchReferenceSetsRequest.Builder setMd5checksums(java.util.List<java.lang.String> value) {
+    /** Sets the value of the 'md5checksum' field */
+    public org.ga4gh.methods.SearchReferenceSetsRequest.Builder setMd5checksum(java.lang.String value) {
       validate(fields()[0], value);
-      this.md5checksums = value;
+      this.md5checksum = value;
       fieldSetFlags()[0] = true;
       return this; 
     }
     
-    /** Checks whether the 'md5checksums' field has been set */
-    public boolean hasMd5checksums() {
+    /** Checks whether the 'md5checksum' field has been set */
+    public boolean hasMd5checksum() {
       return fieldSetFlags()[0];
     }
     
-    /** Clears the value of the 'md5checksums' field */
-    public org.ga4gh.methods.SearchReferenceSetsRequest.Builder clearMd5checksums() {
-      md5checksums = null;
+    /** Clears the value of the 'md5checksum' field */
+    public org.ga4gh.methods.SearchReferenceSetsRequest.Builder clearMd5checksum() {
+      md5checksum = null;
       fieldSetFlags()[0] = false;
       return this;
     }
 
-    /** Gets the value of the 'accessions' field */
-    public java.util.List<java.lang.String> getAccessions() {
-      return accessions;
+    /** Gets the value of the 'accession' field */
+    public java.lang.String getAccession() {
+      return accession;
     }
     
-    /** Sets the value of the 'accessions' field */
-    public org.ga4gh.methods.SearchReferenceSetsRequest.Builder setAccessions(java.util.List<java.lang.String> value) {
+    /** Sets the value of the 'accession' field */
+    public org.ga4gh.methods.SearchReferenceSetsRequest.Builder setAccession(java.lang.String value) {
       validate(fields()[1], value);
-      this.accessions = value;
+      this.accession = value;
       fieldSetFlags()[1] = true;
       return this; 
     }
     
-    /** Checks whether the 'accessions' field has been set */
-    public boolean hasAccessions() {
+    /** Checks whether the 'accession' field has been set */
+    public boolean hasAccession() {
       return fieldSetFlags()[1];
     }
     
-    /** Clears the value of the 'accessions' field */
-    public org.ga4gh.methods.SearchReferenceSetsRequest.Builder clearAccessions() {
-      accessions = null;
+    /** Clears the value of the 'accession' field */
+    public org.ga4gh.methods.SearchReferenceSetsRequest.Builder clearAccession() {
+      accession = null;
       fieldSetFlags()[1] = false;
       return this;
     }
@@ -378,8 +372,8 @@ public class SearchReferenceSetsRequest extends org.apache.avro.specific.Specifi
     public SearchReferenceSetsRequest build() {
       try {
         SearchReferenceSetsRequest record = new SearchReferenceSetsRequest();
-        record.md5checksums = fieldSetFlags()[0] ? this.md5checksums : (java.util.List<java.lang.String>) defaultValue(fields()[0]);
-        record.accessions = fieldSetFlags()[1] ? this.accessions : (java.util.List<java.lang.String>) defaultValue(fields()[1]);
+        record.md5checksum = fieldSetFlags()[0] ? this.md5checksum : (java.lang.String) defaultValue(fields()[0]);
+        record.accession = fieldSetFlags()[1] ? this.accession : (java.lang.String) defaultValue(fields()[1]);
         record.assemblyId = fieldSetFlags()[2] ? this.assemblyId : (java.lang.String) defaultValue(fields()[2]);
         record.pageSize = fieldSetFlags()[3] ? this.pageSize : (java.lang.Integer) defaultValue(fields()[3]);
         record.pageToken = fieldSetFlags()[4] ? this.pageToken : (java.lang.String) defaultValue(fields()[4]);

@@ -9,12 +9,12 @@ package org.ga4gh.methods;
 
 If a reference is specified, all queried `ReadGroup`s must be aligned
 to `ReferenceSet`s containing that same `Reference`. If no reference is
-specified, all `ReadGroup`s must be aligned to the same `ReferenceSet`. */
+specified, all queried `ReadGroup`s must be aligned to the same `ReferenceSet`. */
 @org.apache.avro.specific.AvroGenerated
 public class SearchReadsRequest extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchReadsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /reads/search` as JSON.\\n\\nIf a reference is specified, all queried `ReadGroup`s must be aligned\\nto `ReferenceSet`s containing that same `Reference`. If no reference is\\nspecified, all `ReadGroup`s must be aligned to the same `ReferenceSet`.\",\"fields\":[{\"name\":\"readGroupIds\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"If nonempty, restrict this query to reads within the given readgroups.\",\"default\":[]},{\"name\":\"referenceId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The reference to query. Leaving blank returns results from all\\n  references, including unmapped reads - this could be very large.\",\"default\":null},{\"name\":\"start\",\"type\":[\"long\",\"null\"],\"doc\":\"The start position (0-based) of this query.\\n  If a reference is specified, this defaults to 0.\\n  Genomic positions are non-negative integers less than reference length.\\n  Requests spanning the join of circular genomes are represented as\\n  two requests one on each side of the join (position 0).\",\"default\":0},{\"name\":\"end\",\"type\":[\"null\",\"long\"],\"doc\":\"The end position (0-based, exclusive) of this query.\\n  If a reference is specified, this defaults to the\\n  reference's length.\",\"default\":null},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SearchReadsRequest\",\"namespace\":\"org.ga4gh.methods\",\"doc\":\"This request maps to the body of `POST /reads/search` as JSON.\\n\\nIf a reference is specified, all queried `ReadGroup`s must be aligned\\nto `ReferenceSet`s containing that same `Reference`. If no reference is\\nspecified, all queried `ReadGroup`s must be aligned to the same `ReferenceSet`.\",\"fields\":[{\"name\":\"readGroupIds\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"doc\":\"The ReadGroups to search. At least one id must be specified.\"},{\"name\":\"referenceId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The reference to query. Leaving blank returns results from all\\n  references, including unmapped reads - this could be very large.\",\"default\":null},{\"name\":\"start\",\"type\":[\"null\",\"long\"],\"doc\":\"The start position (0-based) of this query.\\n  If a reference is specified, this defaults to 0.\\n  Genomic positions are non-negative integers less than reference length.\\n  Requests spanning the join of circular genomes are represented as\\n  two requests one on each side of the join (position 0).\",\"default\":null},{\"name\":\"end\",\"type\":[\"null\",\"long\"],\"doc\":\"The end position (0-based, exclusive) of this query.\\n  If a reference is specified, this defaults to the\\n  reference's length.\",\"default\":null},{\"name\":\"pageSize\",\"type\":[\"null\",\"int\"],\"doc\":\"Specifies the maximum number of results to return in a single page.\\n  If unspecified, a system default will be used.\",\"default\":null},{\"name\":\"pageToken\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The continuation token, which is used to page through large result sets.\\n  To get the next page of results, set this parameter to the value of\\n  `nextPageToken` from the previous response.\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
-  /** If nonempty, restrict this query to reads within the given readgroups. */
+  /** The ReadGroups to search. At least one id must be specified. */
    private java.util.List<java.lang.String> readGroupIds;
   /** The reference to query. Leaving blank returns results from all
   references, including unmapped reads - this could be very large. */
@@ -85,14 +85,14 @@ public class SearchReadsRequest extends org.apache.avro.specific.SpecificRecordB
 
   /**
    * Gets the value of the 'readGroupIds' field.
-   * If nonempty, restrict this query to reads within the given readgroups.   */
+   * The ReadGroups to search. At least one id must be specified.   */
   public java.util.List<java.lang.String> getReadGroupIds() {
     return readGroupIds;
   }
 
   /**
    * Sets the value of the 'readGroupIds' field.
-   * If nonempty, restrict this query to reads within the given readgroups.   * @param value the value to set.
+   * The ReadGroups to search. At least one id must be specified.   * @param value the value to set.
    */
   public void setReadGroupIds(java.util.List<java.lang.String> value) {
     this.readGroupIds = value;

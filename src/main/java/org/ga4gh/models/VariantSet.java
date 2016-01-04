@@ -5,25 +5,22 @@
  */
 package org.ga4gh.models;  
 @SuppressWarnings("all")
-/** `Variant` and `CallSet` both belong to a `VariantSet`.
-`VariantSet` belongs to a `Dataset`.
-The variant set is equivalent to a VCF file.
-
-A `VariantSet` can contain novel sequences, which are used to augment the
-sequence graph of its `ReferenceSet`, creating the augmented sequence graph
-against which `Allele`s are interpreted. */
+/** A VariantSet is a collection of variants and variant calls intended to be analyzed together. */
 @org.apache.avro.specific.AvroGenerated
 public class VariantSet extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"VariantSet\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"`Variant` and `CallSet` both belong to a `VariantSet`.\\n`VariantSet` belongs to a `Dataset`.\\nThe variant set is equivalent to a VCF file.\\n\\nA `VariantSet` can contain novel sequences, which are used to augment the\\nsequence graph of its `ReferenceSet`, creating the augmented sequence graph\\nagainst which `Allele`s are interpreted.\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The variant set ID.\"},{\"name\":\"datasetId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The ID of the dataset this variant set belongs to.\"},{\"name\":\"referenceSetId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The reference set the variants in this variant set are using.\"},{\"name\":\"metadata\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"VariantSetMetadata\",\"doc\":\"This metadata represents VCF header information.\",\"fields\":[{\"name\":\"key\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The top-level key.\"},{\"name\":\"value\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The value field for simple metadata.\"},{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"User-provided ID field, not enforced by this API.\\n  Two or more pieces of structured metadata with identical\\n  id and key fields are considered equivalent.\"},{\"name\":\"type\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The type of data.\"},{\"name\":\"number\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The number of values that can be included in a field described by this\\n  metadata.\"},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"A textual description of this metadata.\"},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"avro.java.string\":\"String\"},\"doc\":\"Remaining structured metadata key-value pairs.\",\"default\":{}}]}},\"doc\":\"The metadata associated with this variant set. This is equivalent to\\n  the VCF header information not already presented in first class fields.\",\"default\":[]}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"VariantSet\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"A VariantSet is a collection of variants and variant calls intended to be analyzed together.\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The variant set ID.\"},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The variant set name.\",\"default\":null},{\"name\":\"datasetId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The ID of the dataset this variant set belongs to.\"},{\"name\":\"referenceSetId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The ID of the reference set that describes the sequences used by the variants in this set.\"},{\"name\":\"metadata\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"VariantSetMetadata\",\"doc\":\"Optional metadata associated with a variant set.\",\"fields\":[{\"name\":\"key\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The top-level key.\"},{\"name\":\"value\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The value field for simple metadata.\"},{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"User-provided ID field, not enforced by this API.\\n  Two or more pieces of structured metadata with identical\\n  id and key fields are considered equivalent.\\n  `FIXME: If it's not enforced, then why can't it be null?`\"},{\"name\":\"type\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The type of data.\"},{\"name\":\"number\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The number of values that can be included in a field described by this\\n  metadata.\"},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"A textual description of this metadata.\"},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"avro.java.string\":\"String\"},\"doc\":\"Remaining structured metadata key-value pairs.\",\"default\":{}}]}},\"doc\":\"Optional metadata associated with this variant set.\\n  This array can be used to store information about the variant set, such as information found\\n  in VCF header fields, that isn't already available in first class fields such as \\\"name\\\".\",\"default\":[]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The variant set ID. */
    private java.lang.String id;
+  /** The variant set name. */
+   private java.lang.String name;
   /** The ID of the dataset this variant set belongs to. */
    private java.lang.String datasetId;
-  /** The reference set the variants in this variant set are using. */
+  /** The ID of the reference set that describes the sequences used by the variants in this set. */
    private java.lang.String referenceSetId;
-  /** The metadata associated with this variant set. This is equivalent to
-  the VCF header information not already presented in first class fields. */
+  /** Optional metadata associated with this variant set.
+  This array can be used to store information about the variant set, such as information found
+  in VCF header fields, that isn't already available in first class fields such as "name". */
    private java.util.List<org.ga4gh.models.VariantSetMetadata> metadata;
 
   /**
@@ -36,8 +33,9 @@ public class VariantSet extends org.apache.avro.specific.SpecificRecordBase impl
   /**
    * All-args constructor.
    */
-  public VariantSet(java.lang.String id, java.lang.String datasetId, java.lang.String referenceSetId, java.util.List<org.ga4gh.models.VariantSetMetadata> metadata) {
+  public VariantSet(java.lang.String id, java.lang.String name, java.lang.String datasetId, java.lang.String referenceSetId, java.util.List<org.ga4gh.models.VariantSetMetadata> metadata) {
     this.id = id;
+    this.name = name;
     this.datasetId = datasetId;
     this.referenceSetId = referenceSetId;
     this.metadata = metadata;
@@ -48,9 +46,10 @@ public class VariantSet extends org.apache.avro.specific.SpecificRecordBase impl
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return id;
-    case 1: return datasetId;
-    case 2: return referenceSetId;
-    case 3: return metadata;
+    case 1: return name;
+    case 2: return datasetId;
+    case 3: return referenceSetId;
+    case 4: return metadata;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -59,9 +58,10 @@ public class VariantSet extends org.apache.avro.specific.SpecificRecordBase impl
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: id = (java.lang.String)value$; break;
-    case 1: datasetId = (java.lang.String)value$; break;
-    case 2: referenceSetId = (java.lang.String)value$; break;
-    case 3: metadata = (java.util.List<org.ga4gh.models.VariantSetMetadata>)value$; break;
+    case 1: name = (java.lang.String)value$; break;
+    case 2: datasetId = (java.lang.String)value$; break;
+    case 3: referenceSetId = (java.lang.String)value$; break;
+    case 4: metadata = (java.util.List<org.ga4gh.models.VariantSetMetadata>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -82,6 +82,21 @@ public class VariantSet extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   /**
+   * Gets the value of the 'name' field.
+   * The variant set name.   */
+  public java.lang.String getName() {
+    return name;
+  }
+
+  /**
+   * Sets the value of the 'name' field.
+   * The variant set name.   * @param value the value to set.
+   */
+  public void setName(java.lang.String value) {
+    this.name = value;
+  }
+
+  /**
    * Gets the value of the 'datasetId' field.
    * The ID of the dataset this variant set belongs to.   */
   public java.lang.String getDatasetId() {
@@ -98,14 +113,14 @@ public class VariantSet extends org.apache.avro.specific.SpecificRecordBase impl
 
   /**
    * Gets the value of the 'referenceSetId' field.
-   * The reference set the variants in this variant set are using.   */
+   * The ID of the reference set that describes the sequences used by the variants in this set.   */
   public java.lang.String getReferenceSetId() {
     return referenceSetId;
   }
 
   /**
    * Sets the value of the 'referenceSetId' field.
-   * The reference set the variants in this variant set are using.   * @param value the value to set.
+   * The ID of the reference set that describes the sequences used by the variants in this set.   * @param value the value to set.
    */
   public void setReferenceSetId(java.lang.String value) {
     this.referenceSetId = value;
@@ -113,16 +128,18 @@ public class VariantSet extends org.apache.avro.specific.SpecificRecordBase impl
 
   /**
    * Gets the value of the 'metadata' field.
-   * The metadata associated with this variant set. This is equivalent to
-  the VCF header information not already presented in first class fields.   */
+   * Optional metadata associated with this variant set.
+  This array can be used to store information about the variant set, such as information found
+  in VCF header fields, that isn't already available in first class fields such as "name".   */
   public java.util.List<org.ga4gh.models.VariantSetMetadata> getMetadata() {
     return metadata;
   }
 
   /**
    * Sets the value of the 'metadata' field.
-   * The metadata associated with this variant set. This is equivalent to
-  the VCF header information not already presented in first class fields.   * @param value the value to set.
+   * Optional metadata associated with this variant set.
+  This array can be used to store information about the variant set, such as information found
+  in VCF header fields, that isn't already available in first class fields such as "name".   * @param value the value to set.
    */
   public void setMetadata(java.util.List<org.ga4gh.models.VariantSetMetadata> value) {
     this.metadata = value;
@@ -150,6 +167,7 @@ public class VariantSet extends org.apache.avro.specific.SpecificRecordBase impl
     implements org.apache.avro.data.RecordBuilder<VariantSet> {
 
     private java.lang.String id;
+    private java.lang.String name;
     private java.lang.String datasetId;
     private java.lang.String referenceSetId;
     private java.util.List<org.ga4gh.models.VariantSetMetadata> metadata;
@@ -166,17 +184,21 @@ public class VariantSet extends org.apache.avro.specific.SpecificRecordBase impl
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.datasetId)) {
-        this.datasetId = data().deepCopy(fields()[1].schema(), other.datasetId);
+      if (isValidValue(fields()[1], other.name)) {
+        this.name = data().deepCopy(fields()[1].schema(), other.name);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.referenceSetId)) {
-        this.referenceSetId = data().deepCopy(fields()[2].schema(), other.referenceSetId);
+      if (isValidValue(fields()[2], other.datasetId)) {
+        this.datasetId = data().deepCopy(fields()[2].schema(), other.datasetId);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.metadata)) {
-        this.metadata = data().deepCopy(fields()[3].schema(), other.metadata);
+      if (isValidValue(fields()[3], other.referenceSetId)) {
+        this.referenceSetId = data().deepCopy(fields()[3].schema(), other.referenceSetId);
         fieldSetFlags()[3] = true;
+      }
+      if (isValidValue(fields()[4], other.metadata)) {
+        this.metadata = data().deepCopy(fields()[4].schema(), other.metadata);
+        fieldSetFlags()[4] = true;
       }
     }
     
@@ -187,17 +209,21 @@ public class VariantSet extends org.apache.avro.specific.SpecificRecordBase impl
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.datasetId)) {
-        this.datasetId = data().deepCopy(fields()[1].schema(), other.datasetId);
+      if (isValidValue(fields()[1], other.name)) {
+        this.name = data().deepCopy(fields()[1].schema(), other.name);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.referenceSetId)) {
-        this.referenceSetId = data().deepCopy(fields()[2].schema(), other.referenceSetId);
+      if (isValidValue(fields()[2], other.datasetId)) {
+        this.datasetId = data().deepCopy(fields()[2].schema(), other.datasetId);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.metadata)) {
-        this.metadata = data().deepCopy(fields()[3].schema(), other.metadata);
+      if (isValidValue(fields()[3], other.referenceSetId)) {
+        this.referenceSetId = data().deepCopy(fields()[3].schema(), other.referenceSetId);
         fieldSetFlags()[3] = true;
+      }
+      if (isValidValue(fields()[4], other.metadata)) {
+        this.metadata = data().deepCopy(fields()[4].schema(), other.metadata);
+        fieldSetFlags()[4] = true;
       }
     }
 
@@ -226,6 +252,31 @@ public class VariantSet extends org.apache.avro.specific.SpecificRecordBase impl
       return this;
     }
 
+    /** Gets the value of the 'name' field */
+    public java.lang.String getName() {
+      return name;
+    }
+    
+    /** Sets the value of the 'name' field */
+    public org.ga4gh.models.VariantSet.Builder setName(java.lang.String value) {
+      validate(fields()[1], value);
+      this.name = value;
+      fieldSetFlags()[1] = true;
+      return this; 
+    }
+    
+    /** Checks whether the 'name' field has been set */
+    public boolean hasName() {
+      return fieldSetFlags()[1];
+    }
+    
+    /** Clears the value of the 'name' field */
+    public org.ga4gh.models.VariantSet.Builder clearName() {
+      name = null;
+      fieldSetFlags()[1] = false;
+      return this;
+    }
+
     /** Gets the value of the 'datasetId' field */
     public java.lang.String getDatasetId() {
       return datasetId;
@@ -233,21 +284,21 @@ public class VariantSet extends org.apache.avro.specific.SpecificRecordBase impl
     
     /** Sets the value of the 'datasetId' field */
     public org.ga4gh.models.VariantSet.Builder setDatasetId(java.lang.String value) {
-      validate(fields()[1], value);
+      validate(fields()[2], value);
       this.datasetId = value;
-      fieldSetFlags()[1] = true;
+      fieldSetFlags()[2] = true;
       return this; 
     }
     
     /** Checks whether the 'datasetId' field has been set */
     public boolean hasDatasetId() {
-      return fieldSetFlags()[1];
+      return fieldSetFlags()[2];
     }
     
     /** Clears the value of the 'datasetId' field */
     public org.ga4gh.models.VariantSet.Builder clearDatasetId() {
       datasetId = null;
-      fieldSetFlags()[1] = false;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -258,21 +309,21 @@ public class VariantSet extends org.apache.avro.specific.SpecificRecordBase impl
     
     /** Sets the value of the 'referenceSetId' field */
     public org.ga4gh.models.VariantSet.Builder setReferenceSetId(java.lang.String value) {
-      validate(fields()[2], value);
+      validate(fields()[3], value);
       this.referenceSetId = value;
-      fieldSetFlags()[2] = true;
+      fieldSetFlags()[3] = true;
       return this; 
     }
     
     /** Checks whether the 'referenceSetId' field has been set */
     public boolean hasReferenceSetId() {
-      return fieldSetFlags()[2];
+      return fieldSetFlags()[3];
     }
     
     /** Clears the value of the 'referenceSetId' field */
     public org.ga4gh.models.VariantSet.Builder clearReferenceSetId() {
       referenceSetId = null;
-      fieldSetFlags()[2] = false;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
@@ -283,21 +334,21 @@ public class VariantSet extends org.apache.avro.specific.SpecificRecordBase impl
     
     /** Sets the value of the 'metadata' field */
     public org.ga4gh.models.VariantSet.Builder setMetadata(java.util.List<org.ga4gh.models.VariantSetMetadata> value) {
-      validate(fields()[3], value);
+      validate(fields()[4], value);
       this.metadata = value;
-      fieldSetFlags()[3] = true;
+      fieldSetFlags()[4] = true;
       return this; 
     }
     
     /** Checks whether the 'metadata' field has been set */
     public boolean hasMetadata() {
-      return fieldSetFlags()[3];
+      return fieldSetFlags()[4];
     }
     
     /** Clears the value of the 'metadata' field */
     public org.ga4gh.models.VariantSet.Builder clearMetadata() {
       metadata = null;
-      fieldSetFlags()[3] = false;
+      fieldSetFlags()[4] = false;
       return this;
     }
 
@@ -306,9 +357,10 @@ public class VariantSet extends org.apache.avro.specific.SpecificRecordBase impl
       try {
         VariantSet record = new VariantSet();
         record.id = fieldSetFlags()[0] ? this.id : (java.lang.String) defaultValue(fields()[0]);
-        record.datasetId = fieldSetFlags()[1] ? this.datasetId : (java.lang.String) defaultValue(fields()[1]);
-        record.referenceSetId = fieldSetFlags()[2] ? this.referenceSetId : (java.lang.String) defaultValue(fields()[2]);
-        record.metadata = fieldSetFlags()[3] ? this.metadata : (java.util.List<org.ga4gh.models.VariantSetMetadata>) defaultValue(fields()[3]);
+        record.name = fieldSetFlags()[1] ? this.name : (java.lang.String) defaultValue(fields()[1]);
+        record.datasetId = fieldSetFlags()[2] ? this.datasetId : (java.lang.String) defaultValue(fields()[2]);
+        record.referenceSetId = fieldSetFlags()[3] ? this.referenceSetId : (java.lang.String) defaultValue(fields()[3]);
+        record.metadata = fieldSetFlags()[4] ? this.metadata : (java.util.List<org.ga4gh.models.VariantSetMetadata>) defaultValue(fields()[4]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
