@@ -73,6 +73,6 @@ Second, you can clone this project using Git and use maven to build and install 
             mvn clean install
 
 
-![Image](http://www.opencb.org/sites/opencb.org/files/OPENCB_logo_300.png)  
+![Image](http://www.opencb.org/sites/default/files/OPENCB_logo_300.png)  
 ![Image](http://genomicsandhealth.org/files/logo_ga.png)
 
