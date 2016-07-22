@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package org.ga4gh.protobuf;
+package ga4gh;
 
-import "proto/ga4gh/variants.proto";
+import "ga4gh/variants.proto";
 
 service VariantService {
   // Gets a list of `VariantSet` matching the search criteria.
@@ -66,9 +66,9 @@ message SearchVariantSetsResponse {
   repeated VariantSet variant_sets = 1;
 
   // The continuation token, which is used to page through large result sets.
-  // To get the next page of results, set this parameter to the value of
-  // `next_page_token` from the previous response.
-  string page_token = 2;
+  // Provide this value in a subsequent request to return the next page of
+  // results. This field will be empty if there aren't any additional results.
+  string next_page_token = 2;
 }
 
 // This request maps to the URL `GET /variantsets/{id}`.
@@ -83,11 +83,8 @@ message SearchVariantsRequest {
   // The `VariantSet` to search.
   string variant_set_id = 1;
 
-  // XXX: Resolve the null vs empty case.
-
   // Only return variant calls which belong to call sets with these IDs.
-  // If an empty array, returns variants without any call objects.
-  // If null, returns all variant calls.
+  // If unspecified, return all variants and no variant call objects.
   repeated string call_set_ids = 2;
 
   // Required. Only return variants on this reference.
