@@ -10,7 +10,7 @@ about the fragment and the read. A read alignment object is equivalent to a
 line in a SAM file. */
 @org.apache.avro.specific.AvroGenerated
 public class ReadAlignment extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ReadAlignment\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"Each read alignment describes an alignment with additional information\\nabout the fragment and the read. A read alignment object is equivalent to a\\nline in a SAM file.\",\"fields\":[{\"name\":\"id\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The read alignment ID. This ID is unique within the read group this\\n  alignment belongs to.\\n\\n  For performance reasons, this field may be omitted by a backend.\\n  If provided, its intended use is to make caching and UI display easier for\\n  genome browsers and other lightweight clients.\"},{\"name\":\"readGroupId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The ID of the read group this read belongs to.\\n  (Every read must belong to exactly one read group.)\"},{\"name\":\"fragmentName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The fragment name. Equivalent to QNAME (query template name) in SAM.\"},{\"name\":\"properPlacement\",\"type\":[\"null\",\"boolean\"],\"doc\":\"The orientation and the distance between reads from the fragment are\\n  consistent with the sequencing protocol (equivalent to SAM flag 0x2)\",\"default\":null},{\"name\":\"duplicateFragment\",\"type\":[\"null\",\"boolean\"],\"doc\":\"The fragment is a PCR or optical duplicate (SAM flag 0x400).\",\"default\":null},{\"name\":\"numberReads\",\"type\":[\"null\",\"int\"],\"doc\":\"The number of reads in the fragment (extension to SAM flag 0x1)\",\"default\":null},{\"name\":\"fragmentLength\",\"type\":[\"null\",\"int\"],\"doc\":\"The observed length of the fragment, equivalent to TLEN in SAM.\",\"default\":null},{\"name\":\"readNumber\",\"type\":[\"null\",\"int\"],\"doc\":\"The read ordinal in the fragment, 0-based and less than numberReads. This\\n  field replaces SAM flag 0x40 and 0x80 and is intended to more cleanly\\n  represent multiple reads per fragment.\",\"default\":null},{\"name\":\"failedVendorQualityChecks\",\"type\":[\"null\",\"boolean\"],\"doc\":\"The read fails platform or vendor quality checks (SAM flag 0x200).\",\"default\":null},{\"name\":\"alignment\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"LinearAlignment\",\"doc\":\"A linear alignment describes the alignment of a read to a Reference, using a\\nposition and CIGAR array.\",\"fields\":[{\"name\":\"position\",\"type\":{\"type\":\"record\",\"name\":\"Position\",\"doc\":\"A `Position` is an unoriented base in some `Reference`. A `Position` is\\nrepresented by a `Reference` name, and a base number on that `Reference`\\n(0-based).\",\"fields\":[{\"name\":\"referenceName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The name of the `Reference` on which the `Position` is located.\"},{\"name\":\"position\",\"type\":\"long\",\"doc\":\"The 0-based offset from the start of the forward strand for that `Reference`.\\n  Genomic positions are non-negative integers less than `Reference` length.\"},{\"name\":\"strand\",\"type\":{\"type\":\"enum\",\"name\":\"Strand\",\"doc\":\"Indicates the DNA strand associate for some data item.\\n* `NEG_STRAND`: The negative (-) strand.\\n* `POS_STRAND`:  The postive (+) strand.\",\"symbols\":[\"NEG_STRAND\",\"POS_STRAND\"]},\"doc\":\"Strand the position is associated with.\"}]},\"doc\":\"The position of this alignment.\"},{\"name\":\"mappingQuality\",\"type\":[\"null\",\"int\"],\"doc\":\"The mapping quality of this alignment, meaning the likelihood that the read\\n  maps to this position.\\n\\n  Specifically, this is -10 log10 Pr(mapping position is wrong), rounded to the\\n  nearest integer.\",\"default\":null},{\"name\":\"cigar\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"CigarUnit\",\"doc\":\"A structure for an instance of a CIGAR operation.\\n`FIXME: This belongs under Reads (only readAlignment refers to this)`\",\"fields\":[{\"name\":\"operation\",\"type\":{\"type\":\"enum\",\"name\":\"CigarOperation\",\"doc\":\"An enum for the different types of CIGAR alignment operations that exist.\\nUsed wherever CIGAR alignments are used. The different enumerated values\\nhave the following usage:\\n\\n* `ALIGNMENT_MATCH`: An alignment match indicates that a sequence can be\\n  aligned to the reference without evidence of an INDEL. Unlike the\\n  `SEQUENCE_MATCH` and `SEQUENCE_MISMATCH` operators, the `ALIGNMENT_MATCH`\\n  operator does not indicate whether the reference and read sequences are an\\n  exact match. This operator is equivalent to SAM's `M`.\\n* `INSERT`: The insert operator indicates that the read contains evidence of\\n  bases being inserted into the reference. This operator is equivalent to\\n  SAM's `I`.\\n* `DELETE`: The delete operator indicates that the read contains evidence of\\n  bases being deleted from the reference. This operator is equivalent to\\n  SAM's `D`.\\n* `SKIP`: The skip operator indicates that this read skips a long segment of\\n  the reference, but the bases have not been deleted. This operator is\\n  commonly used when working with RNA-seq data, where reads may skip long\\n  segments of the reference between exons. This operator is equivalent to\\n  SAM's 'N'.\\n* `CLIP_SOFT`: The soft clip operator indicates that bases at the start/end\\n  of a read have not been considered during alignment. This may occur if the\\n  majority of a read maps, except for low quality bases at the start/end of\\n  a read. This operator is equivalent to SAM's 'S'. Bases that are soft clipped\\n  will still be stored in the read.\\n* `CLIP_HARD`: The hard clip operator indicates that bases at the start/end of\\n  a read have been omitted from this alignment. This may occur if this linear\\n  alignment is part of a chimeric alignment, or if the read has been trimmed\\n  (e.g., during error correction, or to trim poly-A tails for RNA-seq). This\\n  operator is equivalent to SAM's 'H'.\\n* `PAD`: The pad operator indicates that there is padding in an alignment.\\n  This operator is equivalent to SAM's 'P'.\\n* `SEQUENCE_MATCH`: This operator indicates that this portion of the aligned\\n  sequence exactly matches the reference (e.g., all bases are equal to the\\n  reference bases). This operator is equivalent to SAM's '='.\\n* `SEQUENCE_MISMATCH`: This operator indicates that this portion of the\\n  aligned sequence is an alignment match to the reference, but a sequence\\n  mismatch (e.g., the bases are not equal to the reference). This can\\n  indicate a SNP or a read error. This operator is equivalent to SAM's 'X'.\",\"symbols\":[\"ALIGNMENT_MATCH\",\"INSERT\",\"DELETE\",\"SKIP\",\"CLIP_SOFT\",\"CLIP_HARD\",\"PAD\",\"SEQUENCE_MATCH\",\"SEQUENCE_MISMATCH\"]},\"doc\":\"The operation type.\"},{\"name\":\"operationLength\",\"type\":\"long\",\"doc\":\"The number of bases that the operation runs for.\"},{\"name\":\"referenceSequence\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"`referenceSequence` is only used at mismatches (`SEQUENCE_MISMATCH`)\\n  and deletions (`DELETE`). Filling this field replaces the MD tag.\\n  If the relevant information is not available, leave this field as `null`.\",\"default\":null}]}},\"doc\":\"Represents the local alignment of this sequence (alignment matches, indels, etc)\\n  versus the reference.\",\"default\":[]}]}],\"doc\":\"The alignment for this alignment record. This field will be null if the read\\n  is unmapped.\",\"default\":null},{\"name\":\"secondaryAlignment\",\"type\":[\"null\",\"boolean\"],\"doc\":\"Whether this alignment is secondary. Equivalent to SAM flag 0x100.\\n  A secondary alignment represents an alternative to the primary alignment\\n  for this read. Aligners may return secondary alignments if a read can map\\n  ambiguously to multiple coordinates in the genome.\\n\\n  By convention, each read has one and only one alignment where both\\n  secondaryAlignment and supplementaryAlignment are false.\",\"default\":null},{\"name\":\"supplementaryAlignment\",\"type\":[\"null\",\"boolean\"],\"doc\":\"Whether this alignment is supplementary. Equivalent to SAM flag 0x800.\\n  Supplementary alignments are used in the representation of a chimeric\\n  alignment. In a chimeric alignment, a read is split into multiple\\n  linear alignments that map to different reference contigs. The first\\n  linear alignment in the read will be designated as the representative alignment;\\n  the remaining linear alignments will be designated as supplementary alignments.\\n  These alignments may have different mapping quality scores.\\n\\n  In each linear alignment in a chimeric alignment, the read will be hard clipped",".\\n  The `alignedSequence` and `alignedQuality` fields in the alignment record will\\n  only represent the bases for its respective linear alignment.\",\"default\":null},{\"name\":\"alignedSequence\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The bases of the read sequence contained in this alignment record (equivalent\\n  to SEQ in SAM).\\n\\n  `alignedSequence` and `alignedQuality` may be shorter than the full read sequence\\n  and quality. This will occur if the alignment is part of a chimeric alignment,\\n  or if the read was trimmed. When this occurs, the CIGAR for this read will\\n  begin/end with a hard clip operator that will indicate the length of the\\n  excised sequence.\",\"default\":null},{\"name\":\"alignedQuality\",\"type\":{\"type\":\"array\",\"items\":\"int\"},\"doc\":\"The quality of the read sequence contained in this alignment record\\n  (equivalent to QUAL in SAM).\\n\\n  `alignedSequence` and `alignedQuality` may be shorter than the full read sequence\\n  and quality. This will occur if the alignment is part of a chimeric alignment,\\n  or if the read was trimmed. When this occurs, the CIGAR for this read will\\n  begin/end with a hard clip operator that will indicate the length of the excised sequence.\",\"default\":[]},{\"name\":\"nextMatePosition\",\"type\":[\"null\",\"Position\"],\"doc\":\"The mapping of the primary alignment of the `(readNumber+1)%numberReads`\\n  read in the fragment. It replaces mate position and mate strand in SAM.\",\"default\":null},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"avro.java.string\":\"String\"},\"doc\":\"A map of additional read alignment information.\",\"default\":{}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ReadAlignment\",\"namespace\":\"org.ga4gh.models\",\"doc\":\"Each read alignment describes an alignment with additional information\\nabout the fragment and the read. A read alignment object is equivalent to a\\nline in a SAM file.\",\"fields\":[{\"name\":\"id\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The read alignment ID. This ID is unique within the read group this\\n  alignment belongs to.\\n\\n  For performance reasons, this field may be omitted by a backend.\\n  If provided, its intended use is to make caching and UI display easier for\\n  genome browsers and other lightweight clients.\"},{\"name\":\"readGroupId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The ID of the read group this read belongs to.\\n  (Every read must belong to exactly one read group.)\"},{\"name\":\"fragmentName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The fragment name. Equivalent to QNAME (query template name) in SAM.\"},{\"name\":\"improperPlacement\",\"type\":[\"null\",\"boolean\"],\"doc\":\"The orientation and the distance between reads from the fragment are\\n  inconsistent with the sequencing protocol (inverse of SAM flag 0x2)\",\"default\":null},{\"name\":\"duplicateFragment\",\"type\":[\"null\",\"boolean\"],\"doc\":\"The fragment is a PCR or optical duplicate (SAM flag 0x400).\",\"default\":null},{\"name\":\"numberReads\",\"type\":[\"null\",\"int\"],\"doc\":\"The number of reads in the fragment (extension to SAM flag 0x1)\",\"default\":null},{\"name\":\"fragmentLength\",\"type\":[\"null\",\"int\"],\"doc\":\"The observed length of the fragment, equivalent to TLEN in SAM.\",\"default\":null},{\"name\":\"readNumber\",\"type\":[\"null\",\"int\"],\"doc\":\"The read ordinal in the fragment, 0-based and less than numberReads. This\\n  field replaces SAM flag 0x40 and 0x80 and is intended to more cleanly\\n  represent multiple reads per fragment.\",\"default\":null},{\"name\":\"failedVendorQualityChecks\",\"type\":[\"null\",\"boolean\"],\"doc\":\"The read fails platform or vendor quality checks (SAM flag 0x200).\",\"default\":null},{\"name\":\"alignment\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"LinearAlignment\",\"doc\":\"A linear alignment describes the alignment of a read to a Reference, using a\\nposition and CIGAR array.\",\"fields\":[{\"name\":\"position\",\"type\":{\"type\":\"record\",\"name\":\"Position\",\"doc\":\"A `Position` is an unoriented base in some `Reference`. A `Position` is\\nrepresented by a `Reference` name, and a base number on that `Reference`\\n(0-based).\",\"fields\":[{\"name\":\"referenceName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"The name of the `Reference` on which the `Position` is located.\"},{\"name\":\"position\",\"type\":\"long\",\"doc\":\"The 0-based offset from the start of the forward strand for that `Reference`.\\n  Genomic positions are non-negative integers less than `Reference` length.\"},{\"name\":\"strand\",\"type\":{\"type\":\"enum\",\"name\":\"Strand\",\"doc\":\"Indicates the DNA strand associate for some data item.\\n* `NEG_STRAND`: The negative (-) strand.\\n* `POS_STRAND`:  The postive (+) strand.\",\"symbols\":[\"NEG_STRAND\",\"POS_STRAND\"]},\"doc\":\"Strand the position is associated with.\"}]},\"doc\":\"The position of this alignment.\"},{\"name\":\"mappingQuality\",\"type\":[\"null\",\"int\"],\"doc\":\"The mapping quality of this alignment, meaning the likelihood that the read\\n  maps to this position.\\n\\n  Specifically, this is -10 log10 Pr(mapping position is wrong), rounded to the\\n  nearest integer.\",\"default\":null},{\"name\":\"cigar\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"CigarUnit\",\"doc\":\"A structure for an instance of a CIGAR operation.\\n`FIXME: This belongs under Reads (only readAlignment refers to this)`\",\"fields\":[{\"name\":\"operation\",\"type\":{\"type\":\"enum\",\"name\":\"CigarOperation\",\"doc\":\"An enum for the different types of CIGAR alignment operations that exist.\\nUsed wherever CIGAR alignments are used. The different enumerated values\\nhave the following usage:\\n\\n* `ALIGNMENT_MATCH`: An alignment match indicates that a sequence can be\\n  aligned to the reference without evidence of an INDEL. Unlike the\\n  `SEQUENCE_MATCH` and `SEQUENCE_MISMATCH` operators, the `ALIGNMENT_MATCH`\\n  operator does not indicate whether the reference and read sequences are an\\n  exact match. This operator is equivalent to SAM's `M`.\\n* `INSERT`: The insert operator indicates that the read contains evidence of\\n  bases being inserted into the reference. This operator is equivalent to\\n  SAM's `I`.\\n* `DELETE`: The delete operator indicates that the read contains evidence of\\n  bases being deleted from the reference. This operator is equivalent to\\n  SAM's `D`.\\n* `SKIP`: The skip operator indicates that this read skips a long segment of\\n  the reference, but the bases have not been deleted. This operator is\\n  commonly used when working with RNA-seq data, where reads may skip long\\n  segments of the reference between exons. This operator is equivalent to\\n  SAM's 'N'.\\n* `CLIP_SOFT`: The soft clip operator indicates that bases at the start/end\\n  of a read have not been considered during alignment. This may occur if the\\n  majority of a read maps, except for low quality bases at the start/end of\\n  a read. This operator is equivalent to SAM's 'S'. Bases that are soft clipped\\n  will still be stored in the read.\\n* `CLIP_HARD`: The hard clip operator indicates that bases at the start/end of\\n  a read have been omitted from this alignment. This may occur if this linear\\n  alignment is part of a chimeric alignment, or if the read has been trimmed\\n  (e.g., during error correction, or to trim poly-A tails for RNA-seq). This\\n  operator is equivalent to SAM's 'H'.\\n* `PAD`: The pad operator indicates that there is padding in an alignment.\\n  This operator is equivalent to SAM's 'P'.\\n* `SEQUENCE_MATCH`: This operator indicates that this portion of the aligned\\n  sequence exactly matches the reference (e.g., all bases are equal to the\\n  reference bases). This operator is equivalent to SAM's '='.\\n* `SEQUENCE_MISMATCH`: This operator indicates that this portion of the\\n  aligned sequence is an alignment match to the reference, but a sequence\\n  mismatch (e.g., the bases are not equal to the reference). This can\\n  indicate a SNP or a read error. This operator is equivalent to SAM's 'X'.\",\"symbols\":[\"ALIGNMENT_MATCH\",\"INSERT\",\"DELETE\",\"SKIP\",\"CLIP_SOFT\",\"CLIP_HARD\",\"PAD\",\"SEQUENCE_MATCH\",\"SEQUENCE_MISMATCH\"]},\"doc\":\"The operation type.\"},{\"name\":\"operationLength\",\"type\":\"long\",\"doc\":\"The number of bases that the operation runs for.\"},{\"name\":\"referenceSequence\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"`referenceSequence` is only used at mismatches (`SEQUENCE_MISMATCH`)\\n  and deletions (`DELETE`). Filling this field replaces the MD tag.\\n  If the relevant information is not available, leave this field as `null`.\",\"default\":null}]}},\"doc\":\"Represents the local alignment of this sequence (alignment matches, indels, etc)\\n  versus the reference.\",\"default\":[]}]}],\"doc\":\"The alignment for this alignment record. This field will be null if the read\\n  is unmapped.\",\"default\":null},{\"name\":\"secondaryAlignment\",\"type\":[\"null\",\"boolean\"],\"doc\":\"Whether this alignment is secondary. Equivalent to SAM flag 0x100.\\n  A secondary alignment represents an alternative to the primary alignment\\n  for this read. Aligners may return secondary alignments if a read can map\\n  ambiguously to multiple coordinates in the genome.\\n\\n  By convention, each read has one and only one alignment where both\\n  secondaryAlignment and supplementaryAlignment are false.\",\"default\":null},{\"name\":\"supplementaryAlignment\",\"type\":[\"null\",\"boolean\"],\"doc\":\"Whether this alignment is supplementary. Equivalent to SAM flag 0x800.\\n  Supplementary alignments are used in the representation of a chimeric\\n  alignment. In a chimeric alignment, a read is split into multiple\\n  linear alignments that map to different reference contigs. The first\\n  linear alignment in the read will be designated as the representative alignment;\\n  the remaining linear alignments will be designated as supplementary alignments.\\n  These alignments may have different mapping quality scores.\\n\\n  In each linear alignment in a chimeric alignment, the read will be hard clippe","d.\\n  The `alignedSequence` and `alignedQuality` fields in the alignment record will\\n  only represent the bases for its respective linear alignment.\",\"default\":null},{\"name\":\"alignedSequence\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"The bases of the read sequence contained in this alignment record (equivalent\\n  to SEQ in SAM).\\n\\n  `alignedSequence` and `alignedQuality` may be shorter than the full read sequence\\n  and quality. This will occur if the alignment is part of a chimeric alignment,\\n  or if the read was trimmed. When this occurs, the CIGAR for this read will\\n  begin/end with a hard clip operator that will indicate the length of the\\n  excised sequence.\",\"default\":null},{\"name\":\"alignedQuality\",\"type\":{\"type\":\"array\",\"items\":\"int\"},\"doc\":\"The quality of the read sequence contained in this alignment record\\n  (equivalent to QUAL in SAM).\\n\\n  `alignedSequence` and `alignedQuality` may be shorter than the full read sequence\\n  and quality. This will occur if the alignment is part of a chimeric alignment,\\n  or if the read was trimmed. When this occurs, the CIGAR for this read will\\n  begin/end with a hard clip operator that will indicate the length of the excised sequence.\",\"default\":[]},{\"name\":\"nextMatePosition\",\"type\":[\"null\",\"Position\"],\"doc\":\"The mapping of the primary alignment of the `(readNumber+1)%numberReads`\\n  read in the fragment. It replaces mate position and mate strand in SAM.\",\"default\":null},{\"name\":\"info\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},\"avro.java.string\":\"String\"},\"doc\":\"A map of additional read alignment information.\",\"default\":{}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   /** The read alignment ID. This ID is unique within the read group this
   alignment belongs to.
@@ -25,8 +25,8 @@ public class ReadAlignment extends org.apache.avro.specific.SpecificRecordBase i
   /** The fragment name. Equivalent to QNAME (query template name) in SAM. */
    private java.lang.String fragmentName;
   /** The orientation and the distance between reads from the fragment are
-  consistent with the sequencing protocol (equivalent to SAM flag 0x2) */
-   private java.lang.Boolean properPlacement;
+  inconsistent with the sequencing protocol (inverse of SAM flag 0x2) */
+   private java.lang.Boolean improperPlacement;
   /** The fragment is a PCR or optical duplicate (SAM flag 0x400). */
    private java.lang.Boolean duplicateFragment;
   /** The number of reads in the fragment (extension to SAM flag 0x1) */
@@ -95,11 +95,11 @@ public class ReadAlignment extends org.apache.avro.specific.SpecificRecordBase i
   /**
    * All-args constructor.
    */
-  public ReadAlignment(java.lang.String id, java.lang.String readGroupId, java.lang.String fragmentName, java.lang.Boolean properPlacement, java.lang.Boolean duplicateFragment, java.lang.Integer numberReads, java.lang.Integer fragmentLength, java.lang.Integer readNumber, java.lang.Boolean failedVendorQualityChecks, org.ga4gh.models.LinearAlignment alignment, java.lang.Boolean secondaryAlignment, java.lang.Boolean supplementaryAlignment, java.lang.String alignedSequence, java.util.List<java.lang.Integer> alignedQuality, org.ga4gh.models.Position nextMatePosition, java.util.Map<java.lang.String,java.util.List<java.lang.String>> info) {
+  public ReadAlignment(java.lang.String id, java.lang.String readGroupId, java.lang.String fragmentName, java.lang.Boolean improperPlacement, java.lang.Boolean duplicateFragment, java.lang.Integer numberReads, java.lang.Integer fragmentLength, java.lang.Integer readNumber, java.lang.Boolean failedVendorQualityChecks, org.ga4gh.models.LinearAlignment alignment, java.lang.Boolean secondaryAlignment, java.lang.Boolean supplementaryAlignment, java.lang.String alignedSequence, java.util.List<java.lang.Integer> alignedQuality, org.ga4gh.models.Position nextMatePosition, java.util.Map<java.lang.String,java.util.List<java.lang.String>> info) {
     this.id = id;
     this.readGroupId = readGroupId;
     this.fragmentName = fragmentName;
-    this.properPlacement = properPlacement;
+    this.improperPlacement = improperPlacement;
     this.duplicateFragment = duplicateFragment;
     this.numberReads = numberReads;
     this.fragmentLength = fragmentLength;
@@ -121,7 +121,7 @@ public class ReadAlignment extends org.apache.avro.specific.SpecificRecordBase i
     case 0: return id;
     case 1: return readGroupId;
     case 2: return fragmentName;
-    case 3: return properPlacement;
+    case 3: return improperPlacement;
     case 4: return duplicateFragment;
     case 5: return numberReads;
     case 6: return fragmentLength;
@@ -144,7 +144,7 @@ public class ReadAlignment extends org.apache.avro.specific.SpecificRecordBase i
     case 0: id = (java.lang.String)value$; break;
     case 1: readGroupId = (java.lang.String)value$; break;
     case 2: fragmentName = (java.lang.String)value$; break;
-    case 3: properPlacement = (java.lang.Boolean)value$; break;
+    case 3: improperPlacement = (java.lang.Boolean)value$; break;
     case 4: duplicateFragment = (java.lang.Boolean)value$; break;
     case 5: numberReads = (java.lang.Integer)value$; break;
     case 6: fragmentLength = (java.lang.Integer)value$; break;
@@ -219,20 +219,20 @@ public class ReadAlignment extends org.apache.avro.specific.SpecificRecordBase i
   }
 
   /**
-   * Gets the value of the 'properPlacement' field.
+   * Gets the value of the 'improperPlacement' field.
    * The orientation and the distance between reads from the fragment are
-  consistent with the sequencing protocol (equivalent to SAM flag 0x2)   */
-  public java.lang.Boolean getProperPlacement() {
-    return properPlacement;
+  inconsistent with the sequencing protocol (inverse of SAM flag 0x2)   */
+  public java.lang.Boolean getImproperPlacement() {
+    return improperPlacement;
   }
 
   /**
-   * Sets the value of the 'properPlacement' field.
+   * Sets the value of the 'improperPlacement' field.
    * The orientation and the distance between reads from the fragment are
-  consistent with the sequencing protocol (equivalent to SAM flag 0x2)   * @param value the value to set.
+  inconsistent with the sequencing protocol (inverse of SAM flag 0x2)   * @param value the value to set.
    */
-  public void setProperPlacement(java.lang.Boolean value) {
-    this.properPlacement = value;
+  public void setImproperPlacement(java.lang.Boolean value) {
+    this.improperPlacement = value;
   }
 
   /**
@@ -505,7 +505,7 @@ public class ReadAlignment extends org.apache.avro.specific.SpecificRecordBase i
     private java.lang.String id;
     private java.lang.String readGroupId;
     private java.lang.String fragmentName;
-    private java.lang.Boolean properPlacement;
+    private java.lang.Boolean improperPlacement;
     private java.lang.Boolean duplicateFragment;
     private java.lang.Integer numberReads;
     private java.lang.Integer fragmentLength;
@@ -539,8 +539,8 @@ public class ReadAlignment extends org.apache.avro.specific.SpecificRecordBase i
         this.fragmentName = data().deepCopy(fields()[2].schema(), other.fragmentName);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.properPlacement)) {
-        this.properPlacement = data().deepCopy(fields()[3].schema(), other.properPlacement);
+      if (isValidValue(fields()[3], other.improperPlacement)) {
+        this.improperPlacement = data().deepCopy(fields()[3].schema(), other.improperPlacement);
         fieldSetFlags()[3] = true;
       }
       if (isValidValue(fields()[4], other.duplicateFragment)) {
@@ -608,8 +608,8 @@ public class ReadAlignment extends org.apache.avro.specific.SpecificRecordBase i
         this.fragmentName = data().deepCopy(fields()[2].schema(), other.fragmentName);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.properPlacement)) {
-        this.properPlacement = data().deepCopy(fields()[3].schema(), other.properPlacement);
+      if (isValidValue(fields()[3], other.improperPlacement)) {
+        this.improperPlacement = data().deepCopy(fields()[3].schema(), other.improperPlacement);
         fieldSetFlags()[3] = true;
       }
       if (isValidValue(fields()[4], other.duplicateFragment)) {
@@ -737,27 +737,27 @@ public class ReadAlignment extends org.apache.avro.specific.SpecificRecordBase i
       return this;
     }
 
-    /** Gets the value of the 'properPlacement' field */
-    public java.lang.Boolean getProperPlacement() {
-      return properPlacement;
+    /** Gets the value of the 'improperPlacement' field */
+    public java.lang.Boolean getImproperPlacement() {
+      return improperPlacement;
     }
     
-    /** Sets the value of the 'properPlacement' field */
-    public org.ga4gh.models.ReadAlignment.Builder setProperPlacement(java.lang.Boolean value) {
+    /** Sets the value of the 'improperPlacement' field */
+    public org.ga4gh.models.ReadAlignment.Builder setImproperPlacement(java.lang.Boolean value) {
       validate(fields()[3], value);
-      this.properPlacement = value;
+      this.improperPlacement = value;
       fieldSetFlags()[3] = true;
       return this; 
     }
     
-    /** Checks whether the 'properPlacement' field has been set */
-    public boolean hasProperPlacement() {
+    /** Checks whether the 'improperPlacement' field has been set */
+    public boolean hasImproperPlacement() {
       return fieldSetFlags()[3];
     }
     
-    /** Clears the value of the 'properPlacement' field */
-    public org.ga4gh.models.ReadAlignment.Builder clearProperPlacement() {
-      properPlacement = null;
+    /** Clears the value of the 'improperPlacement' field */
+    public org.ga4gh.models.ReadAlignment.Builder clearImproperPlacement() {
+      improperPlacement = null;
       fieldSetFlags()[3] = false;
       return this;
     }
@@ -1069,7 +1069,7 @@ public class ReadAlignment extends org.apache.avro.specific.SpecificRecordBase i
         record.id = fieldSetFlags()[0] ? this.id : (java.lang.String) defaultValue(fields()[0]);
         record.readGroupId = fieldSetFlags()[1] ? this.readGroupId : (java.lang.String) defaultValue(fields()[1]);
         record.fragmentName = fieldSetFlags()[2] ? this.fragmentName : (java.lang.String) defaultValue(fields()[2]);
-        record.properPlacement = fieldSetFlags()[3] ? this.properPlacement : (java.lang.Boolean) defaultValue(fields()[3]);
+        record.improperPlacement = fieldSetFlags()[3] ? this.improperPlacement : (java.lang.Boolean) defaultValue(fields()[3]);
         record.duplicateFragment = fieldSetFlags()[4] ? this.duplicateFragment : (java.lang.Boolean) defaultValue(fields()[4]);
         record.numberReads = fieldSetFlags()[5] ? this.numberReads : (java.lang.Integer) defaultValue(fields()[5]);
         record.fragmentLength = fieldSetFlags()[6] ? this.fragmentLength : (java.lang.Integer) defaultValue(fields()[6]);

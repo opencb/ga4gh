@@ -114,15 +114,17 @@
                 <version>1.7.7</version>
                 <executions>
                     <execution>
+                        <id>schemas</id>
                         <phase>generate-sources</phase>
                         <goals>
                             <goal>schema</goal>
+                            <goal>protocol</goal>
                             <goal>idl-protocol</goal>
                         </goals>
                         <configuration>
                             <fieldVisibility>private</fieldVisibility>
                             <stringType>String</stringType>
-                            <sourceDirectory>${project.basedir}/src/main/resources/avro/</sourceDirectory>
+                            <sourceDirectory>${project.basedir}/src/main/avro/</sourceDirectory>
                             <outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
                         </configuration>
                     </execution>
