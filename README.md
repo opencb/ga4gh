@@ -3,7 +3,9 @@
 This OpenCB repository implements the **Protobuf** and **Avro** data models from GA4GH schemas. These are available at http://ga4gh.org/#/schemas. This Java library will be versioned as the GA4GH schema version used.
 
 ### Code generation
-This version implements GA4GH version **0.6.0a5**. GA4GH Schemas are stored in _src/main_ in _proto_ and _avro_ folders. Protocol buffers schemas are taken from version 0.6.0a5 and Avro from 0.6.0a4. At the moment protocol buffers 3.0.0-beta-3 and Avro 1.7.7 are used. We will try to keep them updated and sync.
+This version implements GA4GH version **0.6.0a5**. GA4GH Schemas are stored in _src/main_ in _proto_ and _avro_ folders. Protocol buffers schemas are taken from GA4GH 0.6.0a5 and Avro schemas from GA4GH 0.6.0a4. At the moment protocol buffers 3.0.0-beta-3 and Avro 1.7.7 are used. We will try to keep them updated and sync.
+
+We have respected the schemas _package_ configuration and therefore the protobuf code has been generated in _src/main/java/ga4gh_ and avro code is available at _src/main/java/org/ga4gh_.
 
 Currently, Java code for both Proto and Avro are generated using the following [Maven](http://maven.apache.org/) plugins:
 
